@@ -50,7 +50,12 @@ Widget getTextWidgets(List<String> departure, List<String> arrival, BuildContext
     {
       list.clear();
     }
-    
+    if (departures.length == 0){
+      list.add(Padding(padding: EdgeInsets.all(10)));
+      list.add(Center(child: Text("Med izbranima postajama ni povezav", style: TextStyle(color: Colors.red, fontSize: 35,), textAlign: TextAlign.center,),),);
+      return new Wrap(children: list);
+    }
+    else {
     for(var i = 0; i < departures.length; i++){
 
            /*if(i % 2 == 1){
@@ -124,7 +129,7 @@ Widget getTextWidgets(List<String> departure, List<String> arrival, BuildContext
                           ),
                           Padding(
                             padding: EdgeInsets.only(top: 8.0),
-                            child: Text("Peron " + lane[i], style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                            child: Text("Peron: " + lane[i], style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
                           ),
                         ],
                       ),
@@ -149,6 +154,7 @@ Widget getTextWidgets(List<String> departure, List<String> arrival, BuildContext
           ));
     }
     return new Wrap(children: list);
+  }
   }
 
 
