@@ -1,3 +1,4 @@
+import 'package:bus_time_table/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
@@ -10,12 +11,12 @@ import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:intl/intl.dart';
 //import 'package:path/path.dart';
 import 'routes.dart';
+//import 'package:flutter_spinkit/flutter_spinkit.dart';
 //import 'datePicker.dart';
 
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => HomeState();
-  
 }
 
 DateTime date = DateTime.now();
@@ -27,42 +28,81 @@ List <String> arrivals = new List<String>();
 
 var width;
 
-class HomeState extends State<HomePage> {
-TextEditingController destinationController = new TextEditingController();
-
 String destination = "";  
 String departure = "";
 
+String bytes;
+var array = [];
+
+class HomeState extends State<HomePage> {
+
+TextEditingController destinationController = new TextEditingController();
+
 Widget build(BuildContext context) {
-     width = MediaQuery.of(context).size.width;
+    init();
+    width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Color(0xff443737),
+      appBar: AppBar( 
+        backgroundColor: Color(0xff000000)
+      ),
+      drawer:Drawer(      
+        child: Container(
+          color: Color(0xff171B1B),
+          child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              padding: EdgeInsets.all(30),
+              child: 
+              Text('Arriva prihodi', style: TextStyle(color: Colors.white, fontSize: 25,),),
+              decoration: BoxDecoration(border: Border.all(width: 2.0, color: Colors.white)),
+            ),
+            ListTile(
+              title: Text('Iskalnik voznih redov', style: TextStyle(color: Colors.white),),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+              },
+            ),
+            ListTile(
+              title: Text('Nastavitve', style: TextStyle(color: Colors.white),),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> SettingsPage()));
+                
+              },
+            ),
+          ],),
+          ), 
+          
+          
+      ),
+      backgroundColor: Color(0xff000000),
       body: Center(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10),     
           child: ListView(
+            physics: NeverScrollableScrollPhysics(),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             children: <Widget>[
-                Padding(padding: EdgeInsets.all(10)),
-                TextField(
-                    onChanged: (text) {departure = text;},
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
-                      border: UnderlineInputBorder(
-                        borderSide: BorderSide(width: 1),
-                      ),
-                      hintText: 'Departure',
-                    ),
+                Padding(padding: EdgeInsets.all(3)),
+                TextFormField(
+                  onChanged: (text) {departure = text;},
+                  decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    filled: true,
+                    border: UnderlineInputBorder( 
+                        borderRadius: new BorderRadius.circular(17.0),
+                        ),
+                    hintText: 'Departure',
                   ),
+                ),
                 Padding(padding: EdgeInsets.all(10)),
-                TextField(
+                TextFormField(
                     onChanged: (text) {destination = text;},
                     decoration: InputDecoration(
                       fillColor: Colors.white,
                       filled: true,
-                      border: UnderlineInputBorder(
-                        
-                        borderSide: BorderSide(width: 1),
+                      border: UnderlineInputBorder( 
+                        borderRadius: new BorderRadius.circular(17.0),
                       ),
                       hintText: 'Destination',
                     ),
@@ -73,10 +113,12 @@ Widget build(BuildContext context) {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 75),
                   height: 40.0,
-                  child: RaisedButton(onPressed: () => [fetch(departure, destination, date),
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> SecondRoute()))],
+                  child: RaisedButton(onPressed: () => 
+                  [Navigator.push(context, MaterialPageRoute<void>(builder: (context) => AniRoute(), fullscreenDialog: true)), 
+                  fetch(departure, destination, date).whenComplete(()
+                    => Navigator.push(context, MaterialPageRoute(builder: (context)=> SecondRoute())))],
                     child: Text("Išči"),
-                    color: Colors.lightBlue,
+                    color: Color(0xff00adb5),
                     textColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(13.0),
                     ),
@@ -99,6 +141,8 @@ class BasicDateField extends StatelessWidget {
     return Column(children: <Widget>[
       DateTimeField(
         decoration: InputDecoration(
+          border: UnderlineInputBorder(
+          borderRadius: new BorderRadius.circular(17.0),),
           fillColor: Colors.white,
           filled: true,),
         format: format,
@@ -115,7 +159,20 @@ class BasicDateField extends StatelessWidget {
       Padding(padding: EdgeInsets.all(5)),
       
       Text('Datum', style: TextStyle(color: Colors.white),),
-    ]);
+      ]
+    );
+  }
+}
+
+
+void init() async{
+
+   bytes = await rootBundle.loadString("assets/postaje.txt");
+  bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
+  array.removeLast();
+
+  for(int i = 0; i < array.length; i++){
+    map[array[i][0]] = int.parse(array[i][1]);
   }
 }
 
@@ -123,16 +180,7 @@ class BasicDateField extends StatelessWidget {
 Future<void> fetch(String depar, String dest, DateTime date1) async {
 
   WidgetsFlutterBinding.ensureInitialized();
-  String bytes = await rootBundle.loadString("assets/postaje.txt");
-
-  var array = [];
   
-  bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
-  array.removeLast();
-
-  for(int i = 0; i < array.length; i++){
-    map[array[i][0]] = int.parse(array[i][1]);
-  }
 
   String departure = depar.replaceAll(" ", "+");
   String destination = dest.replaceAll(" ", "+");
@@ -150,10 +198,13 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
   dom.Document document = parser.parse(response.body);
   
   departures.clear();
+
   document.getElementsByClassName('departure').forEach((dom.Element element){
       departures.add(element.getElementsByTagName('span').first.text); 
   });
+
   arrivals.clear();
+
   document.getElementsByClassName('arrival').forEach((dom.Element element){
       arrivals.add(element.getElementsByTagName('span').first.text); 
   });

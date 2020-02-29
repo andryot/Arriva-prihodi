@@ -1,4 +1,5 @@
 
+import 'package:bus_time_table/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:http/http.dart' as http;
@@ -22,10 +23,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Login',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      initialRoute: '/home',
+      routes: {
+        '/home': (context) => HomePage(),
+        '/second': (context) => SecondRoute(),      
+                },
           );
         }
       }
