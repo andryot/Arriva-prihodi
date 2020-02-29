@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'HomePage.dart';
+//import 'HomePage.dart';
 class SettingsPage extends StatefulWidget{
 
   @override
@@ -25,15 +25,13 @@ class SettingsState extends State<SettingsPage>{
               title: Text('Iskalnik voznih redov', style: TextStyle(color: Colors.white),),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+                Navigator.pop(context);
               },
             ),
             ListTile(
               title: Text('Nastavitve', style: TextStyle(color: Colors.white),),
               onTap: () {
-                Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> SettingsPage()));
-                
+                Navigator.pop(context); 
               },
             ),
             

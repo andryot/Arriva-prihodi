@@ -1,3 +1,5 @@
+
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'HomePage.dart';
@@ -12,7 +14,7 @@ class SecondRoute extends StatelessWidget {
       backgroundColor: Color(0xff000000),
       appBar: AppBar( 
         backgroundColor: Color(0xff000000),
-        title: Text("Urnik med: " + departure + " in " + destination),
+        title: AutoSizeText("Urnik med: " + departure + " in " + destination,maxLines: 1, style: TextStyle(color: Colors.white, fontSize: 25),),
       ),
       body: Center(
       child: Container(
@@ -21,13 +23,9 @@ class SecondRoute extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             children:<Widget> [
               Padding(padding: EdgeInsets.all(5)),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[Text("Odhod", style: TextStyle(color: Colors.white),), Text("Prihod", style: TextStyle(color: Colors.white),)],),
               getTextWidgets(departures, arrivals, context),
-              RaisedButton(
-                  onPressed: () {
-                    Navigator.popUntil(context, ModalRoute.withName("/home"));
-                  },
-                  child: Text('Nazaj'),
-                ),
             ]
             ),
     ),
@@ -57,7 +55,7 @@ Widget getTextWidgets(List<String> departure, List<String> arrival, BuildContext
 
            /*if(i % 2 == 1){
         barva = Color(0xff171B1B);
-      }    
+      }    „
       */
         list.add(Center(child: Container(    
           height: 60,
@@ -74,15 +72,16 @@ Widget getTextWidgets(List<String> departure, List<String> arrival, BuildContext
             ),            
             child:Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-             crossAxisAlignment: CrossAxisAlignment.center,
+             //crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[ 
-            Text(
-              (i+1).toString()+".  Odhod: " + 
-              departure[i] + "  -  Prihod: " + arrival[i] + " ", style: TextStyle(
-                fontSize: 19,
+                Container(width: (width - width/100 * 15) - (width - width/100 * 13) * 0.30,
+                  child: AutoSizeText(
+              (i+1).toString()+".   " + 
+              departure[i] + "  -->  " + arrival[i] + " "+ travelTime[i], maxLines: 1, minFontSize: 10,style: TextStyle(
+                fontSize: 30,
                 color: Colors.white,
                 ),
-              ),
+              ),),
               new IconButton(
                 padding: EdgeInsets.only(left: 0),
                 icon: Icon(Icons.info),
@@ -90,17 +89,42 @@ Widget getTextWidgets(List<String> departure, List<String> arrival, BuildContext
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                    backgroundColor: barva,
                     content: Container(
-                      child: Column(
+                      width: width - width*0.25,
+                      child: new Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,  
                         children: <Widget>[
                           Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: TextFormField(),
+                            padding: EdgeInsets.only(top: 5.0),
+                            child: Text("Odhod: " + departure[i], style: TextStyle(color: Colors.white, fontSize: 34, fontWeight: FontWeight.bold),),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: TextFormField(),
+                            padding: EdgeInsets.only(top: 20.0),
+                            child: Text("Prihod: " + arrival[i], style: TextStyle(color: Colors.white, fontSize: 34, fontWeight: FontWeight.bold)),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 20.0),
+                            child: Text("Čas: " + travelTime[i], style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 8.0),
+                            child: Text("Razdalja: " + kilometers[i], style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 8.0),
+                            child: Text("Cena: " + price[i], style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 8.0),
+                            child: Text("Prevoznik: " + busCompany[i], style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 8.0),
+                            child: Text("Peron " + lane[i], style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
                           ),
                         ],
                       ),

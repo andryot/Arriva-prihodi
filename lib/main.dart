@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 //import 'dart:math';
 import 'package:flutter/widgets.dart';
 import 'HomePage.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 
 void main() => runApp(MyApp());
@@ -22,6 +23,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,],
+      supportedLocales: [ 
+        const Locale("sl"),
+        //const Locale("en"),
+      ],
       title: 'Flutter Login',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

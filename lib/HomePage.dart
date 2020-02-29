@@ -1,3 +1,4 @@
+//import 'dart:io';
 import 'package:bus_time_table/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,12 @@ var map = new Map<String, int>();
 List <String> departures = new List<String>();
 
 List <String> arrivals = new List<String>();
+
+List <String> travelTime= new List<String>();
+List <String> busCompany = new List<String>();
+List <String> kilometers = new List<String>();
+List <String> price = new List<String>();
+List <String> lane = new List<String>();
 
 var width;
 
@@ -60,7 +67,7 @@ Widget build(BuildContext context) {
               title: Text('Iskalnik voznih redov', style: TextStyle(color: Colors.white),),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+                
               },
             ),
             ListTile(
@@ -85,6 +92,7 @@ Widget build(BuildContext context) {
             children: <Widget>[
                 Padding(padding: EdgeInsets.all(3)),
                 TextFormField(
+                  autofocus: false,
                   onChanged: (text) {departure = text;},
                   decoration: InputDecoration(
                     fillColor: Colors.white,
@@ -97,6 +105,7 @@ Widget build(BuildContext context) {
                 ),
                 Padding(padding: EdgeInsets.all(10)),
                 TextFormField(
+                  autofocus: false,
                     onChanged: (text) {destination = text;},
                     decoration: InputDecoration(
                       fillColor: Colors.white,
@@ -114,9 +123,9 @@ Widget build(BuildContext context) {
                   padding: EdgeInsets.symmetric(horizontal: 75),
                   height: 40.0,
                   child: RaisedButton(onPressed: () => 
-                  [Navigator.push(context, MaterialPageRoute<void>(builder: (context) => AniRoute(), fullscreenDialog: true)), 
-                  fetch(departure, destination, date).whenComplete(()
-                    => Navigator.push(context, MaterialPageRoute(builder: (context)=> SecondRoute())))],
+                  [FocusScope.of(context).requestFocus(new FocusNode()),Navigator.push(context, MaterialPageRoute<void>(builder: (context) => AniRoute(), fullscreenDialog: true)), 
+                  fetch(departure, destination, date).whenComplete(() 
+                    => [Navigator.pop(context), Navigator.push(context, MaterialPageRoute(builder: (context)=> SecondRoute()))])],
                     child: Text("Išči"),
                     color: Color(0xff00adb5),
                     textColor: Colors.white,
@@ -140,6 +149,7 @@ class BasicDateField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       DateTimeField(
+        
         decoration: InputDecoration(
           border: UnderlineInputBorder(
           borderRadius: new BorderRadius.circular(17.0),),
@@ -151,8 +161,10 @@ class BasicDateField extends StatelessWidget {
         onShowPicker: (context, currentValue) {  
           return showDatePicker(
               context: context,
+              builder: (BuildContext context, Widget child) { return Theme(data: ThemeData.dark(),child: child,);},
               firstDate: DateTime(1900),
               initialDate: currentValue ?? DateTime.now(),
+              
               lastDate: DateTime(2100));
         },
       ),
@@ -192,13 +204,15 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
   String url = "https://arriva.si/en/timetable/?departure-" + next.toString() + departure + "&departure_id="
   + map[departure].toString() + "&departure=" + departure +   "&destination=" + destination + "&destination_id=" +
   map[destination].toString() + "&trip_date=" + date;
+
+  http.Response response =  await http.get(url);
   
-  http.Response response = await http.get(url);
 
   dom.Document document = parser.parse(response.body);
+
   
   departures.clear();
-
+  
   document.getElementsByClassName('departure').forEach((dom.Element element){
       departures.add(element.getElementsByTagName('span').first.text); 
   });
@@ -208,6 +222,38 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
   document.getElementsByClassName('arrival').forEach((dom.Element element){
       arrivals.add(element.getElementsByTagName('span').first.text); 
   });
+  
+  travelTime.clear();
+  document.getElementsByClassName('travel-duration').forEach((dom.Element element){
+      travelTime.add(element.getElementsByTagName('span').first.text); 
+  });
+
+  busCompany.clear();
+  document.getElementsByClassName('prevoznik').forEach((dom.Element element){
+      busCompany.add(element.getElementsByTagName('span').last.text); 
+  });
+
+  kilometers.clear();
+  document.getElementsByClassName('length').forEach((dom.Element element){
+      kilometers.add(element.text); 
+  });
+  kilometers.removeAt(0);
+
+  price.clear();
+  document.getElementsByClassName('price').forEach((dom.Element element){
+      price.add(element.text.replaceAll("EUR", "€")); 
+  });
+  price.removeAt(0);
+  lane.clear();
+  document.getElementsByClassName('peron').forEach((dom.Element element){
+      lane.add(element.getElementsByTagName('span').last.text); 
+  });
+
+  print(lane);
+  
+
+
+
   //Set<String> set = Set.from(tabela);
   //  set.forEach((element) => print(element.trim().contains(":"))); 
  /* for(int i = 0; i < departures.length; i++){

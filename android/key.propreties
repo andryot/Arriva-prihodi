@@ -1,4 +1,4 @@
 storePassword=svetnilep
 keyPassword=svetnilep
 keyAlias=key
-storeFile=/Users/sndra/key.jks
+storeFile=/Users/andraz/key.jks
