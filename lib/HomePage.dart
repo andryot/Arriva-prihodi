@@ -263,7 +263,13 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
   if(lane.length > 0)
   lane.removeAt(0);
   
-  
+  if (lane.length == 1)
+  {
+    for (int i = 0; i < departures.length; i++)
+      lane.add("/");
+  }
+   
+ } 
   
   
 
@@ -279,7 +285,7 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
         list.add(new Text(departures[i]));
     }
   */ 
-}
+
 
 
 
