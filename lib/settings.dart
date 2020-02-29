@@ -6,11 +6,11 @@ class SettingsPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() => SettingsState();
 }
-
+bool darkMode = true;
 class SettingsState extends State<SettingsPage>{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(backgroundColor: Color(0xff000000)),
+      appBar: AppBar(backgroundColor: Color(0xff000000), title: Text("Nastavitve"),),
       drawer: Drawer(child: Container(
           color: Color(0xff171B1B),
           child: ListView(
@@ -38,7 +38,15 @@ class SettingsState extends State<SettingsPage>{
           ],),
           ),),
       backgroundColor: Colors.black26,
-      body: Center(child: Text("12355666", style: TextStyle(color: Colors.white),),
-    ));
+      body: Container(child: ListView(children: <Widget>[
+       SwitchListTile(
+        value: darkMode,
+        
+        title: Text("This is a SwitchPreference"),
+        onChanged: (bool value) {setState(() { darkMode = value; });},
+    ),
+    Text("Dark mode", style: TextStyle(color: Colors.white,),)
+      ]
+    ),),);
   }
 }
