@@ -275,6 +275,7 @@ class BasicDateField extends StatelessWidget {
     Column(
       children: <Widget>[
       DateTimeField(
+        
         decoration: InputDecoration(
           
           contentPadding: EdgeInsets.only(left: 15, top: 15),
