@@ -13,7 +13,9 @@ class SecondRoute extends StatelessWidget {
     child: Scaffold(
       backgroundColor: Color(0xff000000),
       appBar: AppBar( 
+        
         backgroundColor: Color(0xff000000),
+        
         title: AutoSizeText("Urnik med: " + departure + " in " + destination,maxLines: 1, style: TextStyle(color: Colors.white, fontSize: 25),),
       ),
       body: Center(
@@ -42,7 +44,7 @@ Future<void> pejt_domov(BuildContext context){
   Navigator.popUntil(context, ModalRoute.withName("/home"));
 }
 */
-Color barva = Color(0xff171B1B);
+Color barva = Color(0xff404040);
 Widget getTextWidgets(List<String> departure, List<String> arrival, BuildContext context)
   {
     List<Widget> list = new List<Widget>();
@@ -64,7 +66,7 @@ Widget getTextWidgets(List<String> departure, List<String> arrival, BuildContext
       */
         list.add(Center(child: Container(    
           height: 60,
-          width: width - width/100 * 13,
+          width: width - width/100 * 9,
           padding: EdgeInsets.all(17),
           decoration: (BoxDecoration(
             color: barva,
@@ -81,15 +83,17 @@ Widget getTextWidgets(List<String> departure, List<String> arrival, BuildContext
               children: <Widget>[ 
                 Container(width: (width - width/100 * 15) - (width - width/100 * 13) * 0.30,
                   child: AutoSizeText(
-              (i+1).toString()+".   " + 
-              departure[i] + "  -->  " + arrival[i] + " "+ travelTime[i], maxLines: 1, minFontSize: 10,style: TextStyle(
-                fontSize: 30,
+             (i+1).toString()+".   " + (i < 9 ? "  ": "")+
+              departure[i] + "  -->  " + arrival[i], maxLines: 1, minFontSize: 23,style: TextStyle(
+                fontSize: 35,
                 color: Colors.white,
                 ),
               ),),
-              new IconButton(
-                padding: EdgeInsets.only(left: 0),
+                
+               IconButton(
+                padding: EdgeInsets.only(left:0),
                 icon: Icon(Icons.info),
+                
                 onPressed: () { showDialog(
                 context: context,
                 builder: (BuildContext context) {

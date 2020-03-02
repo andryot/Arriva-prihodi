@@ -11,41 +11,16 @@ class SettingsState extends State<SettingsPage>{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(backgroundColor: Color(0xff000000), title: Text("Nastavitve"),),
-      drawer: Drawer(child: Container(
-          color: Color(0xff171B1B),
-          child: ListView(
-          children: <Widget>[
-            DrawerHeader(
-              padding: EdgeInsets.all(30),
-              child: 
-              Text('Arriva prihodi', style: TextStyle(color: Colors.white, fontSize: 25,),),
-              decoration: BoxDecoration(border: Border.all(width: 2.0, color: Colors.white)),
-            ),
-            ListTile(
-              title: Text('Iskalnik voznih redov', style: TextStyle(color: Colors.white),),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Nastavitve', style: TextStyle(color: Colors.white),),
-              onTap: () {
-                Navigator.pop(context); 
-              },
-            ),
-            
-          ],),
-          ),),
+      
       backgroundColor: Colors.black26,
       body: Container(child: ListView(children: <Widget>[
        SwitchListTile(
         value: darkMode,
         
-        title: Text("This is a SwitchPreference"),
+        title: Text("Dark mode", style: TextStyle(color: Colors.white),),
         onChanged: (bool value) {setState(() { darkMode = value; });},
     ),
-    Text("Dark mode", style: TextStyle(color: Colors.white,),)
+
       ]
     ),),);
   }

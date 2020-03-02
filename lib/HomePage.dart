@@ -59,8 +59,22 @@ class HomeState extends State<HomePage> {
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(
-        appBar: AppBar(backgroundColor: Color(0xff000000)),
-        drawer: Drawer(
+        appBar: AppBar(
+          backgroundColor: Color(0xff000000),
+          actions: <Widget>[
+            IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SettingsPage()));
+              },
+              icon: Icon(Icons.settings),
+              color: Colors.white,
+              iconSize: 30,
+            ),
+            //alignment: Alignment.topRight,),
+          ],
+        ),
+        /* drawer: Drawer(
           child: Container(
             color: Color(0xff171B1B),
             child: ListView(
@@ -103,6 +117,7 @@ class HomeState extends State<HomePage> {
             ),
           ),
         ),
+        */
         backgroundColor: Color(0xff000000),
         body: GestureDetector(
           onTap: () {
@@ -115,7 +130,7 @@ class HomeState extends State<HomePage> {
                 physics: NeverScrollableScrollPhysics(),
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 children: <Widget>[
-                  Padding(padding: EdgeInsets.all(3)),
+                  Padding(padding: EdgeInsets.all(0)),
                   InputFormDeparture(),
                   /*TextFormField(
                   autofocus: false,
@@ -180,6 +195,7 @@ class HomeState extends State<HomePage> {
                     ),
                   ),
                   Padding(padding: EdgeInsets.all(10)),
+                  /*
                   _keyboardIsVisible()
                       ? Text(
                           "Keyboard is visible",
@@ -211,8 +227,10 @@ class HomeState extends State<HomePage> {
                                   .display1
                                   .copyWith(color: Colors.blue),
                             )
+
                           ]),
                         ),
+                        */
                 ],
               ),
             ),
@@ -253,17 +271,24 @@ class BasicDateField extends StatelessWidget {
   final format = DateFormat("dd.MM.yyyy");
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
+    return 
+    Column(
+      children: <Widget>[
       DateTimeField(
         decoration: InputDecoration(
+          
+          contentPadding: EdgeInsets.only(left: 15, top: 15),
           border: UnderlineInputBorder(
             borderRadius: new BorderRadius.circular(17.0),
           ),
           fillColor: Colors.white,
           filled: true,
+          prefixIcon: new Icon(Icons.date_range, color: Colors.black,),
+          suffixIcon: Icon(Icons.clear, color: Colors.black,),
         ),
         format: format,
         initialValue: date,
+        
         onChanged: (DateTime dat) {
           date = dat;
         },
@@ -281,11 +306,8 @@ class BasicDateField extends StatelessWidget {
               lastDate: DateTime(2100));
         },
       ),
-      Padding(padding: EdgeInsets.all(5)),
-      Text(
-        'Datum',
-        style: TextStyle(color: Colors.white),
-      ),
+      Padding(padding: EdgeInsets.all(0)),
+      
     ]);
   }
 }

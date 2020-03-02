@@ -37,15 +37,19 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
     return Form(
       key: this._formKey,
       child: Container(
+        height: 60,
+        padding: EdgeInsets.only(bottom: 25),
         decoration: BoxDecoration(
           color: Colors.white,
+          
           borderRadius: new BorderRadius.circular(17.0),
         ),
         child: TypeAheadFormField(
+          
           suggestionsBoxController: suggestionDestinationController,
           textFieldConfiguration: TextFieldConfiguration(
             //textInputAction: TextInputAction.next,
-
+            
             onChanged: (text) {
               this._formKey.currentState.validate();
             },
@@ -57,10 +61,13 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
             focusNode: myFocusNode,
             //decoration: InputDecoration(labelText: 'Vstopna postaja'),
             decoration: InputDecoration(
+              prefixIcon: new Icon(Icons.directions_bus, color: Colors.black, size: 30,),
+              contentPadding: EdgeInsets.only(top: 15, left: 15),
+              suffixIcon: Icon(Icons.clear, color: Colors.black,),
               border: InputBorder.none,
               hintText: hintDepartures,
               hintStyle: TextStyle(color: hintColor),
-              filled: true,
+              filled: false,
             ),
             style: TextStyle(),
             controller: this._typeAheadController,
@@ -149,7 +156,10 @@ class _InputFormArrivalState extends State<InputFormArrival> {
     return Form(
       key: this._formKey,
       child: Container(
+        height: 60,
+        padding: EdgeInsets.only(bottom: 25),
         decoration: BoxDecoration(
+          
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
         ),
@@ -168,10 +178,13 @@ class _InputFormArrivalState extends State<InputFormArrival> {
               focusNode: myFocusNode,
               //decoration: InputDecoration(labelText: 'Vstopna postaja'),
               decoration: InputDecoration(
+                prefixIcon: new Icon(Icons.directions_bus, color: Colors.black, size: 30,),
+                suffixIcon: Icon(Icons.clear, color: Colors.black,),
+                contentPadding: EdgeInsets.only(top: 15, left: 0),
                 border: InputBorder.none,
                 hintText: hintArrivals,
                 hintStyle: TextStyle(color: hintColorA),
-                filled: true,
+                filled: false,
               ),
               style: TextStyle(),
               controller: this._typeAheadController,
