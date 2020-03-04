@@ -39,6 +39,8 @@ List<String> price = new List<String>();
 List<String> lane = new List<String>();
 
 List<String> predictions = new List<String>();
+
+Color bgd_color = Colors.black;
 var width;
 
 String destination = "";
@@ -132,34 +134,8 @@ class HomeState extends State<HomePage> {
                 children: <Widget>[
                   Padding(padding: EdgeInsets.all(0)),
                   InputFormDeparture(),
-                  /*TextFormField(
-                  autofocus: false,
-                  onChanged: (text) {departure = text;},
-                  decoration: InputDecoration(
-                    fillColor: Colors.white,
-                    filled: true,
-                    border: UnderlineInputBorder( 
-                        borderRadius: new BorderRadius.circular(17.0),
-                        ),
-                    hintText: 'Departure',
-                  ),
-                ),
-                */
                   Padding(padding: EdgeInsets.all(10)),
                   InputFormArrival(),
-                  /*TextFormField(
-                  autofocus: false,
-                    onChanged: (text) {destination = text;},
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
-                      border: UnderlineInputBorder( 
-                        borderRadius: new BorderRadius.circular(17.0),
-                      ),
-                      hintText: 'Destination',
-                    ),
-                  ),
-                  */
                   Padding(padding: EdgeInsets.all(10)),
                   BasicDateField(),
                   Padding(padding: EdgeInsets.all(10)),
@@ -244,17 +220,23 @@ class HomeState extends State<HomePage> {
     return showDialog(
           context: context,
           builder: (context) => new AlertDialog(
-            title: new Text('Are you sure?'),
-            content: new Text('Do you want to exit an App'),
+            //title: new Text('Are you sure?'),
+            content: new Text('Želiš zapustiti aplikacijo?'),
             actions: <Widget>[
               new GestureDetector(
                 onTap: () => Navigator.of(context).pop(false),
-                child: Text("NO"),
+                child: Text(
+                  "NE",
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 0),
               new GestureDetector(
                 onTap: () => Navigator.of(context).pop(true),
-                child: Text("YES"),
+                child: Text(
+                  "JA",
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             ],
           ),
@@ -271,44 +253,46 @@ class BasicDateField extends StatelessWidget {
   final format = DateFormat("dd.MM.yyyy");
   @override
   Widget build(BuildContext context) {
-    return 
-    Column(
-      children: <Widget>[
+    return Column(children: <Widget>[
       DateTimeField(
-        
         decoration: InputDecoration(
-          
           contentPadding: EdgeInsets.only(left: 15, top: 15),
           border: UnderlineInputBorder(
             borderRadius: new BorderRadius.circular(17.0),
           ),
           fillColor: Colors.white,
           filled: true,
-          prefixIcon: new Icon(Icons.date_range, color: Colors.black,),
-          suffixIcon: Icon(Icons.clear, color: Colors.black,),
+          prefixIcon: new Icon(
+            Icons.date_range,
+            color: Colors.black,
+          ),
+          /*suffixIcon: Icon(
+            Icons.clear,
+            color: Colors.black,
+            ),
+            */
         ),
         format: format,
         initialValue: date,
-        
         onChanged: (DateTime dat) {
           date = dat;
         },
         onShowPicker: (context, currentValue) {
           return showDatePicker(
-              context: context,
-              builder: (BuildContext context, Widget child) {
-                return Theme(
-                  data: ThemeData.dark(),
-                  child: child,
-                );
-              },
-              firstDate: DateTime(1900),
-              initialDate: currentValue ?? DateTime.now(),
-              lastDate: DateTime(2100));
+            context: context,
+            builder: (BuildContext context, Widget child) {
+              return Theme(
+                data: ThemeData.dark(),
+                child: child,
+              );
+            },
+            firstDate: DateTime(1900),
+            initialDate: currentValue ?? DateTime.now(),
+            lastDate: DateTime(2100),
+          );
         },
       ),
-      Padding(padding: EdgeInsets.all(0)),
-      
+      //Padding(padding: EdgeInsets.all(10)),
     ]);
   }
 }

@@ -41,15 +41,13 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
         padding: EdgeInsets.only(bottom: 25),
         decoration: BoxDecoration(
           color: Colors.white,
-          
           borderRadius: new BorderRadius.circular(17.0),
         ),
         child: TypeAheadFormField(
-          
           suggestionsBoxController: suggestionDestinationController,
           textFieldConfiguration: TextFieldConfiguration(
             //textInputAction: TextInputAction.next,
-            
+
             onChanged: (text) {
               this._formKey.currentState.validate();
             },
@@ -61,9 +59,16 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
             focusNode: myFocusNode,
             //decoration: InputDecoration(labelText: 'Vstopna postaja'),
             decoration: InputDecoration(
-              prefixIcon: new Icon(Icons.directions_bus, color: Colors.black, size: 30,),
+              prefixIcon: new Icon(
+                Icons.directions_bus,
+                color: Colors.black,
+                size: 30,
+              ),
               contentPadding: EdgeInsets.only(top: 15, left: 15),
-              suffixIcon: Icon(Icons.clear, color: Colors.black,),
+              suffixIcon: Icon(
+                Icons.clear,
+                color: Colors.black,
+              ),
               border: InputBorder.none,
               hintText: hintDepartures,
               hintStyle: TextStyle(color: hintColor),
@@ -77,7 +82,6 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
           },
           suggestionsBoxDecoration: SuggestionsBoxDecoration(
               borderRadius: BorderRadius.circular(20), elevation: 0),
-          
           noItemsFoundBuilder: (BuildContext context) => Text(
             '   Neveljaven vnos!',
             style: TextStyle(color: Colors.red),
@@ -159,7 +163,6 @@ class _InputFormArrivalState extends State<InputFormArrival> {
         height: 60,
         padding: EdgeInsets.only(bottom: 25),
         decoration: BoxDecoration(
-          
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
         ),
@@ -167,7 +170,6 @@ class _InputFormArrivalState extends State<InputFormArrival> {
           child: TypeAheadFormField(
             suggestionsBoxController: suggestionArrivalController,
             textFieldConfiguration: TextFieldConfiguration(
-            
               onChanged: (text) {
                 this._formKey.currentState.validate();
               },
@@ -178,8 +180,15 @@ class _InputFormArrivalState extends State<InputFormArrival> {
               focusNode: myFocusNode,
               //decoration: InputDecoration(labelText: 'Vstopna postaja'),
               decoration: InputDecoration(
-                prefixIcon: new Icon(Icons.directions_bus, color: Colors.black, size: 30,),
-                suffixIcon: Icon(Icons.clear, color: Colors.black,),
+                prefixIcon: new Icon(
+                  Icons.directions_bus,
+                  color: Colors.black,
+                  size: 30,
+                ),
+                suffixIcon: Icon(
+                  Icons.clear,
+                  color: Colors.black,
+                ),
                 contentPadding: EdgeInsets.only(top: 15, left: 0),
                 border: InputBorder.none,
                 hintText: hintArrivals,
@@ -228,5 +237,4 @@ class _InputFormArrivalState extends State<InputFormArrival> {
       ),
     );
   }
-  
 }

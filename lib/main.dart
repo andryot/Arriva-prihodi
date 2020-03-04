@@ -1,4 +1,3 @@
-
 import 'package:bus_time_table/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,6 @@ import 'package:flutter/widgets.dart';
 import 'HomePage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -26,23 +24,26 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,],
-      supportedLocales: [ 
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      /*darkTheme:
+          ThemeData(brightness: Brightness.dark, primarySwatch: Colors.orange),*/
+      theme: ThemeData(
+       // brightness: Brightness.light,
+        //primarySwatch: Colors.orange,
+
+      ),
+      supportedLocales: [
         const Locale("sl"),
         //const Locale("en"),
       ],
       title: 'Flutter Login',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       initialRoute: '/home',
       routes: {
         '/home': (context) => HomePage(),
-        '/second': (context) => SecondRoute(),      
-                },
-          );
-        }
-      }
-      
-
+        '/second': (context) => SecondRoute(),
+      },
+    );
+  }
+}
