@@ -11,9 +11,27 @@ class SecondRoute extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Color(0xff000000),
           appBar: AppBar(
+            
+            actions: <Widget>[
+              
+              IconButton(
+                icon: Icon(
+                  Icons.star,
+                  size: 31,
+                  color: favorites.contains(departure + " " + destination)? Colors.white: Colors.black,
+                ),
+                onPressed: () {
+                  if(favorites.contains(departure + " " + destination))
+                  favorites.remove(departure + " " + destination);
+                  else
+                  favorites.add(departure + " " + destination);
+                  print(favorites);
+                },
+              )
+            ],
             backgroundColor: Color(0xff000000),
             title: AutoSizeText(
-              "Urnik med: " + departure + " in " + destination,
+               departure + " --> " + destination,
               maxLines: 1,
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
@@ -240,6 +258,7 @@ class AniRoute extends StatelessWidget {
     );
   }
 }
+
 
 class PopupContent extends StatefulWidget {
   final Widget content;

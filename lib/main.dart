@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         const Locale("sl"),
         //const Locale("en"),
       ],
-      title: 'Flutter Login',
+      title: 'Arriva prihodi',
       debugShowCheckedModeBanner: false,
       initialRoute: '/home',
       routes: {

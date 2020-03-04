@@ -18,6 +18,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
   FocusNode myFocusNode;
   final SuggestionsBoxController suggestionDestinationController =
       SuggestionsBoxController();
+  //final TextEditingController _departuresController = new TextEditingController();
 
   @override
   void initState() {
@@ -38,14 +39,16 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
       key: this._formKey,
       child: Container(
         height: 60,
-        padding: EdgeInsets.only(bottom: 25),
+        padding: EdgeInsets.only(top:7),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
         ),
         child: TypeAheadFormField(
+          
           suggestionsBoxController: suggestionDestinationController,
           textFieldConfiguration: TextFieldConfiguration(
+            
             //textInputAction: TextInputAction.next,
 
             onChanged: (text) {
@@ -64,11 +67,15 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
                 color: Colors.black,
                 size: 30,
               ),
-              contentPadding: EdgeInsets.only(top: 15, left: 15),
-              suffixIcon: Icon(
+              contentPadding: EdgeInsets.only(top: 15),
+              suffixIcon: IconButton(
+                icon:Icon(
                 Icons.clear,
                 color: Colors.black,
+                size: 30,),
+                onPressed:() {_typeAheadController.clear();},
               ),
+
               border: InputBorder.none,
               hintText: hintDepartures,
               hintStyle: TextStyle(color: hintColor),
@@ -161,7 +168,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
       key: this._formKey,
       child: Container(
         height: 60,
-        padding: EdgeInsets.only(bottom: 25),
+        padding: EdgeInsets.only(top:7),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
@@ -185,11 +192,14 @@ class _InputFormArrivalState extends State<InputFormArrival> {
                   color: Colors.black,
                   size: 30,
                 ),
-                suffixIcon: Icon(
-                  Icons.clear,
-                  color: Colors.black,
-                ),
-                contentPadding: EdgeInsets.only(top: 15, left: 0),
+                suffixIcon: IconButton(
+                icon:Icon(
+                Icons.clear,
+                color: Colors.black,
+                size: 30,),
+                onPressed:() {_typeAheadController.clear();},
+              ),
+                contentPadding: EdgeInsets.only(top: 15),
                 border: InputBorder.none,
                 hintText: hintArrivals,
                 hintStyle: TextStyle(color: hintColorA),

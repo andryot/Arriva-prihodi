@@ -2,20 +2,14 @@
 import 'package:bus_time_table/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'package:flutter/widgets.dart';
-import 'package:http/http.dart' as http;
-import 'package:html/parser.dart' as parser;
-import 'package:html/dom.dart' as dom;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:intl/intl.dart';
 import 'predictions.dart';
-
-//import 'package:path/path.dart';
+import 'data_fetch.dart';
 import 'routes.dart';
-//import 'package:flutter_spinkit/flutter_spinkit.dart';
-//import 'datePicker.dart';
+import 'favorites.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -37,6 +31,7 @@ List<String> busCompany = new List<String>();
 List<String> kilometers = new List<String>();
 List<String> price = new List<String>();
 List<String> lane = new List<String>();
+List<String> favorites = new List<String>();
 
 List<String> predictions = new List<String>();
 
@@ -76,50 +71,6 @@ class HomeState extends State<HomePage> {
             //alignment: Alignment.topRight,),
           ],
         ),
-        /* drawer: Drawer(
-          child: Container(
-            color: Color(0xff171B1B),
-            child: ListView(
-              children: <Widget>[
-                DrawerHeader(
-                  padding: EdgeInsets.all(30),
-                  child: Text(
-                    'Arriva prihodi',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                    ),
-                  ),
-                  decoration: BoxDecoration(
-                      border: Border.all(width: 2.0, color: Colors.white)),
-                ),
-                ListTile(
-                  title: Text(
-                    'Iskalnik voznih redov',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  title: Text(
-                    'Nastavitve',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SettingsPage()));
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
-        */
         backgroundColor: Color(0xff000000),
         body: GestureDetector(
           onTap: () {
@@ -160,7 +111,7 @@ class HomeState extends State<HomePage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => SecondRoute()))
-                            ])
+                            ]),
                       ],
                       child: Text("Išči"),
                       color: Color(0xff00adb5),
@@ -171,42 +122,11 @@ class HomeState extends State<HomePage> {
                     ),
                   ),
                   Padding(padding: EdgeInsets.all(10)),
-                  /*
-                  _keyboardIsVisible()
-                      ? Text(
-                          "Keyboard is visible",
-                          style: Theme.of(context)
-                              .textTheme
-                              .display1
-                              .copyWith(color: Colors.blue),
-                        )
-                      : RichText(
-                          text: TextSpan(children: [
-                            TextSpan(
-                              text: "Keyboard is ",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .display1
-                                  .copyWith(color: Colors.blue),
-                            ),
-                            TextSpan(
-                              text: "not ",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .display1
-                                  .copyWith(color: Colors.red),
-                            ),
-                            TextSpan(
-                              text: "visible",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .display1
-                                  .copyWith(color: Colors.blue),
-                            )
-
-                          ]),
-                        ),
-                        */
+                  Container(
+                    // width: 200,
+                    height: 200,
+                    child: FavoritesSection(),
+                  ),
                 ],
               ),
             ),
@@ -243,11 +163,13 @@ class HomeState extends State<HomePage> {
         ) ??
         false;
   }
-
+}
+/*
   bool _keyboardIsVisible() {
     return !(MediaQuery.of(context).viewInsets.bottom == 0.0);
   }
-}
+
+*/
 
 class BasicDateField extends StatelessWidget {
   final format = DateFormat("dd.MM.yyyy");
@@ -255,8 +177,15 @@ class BasicDateField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       DateTimeField(
+        resetIcon: Icon(
+          Icons.clear,
+          color: Colors.black,
+          size: 30,
+        ),
+        //textAlign: TextAlign.center,
+        maxLines: 2,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 15, top: 15),
+          contentPadding: EdgeInsets.only(left: 15, top: 20),
           border: UnderlineInputBorder(
             borderRadius: new BorderRadius.circular(17.0),
           ),
@@ -266,6 +195,7 @@ class BasicDateField extends StatelessWidget {
             Icons.date_range,
             color: Colors.black,
           ),
+
           /*suffixIcon: Icon(
             Icons.clear,
             color: Colors.black,
@@ -310,89 +240,6 @@ void init() async {
   }
 }
 
-Future<void> fetch(String depar, String dest, DateTime date1) async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  String departure = depar.replaceAll(" ", "+");
-  String destination = dest.replaceAll(" ", "+");
-  String date = DateFormat('dd.MM.yyy').format(date1);
-
-  var rng = new Random();
-  int next = 1000 + rng.nextInt(8999);
-
-  String url = "https://arriva.si/en/timetable/?departure-" +
-      next.toString() +
-      departure +
-      "&departure_id=" +
-      map[departure].toString() +
-      "&departure=" +
-      departure +
-      "&destination=" +
-      destination +
-      "&destination_id=" +
-      map[destination].toString() +
-      "&trip_date=" +
-      date;
-
-  http.Response response = await http.get(url);
-
-  dom.Document document = parser.parse(response.body);
-
-  departures.clear();
-
-  document.getElementsByClassName('departure').forEach((dom.Element element) {
-    departures.add(element.getElementsByTagName('span').first.text);
-  });
-
-  arrivals.clear();
-
-  document.getElementsByClassName('arrival').forEach((dom.Element element) {
-    arrivals.add(element.getElementsByTagName('span').first.text);
-  });
-
-  travelTime.clear();
-  document
-      .getElementsByClassName('travel-duration')
-      .forEach((dom.Element element) {
-    travelTime.add(element.getElementsByTagName('span').first.text);
-  });
-
-  busCompany.clear();
-  document.getElementsByClassName('prevoznik').forEach((dom.Element element) {
-    busCompany.add(element.getElementsByTagName('span').last.text);
-  });
-
-  kilometers.clear();
-  document.getElementsByClassName('length').forEach((dom.Element element) {
-    kilometers.add(element.text);
-  });
-  if (kilometers.length > 0) kilometers.removeAt(0);
-
-  price.clear();
-  document.getElementsByClassName('price').forEach((dom.Element element) {
-    price.add(element.text.replaceAll("EUR", "€").replaceAll(".", ","));
-  });
-  if (price.length > 0) price.removeAt(0);
-
-  lane.clear();
-  var counter = 0;
-  document.getElementsByClassName('duration').forEach((dom.Element element) {
-    element.getElementsByClassName('peron').forEach((dom.Element element2) {
-      lane.add(element2.getElementsByTagName("span").last.text);
-      print(lane);
-    });
-    if (lane.length == counter && counter != 2) {
-      lane.add("/");
-    }
-    counter++;
-  });
-  if (lane.length > 0) lane.removeAt(0);
-
-  if (lane.length == 1) {
-    for (int i = 0; i < departures.length; i++) lane.add("/");
-  }
-}
-
 //Set<String> set = Set.from(tabela);
 //  set.forEach((element) => print(element.trim().contains(":")));
 /* for(int i = 0; i < departures.length; i++){
@@ -403,3 +250,39 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
         list.add(new Text(departures[i]));
     }
   */
+/*
+                  _keyboardIsVisible()
+                      ? Text(
+                          "Keyboard is visible",
+                          style: Theme.of(context)
+                              .textTheme
+                              .display1
+                              .copyWith(color: Colors.blue),
+                        )
+                      : RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                              text: "Keyboard is ",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .display1
+                                  .copyWith(color: Colors.blue),
+                            ),
+                            TextSpan(
+                              text: "not ",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .display1
+                                  .copyWith(color: Colors.red),
+                            ),
+                            TextSpan(
+                              text: "visible",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .display1
+                                  .copyWith(color: Colors.blue),
+                            )
+
+                          ]),
+                        ),
+                        */
