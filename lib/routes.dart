@@ -169,7 +169,7 @@ Widget getTextWidgets(
                 ),
 
                 IconButton(
-                  padding: EdgeInsets.only(left: 0),
+                  padding: EdgeInsets.only(left: 0, bottom: 3),
                   icon: Icon(Icons.info),
                   onPressed: () {
                     showDialog(

@@ -80,6 +80,7 @@ class HomeState extends State<HomePage> {
         ),
         backgroundColor: Color(0xff000000),
         body: GestureDetector(
+          
           onTap: () {
             FocusScope.of(context).requestFocus(_blackFocusNode);
           },

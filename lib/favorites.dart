@@ -77,25 +77,33 @@ Widget getTextWidgets(BuildContext context) {
                 ],
             color: Colors.white,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               //crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Container(
+                  alignment: Alignment.center,
                   width: (width - width / 100 * 15) -
                       (width - width / 100 * 13) * 0.20,
-                  child: AutoSizeText(
-                    (i + 1).toString() +
-                        ". " +
+                  child: Row(children: <Widget>[
+                  
+                  AutoSizeText(
+                   // (i + 1).toString() +
+                      //  ". " +
                         temp[0].toString() +
                         " --> " +
                         temp[1].toString(),
+                        
                     maxLines: 1,
+                    
                     minFontSize: 12,
+                    maxFontSize: 19,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 28,
                       color: Colors.black,
                     ),
-                  ),
+                  ),])
                 ),
                 //child: Image(image: AssetImage("assets/logo.png",),
               ],
