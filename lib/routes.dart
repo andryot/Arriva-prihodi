@@ -2,8 +2,28 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'HomePage.dart';
+import 'HomePage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class SecondRoute extends StatelessWidget {
+class SecondRoute extends StatefulWidget {
+  State<StatefulWidget> createState() => SecondState();
+  void onLoad(BuildContext context) async {
+    //init2(); //callback when layout build done
+  }
+}
+
+final prefs = SharedPreferences.getInstance();
+Color starColor;
+
+class SecondState extends State<SecondRoute> {
+  @override
+  void initState() {
+    super.initState();
+    init2().whenComplete(() => setState(() {}));
+
+    widget.onLoad(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     var willPopScope = WillPopScope(
@@ -11,27 +31,40 @@ class SecondRoute extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Color(0xff000000),
           appBar: AppBar(
-            
             actions: <Widget>[
-              
               IconButton(
                 icon: Icon(
                   Icons.star,
                   size: 31,
-                  color: favorites.contains(departure + " " + destination)? Colors.white: Colors.black,
+                  color: starColor,
                 ),
-                onPressed: () {
-                  if(favorites.contains(departure + " " + destination))
-                  favorites.remove(departure + " " + destination);
-                  else
-                  favorites.add(departure + " " + destination);
-                  print(favorites);
+                onPressed: () async {
+                  final prefs = await SharedPreferences.getInstance();
+                  if (favorites == null) {
+                    favorites.add(departure + "+" + destination);
+                    await prefs.setStringList("favorites", favorites);
+                    starColor = Colors.yellow;
+                    setState(() {});
+                  } else {
+                    if (favorites.contains(departure + "+" + destination)) {
+                      favorites.remove(departure + "+" + destination);
+                      await prefs.setStringList("favorites", favorites);
+                      starColor = Colors.white;
+                      setState(() {});
+                    } else {
+                      //favorites.add(departure + " " + destination);
+                      favorites.add(departure + "+" + destination);
+                      await prefs.setStringList("favorites", favorites);
+                      starColor = Colors.yellow;
+                      setState(() {});
+                    }
+                  }
                 },
               )
             ],
             backgroundColor: Color(0xff000000),
             title: AutoSizeText(
-               departure + " --> " + destination,
+              departure + " --> " + destination,
               maxLines: 1,
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
@@ -259,7 +292,6 @@ class AniRoute extends StatelessWidget {
   }
 }
 
-
 class PopupContent extends StatefulWidget {
   final Widget content;
   PopupContent({
@@ -281,4 +313,11 @@ class _PopupContentState extends State<PopupContent> {
       child: Text("123455242"),
     );
   }
+}
+
+Future<void> init2() async {
+  if (favorites.contains(departure + "+" + destination))
+    starColor = Colors.yellow;
+  else
+    starColor = Colors.white;
 }

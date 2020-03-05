@@ -36,15 +36,18 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      
       key: this._formKey,
       child: Container(
         height: 60,
         padding: EdgeInsets.only(top:7),
         decoration: BoxDecoration(
+          
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
         ),
         child: TypeAheadFormField(
+          
           
           suggestionsBoxController: suggestionDestinationController,
           textFieldConfiguration: TextFieldConfiguration(
@@ -67,7 +70,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
                 color: Colors.black,
                 size: 30,
               ),
-              contentPadding: EdgeInsets.only(top: 15),
+              contentPadding: EdgeInsets.only(top: 13),
               suffixIcon: IconButton(
                 icon:Icon(
                 Icons.clear,
@@ -81,7 +84,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
               hintStyle: TextStyle(color: hintColor),
               filled: false,
             ),
-            style: TextStyle(),
+            style: TextStyle(fontSize: 20),
             controller: this._typeAheadController,
           ),
           suggestionsCallback: (pattern) {
@@ -199,13 +202,13 @@ class _InputFormArrivalState extends State<InputFormArrival> {
                 size: 30,),
                 onPressed:() {_typeAheadController.clear();},
               ),
-                contentPadding: EdgeInsets.only(top: 15),
+                contentPadding: EdgeInsets.only(top: 13),
                 border: InputBorder.none,
                 hintText: hintArrivals,
                 hintStyle: TextStyle(color: hintColorA),
                 filled: false,
               ),
-              style: TextStyle(),
+              style: TextStyle(fontSize: 20),
               controller: this._typeAheadController,
             ),
             suggestionsCallback: (pattern) {

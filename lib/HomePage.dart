@@ -10,12 +10,13 @@ import 'predictions.dart';
 import 'data_fetch.dart';
 import 'routes.dart';
 import 'favorites.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => HomeState();
   void onLoad(BuildContext context) {
-    init(); //callback when layout build done
+    //init(); //callback when layout build done
   }
 }
 
@@ -48,7 +49,13 @@ class HomeState extends State<HomePage> {
   TextEditingController destinationController = new TextEditingController();
 
   @override
-  void initState() => widget.onLoad(context);
+  void initState() {
+     super.initState();
+     init().whenComplete(() => setState(() {}));
+     widget.onLoad(context);
+     
+
+  }
 
   Widget build(BuildContext context) {
     var _blackFocusNode = new FocusNode();
@@ -124,7 +131,7 @@ class HomeState extends State<HomePage> {
                   Padding(padding: EdgeInsets.all(10)),
                   Container(
                     // width: 200,
-                    height: 200,
+                    height: 250,
                     child: FavoritesSection(),
                   ),
                 ],
@@ -185,6 +192,7 @@ class BasicDateField extends StatelessWidget {
         //textAlign: TextAlign.center,
         maxLines: 2,
         decoration: InputDecoration(
+          helperText: "Datum",
           contentPadding: EdgeInsets.only(left: 15, top: 20),
           border: UnderlineInputBorder(
             borderRadius: new BorderRadius.circular(17.0),
@@ -195,6 +203,7 @@ class BasicDateField extends StatelessWidget {
             Icons.date_range,
             color: Colors.black,
           ),
+          
 
           /*suffixIcon: Icon(
             Icons.clear,
@@ -202,6 +211,7 @@ class BasicDateField extends StatelessWidget {
             ),
             */
         ),
+      style: TextStyle(fontSize: 20),
         format: format,
         initialValue: date,
         onChanged: (DateTime dat) {
@@ -227,7 +237,7 @@ class BasicDateField extends StatelessWidget {
   }
 }
 
-void init() async {
+Future<void> init() async {
   bytes = await rootBundle.loadString("assets/postaje.txt");
   array.clear();
   bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
@@ -238,6 +248,11 @@ void init() async {
     map[array[i][0]] = int.parse(array[i][1]);
     predictions.add(array[i][0].toString().replaceAll("+", " "));
   }
+
+  final prefs = await SharedPreferences.getInstance();
+  if(prefs.containsKey("favorites"))
+    favorites.addAll(prefs.getStringList("favorites"));
+
 }
 
 //Set<String> set = Set.from(tabela);
