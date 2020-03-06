@@ -36,13 +36,11 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      
       key: this._formKey,
       child: Container(
         height: 60,
         padding: EdgeInsets.only(top:7),
         decoration: BoxDecoration(
-          
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
         ),
@@ -61,7 +59,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
               this.suggestionDestinationController.toggle();
               this._formKey.currentState.save();
             },
-            onSubmitted: (str) => (print(str)),
+            //onSubmitted: () => (),
             focusNode: myFocusNode,
             //decoration: InputDecoration(labelText: 'Vstopna postaja'),
             decoration: InputDecoration(

@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'HomePage.dart';
-import 'HomePage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SecondRoute extends StatefulWidget {
@@ -77,7 +76,7 @@ class SecondState extends State<SecondRoute> {
                   children: <Widget>[
                     Padding(padding: EdgeInsets.all(5)),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         Text(
                           "Odhod",

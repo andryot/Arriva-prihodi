@@ -28,7 +28,7 @@ class SettingsState extends State<SettingsPage> {
             ),
             onChanged: (bool value) { 
               if(value) {
-                bgd_color = Colors.white;
+                bgdColor = Colors.white;
               }
               setState(() {
                 darkMode = value;

@@ -8,7 +8,6 @@ import 'package:html/parser.dart' as parser;
 import 'package:html/dom.dart' as dom;
 import 'package:intl/intl.dart';
 
-
 Future<void> fetch(String depar, String dest, DateTime date1) async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -44,7 +43,6 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
   });
 
   arrivals.clear();
-
   document.getElementsByClassName('arrival').forEach((dom.Element element) {
     arrivals.add(element.getElementsByTagName('span').first.text);
   });
@@ -75,16 +73,18 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
 
   lane.clear();
   var counter = 0;
+
   document.getElementsByClassName('duration').forEach((dom.Element element) {
     element.getElementsByClassName('peron').forEach((dom.Element element2) {
       lane.add(element2.getElementsByTagName("span").last.text);
-      print(lane);
     });
+
     if (lane.length == counter && counter != 2) {
       lane.add("/");
     }
     counter++;
   });
+  
   if (lane.length > 0) lane.removeAt(0);
 
   if (lane.length == 1) {

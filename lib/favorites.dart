@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'HomePage.dart';
 import 'data_fetch.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'routes.dart';
 
 class FavoritesSection extends StatefulWidget {
@@ -11,31 +12,30 @@ class FavoritesSection extends StatefulWidget {
 }
 
 class FavoritesState extends State<FavoritesSection> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
-    return Center(
-        child: Container(
-      padding: EdgeInsets.only(left: 10, top: 10),
+    return Container(
       decoration: BoxDecoration(
         //border: Border.all(color: Colors.green, width: 5),
         borderRadius: new BorderRadius.circular(17.0),
         //color: Color(0xff404040),
       ),
-      // color: Color(0xff404040),
       //height: 200,
+
       child: ListView(
-        physics: ScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         children: <Widget>[
           getTextWidgets(context),
-          /*Text(
-            "Priljubljene relacije: ",
-            style: TextStyle(color: Colors.black, fontSize: 30),
-          )
-          */
         ],
       ),
-    ));
+    );
   }
 }
+//neki  List<double>() = [10, 5];
 
 Widget getTextWidgets(BuildContext context) {
   List<Widget> list = new List<Widget>();
@@ -44,18 +44,16 @@ Widget getTextWidgets(BuildContext context) {
   }
   if (favorites.isNotEmpty) {
     for (var i = 0; i < favorites.length; i++) {
-      var temp = [];
-      temp.clear();
+      List<String> temp = new List<String>();
       favorites[i].split("+").forEach((f) => temp.add(f));
-
-      print(temp[0]);
       list.add(
         RaisedButton(
-          shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(20.0)),
-          padding: EdgeInsets.all(12),
-          
-            onPressed: () => [departure = temp[0], destination = temp[1],
+            shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(20.0)),
+            padding: EdgeInsets.all(10),
+            onPressed: () => [
+                  departure = temp[0],
+                  destination = temp[1],
                   FocusScope.of(context).requestFocus(new FocusNode()),
                   Navigator.push(
                       context,
@@ -77,37 +75,58 @@ Widget getTextWidgets(BuildContext context) {
                 ],
             color: Colors.white,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  width: (width - width / 100 * 15) -
-                      (width - width / 100 * 13) * 0.20,
-                  child: Row(children: <Widget>[
-                  
-                  AutoSizeText(
-                   // (i + 1).toString() +
-                      //  ". " +
-                        temp[0].toString() +
-                        " --> " +
-                        temp[1].toString(),
-                        
-                    maxLines: 1,
-                    
-                    minFontSize: 12,
-                    maxFontSize: 19,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 28,
-                      color: Colors.black,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Container(
+                    width: width - width * 0.222,
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: AutoSizeText(
+                            temp[0].toString() + "   ",
+                            maxLines: 1,
+                            maxFontSize: 40,
+                            style: TextStyle(fontSize: 25),
+                          ),
+                        ),
+                        Icon(
+                          EvaIcons.arrowForwardOutline,
+                          color: Colors.black,
+                        ),
+                        Expanded(
+                          child: AutoSizeText(
+                            "   " + temp[1].toString(),
+                            maxLines: 1,
+                            style: TextStyle(fontSize: 25),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),])
-                ),
-                //child: Image(image: AssetImage("assets/logo.png",),
-              ],
-            )),
+                  ),
+                  Container(
+                    height: 35,
+                    padding: EdgeInsets.only(left: 1, right: 5),
+                    child: Material(
+                        elevation: 0,
+                        color: Colors.white,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            IconButton(
+                              icon: Icon(Icons.star),
+                              iconSize: 38,
+                              padding: EdgeInsets.only(left: 0),
+                              color: Colors.yellow,
+                              onPressed: () {
+                                print("123");
+                              },
+                            ),
+                          ],
+                        )),
+                  ),
+                ])),
+
+        //child: Image(image: AssetImage("assets/logo.png",),
       );
       list.add(new Container(
         height: 10,

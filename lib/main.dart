@@ -29,10 +29,9 @@ class MyApp extends StatelessWidget {
       /*darkTheme:
           ThemeData(brightness: Brightness.dark, primarySwatch: Colors.orange),*/
       theme: ThemeData(
-       // brightness: Brightness.light,
-        //primarySwatch: Colors.orange,
-
-      ),
+          // brightness: Brightness.light,
+          //primarySwatch: Colors.orange,
+          ),
       supportedLocales: [
         const Locale("sl"),
         //const Locale("en"),

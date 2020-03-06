@@ -36,7 +36,7 @@ List<String> favorites = new List<String>();
 
 List<String> predictions = new List<String>();
 
-Color bgd_color = Colors.black;
+Color bgdColor = Colors.black;
 var width;
 
 String destination = "";
@@ -50,11 +50,9 @@ class HomeState extends State<HomePage> {
 
   @override
   void initState() {
-     super.initState();
-     init().whenComplete(() => setState(() {}));
-     widget.onLoad(context);
-     
-
+    super.initState();
+    init().whenComplete(() => setState(() {}));
+    // widget.onLoad(context);
   }
 
   Widget build(BuildContext context) {
@@ -80,7 +78,6 @@ class HomeState extends State<HomePage> {
         ),
         backgroundColor: Color(0xff000000),
         body: GestureDetector(
-          
           onTap: () {
             FocusScope.of(context).requestFocus(_blackFocusNode);
           },
@@ -97,10 +94,10 @@ class HomeState extends State<HomePage> {
                   InputFormArrival(),
                   Padding(padding: EdgeInsets.all(10)),
                   BasicDateField(),
-                  Padding(padding: EdgeInsets.all(10)),
+                  Padding(padding: EdgeInsets.all(0)),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 75),
-                    height: 40.0,
+                    padding: EdgeInsets.symmetric(horizontal: 125),
+                    height: 50.0,
                     child: RaisedButton(
                       onPressed: () => [
                         FocusScope.of(context).requestFocus(new FocusNode()),
@@ -121,15 +118,29 @@ class HomeState extends State<HomePage> {
                                       builder: (context) => SecondRoute()))
                             ]),
                       ],
-                      child: Text("Išči"),
+                      child: Text(
+                        "Išči",
+                        style: TextStyle(fontSize: 25),
+                      ),
                       color: Color(0xff00adb5),
                       textColor: Colors.white,
                       shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(13.0),
+                        borderRadius: new BorderRadius.circular(25.0),
                       ),
                     ),
                   ),
+                  //Divider(color: Colors.white, ),
                   Padding(padding: EdgeInsets.all(10)),
+                  Text(
+                    "    Priljubljene relacije: ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(5),
+                  ),
                   Container(
                     // width: 200,
                     height: 250,
@@ -204,7 +215,6 @@ class BasicDateField extends StatelessWidget {
             Icons.date_range,
             color: Colors.black,
           ),
-          
 
           /*suffixIcon: Icon(
             Icons.clear,
@@ -212,7 +222,7 @@ class BasicDateField extends StatelessWidget {
             ),
             */
         ),
-      style: TextStyle(fontSize: 20),
+        style: TextStyle(fontSize: 20),
         format: format,
         initialValue: date,
         onChanged: (DateTime dat) {
@@ -251,9 +261,8 @@ Future<void> init() async {
   }
 
   final prefs = await SharedPreferences.getInstance();
-  if(prefs.containsKey("favorites"))
+  if (prefs.containsKey("favorites"))
     favorites.addAll(prefs.getStringList("favorites"));
-
 }
 
 //Set<String> set = Set.from(tabela);
