@@ -17,7 +17,7 @@ class SettingsState extends State<SettingsPage> {
         backgroundColor: Color(0xff000000),
         title: Text("Nastavitve"),
       ),
-      backgroundColor: Colors.black26,
+      backgroundColor: Colors.black,
       body: Container(
         child: ListView(children: <Widget>[
           SwitchListTile(

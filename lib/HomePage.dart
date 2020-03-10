@@ -68,8 +68,7 @@ class HomeState extends State<HomePage> {
           actions: <Widget>[
             IconButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SettingsPage()));
+                Navigator.of(context).push(new CupertinoPageRoute<bool>(builder: (context) => SettingsPage(),));
               },
               icon: Icon(Icons.settings),
               color: Colors.white,
@@ -103,7 +102,8 @@ class HomeState extends State<HomePage> {
                     child: RaisedButton(
                       onPressed: () => [
                         FocusScope.of(context).requestFocus(new FocusNode()),
-                        Navigator.push(
+                        Navigator.of(context).push(new CupertinoPageRoute<bool>(builder: (context) => AniRoute(),)),
+                        /*Navigator.push(
                             context,
                             PageRouteBuilder(
                               pageBuilder: (c, a1, a2) => AniRoute(),
@@ -112,12 +112,14 @@ class HomeState extends State<HomePage> {
                                   FadeTransition(opacity: anim, child: child),
                               transitionDuration: Duration(milliseconds: 400),
                             )),
+                            */
                         fetch(departure, destination, date).whenComplete(() => [
                               Navigator.pop(context),
-                              Navigator.push(
+                              Navigator.of(context).push(new CupertinoPageRoute<bool>(fullscreenDialog: true,builder: (context) => SecondRoute(),))
+                              /*Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SecondRoute()))
+                                      builder: (context) => SecondRoute()))*/
                             ]),
                       ],
                       child: Text(

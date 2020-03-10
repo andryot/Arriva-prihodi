@@ -6,9 +6,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SecondRoute extends StatefulWidget {
   State<StatefulWidget> createState() => SecondState();
-  void onLoad(BuildContext context) async {
+  //void onLoad(BuildContext context) async {
     //init2(); //callback when layout build done
-  }
+  //}
 }
 
 final prefs = SharedPreferences.getInstance();
@@ -20,7 +20,7 @@ class SecondState extends State<SecondRoute> {
     super.initState();
     init2().whenComplete(() => setState(() {}));
 
-    widget.onLoad(context);
+   // widget.onLoad(context);
   }
 
   @override
@@ -269,7 +269,10 @@ Widget getTextWidgets(
 class AniRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+      onWillPop: _willPopCallback,
+      
+      child: Scaffold(
       backgroundColor: Color(0xff000000),
       body: Center(
         child: Column(
@@ -287,8 +290,12 @@ class AniRoute extends StatelessWidget {
           ],
         ),
       ),
+      ),
     );
   }
+}
+Future<bool> _willPopCallback() async {
+    return false;
 }
 
 class PopupContent extends StatefulWidget {
