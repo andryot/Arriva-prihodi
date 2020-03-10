@@ -81,25 +81,28 @@ Widget getTextWidgets(BuildContext context) {
                     width: width - width * 0.222,
                     child: Row(
                       children: <Widget>[
-                        Expanded(
-                          child: AutoSizeText(
+                        Padding(padding: EdgeInsets.only(left: 20),),
+                        //Expanded(
+                          //child:
+                           AutoSizeText(
                             temp[0].toString() + "   ",
                             maxLines: 1,
                             maxFontSize: 40,
                             style: TextStyle(fontSize: 25),
                           ),
-                        ),
+                        //),
                         Icon(
                           EvaIcons.arrowForwardOutline,
                           color: Colors.black,
                         ),
-                        Expanded(
-                          child: AutoSizeText(
+                       // Expanded(
+                         // child: 
+                          AutoSizeText(
                             "   " + temp[1].toString(),
                             maxLines: 1,
                             style: TextStyle(fontSize: 25),
                           ),
-                        ),
+                       // ),
                       ],
                     ),
                   ),
@@ -118,7 +121,7 @@ Widget getTextWidgets(BuildContext context) {
                               padding: EdgeInsets.only(left: 0),
                               color: Colors.yellow,
                               onPressed: () {
-                                print("123");
+                                //print("123");
                               },
                             ),
                           ],

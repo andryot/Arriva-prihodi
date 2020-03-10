@@ -38,6 +38,7 @@ List<String> predictions = new List<String>();
 
 Color bgdColor = Colors.black;
 var width;
+var height;
 
 String destination = "";
 String departure = "";
@@ -58,6 +59,7 @@ class HomeState extends State<HomePage> {
   Widget build(BuildContext context) {
     var _blackFocusNode = new FocusNode();
     width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(
@@ -96,7 +98,7 @@ class HomeState extends State<HomePage> {
                   BasicDateField(),
                   Padding(padding: EdgeInsets.all(0)),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 125),
+                    padding: EdgeInsets.symmetric(horizontal: width - width * 0.75),
                     height: 50.0,
                     child: RaisedButton(
                       onPressed: () => [
@@ -143,7 +145,7 @@ class HomeState extends State<HomePage> {
                   ),
                   Container(
                     // width: 200,
-                    height: 250,
+                    height: height - height*0.7,
                     child: FavoritesSection(),
                   ),
                 ],
