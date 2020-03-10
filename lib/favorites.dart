@@ -1,4 +1,5 @@
 import 'package:bus_time_table/HomePage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'HomePage.dart';
@@ -95,7 +96,7 @@ class FavoritesState extends State<FavoritesSection> {
                                 // Expanded(
                                 //child:
                                 AutoSizeText(
-                              " " + temp[0].toString() + "",
+                              " " + temp[0].toString(),
                               maxLines: 1,
                               minFontSize: 15,
                               //maxFontSize: 40,
@@ -119,7 +120,7 @@ class FavoritesState extends State<FavoritesSection> {
                             alignment: Alignment.centerRight,
                             width: width - width * 0.675,
                             child: AutoSizeText(
-                              "" + temp[1].toString(),
+                              temp[1].toString(),
                               maxLines: 1,
                               minFontSize: 15,
                               //maxFontSize: 40,
