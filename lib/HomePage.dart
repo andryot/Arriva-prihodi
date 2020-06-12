@@ -11,6 +11,7 @@ import 'data_fetch.dart';
 import 'routes.dart';
 import 'favorites.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -43,6 +44,10 @@ var height;
 String destination = "";
 String departure = "";
 
+String routesDestination = "";
+
+String routesDeparture = "";
+
 String bytes;
 var array = [];
 
@@ -64,20 +69,21 @@ class HomeState extends State<HomePage> {
       onWillPop: _onBackPressed,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xff000000),
+          elevation: 0,
+          backgroundColor: Theme.of(context).primaryColor,
           actions: <Widget>[
             IconButton(
               onPressed: () {
-                Navigator.of(context).push(new CupertinoPageRoute<bool>(builder: (context) => SettingsPage(),));
+                Navigator.of(context).push(new CupertinoPageRoute<bool>(
+                  builder: (context) => SettingsPage(),
+                ));
               },
               icon: Icon(Icons.settings),
-              color: Colors.white,
               iconSize: 30,
             ),
-            //alignment: Alignment.topRight,),
           ],
         ),
-        backgroundColor: Color(0xff000000),
+        backgroundColor: Theme.of(context).primaryColor,
         body: GestureDetector(
           onTap: () {
             FocusScope.of(context).requestFocus(_blackFocusNode);
@@ -95,51 +101,62 @@ class HomeState extends State<HomePage> {
                   InputFormArrival(),
                   Padding(padding: EdgeInsets.all(10)),
                   BasicDateField(),
-                  Padding(padding: EdgeInsets.all(0)),
+                  Padding(padding: EdgeInsets.all(10)),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: width - width * 0.75),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: width - width * 0.75),
                     height: 50.0,
                     child: RaisedButton(
                       onPressed: () => [
-                        FocusScope.of(context).requestFocus(new FocusNode()),
-                        Navigator.of(context).push(new CupertinoPageRoute<bool>(builder: (context) => AniRoute(),)),
-                        /*Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              pageBuilder: (c, a1, a2) => AniRoute(),
-                              fullscreenDialog: true,
-                              transitionsBuilder: (c, anim, a2, child) =>
-                                  FadeTransition(opacity: anim, child: child),
-                              transitionDuration: Duration(milliseconds: 400),
-                            )),
-                            */
-                        fetch(departure, destination, date).whenComplete(() => [
-                              Navigator.pop(context),
-                              Navigator.of(context).push(new CupertinoPageRoute<bool>(fullscreenDialog: true,builder: (context) => SecondRoute(),))
-                              /*Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SecondRoute()))*/
-                            ]),
+                        errorArrival == false && errorDeparture == false
+                            ? [
+                                FocusScope.of(context)
+                                    .requestFocus(new FocusNode()),
+                                routesDeparture = departure,
+                                routesDestination = destination,
+                                Navigator.of(context)
+                                    .push(new CupertinoPageRoute<bool>(
+                                  fullscreenDialog: true,
+                                  builder: (context) => AniRoute(),
+                                )),
+                                fetch(departure, destination, date)
+                                    .whenComplete(() => [
+                                          Navigator.pop(context),
+                                          Navigator.of(context).push(
+                                              new CupertinoPageRoute<bool>(
+                                            fullscreenDialog: true,
+                                            builder: (context) => SecondRoute(),
+                                          ))
+                                        ]),
+                              ]
+                            : [
+                                colorDeparture = Colors.red,
+                                Fluttertoast.showToast(
+                                  msg: "Napaka pri izbiri postaj!",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                ),
+                              ]
                       ],
                       child: Text(
                         "Išči",
                         style: TextStyle(fontSize: 25),
                       ),
                       color: Color(0xff00adb5),
-                      textColor: Colors.white,
+                      textColor: Theme.of(context).primaryColorLight,
                       shape: RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(25.0),
                       ),
                     ),
                   ),
                   //Divider(color: Colors.white, ),
-                  Padding(padding: EdgeInsets.all(10)),
+                  Padding(padding: EdgeInsets.all(20)),
                   Text(
                     "    Priljubljene relacije: ",
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
+                      color: Theme.of(context).primaryColorLight,
+                      fontSize: 20,
                     ),
                   ),
                   Padding(
@@ -147,7 +164,7 @@ class HomeState extends State<HomePage> {
                   ),
                   Container(
                     // width: 200,
-                    height: height - height*0.7,
+                    height: height - height * 0.5,
                     child: FavoritesSection(),
                   ),
                 ],
@@ -160,29 +177,39 @@ class HomeState extends State<HomePage> {
   }
 
   Future<bool> _onBackPressed() {
-    return showDialog(
+    return showCupertinoDialog(
           context: context,
-          builder: (context) => new AlertDialog(
-            //title: new Text('Are you sure?'),
-            content: new Text('Želiš zapustiti aplikacijo?'),
-            actions: <Widget>[
-              new GestureDetector(
-                onTap: () => Navigator.of(context).pop(false),
-                child: Text(
-                  "NE",
-                  style: TextStyle(fontSize: 20),
-                ),
+          builder: (context) => Theme(
+            data: ThemeData.dark(),
+            child: CupertinoAlertDialog(
+              title: new Text(
+                'Želite zapreti aplikacijo?',
+                textAlign: TextAlign.center,
               ),
-              SizedBox(height: 0),
-              new GestureDetector(
-                onTap: () => Navigator.of(context).pop(true),
-                child: Text(
-                  "JA",
-                  style: TextStyle(fontSize: 20),
+              actions: <Widget>[
+                CupertinoButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: Text(
+                    "Prekliči",
+                    style: TextStyle(fontSize: 18),
+                  ),
                 ),
-              ),
-            ],
+                CupertinoButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  child: Text(
+                    "Zapri",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red),
+                  ),
+                ),
+              ],
+            ),
           ),
+          /*elevation: 1,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20))),*/
         ) ??
         false;
   }
@@ -206,27 +233,18 @@ class BasicDateField extends StatelessWidget {
           size: 30,
         ),
         //textAlign: TextAlign.center,
-        maxLines: 2,
+        maxLines: 1,
         decoration: InputDecoration(
-          helperText: "Datum",
-          contentPadding: EdgeInsets.only(left: 15, top: 20),
-          border: UnderlineInputBorder(
-            borderRadius: new BorderRadius.circular(17.0),
-          ),
+          contentPadding: EdgeInsets.only(left: 15, top: 35),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
           fillColor: Colors.white,
           filled: true,
           prefixIcon: new Icon(
             Icons.date_range,
             color: Colors.black,
           ),
-
-          /*suffixIcon: Icon(
-            Icons.clear,
-            color: Colors.black,
-            ),
-            */
         ),
-        style: TextStyle(fontSize: 20),
+        style: TextStyle(fontSize: 20, color: Colors.black),
         format: format,
         initialValue: date,
         onChanged: (DateTime dat) {
@@ -237,7 +255,7 @@ class BasicDateField extends StatelessWidget {
             context: context,
             builder: (BuildContext context, Widget child) {
               return Theme(
-                data: ThemeData.dark(),
+                data: Theme.of(context),
                 child: child,
               );
             },

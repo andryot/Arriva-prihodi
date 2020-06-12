@@ -84,7 +84,7 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
     }
     counter++;
   });
-  
+
   if (lane.length > 0) lane.removeAt(0);
 
   if (lane.length == 1) {

@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'HomePage.dart';
@@ -6,9 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SecondRoute extends StatefulWidget {
   State<StatefulWidget> createState() => SecondState();
-  //void onLoad(BuildContext context) async {
-    //init2(); //callback when layout build done
-  //}
 }
 
 final prefs = SharedPreferences.getInstance();
@@ -20,16 +18,19 @@ class SecondState extends State<SecondRoute> {
     super.initState();
     init2().whenComplete(() => setState(() {}));
 
-   // widget.onLoad(context);
+    // widget.onLoad(context);
   }
 
   @override
   Widget build(BuildContext context) {
     var willPopScope = WillPopScope(
-        onWillPop: () async => true,
+        onWillPop: () async {
+          return true;
+        },
         child: Scaffold(
-          backgroundColor: Color(0xff000000),
+          backgroundColor: Theme.of(context).primaryColor,
           appBar: AppBar(
+            elevation: 0,
             actions: <Widget>[
               IconButton(
                 icon: Icon(
@@ -40,19 +41,20 @@ class SecondState extends State<SecondRoute> {
                 onPressed: () async {
                   final prefs = await SharedPreferences.getInstance();
                   if (favorites == null) {
-                    favorites.add(departure + "+" + destination);
+                    favorites.add(routesDeparture + "+" + routesDestination);
                     await prefs.setStringList("favorites", favorites);
                     starColor = Colors.yellow;
                     setState(() {});
                   } else {
-                    if (favorites.contains(departure + "+" + destination)) {
+                    if (favorites
+                        .contains(routesDeparture + "+" + routesDestination)) {
                       favorites.remove(departure + "+" + destination);
                       await prefs.setStringList("favorites", favorites);
                       starColor = Colors.white;
                       setState(() {});
                     } else {
                       //favorites.add(departure + " " + destination);
-                      favorites.add(departure + "+" + destination);
+                      favorites.add(routesDeparture + "+" + routesDestination);
                       await prefs.setStringList("favorites", favorites);
                       starColor = Colors.yellow;
                       setState(() {});
@@ -61,11 +63,28 @@ class SecondState extends State<SecondRoute> {
                 },
               )
             ],
-            backgroundColor: Color(0xff000000),
-            title: AutoSizeText(
-              departure + " --> " + destination,
-              maxLines: 1,
-              style: TextStyle(color: Colors.white, fontSize: 25),
+            backgroundColor: Theme.of(context).primaryColor,
+            title: Row(
+              children: <Widget>[
+                Container(
+                  width: width*0.3,
+                  child: AutoSizeText(
+                    routesDeparture + "  ",
+                    maxLines: 1,
+                    style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 25),
+                  ),
+                ),
+                Icon(EvaIcons.arrowForwardOutline,),
+                Container(
+                  width: width*0.3,
+                  child: AutoSizeText(
+                    "  " + routesDestination,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 25),
+                  ),
+                ),
+              ],
             ),
           ),
           body: Center(
@@ -74,19 +93,30 @@ class SecondState extends State<SecondRoute> {
                   physics: BouncingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   children: <Widget>[
-                    Padding(padding: EdgeInsets.all(5)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Text(
-                          "Odhod",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        Text(
-                          "Prihod",
-                          style: TextStyle(color: Colors.white),
-                        )
-                      ],
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(right:width*0.12),
+                    
+                      child: Row(
+                        
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          Text(
+                            "Odhod",
+                            style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 20),
+                          ),
+                          //Icon(EvaIcons.arrowForwardOutline, color: Colors.black,),
+                          Text(
+                            "Prihod",
+                            style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 20),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10),
                     ),
                     getTextWidgets(departures, arrivals, context),
                   ]),
@@ -103,9 +133,10 @@ Future<void> pejt_domov(BuildContext context){
   Navigator.popUntil(context, ModalRoute.withName("/home"));
 }
 */
-Color barva = Color(0xff404040);
+
 Widget getTextWidgets(
     List<String> departure, List<String> arrival, BuildContext context) {
+
   List<Widget> list = new List<Widget>();
   if (list.isNotEmpty) {
     list.clear();
@@ -127,17 +158,13 @@ Widget getTextWidgets(
     return new Wrap(children: list);
   } else {
     for (var i = 0; i < departures.length; i++) {
-      /*if(i % 2 == 1){
-        barva = Color(0xff171B1B);
-      }    „
-      */
       list.add(Center(
         child: Container(
             height: 60,
-            width: width - width / 100 * 9,
+            width: width * 0.9,
             padding: EdgeInsets.all(17),
             decoration: (BoxDecoration(
-              color: barva,
+              color: Theme.of(context).primaryColorBrightness == Brightness.light ?  Colors.white : Color(0xff404040),
               borderRadius: BorderRadius.circular(20.0),
               border: Border.all(
                 color: Colors.black,
@@ -149,21 +176,31 @@ Widget getTextWidgets(
               //crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  width: (width - width / 100 * 15) -
-                      (width - width / 100 * 13) * 0.30,
-                  child: AutoSizeText(
-                    (i + 1).toString() +
-                        ".   " +
-                        (i < 9 ? "  " : "") +
-                        departure[i] +
-                        "  -->  " +
+                  width: (width  * 0.7),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      AutoSizeText(
+                        departure[i],
+                        maxLines: 1,
+                        minFontSize: 23,
+                        style: TextStyle(
+                          fontSize: 35,
+                          color: Theme.of(context).primaryColorLight,
+                        ),
+                      ),
+
+                      Icon(EvaIcons.arrowForwardOutline, color: Theme.of(context).primaryColorLight,),
+                      AutoSizeText(
                         arrival[i],
-                    maxLines: 1,
-                    minFontSize: 23,
-                    style: TextStyle(
-                      fontSize: 35,
-                      color: Colors.white,
-                    ),
+                        maxLines: 1,
+                        minFontSize: 23,
+                        style: TextStyle(
+                          fontSize: 35,
+                          color: Theme.of(context).primaryColorLight,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
 
@@ -178,7 +215,7 @@ Widget getTextWidgets(
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20.0))),
-                            backgroundColor: barva,
+                            backgroundColor: Theme.of(context).primaryColorBrightness == Brightness.light ? Colors.white : Color(0xff404040),
                             content: Container(
                               width: width - width * 0.25,
                               child: new Column(
@@ -252,7 +289,7 @@ Widget getTextWidgets(
                   tooltip: "Več informacij",
                   alignment: Alignment.center,
                   iconSize: 30,
-                  color: Colors.white,
+                  color: Theme.of(context).primaryColorLight,
                 ),
                 //child: Image(image: AssetImage("assets/logo.png",),
               ],
@@ -271,31 +308,31 @@ class AniRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _willPopCallback,
-      
       child: Scaffold(
-      backgroundColor: Color(0xff000000),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SpinKitCircle(
-              color: Colors.white,
-              size: 80,
-            ),
-            Padding(padding: EdgeInsets.all(5)),
-            Text(
-              "Pridobivanje podatkov...",
-              style: TextStyle(color: Colors.white, fontSize: 25),
-            ),
-          ],
+        backgroundColor: Color(0xff000000),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SpinKitCircle(
+                color: Colors.white,
+                size: 80,
+              ),
+              Padding(padding: EdgeInsets.all(5)),
+              Text(
+                "Pridobivanje podatkov...",
+                style: TextStyle(color: Colors.white, fontSize: 25),
+              ),
+            ],
+          ),
         ),
-      ),
       ),
     );
   }
 }
+
 Future<bool> _willPopCallback() async {
-    return false;
+  return false;
 }
 
 class PopupContent extends StatefulWidget {
@@ -322,7 +359,7 @@ class _PopupContentState extends State<PopupContent> {
 }
 
 Future<void> init2() async {
-  if (favorites.contains(departure + "+" + destination))
+  if (favorites.contains(routesDeparture + "+" + routesDestination))
     starColor = Colors.yellow;
   else
     starColor = Colors.white;

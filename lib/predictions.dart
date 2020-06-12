@@ -11,7 +11,13 @@ String hintDepartures = "Vstopna postaja";
 Color hintColor = Colors.black;
 String hintArrivals = "Izstopna postaja";
 Color hintColorA = Colors.black;
+bool errorArrival = false;
+bool errorDeparture = false;
 
+Color colorArrival = Colors.black;
+Color colorDeparture = Colors.black;
+
+//textField za departure
 class _InputFormDepartureState extends State<InputFormDeparture> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _typeAheadController = TextEditingController();
@@ -39,30 +45,30 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
       key: this._formKey,
       child: Container(
         height: 60,
-        padding: EdgeInsets.only(top:7),
+        padding: EdgeInsets.only(top: 7),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
+          border: Border.all(),
         ),
         child: TypeAheadFormField(
-          
-          
           suggestionsBoxController: suggestionDestinationController,
           textFieldConfiguration: TextFieldConfiguration(
-            
             //textInputAction: TextInputAction.next,
-
             onChanged: (text) {
-              this._formKey.currentState.validate();
+              if(this._formKey.currentState.validate())
+                this._formKey.currentState.save();
             },
             onTap: () {
               this.suggestionDestinationController.toggle();
-              this._formKey.currentState.save();
+              if(this._formKey.currentState.validate())
+                this._formKey.currentState.save();
             },
             //onSubmitted: () => (),
             focusNode: myFocusNode,
             //decoration: InputDecoration(labelText: 'Vstopna postaja'),
             decoration: InputDecoration(
+              border: InputBorder.none,
               prefixIcon: new Icon(
                 Icons.directions_bus,
                 color: Colors.black,
@@ -70,19 +76,21 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
               ),
               contentPadding: EdgeInsets.only(top: 13),
               suffixIcon: IconButton(
-                icon:Icon(
-                Icons.clear,
-                color: Colors.black,
-                size: 30,),
-                onPressed:() {_typeAheadController.clear();},
+                icon: Icon(
+                  Icons.clear,
+                  color: Colors.black,
+                  size: 30,
+                ),
+                onPressed: () {
+                  _typeAheadController.clear();
+                },
               ),
-
-              border: InputBorder.none,
               hintText: hintDepartures,
               hintStyle: TextStyle(color: hintColor),
               filled: false,
             ),
-            style: TextStyle(fontSize: 20),
+            
+            style: TextStyle(fontSize: 20, color: Colors.black),
             controller: this._typeAheadController,
           ),
           suggestionsCallback: (pattern) {
@@ -91,7 +99,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
           suggestionsBoxDecoration: SuggestionsBoxDecoration(
               borderRadius: BorderRadius.circular(20), elevation: 0),
           noItemsFoundBuilder: (BuildContext context) => Text(
-            '   Neveljaven vnos!',
+            '\n   Neveljaven vnos!\n',
             style: TextStyle(color: Colors.red),
           ),
           itemBuilder: (context, suggestion) {
@@ -110,15 +118,20 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
             }
           },
           validator: (value) {
-            if (value.isEmpty) {
+            if (!predictions.contains(value)) {
               //this._typeAheadController.clear();
               //myFocusNode..unfocus();
-              hintDepartures = "Prosim izberi postajo iz seznama";
+              hintDepartures = "Izberi postajo iz seznama";
               hintColor = Colors.red;
-              //return "Prosim izberi postajo iz seznama";
+              errorDeparture=true;
             }
+            else errorDeparture=false;
           },
-          onSaved: (value) => departure = value,
+          onSaved: (value) {
+            departure = value;
+            routesDeparture = value;
+            //errorDeparture=false;
+          },
         ),
       ),
     );
@@ -138,6 +151,16 @@ class CitiesService {
   }
 }
 
+
+
+
+
+
+
+
+
+
+//textField za arrival
 class InputFormArrival extends StatefulWidget {
   @override
   _InputFormArrivalState createState() => _InputFormArrivalState();
@@ -146,6 +169,7 @@ class InputFormArrival extends StatefulWidget {
 class _InputFormArrivalState extends State<InputFormArrival> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _typeAheadController = TextEditingController();
+  
   FocusNode myFocusNode;
   final SuggestionsBoxController suggestionArrivalController =
       SuggestionsBoxController();
@@ -169,10 +193,11 @@ class _InputFormArrivalState extends State<InputFormArrival> {
       key: this._formKey,
       child: Container(
         height: 60,
-        padding: EdgeInsets.only(top:7),
+        padding: EdgeInsets.only(top: 7),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
+          border: Border.all(),
         ),
         child: Container(
           child: TypeAheadFormField(
@@ -194,19 +219,22 @@ class _InputFormArrivalState extends State<InputFormArrival> {
                   size: 30,
                 ),
                 suffixIcon: IconButton(
-                icon:Icon(
-                Icons.clear,
-                color: Colors.black,
-                size: 30,),
-                onPressed:() {_typeAheadController.clear();},
-              ),
+                  icon: Icon(
+                    Icons.clear,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    _typeAheadController.clear();
+                  },
+                ),
                 contentPadding: EdgeInsets.only(top: 13),
                 border: InputBorder.none,
                 hintText: hintArrivals,
                 hintStyle: TextStyle(color: hintColorA),
                 filled: false,
               ),
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20, color: Colors.black),
               controller: this._typeAheadController,
             ),
             suggestionsCallback: (pattern) {
@@ -215,7 +243,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
             suggestionsBoxDecoration: SuggestionsBoxDecoration(
                 borderRadius: BorderRadius.circular(20), elevation: 0),
             noItemsFoundBuilder: (BuildContext context) => Text(
-              '   Neveljaven vnos!',
+              '\n   Neveljaven vnos!\n',
               style: TextStyle(color: Colors.red),
             ),
             itemBuilder: (context, suggestion) {
@@ -232,17 +260,24 @@ class _InputFormArrivalState extends State<InputFormArrival> {
               if (this._formKey.currentState.validate()) {
                 this._formKey.currentState.save();
               }
+              else
+                errorArrival=true;
             },
             validator: (value) {
-              if (value.isEmpty) {
+              if (!predictions.contains(value)) {
                 //this._typeAheadController.clear();
-
-                hintArrivals = "Prosim izberi postajo iz seznama";
+                hintArrivals = "Izberi postajo iz seznama";
                 hintColorA = Colors.red;
-                //return "Prosim izberi postajo iz seznama";
+                errorArrival=true;
+
               }
+              else errorArrival=false;
             },
-            onSaved: (value) => destination = value,
+            onSaved: (value) {
+              destination = value;
+              routesDestination = value;
+              errorArrival=false;
+            },
           ),
         ),
       ),

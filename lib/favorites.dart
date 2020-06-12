@@ -6,7 +6,7 @@ import 'HomePage.dart';
 import 'data_fetch.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'routes.dart';
-import 'dart:async';
+
 
 class FavoritesSection extends StatefulWidget {
   @override
@@ -58,25 +58,21 @@ class FavoritesState extends State<FavoritesSection> {
                   borderRadius: new BorderRadius.circular(20.0)),
               padding: EdgeInsets.all(10),
               onPressed: () => [
-                    departure = temp[0],
-                    destination = temp[1],
+                    routesDeparture = temp[0],
+                    routesDestination = temp[1],
                     FocusScope.of(context).requestFocus(new FocusNode()),
-                    Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          pageBuilder: (c, a1, a2) => AniRoute(),
-                          fullscreenDialog: true,
-                          transitionsBuilder: (c, anim, a2, child) =>
-                              FadeTransition(opacity: anim, child: child),
-                          transitionDuration: Duration(milliseconds: 400),
-                        )),
+                    Navigator.of(context).push(new CupertinoPageRoute<bool>(
+                      fullscreenDialog: true,
+                      builder: (context) => AniRoute(),
+                    )),
                     fetch(temp[0].toString(), temp[1].toString(), date)
                         .whenComplete(() => [
                               Navigator.pop(context),
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SecondRoute()))
+                              Navigator.of(context)
+                                  .push(new CupertinoPageRoute<bool>(
+                                fullscreenDialog: true,
+                                builder: (context) => SecondRoute(),
+                              )),
                             ]),
                   ],
               color: Colors.white,
@@ -100,7 +96,7 @@ class FavoritesState extends State<FavoritesSection> {
                               maxLines: 1,
                               minFontSize: 15,
                               //maxFontSize: 40,
-                              style: TextStyle(fontSize: 18),
+                              style: TextStyle(fontSize: 18, color: Theme.of(context).primaryColorDark),
                               //group: myGroup,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -125,7 +121,7 @@ class FavoritesState extends State<FavoritesSection> {
                               minFontSize: 15,
                               //maxFontSize: 40,
                               //group: myGroup,
-                              style: TextStyle(fontSize: 18),
+                              style: TextStyle(fontSize: 18, color: Theme.of(context).primaryColorDark),
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),

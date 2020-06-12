@@ -14,20 +14,21 @@ class SettingsState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff000000),
+        elevation: 0,
+        backgroundColor: Theme.of(context).primaryColor,
         title: Text("Nastavitve"),
       ),
-      backgroundColor: Colors.black,
-      body: Container(
+      backgroundColor: Theme.of(context).primaryColor,
+      body: Container(alignment: Alignment.centerLeft,
         child: ListView(children: <Widget>[
           SwitchListTile(
             value: darkMode,
             title: Text(
               "Dark mode",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Theme.of(context).primaryColorLight),
             ),
-            onChanged: (bool value) { 
-              if(value) {
+            onChanged: (bool value) {
+              if (value) {
                 bgdColor = Colors.white;
               }
               setState(() {
@@ -35,6 +36,13 @@ class SettingsState extends State<SettingsPage> {
               });
             },
           ),
+          CupertinoButton(
+              child: Text("Več informacij"),
+              onPressed: () => showAboutDialog(
+                  context: context,
+                  applicationVersion: "\n1.3",
+                  applicationName: "Arriva prihodi",
+                  applicationLegalese: "Podatki se pridobivajo iz spletne strani arriva.si\n")),
         ]),
       ),
     );
