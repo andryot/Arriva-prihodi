@@ -11,7 +11,7 @@ description: A new Flutter project.
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.0+5
 
 environment:
   sdk: ">=2.5.2 <3.0.0"
@@ -19,30 +19,28 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  scrapy: ^0.0.3
   html:
   http: 0.12.0+4
-  path_provider: ^1.6.1
-  path: ^1.6.2
   datetime_picker_formfield:
   flutter_spinkit: "^2.1.0"
   auto_size_text: ^2.1.0
-  flutter_keyboard_visibility: ^0.7.0
   flutter_typeahead: ^1.8.0
   shared_preferences: 0.5.6+2
-  cupertino_icons:
   eva_icons_flutter: 2.0.0
-  provider:
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  #cupertino_icons: ^0.1.2
   flutter_localizations:  
     sdk: flutter
   fluttertoast: ^4.0.1
+  
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.7.5
   flutter_test:
     sdk: flutter
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "assets/icon.png"
+  image_path_android: "assets/icon.png"
 
 
 

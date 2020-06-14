@@ -1,8 +1,8 @@
+import 'package:bus_time_table/config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'HomePage.dart';
 
-//import 'HomePage.dart';
 class SettingsPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => SettingsState();
@@ -19,30 +19,39 @@ class SettingsState extends State<SettingsPage> {
         title: Text("Nastavitve"),
       ),
       backgroundColor: Theme.of(context).primaryColor,
-      body: Container(alignment: Alignment.centerLeft,
-        child: ListView(children: <Widget>[
-          SwitchListTile(
-            value: darkMode,
-            title: Text(
-              "Dark mode",
-              style: TextStyle(color: Theme.of(context).primaryColorLight),
+      body: Center(
+        child: Column(children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal:18.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  "Dark mode",
+                  style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 17),
+                ),
+                Switch(
+                  activeColor: Colors.blue,
+                  value: darkMode,
+                  onChanged: (bool value) {
+                    setState(() {
+                      currentTheme.switchTheme();
+                      darkMode = value;
+                    });
+                  },
+                ),
+              ],
             ),
-            onChanged: (bool value) {
-              if (value) {
-                bgdColor = Colors.white;
-              }
-              setState(() {
-                darkMode = value;
-              });
-            },
           ),
           CupertinoButton(
               child: Text("Več informacij"),
               onPressed: () => showAboutDialog(
                   context: context,
+                  useRootNavigator: false,
                   applicationVersion: "\n1.3",
                   applicationName: "Arriva prihodi",
-                  applicationLegalese: "Podatki se pridobivajo iz spletne strani arriva.si\n")),
+                  applicationLegalese:
+                      "Podatki se pridobivajo iz spletne strani arriva.si\n\nRazvijalec: Andraž Anderle\nIcon made by Freepi from www.flaticon.com")),
         ]),
       ),
     );

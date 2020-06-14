@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:bus_time_table/config.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -50,7 +51,7 @@ class SecondState extends State<SecondRoute> {
                         .contains(routesDeparture + "+" + routesDestination)) {
                       favorites.remove(departure + "+" + destination);
                       await prefs.setStringList("favorites", favorites);
-                      starColor = Colors.white;
+                      starColor = currentTheme.starColor();
                       setState(() {});
                     } else {
                       //favorites.add(departure + " " + destination);
@@ -127,12 +128,6 @@ class SecondState extends State<SecondRoute> {
   }
 }
 
-/*
-Future<void> pejt_domov(BuildContext context){
-
-  Navigator.popUntil(context, ModalRoute.withName("/home"));
-}
-*/
 
 Widget getTextWidgets(
     List<String> departure, List<String> arrival, BuildContext context) {
@@ -227,7 +222,7 @@ Widget getTextWidgets(
                                     child: Text(
                                       "Odhod: " + departure[i],
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
                                           fontSize: 34,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -236,7 +231,7 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 20.0),
                                     child: Text("Prihod: " + arrival[i],
                                         style: TextStyle(
-                                            color: Colors.white,
+                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
                                             fontSize: 34,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -244,7 +239,7 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 20.0),
                                     child: Text("Čas: " + travelTime[i],
                                         style: TextStyle(
-                                            color: Colors.white,
+                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -252,7 +247,7 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 8.0),
                                     child: Text("Razdalja: " + kilometers[i],
                                         style: TextStyle(
-                                            color: Colors.white,
+                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -260,7 +255,7 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 8.0),
                                     child: Text("Cena: " + price[i],
                                         style: TextStyle(
-                                            color: Colors.white,
+                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -268,7 +263,7 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 8.0),
                                     child: Text("Prevoznik: " + busCompany[i],
                                         style: TextStyle(
-                                            color: Colors.white,
+                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -276,7 +271,7 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 8.0),
                                     child: Text("Peron: " + lane[i],
                                         style: TextStyle(
-                                            color: Colors.white,
+                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -309,19 +304,19 @@ class AniRoute extends StatelessWidget {
     return WillPopScope(
       onWillPop: _willPopCallback,
       child: Scaffold(
-        backgroundColor: Color(0xff000000),
+        backgroundColor: Theme.of(context).primaryColor,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SpinKitCircle(
-                color: Colors.white,
+               SpinKitCircle(
+                color: Theme.of(context).primaryColorLight,
                 size: 80,
               ),
               Padding(padding: EdgeInsets.all(5)),
               Text(
                 "Pridobivanje podatkov...",
-                style: TextStyle(color: Colors.white, fontSize: 25),
+                style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 25),
               ),
             ],
           ),
@@ -335,32 +330,10 @@ Future<bool> _willPopCallback() async {
   return false;
 }
 
-class PopupContent extends StatefulWidget {
-  final Widget content;
-  PopupContent({
-    Key key,
-    this.content,
-  }) : super(key: key);
-  _PopupContentState createState() => _PopupContentState();
-}
-
-class _PopupContentState extends State<PopupContent> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text("123455242"),
-    );
-  }
-}
 
 Future<void> init2() async {
   if (favorites.contains(routesDeparture + "+" + routesDestination))
     starColor = Colors.yellow;
   else
-    starColor = Colors.white;
+    starColor = currentTheme.starColor();
 }

@@ -155,7 +155,7 @@ class HomeState extends State<HomePage> {
                   Text(
                     "    Priljubljene relacije: ",
                     style: TextStyle(
-                      color: Theme.of(context).primaryColorLight,
+                      color: Colors.orange[600],//Theme.of(context).primaryColorLight,
                       fontSize: 20,
                     ),
                   ),

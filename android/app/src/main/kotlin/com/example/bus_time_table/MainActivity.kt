@@ -1,4 +1,4 @@
-package com.example.bus_time_table
+package com.andraz.bus_time_table
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

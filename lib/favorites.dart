@@ -45,9 +45,6 @@ class FavoritesState extends State<FavoritesSection> {
     //var myGroup = AutoSizeGroup();
 
     List<Widget> list = new List<Widget>();
-    if (list.isNotEmpty) {
-      list.clear();
-    }
     if (favorites.isNotEmpty) {
       for (var i = 0; i < favorites.length; i++) {
         List<String> temp = new List<String>();
@@ -162,8 +159,11 @@ class FavoritesState extends State<FavoritesSection> {
           height: 10,
         ));
       }
+      return new Wrap(children: list);
     }
-    return new Wrap(children: list);
+    else
+      return Text("Seznam priljubljenih relacij je prazen!");
+    
   }
 }
 //neki  List<double>() = [10, 5];
