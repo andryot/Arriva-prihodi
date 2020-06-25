@@ -44,94 +44,92 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
     return Form(
       key: this._formKey,
       child: Container(
-        height: 60,
-        padding: EdgeInsets.only(top: 7),
+        height: MediaQuery.of(context).size.height * 0.06,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
           border: Border.all(),
         ),
-        child: TypeAheadFormField(
-          suggestionsBoxController: suggestionDestinationController,
-          textFieldConfiguration: TextFieldConfiguration(
-            //textInputAction: TextInputAction.next,
-            onChanged: (text) {
-              if(this._formKey.currentState.validate())
-                this._formKey.currentState.save();
-            },
-            onTap: () {
-              this.suggestionDestinationController.toggle();
-              if(this._formKey.currentState.validate())
-                this._formKey.currentState.save();
-            },
-            //onSubmitted: () => (),
-            focusNode: myFocusNode,
-            //decoration: InputDecoration(labelText: 'Vstopna postaja'),
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              prefixIcon: new Icon(
-                Icons.directions_bus,
-                color: Colors.black,
-                size: 30,
-              ),
-              contentPadding: EdgeInsets.only(top: 13),
-              suffixIcon: IconButton(
-                icon: Icon(
-                  Icons.clear,
+        child: Center(
+          child: TypeAheadFormField(
+            suggestionsBoxController: suggestionDestinationController,
+            textFieldConfiguration: TextFieldConfiguration(
+              //textInputAction: TextInputAction.next,
+              onChanged: (text) {
+                if(this._formKey.currentState.validate())
+                  this._formKey.currentState.save();
+              },
+              onTap: () {
+                this.suggestionDestinationController.toggle();
+                if(this._formKey.currentState.validate())
+                  this._formKey.currentState.save();
+              },
+              focusNode: myFocusNode,
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                prefixIcon: new Icon(
+                  Icons.directions_bus,
                   color: Colors.black,
                   size: 30,
                 ),
-                onPressed: () {
-                  _typeAheadController.clear();
-                },
+                
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    Icons.clear,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    _typeAheadController.clear();
+                  },
+                ),
+                hintText: hintDepartures,
+                hintStyle: TextStyle(color: hintColor),
+                filled: false,
               ),
-              hintText: hintDepartures,
-              hintStyle: TextStyle(color: hintColor),
-              filled: false,
+              
+              style: TextStyle(fontSize: 20, color: Colors.black),
+              controller: this._typeAheadController,
             ),
-            
-            style: TextStyle(fontSize: 20, color: Colors.black),
-            controller: this._typeAheadController,
+            suggestionsCallback: (pattern) {
+              return CitiesService.getSuggestions(pattern);
+            },
+            suggestionsBoxDecoration: SuggestionsBoxDecoration(
+                borderRadius: BorderRadius.circular(20), elevation: 0),
+            noItemsFoundBuilder: (BuildContext context) => Text(
+              '\n   Neveljaven vnos!\n',
+              style: TextStyle(color: Colors.red),
+            ),
+            itemBuilder: (context, suggestion) {
+              return ListTile(
+                title: Text(suggestion),
+              );
+            },
+            transitionBuilder: (context, suggestionsBox, controller) {
+              return suggestionsBox;
+            },
+            onSuggestionSelected: (suggestion) {
+              this._typeAheadController.text = suggestion;
+              if (this._formKey.currentState.validate()) {
+                this._formKey.currentState.save();
+              }
+            },
+            validator: (value) {
+              if (!predictions.contains(value)) {
+                //this._typeAheadController.clear();
+                //myFocusNode..unfocus();
+                hintDepartures = "Izberi postajo iz seznama";
+                hintColor = Colors.black;
+                errorDeparture=true;
+              }
+              else errorDeparture=false;
+            },
+            onSaved: (value) {
+              departure = value;
+              routesDeparture = value;
+              //errorDeparture=false;
+            },
           ),
-          suggestionsCallback: (pattern) {
-            return CitiesService.getSuggestions(pattern);
-          },
-          suggestionsBoxDecoration: SuggestionsBoxDecoration(
-              borderRadius: BorderRadius.circular(20), elevation: 0),
-          noItemsFoundBuilder: (BuildContext context) => Text(
-            '\n   Neveljaven vnos!\n',
-            style: TextStyle(color: Colors.red),
-          ),
-          itemBuilder: (context, suggestion) {
-            //if()
-            return ListTile(
-              title: Text(suggestion),
-            );
-          },
-          transitionBuilder: (context, suggestionsBox, controller) {
-            return suggestionsBox;
-          },
-          onSuggestionSelected: (suggestion) {
-            this._typeAheadController.text = suggestion;
-            if (this._formKey.currentState.validate()) {
-              this._formKey.currentState.save();
-            }
-          },
-          validator: (value) {
-            if (!predictions.contains(value)) {
-              //this._typeAheadController.clear();
-              //myFocusNode..unfocus();
-              hintDepartures = "Izberi postajo iz seznama";
-              hintColor = Colors.red;
-              errorDeparture=true;
-            }
-            else errorDeparture=false;
-          },
-          onSaved: (value) {
-            departure = value;
-            routesDeparture = value;
-            //errorDeparture=false;
-          },
         ),
       ),
     );
@@ -192,14 +190,14 @@ class _InputFormArrivalState extends State<InputFormArrival> {
     return Form(
       key: this._formKey,
       child: Container(
-        height: 60,
-        padding: EdgeInsets.only(top: 7),
+        height: MediaQuery.of(context).size.height * 0.06,
+        padding: EdgeInsets.only(top: 0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
           border: Border.all(),
         ),
-        child: Container(
+        child: Center(
           child: TypeAheadFormField(
             suggestionsBoxController: suggestionArrivalController,
             textFieldConfiguration: TextFieldConfiguration(
@@ -228,7 +226,6 @@ class _InputFormArrivalState extends State<InputFormArrival> {
                     _typeAheadController.clear();
                   },
                 ),
-                contentPadding: EdgeInsets.only(top: 13),
                 border: InputBorder.none,
                 hintText: hintArrivals,
                 hintStyle: TextStyle(color: hintColorA),

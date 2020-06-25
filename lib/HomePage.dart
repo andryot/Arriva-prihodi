@@ -101,11 +101,9 @@ class HomeState extends State<HomePage> {
                   InputFormArrival(),
                   Padding(padding: EdgeInsets.all(10)),
                   BasicDateField(),
-                  Padding(padding: EdgeInsets.all(10)),
                   Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: width - width * 0.75),
-                    height: 50.0,
+                    padding: EdgeInsets.symmetric(horizontal: width * 0.25),
+                    height: height * 0.06,
                     child: RaisedButton(
                       onPressed: () => [
                         errorArrival == false && errorDeparture == false
@@ -141,7 +139,7 @@ class HomeState extends State<HomePage> {
                       ],
                       child: Text(
                         "Išči",
-                        style: TextStyle(fontSize: 25),
+                        style: TextStyle(fontSize: 30),
                       ),
                       color: Color(0xff00adb5),
                       textColor: Theme.of(context).primaryColorLight,
@@ -155,16 +153,17 @@ class HomeState extends State<HomePage> {
                   Text(
                     "    Priljubljene relacije: ",
                     style: TextStyle(
-                      color: Colors.orange[600],//Theme.of(context).primaryColorLight,
+                      color: Colors
+                          .orange[800], //Theme.of(context).primaryColorLight,
                       fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.all(5),
                   ),
                   Container(
-                    // width: 200,
-                    height: height - height * 0.5,
+                    height: height * 0.52,
                     child: FavoritesSection(),
                   ),
                 ],
@@ -225,18 +224,18 @@ class BasicDateField extends StatelessWidget {
   final format = DateFormat("dd.MM.yyyy");
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      DateTimeField(
+    return Container(
+      height: height * 0.08,
+      child: DateTimeField(
         resetIcon: Icon(
           Icons.clear,
           color: Colors.black,
           size: 30,
         ),
-        //textAlign: TextAlign.center,
-        maxLines: 1,
+        
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 15, top: 35),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+          contentPadding: EdgeInsets.all(width*0.04),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(17)),
           fillColor: Colors.white,
           filled: true,
           prefixIcon: new Icon(
@@ -265,8 +264,7 @@ class BasicDateField extends StatelessWidget {
           );
         },
       ),
-      //Padding(padding: EdgeInsets.all(10)),
-    ]);
+    );
   }
 }
 
@@ -286,50 +284,3 @@ Future<void> init() async {
   if (prefs.containsKey("favorites"))
     favorites.addAll(prefs.getStringList("favorites"));
 }
-
-//Set<String> set = Set.from(tabela);
-//  set.forEach((element) => print(element.trim().contains(":")));
-/* for(int i = 0; i < departures.length; i++){
-    print("Odhod: " + departures[i] + " Prihod: " + arrivals[i]);
-  }
-  */
-/*for(var i = 0; i < departures.length; i++){
-        list.add(new Text(departures[i]));
-    }
-  */
-/*
-                  _keyboardIsVisible()
-                      ? Text(
-                          "Keyboard is visible",
-                          style: Theme.of(context)
-                              .textTheme
-                              .display1
-                              .copyWith(color: Colors.blue),
-                        )
-                      : RichText(
-                          text: TextSpan(children: [
-                            TextSpan(
-                              text: "Keyboard is ",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .display1
-                                  .copyWith(color: Colors.blue),
-                            ),
-                            TextSpan(
-                              text: "not ",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .display1
-                                  .copyWith(color: Colors.red),
-                            ),
-                            TextSpan(
-                              text: "visible",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .display1
-                                  .copyWith(color: Colors.blue),
-                            )
-
-                          ]),
-                        ),
-                        */

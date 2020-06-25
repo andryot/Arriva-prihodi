@@ -7,7 +7,6 @@ import 'data_fetch.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'routes.dart';
 
-
 class FavoritesSection extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => FavoritesState();
@@ -26,12 +25,8 @@ class FavoritesState extends State<FavoritesSection> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        //border: Border.all(color: Colors.green, width: 5),
         borderRadius: new BorderRadius.circular(17.0),
-        //color: Color(0xff404040),
       ),
-      //height: 200,
-
       child: ListView(
         physics: BouncingScrollPhysics(),
         children: <Widget>[
@@ -53,7 +48,6 @@ class FavoritesState extends State<FavoritesSection> {
           RaisedButton(
               shape: RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(20.0)),
-              padding: EdgeInsets.all(10),
               onPressed: () => [
                     routesDeparture = temp[0],
                     routesDestination = temp[1],
@@ -74,96 +68,80 @@ class FavoritesState extends State<FavoritesSection> {
                   ],
               color: Colors.white,
               child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Container(
-                      width: width - width * 0.254,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            width: width - width * 0.675,
-                            child:
-                                //Padding(padding: EdgeInsets.only(left: 8),),
-                                // Expanded(
-                                //child:
-                                AutoSizeText(
-                              " " + temp[0].toString(),
-                              maxLines: 1,
-                              minFontSize: 15,
-                              //maxFontSize: 40,
-                              style: TextStyle(fontSize: 18, color: Theme.of(context).primaryColorDark),
-                              //group: myGroup,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          //),
-                          Container(
-                            //width: 40,
-                            padding: EdgeInsets.only(right: 5),
-                            child: Icon(
-                              EvaIcons.arrowForwardOutline,
-                              color: Colors.black,
-                            ),
-                          ),
-                          //Expanded(
-                          //child:
-                          Container(
-                            alignment: Alignment.centerRight,
-                            width: width - width * 0.675,
-                            child: AutoSizeText(
-                              temp[1].toString(),
-                              maxLines: 1,
-                              minFontSize: 15,
-                              //maxFontSize: 40,
-                              //group: myGroup,
-                              style: TextStyle(fontSize: 18, color: Theme.of(context).primaryColorDark),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          //),
-                        ],
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                Container(
+                  height: height * 0.06,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        width: width * 0.3,
+                        child: AutoSizeText(
+                          " " + temp[0].toString(),
+                          maxLines: 1,
+                          minFontSize: 15,
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Theme.of(context).primaryColorDark),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                    ),
-                    Container(
-                      width: width * 0.132,
-                      height: 35,
-                      padding: EdgeInsets.only(left: 1, right: 5),
-                      child: Material(
-                          elevation: 0,
-                          color: Colors.white,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              IconButton(
-                                icon: Icon(Icons.star),
-                                iconSize: 38,
-                                padding: EdgeInsets.only(left: 0),
-                                color: Colors.yellow,
-                                onPressed: () async {
-                                  favorites.removeAt(i);
-                                  refresh();
-
-                                  //print("123");
-                                },
-                              ),
-                            ],
-                          )),
-                    ),
-                  ])),
-
-          //child: Image(image: AssetImage("assets/logo.png",),
+                      Container(
+                        padding: EdgeInsets.only(right: 5, left: 5),
+                        child: Icon(
+                          EvaIcons.arrowForwardOutline,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.centerRight,
+                        width: width * 0.3,
+                        child: AutoSizeText(
+                          temp[1].toString(),
+                          maxLines: 1,
+                          minFontSize: 15,
+                          //maxFontSize: 40,
+                          //group: myGroup,
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: Theme.of(context).primaryColorDark),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      //),
+                    ],
+                  ),
+                ),
+                  Container(
+                    child: Material(
+                        elevation: 0,
+                        color: Colors.white,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            IconButton(
+                              icon: Icon(Icons.star),
+                              iconSize: 30,
+                              color: Colors.yellow,
+                              onPressed: () async {
+                                favorites.removeAt(i);
+                                refresh();
+                              },
+                            ),
+                          ],
+                        )),
+                  ),
+                
+              ])),
         );
         list.add(new Container(
-          height: 10,
+          height: height * 0.02,
         ));
       }
       return new Wrap(children: list);
-    }
-    else
+    } else
       return Text("Seznam priljubljenih relacij je prazen!");
-    
   }
 }
-//neki  List<double>() = [10, 5];

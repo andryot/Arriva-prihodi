@@ -32,92 +32,104 @@ class SecondState extends State<SecondRoute> {
           backgroundColor: Theme.of(context).primaryColor,
           appBar: AppBar(
             elevation: 0,
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(
-                  Icons.star,
-                  size: 31,
-                  color: starColor,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      width: width * 0.3,
+                      child: AutoSizeText(
+                        routesDeparture + "  ",
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Theme.of(context).primaryColorLight,
+                            fontSize: 25),
+                      ),
+                    ),
+                    Icon(
+                      EvaIcons.arrowForwardOutline,
+                    ),
+                    Container(
+                      width: width * 0.3,
+                      child: AutoSizeText(
+                        "  " + routesDestination,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Theme.of(context).primaryColorLight,
+                            fontSize: 25),
+                      ),
+                    ),
+                  ],
                 ),
-                onPressed: () async {
-                  final prefs = await SharedPreferences.getInstance();
-                  if (favorites == null) {
-                    favorites.add(routesDeparture + "+" + routesDestination);
-                    await prefs.setStringList("favorites", favorites);
-                    starColor = Colors.yellow;
-                    setState(() {});
-                  } else {
-                    if (favorites
-                        .contains(routesDeparture + "+" + routesDestination)) {
-                      favorites.remove(departure + "+" + destination);
-                      await prefs.setStringList("favorites", favorites);
-                      starColor = currentTheme.starColor();
-                      setState(() {});
-                    } else {
-                      //favorites.add(departure + " " + destination);
+                IconButton(
+                  icon: Icon(
+                    Icons.star,
+                    size: 30,
+                    color: starColor,
+                  ),
+                  onPressed: () async {
+                    final prefs = await SharedPreferences.getInstance();
+                    if (favorites == null) {
                       favorites.add(routesDeparture + "+" + routesDestination);
                       await prefs.setStringList("favorites", favorites);
                       starColor = Colors.yellow;
                       setState(() {});
+                    } else {
+                      if (favorites.contains(
+                          routesDeparture + "+" + routesDestination)) {
+                        favorites.remove(departure + "+" + destination);
+                        await prefs.setStringList("favorites", favorites);
+                        starColor = currentTheme.starColor();
+                        setState(() {});
+                      } else {
+                        //favorites.add(departure + " " + destination);
+                        favorites
+                            .add(routesDeparture + "+" + routesDestination);
+                        await prefs.setStringList("favorites", favorites);
+                        starColor = Colors.yellow;
+                        setState(() {});
+                      }
                     }
-                  }
-                },
-              )
-            ],
-            backgroundColor: Theme.of(context).primaryColor,
-            title: Row(
-              children: <Widget>[
-                Container(
-                  width: width*0.3,
-                  child: AutoSizeText(
-                    routesDeparture + "  ",
-                    maxLines: 1,
-                    style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 25),
-                  ),
-                ),
-                Icon(EvaIcons.arrowForwardOutline,),
-                Container(
-                  width: width*0.3,
-                  child: AutoSizeText(
-                    "  " + routesDestination,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 25),
-                  ),
-                ),
+                  },
+                )
               ],
             ),
+            backgroundColor: Theme.of(context).primaryColor,
           ),
           body: Center(
             child: Container(
               child: ListView(
                   physics: BouncingScrollPhysics(),
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 0),
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
+                      padding: EdgeInsets.symmetric(vertical: height * 0.01),
                     ),
                     Container(
-                      padding: EdgeInsets.only(right:width*0.12),
-                    
+                      padding: EdgeInsets.only(right: width * 0.12),
                       child: Row(
-                        
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           Text(
                             "Odhod",
-                            style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 20),
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColorLight,
+                                fontSize: 20),
                           ),
-                          //Icon(EvaIcons.arrowForwardOutline, color: Colors.black,),
                           Text(
                             "Prihod",
-                            style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 20),
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColorLight,
+                                fontSize: 20),
                           )
                         ],
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
+                      padding: EdgeInsets.symmetric(vertical: height * 0.01),
                     ),
                     getTextWidgets(departures, arrivals, context),
                   ]),
@@ -128,10 +140,8 @@ class SecondState extends State<SecondRoute> {
   }
 }
 
-
 Widget getTextWidgets(
     List<String> departure, List<String> arrival, BuildContext context) {
-
   List<Widget> list = new List<Widget>();
   if (list.isNotEmpty) {
     list.clear();
@@ -155,11 +165,13 @@ Widget getTextWidgets(
     for (var i = 0; i < departures.length; i++) {
       list.add(Center(
         child: Container(
-            height: 60,
-            width: width * 0.9,
-            padding: EdgeInsets.all(17),
+            height: MediaQuery.of(context).size.height * 0.06,
+            width: width * 0.93,
             decoration: (BoxDecoration(
-              color: Theme.of(context).primaryColorBrightness == Brightness.light ?  Colors.white : Color(0xff404040),
+              color:
+                  Theme.of(context).primaryColorBrightness == Brightness.light
+                      ? Colors.white
+                      : Color(0xff404040),
               borderRadius: BorderRadius.circular(20.0),
               border: Border.all(
                 color: Colors.black,
@@ -167,31 +179,33 @@ Widget getTextWidgets(
               ),
             )),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
-                  width: (width  * 0.7),
+                  width: (width * 0.75),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       AutoSizeText(
                         departure[i],
                         maxLines: 1,
-                        minFontSize: 23,
+                        minFontSize: 15,
                         style: TextStyle(
-                          fontSize: 35,
+                          fontSize: 30,
                           color: Theme.of(context).primaryColorLight,
                         ),
                       ),
-
-                      Icon(EvaIcons.arrowForwardOutline, color: Theme.of(context).primaryColorLight,),
+                      Icon(
+                        EvaIcons.arrowForwardOutline,
+                        color: Theme.of(context).primaryColorLight,
+                        size: 30,
+                      ),
                       AutoSizeText(
                         arrival[i],
                         maxLines: 1,
-                        minFontSize: 23,
+                        minFontSize: 15,
                         style: TextStyle(
-                          fontSize: 35,
+                          fontSize: 30,
                           color: Theme.of(context).primaryColorLight,
                         ),
                       ),
@@ -200,7 +214,7 @@ Widget getTextWidgets(
                 ),
 
                 IconButton(
-                  padding: EdgeInsets.only(left: 0, bottom: 3),
+                  padding: EdgeInsets.only(bottom: 0),
                   icon: Icon(Icons.info),
                   onPressed: () {
                     showDialog(
@@ -210,7 +224,11 @@ Widget getTextWidgets(
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20.0))),
-                            backgroundColor: Theme.of(context).primaryColorBrightness == Brightness.light ? Colors.white : Color(0xff404040),
+                            backgroundColor:
+                                Theme.of(context).primaryColorBrightness ==
+                                        Brightness.light
+                                    ? Colors.white
+                                    : Color(0xff404040),
                             content: Container(
                               width: width - width * 0.25,
                               child: new Column(
@@ -222,7 +240,11 @@ Widget getTextWidgets(
                                     child: Text(
                                       "Odhod: " + departure[i],
                                       style: TextStyle(
-                                          color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
+                                          color: Theme.of(context)
+                                                      .primaryColorBrightness ==
+                                                  Brightness.dark
+                                              ? Colors.white
+                                              : Color(0xff404040),
                                           fontSize: 34,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -231,7 +253,11 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 20.0),
                                     child: Text("Prihod: " + arrival[i],
                                         style: TextStyle(
-                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
+                                            color: Theme.of(context)
+                                                        .primaryColorBrightness ==
+                                                    Brightness.dark
+                                                ? Colors.white
+                                                : Color(0xff404040),
                                             fontSize: 34,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -239,7 +265,11 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 20.0),
                                     child: Text("Čas: " + travelTime[i],
                                         style: TextStyle(
-                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
+                                            color: Theme.of(context)
+                                                        .primaryColorBrightness ==
+                                                    Brightness.dark
+                                                ? Colors.white
+                                                : Color(0xff404040),
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -247,7 +277,11 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 8.0),
                                     child: Text("Razdalja: " + kilometers[i],
                                         style: TextStyle(
-                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
+                                            color: Theme.of(context)
+                                                        .primaryColorBrightness ==
+                                                    Brightness.dark
+                                                ? Colors.white
+                                                : Color(0xff404040),
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -255,7 +289,11 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 8.0),
                                     child: Text("Cena: " + price[i],
                                         style: TextStyle(
-                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
+                                            color: Theme.of(context)
+                                                        .primaryColorBrightness ==
+                                                    Brightness.dark
+                                                ? Colors.white
+                                                : Color(0xff404040),
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -263,7 +301,11 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 8.0),
                                     child: Text("Prevoznik: " + busCompany[i],
                                         style: TextStyle(
-                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
+                                            color: Theme.of(context)
+                                                        .primaryColorBrightness ==
+                                                    Brightness.dark
+                                                ? Colors.white
+                                                : Color(0xff404040),
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -271,7 +313,11 @@ Widget getTextWidgets(
                                     padding: EdgeInsets.only(top: 8.0),
                                     child: Text("Peron: " + lane[i],
                                         style: TextStyle(
-                                            color: Theme.of(context).primaryColorBrightness == Brightness.dark ? Colors.white : Color(0xff404040),
+                                            color: Theme.of(context)
+                                                        .primaryColorBrightness ==
+                                                    Brightness.dark
+                                                ? Colors.white
+                                                : Color(0xff404040),
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -291,7 +337,7 @@ Widget getTextWidgets(
             )),
       ));
       list.add(new Container(
-        height: 10,
+        height: MediaQuery.of(context).size.height * 0.015,
       ));
     }
     return new Wrap(children: list);
@@ -309,14 +355,15 @@ class AniRoute extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-               SpinKitCircle(
+              SpinKitCircle(
                 color: Theme.of(context).primaryColorLight,
                 size: 80,
               ),
               Padding(padding: EdgeInsets.all(5)),
               Text(
                 "Pridobivanje podatkov...",
-                style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 25),
+                style: TextStyle(
+                    color: Theme.of(context).primaryColorLight, fontSize: 25),
               ),
             ],
           ),
@@ -329,7 +376,6 @@ class AniRoute extends StatelessWidget {
 Future<bool> _willPopCallback() async {
   return false;
 }
-
 
 Future<void> init2() async {
   if (favorites.contains(routesDeparture + "+" + routesDestination))

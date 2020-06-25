@@ -1,7 +1,7 @@
 import 'package:bus_time_table/config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'HomePage.dart';
+
 
 class SettingsPage extends StatefulWidget {
   @override
