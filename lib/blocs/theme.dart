@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class MyTheme with ChangeNotifier {
+  bool _isDark = true;
 
-  static bool _isDark = true;
 
   ThemeMode currentTheme() {
     return _isDark ? ThemeMode.dark : ThemeMode.light;
+  }
+
+  bool get isDark {
+    return _isDark;
   }
 
   void switchTheme() {
@@ -17,4 +21,5 @@ class MyTheme with ChangeNotifier {
     return _isDark ? Colors.white : Colors.black;
   }
 
+  
 }

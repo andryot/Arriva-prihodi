@@ -103,7 +103,6 @@ class SecondState extends State<SecondRoute> {
             child: Container(
               child: ListView(
                   physics: BouncingScrollPhysics(),
-                  padding: const EdgeInsets.symmetric(horizontal: 0),
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: height * 0.01),
@@ -163,10 +162,11 @@ Widget getTextWidgets(
     return new Wrap(children: list);
   } else {
     for (var i = 0; i < departures.length; i++) {
+      print(MediaQuery.of(context).size.height);
       list.add(Center(
         child: Container(
-            height: MediaQuery.of(context).size.height * 0.06,
-            width: width * 0.93,
+            height: 55,
+            width: width * 0.9,
             decoration: (BoxDecoration(
               color:
                   Theme.of(context).primaryColorBrightness == Brightness.light
@@ -191,21 +191,21 @@ Widget getTextWidgets(
                         maxLines: 1,
                         minFontSize: 15,
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 25,
                           color: Theme.of(context).primaryColorLight,
                         ),
                       ),
                       Icon(
                         EvaIcons.arrowForwardOutline,
                         color: Theme.of(context).primaryColorLight,
-                        size: 30,
+                        size: 25,
                       ),
                       AutoSizeText(
                         arrival[i],
                         maxLines: 1,
                         minFontSize: 15,
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 25,
                           color: Theme.of(context).primaryColorLight,
                         ),
                       ),
@@ -329,7 +329,7 @@ Widget getTextWidgets(
                   },
                   tooltip: "Več informacij",
                   alignment: Alignment.center,
-                  iconSize: 30,
+                  iconSize: 25,
                   color: Theme.of(context).primaryColorLight,
                 ),
                 //child: Image(image: AssetImage("assets/logo.png",),
@@ -337,7 +337,7 @@ Widget getTextWidgets(
             )),
       ));
       list.add(new Container(
-        height: MediaQuery.of(context).size.height * 0.015,
+        height: MediaQuery.of(context).devicePixelRatio * 3,
       ));
     }
     return new Wrap(children: list);

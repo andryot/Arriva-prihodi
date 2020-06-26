@@ -10,12 +10,14 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 void main() { 
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(MyApp());}
+  runApp(MyApp());  
+  }
 
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => MyAppState();
   void onLoad(BuildContext context) {}
+  
 }
 
 class MyAppState extends State<MyApp> {
@@ -23,13 +25,13 @@ class MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     currentTheme.addListener(() {
-      print("Change");
       setState(() {});
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,

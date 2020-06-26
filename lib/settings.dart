@@ -1,6 +1,7 @@
 import 'package:bus_time_table/config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class SettingsPage extends StatefulWidget {
@@ -8,7 +9,7 @@ class SettingsPage extends StatefulWidget {
   State<StatefulWidget> createState() => SettingsState();
 }
 
-bool darkMode = true;
+bool darkMode = currentTheme.isDark;
 
 class SettingsState extends State<SettingsPage> {
   Widget build(BuildContext context) {
@@ -33,7 +34,9 @@ class SettingsState extends State<SettingsPage> {
                 Switch(
                   activeColor: Colors.blue,
                   value: darkMode,
-                  onChanged: (bool value) {
+                  onChanged: (bool value) async {
+                    final prefs = await SharedPreferences.getInstance();
+                    await prefs.setString("Theme", value ? "dark" : "white");
                     setState(() {
                       currentTheme.switchTheme();
                       darkMode = value;

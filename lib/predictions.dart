@@ -11,8 +11,7 @@ String hintDepartures = "Vstopna postaja";
 Color hintColor = Colors.black;
 String hintArrivals = "Izstopna postaja";
 Color hintColorA = Colors.black;
-bool errorArrival = false;
-bool errorDeparture = false;
+
 
 Color colorArrival = Colors.black;
 Color colorDeparture = Colors.black;
@@ -44,7 +43,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
     return Form(
       key: this._formKey,
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.06,
+        height: 60,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
@@ -54,7 +53,6 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
           child: TypeAheadFormField(
             suggestionsBoxController: suggestionDestinationController,
             textFieldConfiguration: TextFieldConfiguration(
-              //textInputAction: TextInputAction.next,
               onChanged: (text) {
                 if(this._formKey.currentState.validate())
                   this._formKey.currentState.save();
@@ -81,6 +79,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
                   ),
                   onPressed: () {
                     _typeAheadController.clear();
+                    departure = "";
                   },
                 ),
                 hintText: hintDepartures,
@@ -95,7 +94,9 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
               return CitiesService.getSuggestions(pattern);
             },
             suggestionsBoxDecoration: SuggestionsBoxDecoration(
-                borderRadius: BorderRadius.circular(20), elevation: 0),
+              offsetX: -1,
+                constraints: BoxConstraints(minWidth: width*0.935),
+                borderRadius: BorderRadius.circular(20), elevation: 1),
             noItemsFoundBuilder: (BuildContext context) => Text(
               '\n   Neveljaven vnos!\n',
               style: TextStyle(color: Colors.red),
@@ -190,8 +191,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
     return Form(
       key: this._formKey,
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.06,
-        padding: EdgeInsets.only(top: 0),
+        height: 60,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
@@ -203,13 +203,14 @@ class _InputFormArrivalState extends State<InputFormArrival> {
             textFieldConfiguration: TextFieldConfiguration(
               onChanged: (text) {
                 this._formKey.currentState.validate();
+                this._formKey.currentState.save();
               },
               onTap: () {
                 this.suggestionArrivalController.toggle();
+                if(this._formKey.currentState.validate())
+                  this._formKey.currentState.save();
               },
-              //onSubmitted: (str) => (print(str)),
               focusNode: myFocusNode,
-              //decoration: InputDecoration(labelText: 'Vstopna postaja'),
               decoration: InputDecoration(
                 prefixIcon: new Icon(
                   Icons.directions_bus,
@@ -224,6 +225,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
                   ),
                   onPressed: () {
                     _typeAheadController.clear();
+                    destination = "";
                   },
                 ),
                 border: InputBorder.none,
@@ -238,7 +240,10 @@ class _InputFormArrivalState extends State<InputFormArrival> {
               return CitiesService.getSuggestions(pattern);
             },
             suggestionsBoxDecoration: SuggestionsBoxDecoration(
-                borderRadius: BorderRadius.circular(20), elevation: 0),
+              offsetX: -1,
+                constraints: BoxConstraints(minWidth: width*0.935),
+                borderRadius: BorderRadius.circular(17), 
+                elevation: 1),
             noItemsFoundBuilder: (BuildContext context) => Text(
               '\n   Neveljaven vnos!\n',
               style: TextStyle(color: Colors.red),
@@ -262,18 +267,15 @@ class _InputFormArrivalState extends State<InputFormArrival> {
             },
             validator: (value) {
               if (!predictions.contains(value)) {
-                //this._typeAheadController.clear();
                 hintArrivals = "Izberi postajo iz seznama";
-                hintColorA = Colors.red;
+                hintColorA = Colors.black;
                 errorArrival=true;
-
               }
               else errorArrival=false;
             },
             onSaved: (value) {
               destination = value;
               routesDestination = value;
-              errorArrival=false;
             },
           ),
         ),

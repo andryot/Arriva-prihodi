@@ -47,7 +47,7 @@ class FavoritesState extends State<FavoritesSection> {
         list.add(
           RaisedButton(
               shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(20.0)),
+                  borderRadius: new BorderRadius.circular(17.0)),
               onPressed: () => [
                     routesDeparture = temp[0],
                     routesDestination = temp[1],
@@ -71,7 +71,7 @@ class FavoritesState extends State<FavoritesSection> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                 Container(
-                  height: height * 0.06,
+                  height: 45,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

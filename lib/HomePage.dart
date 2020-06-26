@@ -1,4 +1,5 @@
 //import 'dart:io';
+import 'package:bus_time_table/config.dart';
 import 'package:bus_time_table/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,9 @@ import 'routes.dart';
 import 'favorites.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
+
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -51,6 +55,9 @@ String routesDeparture = "";
 String bytes;
 var array = [];
 
+bool errorArrival = true;
+bool errorDeparture = true;
+
 class HomeState extends State<HomePage> {
   TextEditingController destinationController = new TextEditingController();
 
@@ -58,7 +65,6 @@ class HomeState extends State<HomePage> {
   void initState() {
     super.initState();
     init().whenComplete(() => setState(() {}));
-    // widget.onLoad(context);
   }
 
   Widget build(BuildContext context) {
@@ -101,9 +107,10 @@ class HomeState extends State<HomePage> {
                   InputFormArrival(),
                   Padding(padding: EdgeInsets.all(10)),
                   BasicDateField(),
+                  Padding(padding: EdgeInsets.all(10)),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: width * 0.25),
-                    height: height * 0.06,
+                    height: MediaQuery.of(context).devicePixelRatio * 18,
                     child: RaisedButton(
                       onPressed: () => [
                         errorArrival == false && errorDeparture == false
@@ -126,8 +133,10 @@ class HomeState extends State<HomePage> {
                                             builder: (context) => SecondRoute(),
                                           ))
                                         ]),
+                                       
                               ]
                             : [
+                              
                                 colorDeparture = Colors.red,
                                 Fluttertoast.showToast(
                                   msg: "Napaka pri izbiri postaj!",
@@ -213,29 +222,24 @@ class HomeState extends State<HomePage> {
         false;
   }
 }
-/*
-  bool _keyboardIsVisible() {
-    return !(MediaQuery.of(context).viewInsets.bottom == 0.0);
-  }
-
-*/
 
 class BasicDateField extends StatelessWidget {
   final format = DateFormat("dd.MM.yyyy");
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * 0.08,
+      height: 60,
       child: DateTimeField(
         resetIcon: Icon(
           Icons.clear,
           color: Colors.black,
           size: 30,
         ),
-        
+        expands: true,  
+        maxLines: null,
+        minLines: null,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(width*0.04),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(17)),
+          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(17)),
           fillColor: Colors.white,
           filled: true,
           prefixIcon: new Icon(
@@ -269,6 +273,12 @@ class BasicDateField extends StatelessWidget {
 }
 
 Future<void> init() async {
+  final prefs = await SharedPreferences.getInstance();
+  if ( prefs.containsKey("Theme") && await prefs.get("Theme") == "white") {
+      currentTheme.switchTheme();
+  }  
+  else 
+    await prefs.setString("Theme", "dark");
   bytes = await rootBundle.loadString("assets/postaje.txt");
   array.clear();
   bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
@@ -280,7 +290,7 @@ Future<void> init() async {
     predictions.add(array[i][0].toString().replaceAll("+", " "));
   }
 
-  final prefs = await SharedPreferences.getInstance();
+ 
   if (prefs.containsKey("favorites"))
     favorites.addAll(prefs.getStringList("favorites"));
 }
