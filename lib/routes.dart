@@ -24,117 +24,117 @@ class SecondState extends State<SecondRoute> {
 
   @override
   Widget build(BuildContext context) {
+    var myGroup = AutoSizeGroup();
     var willPopScope = WillPopScope(
-        onWillPop: () async {
-          return true;
-        },
-        child: Scaffold(
-          backgroundColor: Theme.of(context).primaryColor,
-          appBar: AppBar(
-            elevation: 0,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      width: width * 0.3,
-                      child: AutoSizeText(
-                        routesDeparture + "  ",
-                        maxLines: 1,
+      onWillPop: () async {
+        return true;
+      },
+      child: Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        appBar: AppBar(
+          elevation: 2,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                width: width * 0.65,
+                child: RichText(
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: routesDeparture + "  ",
                         style: TextStyle(
                             color: Theme.of(context).primaryColorLight,
-                            fontSize: 25),
+                            fontSize: 18),
                       ),
-                    ),
-                    Icon(
-                      EvaIcons.arrowForwardOutline,
-                    ),
-                    Container(
-                      width: width * 0.3,
-                      child: AutoSizeText(
-                        "  " + routesDestination,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
+                      WidgetSpan(
+                        child: Icon(EvaIcons.arrowForwardOutline),
+                      ),
+                      TextSpan(
+                        text: "  " + routesDestination,
                         style: TextStyle(
                             color: Theme.of(context).primaryColorLight,
-                            fontSize: 25),
+                            fontSize: 18),
                       ),
-                    ),
-                  ],
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.star,
-                    size: 30,
-                    color: starColor,
+                    ],
                   ),
-                  onPressed: () async {
-                    final prefs = await SharedPreferences.getInstance();
-                    if (favorites == null) {
+                ),
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.star,
+                  size: 30,
+                  color: starColor,
+                ),
+                onPressed: () async {
+                  final prefs = await SharedPreferences.getInstance();
+                  if (favorites == null) {
+                    favorites.add(routesDeparture + "+" + routesDestination);
+                    await prefs.setStringList("favorites", favorites);
+                    starColor = Colors.yellow;
+                    setState(() {});
+                  } else {
+                    if (favorites
+                        .contains(routesDeparture + "+" + routesDestination)) {
+                      favorites.remove(departure + "+" + destination);
+                      await prefs.remove("favorites");
+                      await prefs.setStringList("favorites", favorites);
+                      await prefs.reload();
+                      starColor = currentTheme.starColor();
+                      setState(() {});
+                    } else {
                       favorites.add(routesDeparture + "+" + routesDestination);
                       await prefs.setStringList("favorites", favorites);
                       starColor = Colors.yellow;
                       setState(() {});
-                    } else {
-                      if (favorites.contains(
-                          routesDeparture + "+" + routesDestination)) {
-                        favorites.remove(departure + "+" + destination);
-                        await prefs.setStringList("favorites", favorites);
-                        starColor = currentTheme.starColor();
-                        setState(() {});
-                      } else {
-                        //favorites.add(departure + " " + destination);
-                        favorites
-                            .add(routesDeparture + "+" + routesDestination);
-                        await prefs.setStringList("favorites", favorites);
-                        starColor = Colors.yellow;
-                        setState(() {});
-                      }
                     }
-                  },
-                )
-              ],
-            ),
-            backgroundColor: Theme.of(context).primaryColor,
+                  }
+                },
+              ),
+            ],
           ),
-          body: Center(
-            child: Container(
-              child: ListView(
-                  physics: BouncingScrollPhysics(),
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: height * 0.01),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(right: width * 0.12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Text(
-                            "Odhod",
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColorLight,
-                                fontSize: 20),
-                          ),
-                          Text(
-                            "Prihod",
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColorLight,
-                                fontSize: 20),
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: height * 0.01),
-                    ),
-                    getTextWidgets(departures, arrivals, context),
-                  ]),
+          backgroundColor: Theme.of(context).primaryColor,
+        ),
+        body: Center(
+          child: ListView(physics: BouncingScrollPhysics(), children: <Widget>[
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: height * 0.01),
             ),
-          ),
-        ));
+            Container(
+              height: height * 0.035,
+              width: width * 0.9,
+              child: Stack(   
+                alignment: FractionalOffset.center,   
+                children: <Widget>[
+                  Positioned(left: width * 0.09,
+                                      child: Text(
+                      "Odhod",
+                      style: TextStyle(
+                          color: Theme.of(context).primaryColorLight,
+                          fontSize: 25),
+                    ),
+                  ),
+                  Positioned(right: width * 0.225,
+                                      child: Text(
+                      "Prihod",
+                      style: TextStyle(
+                          color: Theme.of(context).primaryColorLight,
+                          fontSize: 25),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: height * 0.01),
+            ),
+            getTextWidgets(departures, arrivals, context),
+          ]),
+        ),
+      ),
+    );
     return willPopScope;
   }
 }
@@ -162,51 +162,54 @@ Widget getTextWidgets(
     return new Wrap(children: list);
   } else {
     for (var i = 0; i < departures.length; i++) {
-      print(MediaQuery.of(context).size.height);
       list.add(Center(
         child: Container(
-            height: 55,
+            height: height * 0.062  ,
             width: width * 0.9,
             decoration: (BoxDecoration(
               color:
                   Theme.of(context).primaryColorBrightness == Brightness.light
                       ? Colors.white
                       : Color(0xff404040),
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(12.0),
               border: Border.all(
                 color: Colors.black,
                 width: 1,
               ),
             )),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Container(
                   width: (width * 0.75),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  child: Stack(
+                    alignment: FractionalOffset.center,
                     children: <Widget>[
-                      AutoSizeText(
-                        departure[i],
-                        maxLines: 1,
-                        minFontSize: 15,
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: Theme.of(context).primaryColorLight,
+                      Positioned(
+                        left: 20,
+                        child: Text(
+                          departure[i],
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: Theme.of(context).primaryColorLight,
+                          ),
                         ),
                       ),
-                      Icon(
-                        EvaIcons.arrowForwardOutline,
-                        color: Theme.of(context).primaryColorLight,
-                        size: 25,
-                      ),
-                      AutoSizeText(
-                        arrival[i],
-                        maxLines: 1,
-                        minFontSize: 15,
-                        style: TextStyle(
-                          fontSize: 25,
+                      Center(
+                        child: Icon(
+                          EvaIcons.arrowForwardOutline,
                           color: Theme.of(context).primaryColorLight,
+                          size: 25,
+                        ),
+                      ),
+                      Positioned(
+                        right: 20,
+                        child: Text(
+                          arrival[i],
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: Theme.of(context).primaryColorLight,
+                          ),
                         ),
                       ),
                     ],

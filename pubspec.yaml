@@ -21,7 +21,7 @@ dependencies:
     sdk: flutter
   html:
   http: 0.12.0+4
-  datetime_picker_formfield:
+  datetime_picker_formfield: 1.0.0
   flutter_spinkit: "^2.1.0"
   auto_size_text: ^2.1.0
   flutter_typeahead: ^1.8.0

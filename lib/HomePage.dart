@@ -14,9 +14,6 @@ import 'favorites.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-
-
-
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => HomeState();
@@ -108,62 +105,91 @@ class HomeState extends State<HomePage> {
                   Padding(padding: EdgeInsets.all(10)),
                   BasicDateField(),
                   Padding(padding: EdgeInsets.all(10)),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: width * 0.25),
-                    height: MediaQuery.of(context).devicePixelRatio * 18,
-                    child: RaisedButton(
-                      onPressed: () => [
-                        errorArrival == false && errorDeparture == false
-                            ? [
-                                FocusScope.of(context)
-                                    .requestFocus(new FocusNode()),
-                                routesDeparture = departure,
-                                routesDestination = destination,
-                                Navigator.of(context)
-                                    .push(new CupertinoPageRoute<bool>(
-                                  fullscreenDialog: true,
-                                  builder: (context) => AniRoute(),
-                                )),
-                                fetch(departure, destination, date)
-                                    .whenComplete(() => [
-                                          Navigator.pop(context),
-                                          Navigator.of(context).push(
-                                              new CupertinoPageRoute<bool>(
-                                            fullscreenDialog: true,
-                                            builder: (context) => SecondRoute(),
-                                          ))
-                                        ]),
-                                       
-                              ]
-                            : [
-                              
-                                colorDeparture = Colors.red,
-                                Fluttertoast.showToast(
-                                  msg: "Napaka pri izbiri postaj!",
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.BOTTOM,
-                                  timeInSecForIosWeb: 1,
-                                ),
-                              ]
-                      ],
-                      child: Text(
-                        "Išči",
-                        style: TextStyle(fontSize: 30),
+                  Stack(
+                    fit: StackFit.passthrough,
+                    children: <Widget>[
+                      Center(
+                        child: Container(
+                          height: height * 0.06,
+                          width: width * 0.4,
+                          child: RaisedButton(
+                            onPressed: () => [
+                              errorArrival == false && errorDeparture == false
+                                  ? [
+                                      FocusScope.of(context)
+                                          .requestFocus(new FocusNode()),
+                                      routesDeparture = departure,
+                                      routesDestination = destination,
+                                      Navigator.of(context)
+                                          .push(new CupertinoPageRoute<bool>(
+                                        fullscreenDialog: true,
+                                        builder: (context) => AniRoute(),
+                                      )),
+                                      fetch(departure, destination, date)
+                                          .whenComplete(() => [
+                                                Navigator.pop(context),
+                                                Navigator.of(context).push(
+                                                    new CupertinoPageRoute<
+                                                        bool>(
+                                                  fullscreenDialog: true,
+                                                  builder: (context) =>
+                                                      SecondRoute(),
+                                                ))
+                                              ]),
+                                    ]
+                                  : [
+                                      colorDeparture = Colors.red,
+                                      Fluttertoast.showToast(
+                                        msg: "Napaka pri izbiri postaj!",
+                                        toastLength: Toast.LENGTH_SHORT,
+                                        gravity: ToastGravity.BOTTOM,
+                                        timeInSecForIosWeb: 1,
+                                      ),
+                                    ]
+                            ],
+                            child: Text(
+                              "Išči",
+                              style: TextStyle(fontSize: 30),
+                            ),
+                            color: CupertinoColors.systemBlue,
+                            textColor: Theme.of(context).primaryColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(25.0),
+                            ),
+                          ),
+                        ),
                       ),
-                      color: Color(0xff00adb5),
-                      textColor: Theme.of(context).primaryColorLight,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(25.0),
+                      Positioned(
+                        right: 5,
+                        child: Container(
+                          height: height * 0.06,
+                          child: FloatingActionButton(
+                            backgroundColor: CupertinoColors.systemBlue,
+                            child: Icon(
+                              Icons.swap_vert,
+                              size: 30,
+                              color: Colors.black,
+                            ),
+                            onPressed: () {
+                              var pom = departure;
+                              departureTextController.text = destination;
+                              destinationTextController.text = pom;
+                              departure = destination;
+                              destination = pom;
+                            },
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
+
                   //Divider(color: Colors.white, ),
                   Padding(padding: EdgeInsets.all(20)),
                   Text(
                     "    Priljubljene relacije: ",
                     style: TextStyle(
-                      color: Colors
-                          .orange[800], //Theme.of(context).primaryColorLight,
+                      color: CupertinoColors
+                          .systemPink, //Theme.of(context).primaryColorLight,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -172,7 +198,7 @@ class HomeState extends State<HomePage> {
                     padding: EdgeInsets.all(5),
                   ),
                   Container(
-                    height: height * 0.52,
+                    height: height * 0.5,
                     child: FavoritesSection(),
                   ),
                 ],
@@ -235,11 +261,13 @@ class BasicDateField extends StatelessWidget {
           color: Colors.black,
           size: 30,
         ),
-        expands: true,  
+        expands: true,
         maxLines: null,
         minLines: null,
         decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(17)),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.black),
+              borderRadius: BorderRadius.circular(17)),
           fillColor: Colors.white,
           filled: true,
           prefixIcon: new Icon(
@@ -274,10 +302,9 @@ class BasicDateField extends StatelessWidget {
 
 Future<void> init() async {
   final prefs = await SharedPreferences.getInstance();
-  if ( prefs.containsKey("Theme") && await prefs.get("Theme") == "white") {
-      currentTheme.switchTheme();
-  }  
-  else 
+  if (prefs.containsKey("Theme") && await prefs.get("Theme") == "white") {
+    currentTheme.switchTheme();
+  } else
     await prefs.setString("Theme", "dark");
   bytes = await rootBundle.loadString("assets/postaje.txt");
   array.clear();
@@ -290,7 +317,6 @@ Future<void> init() async {
     predictions.add(array[i][0].toString().replaceAll("+", " "));
   }
 
- 
   if (prefs.containsKey("favorites"))
     favorites.addAll(prefs.getStringList("favorites"));
 }

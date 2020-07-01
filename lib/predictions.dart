@@ -15,11 +15,12 @@ Color hintColorA = Colors.black;
 
 Color colorArrival = Colors.black;
 Color colorDeparture = Colors.black;
-
+ TextEditingController departureTextController = TextEditingController();
 //textField za departure
 class _InputFormDepartureState extends State<InputFormDeparture> {
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController _typeAheadController = TextEditingController();
+  
   FocusNode myFocusNode;
   final SuggestionsBoxController suggestionDestinationController =
       SuggestionsBoxController();
@@ -36,6 +37,10 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
     // Clean up the focus node when the Form is disposed.
     myFocusNode.dispose();
     super.dispose();
+  }
+
+  void newDeparture(String newD){
+    departureTextController.text = newD;
   }
 
   @override
@@ -78,7 +83,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
                     size: 30,
                   ),
                   onPressed: () {
-                    _typeAheadController.clear();
+                    departureTextController.clear();
                     departure = "";
                   },
                 ),
@@ -88,7 +93,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
               ),
               
               style: TextStyle(fontSize: 20, color: Colors.black),
-              controller: this._typeAheadController,
+              controller: departureTextController,
             ),
             suggestionsCallback: (pattern) {
               return CitiesService.getSuggestions(pattern);
@@ -110,15 +115,13 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
               return suggestionsBox;
             },
             onSuggestionSelected: (suggestion) {
-              this._typeAheadController.text = suggestion;
+              departureTextController.text = suggestion;
               if (this._formKey.currentState.validate()) {
                 this._formKey.currentState.save();
               }
             },
             validator: (value) {
               if (!predictions.contains(value)) {
-                //this._typeAheadController.clear();
-                //myFocusNode..unfocus();
                 hintDepartures = "Izberi postajo iz seznama";
                 hintColor = Colors.black;
                 errorDeparture=true;
@@ -135,6 +138,8 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
       ),
     );
   }
+
+  
 }
 
 class CitiesService {
@@ -158,7 +163,7 @@ class CitiesService {
 
 
 
-
+final TextEditingController destinationTextController = TextEditingController();
 //textField za arrival
 class InputFormArrival extends StatefulWidget {
   @override
@@ -167,7 +172,7 @@ class InputFormArrival extends StatefulWidget {
 
 class _InputFormArrivalState extends State<InputFormArrival> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController _typeAheadController = TextEditingController();
+  
   
   FocusNode myFocusNode;
   final SuggestionsBoxController suggestionArrivalController =
@@ -224,7 +229,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
                     size: 30,
                   ),
                   onPressed: () {
-                    _typeAheadController.clear();
+                    destinationTextController.clear();
                     destination = "";
                   },
                 ),
@@ -234,7 +239,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
                 filled: false,
               ),
               style: TextStyle(fontSize: 20, color: Colors.black),
-              controller: this._typeAheadController,
+              controller: destinationTextController,
             ),
             suggestionsCallback: (pattern) {
               return CitiesService.getSuggestions(pattern);
@@ -258,7 +263,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
             },
             //hideSuggestionsOnKeyboardHide: true,
             onSuggestionSelected: (suggestion) {
-              this._typeAheadController.text = suggestion;
+              destinationTextController.text = suggestion;
               if (this._formKey.currentState.validate()) {
                 this._formKey.currentState.save();
               }
