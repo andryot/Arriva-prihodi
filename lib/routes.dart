@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bus_time_table/config.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
@@ -12,19 +14,24 @@ class SecondRoute extends StatefulWidget {
 
 final prefs = SharedPreferences.getInstance();
 Color starColor;
-
+final ScrollController _controller = ScrollController();
+double ct = height * 0.2;
 class SecondState extends State<SecondRoute> {
+
+  
+
   @override
   void initState() {
     super.initState();
     init2().whenComplete(() => setState(() {}));
-
+     WidgetsBinding.instance
+        .addPostFrameCallback((_) => {_controller.animateTo(ct/2, duration: Duration(seconds: 1), curve: Curves.ease)});
+    ct=height * 0.2;
     // widget.onLoad(context);
   }
 
   @override
   Widget build(BuildContext context) {
-    var myGroup = AutoSizeGroup();
     var willPopScope = WillPopScope(
       onWillPop: () async {
         return true;
@@ -98,7 +105,9 @@ class SecondState extends State<SecondRoute> {
           backgroundColor: Theme.of(context).primaryColor,
         ),
         body: Center(
-          child: ListView(physics: BouncingScrollPhysics(), children: <Widget>[
+          child: ListView(
+            controller: _controller,
+            physics: BouncingScrollPhysics(), children: <Widget>[
             Padding(
               padding: EdgeInsets.symmetric(vertical: height * 0.01),
             ),
@@ -339,8 +348,12 @@ Widget getTextWidgets(
               ],
             )),
       ));
+      if(DateTime(2020, date.month, date.day, int.parse(departure[i].split(":")[0]), int.parse(departure[i].split(":")[1])).isBefore(DateTime.now())){
+        ct+=(height*0.072);
+        print(ct);
+      }
       list.add(new Container(
-        height: MediaQuery.of(context).devicePixelRatio * 3,
+        height: height * 0.01,
       ));
     }
     return new Wrap(children: list);
