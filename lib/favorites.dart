@@ -1,7 +1,6 @@
 import 'package:bus_time_table/HomePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'HomePage.dart';
 import 'data_fetch.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
@@ -37,44 +36,63 @@ class FavoritesState extends State<FavoritesSection> {
   }
 
   Widget getTextWidgets() {
-    //var myGroup = AutoSizeGroup();
-
     List<Widget> list = new List<Widget>();
     if (favorites.isNotEmpty) {
       for (var i = 0; i < favorites.length; i++) {
         List<String> temp = new List<String>();
         favorites[i].split("+").forEach((f) => temp.add(f));
-        list.add(
-          Dismissible(
-              key: Key(favorites[i]),
-              confirmDismiss: (confirmDismiss) => (showCupertinoDialog(context: context, builder: (context) => Theme(
-            data: ThemeData.dark(),
-            child: CupertinoAlertDialog(
-              title: new Text(
-                'Želite odstaniti priljubljeno relacijo?',
-                textAlign: TextAlign.center,
-              ),
-              actions: <Widget>[
-                CupertinoButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: Text(
-                    "Prekliči",
-                    style: TextStyle(fontSize: 18),
+        list.add(Container(
+          decoration: ShapeDecoration(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  side: BorderSide(width: 1))),
+          height: height * 0.055,
+          child: Dismissible(
+            background: slideRightBackground(),
+            secondaryBackground: slideLeftBackground(),
+            key: Key(favorites[i]),
+            confirmDismiss: (confirmDismiss) async {
+              final bool res = await showCupertinoDialog(
+                context: context,
+                builder: (context) => Theme(
+                  data: ThemeData.dark(),
+                  child: CupertinoAlertDialog(
+                    title: new Text(
+                      'Želite odstaniti priljubljeno relacijo?',
+                      textAlign: TextAlign.center,
+                    ),
+                    actions: <Widget>[
+                      CupertinoButton(
+                        onPressed: () => Navigator.of(context).pop(false),
+                        child: Text(
+                          "Prekliči",
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                      CupertinoButton(
+                        onPressed: () => [
+                          setState(() {
+                            favorites.removeAt(i);
+                          }),
+                          Navigator.of(context).pop(true),
+                          refresh()
+                        ],
+                        child: Text(
+                          "Potrdi",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.red),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                CupertinoButton(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  child: Text(
-                    "Potrdi",
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red),
-                  ),
-                ),
-              ],
-            ),
-          ),)),
+              );
+              return res;
+            },
+            child: Ink(
               child: InkWell(
                 onTap: () => [
                   routesDeparture = temp[0],
@@ -95,83 +113,57 @@ class FavoritesState extends State<FavoritesSection> {
                           ]),
                 ],
                 child: ListTile(
-                  title: Stack(
-                      alignment: FractionalOffset.center,
-                      children: <Widget>[
-                        Positioned(
-                          child: Container(
-                            width: width * 0.6,
-                            color: Colors.red,
-                            alignment: Alignment.centerLeft,
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Container(
-                                  width: width * 0.3,
-                                  child: AutoSizeText(
-                                    " " + temp[0].toString(),
-                                    maxLines: 1,
-                                    minFontSize: 15,
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        color:
-                                            Theme.of(context).primaryColorDark),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(right: 5, left: 5),
-                                  child: Icon(
-                                    EvaIcons.arrowForwardOutline,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                Container(
-                                  alignment: Alignment.centerRight,
-                                  width: width * 0.3,
-                                  child: AutoSizeText(
-                                    temp[1].toString(),
-                                    maxLines: 1,
-                                    minFontSize: 15,
-                                    //maxFontSize: 40,
-                                    //group: myGroup,
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        color:
-                                            Theme.of(context).primaryColorDark),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                                //),
-                              ],
-                            ),
-                          ),
+                  dense: true,
+                  title: RichText(
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    text: TextSpan(children: [
+                      TextSpan(
+                        text: temp[0].toString(),
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black),
+                      ),
+                      WidgetSpan(
+                        child: Icon(
+                          EvaIcons.arrowForwardOutline,
+                          color: Colors.black,
                         ),
-                        Positioned(
-                          right: 10,
-                          child: Material(
-                              elevation: 0,
-                              color: Colors.white,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  IconButton(
-                                    icon: Icon(Icons.star),
-                                    iconSize: 30,
-                                    color: Colors.yellow,
-                                    onPressed: () async {
-                                      favorites.removeAt(i);
-                                      refresh();
-                                    },
-                                  ),
-                                ],
-                              )),
-                        ),
-                      ]),
+                      ),
+                      TextSpan(
+                        text: temp[1].toString(),
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black),
+                      ),
+                    ]),
+                  ),
                 ),
-              )),
-        );
+              ),
+
+              /*Positioned(
+                              right: 10,
+                              child: Material(
+                                  elevation: 0,
+                                  color: Colors.white,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      IconButton(
+                                        icon: Icon(Icons.star),
+                                        iconSize: 30,
+                                        color: Colors.yellow,
+                                        onPressed: () async {
+                                          favorites.removeAt(i);
+                                          refresh();
+                                        },
+                                      ),
+                                    ],
+                                  )),
+                            ),*/
+            ),
+          ),
+        ));
         list.add(new Container(
           height: height * 0.02,
         ));
@@ -179,5 +171,71 @@ class FavoritesState extends State<FavoritesSection> {
       return new Wrap(children: list);
     } else
       return Text("Seznam priljubljenih relacij je prazen!");
+  }
+
+  Widget slideRightBackground() {
+    return Container(
+      decoration: ShapeDecoration(
+          color: Colors.red,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(11),
+          )),
+      child: Align(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              width: width * 0.04,
+            ),
+            Icon(
+              Icons.delete,
+              color: Theme.of(context).primaryColorLight,
+            ),
+            Text(
+              " Izbriši",
+              style: TextStyle(
+                color: Theme.of(context).primaryColorLight,
+                fontWeight: FontWeight.w700,
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ],
+        ),
+        alignment: Alignment.centerLeft,
+      ),
+    );
+  }
+
+  Widget slideLeftBackground() {
+    return Container(
+      decoration: ShapeDecoration(
+          color: Colors.red,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(11),
+          )),
+      child: Align(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Icon(
+              Icons.delete,
+              color: Theme.of(context).primaryColorLight,
+            ),
+            Text(
+              " Izbriši",
+              style: TextStyle(
+                color: Theme.of(context).primaryColorLight,
+                fontWeight: FontWeight.w700,
+              ),
+              textAlign: TextAlign.right,
+            ),
+            SizedBox(
+              width: width * 0.04,
+            ),
+          ],
+        ),
+        alignment: Alignment.centerRight,
+      ),
+    );
   }
 }

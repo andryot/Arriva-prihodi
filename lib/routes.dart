@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bus_time_table/config.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +13,7 @@ class SecondRoute extends StatefulWidget {
 final prefs = SharedPreferences.getInstance();
 Color starColor;
 final ScrollController _controller = ScrollController();
-double ct = height * 0.2;
+double ct = height * 0.06;
 class SecondState extends State<SecondRoute> {
 
   
@@ -25,8 +23,8 @@ class SecondState extends State<SecondRoute> {
     super.initState();
     init2().whenComplete(() => setState(() {}));
      WidgetsBinding.instance
-        .addPostFrameCallback((_) => {_controller.animateTo(ct/2, duration: Duration(seconds: 1), curve: Curves.ease)});
-    ct=height * 0.2;
+        .addPostFrameCallback((_) => {_controller.animateTo(ct, duration: Duration(seconds: 1, milliseconds: 500), curve: Curves.ease)});
+    ct=height * 0.06;
     // widget.onLoad(context);
   }
 
@@ -171,15 +169,16 @@ Widget getTextWidgets(
     return new Wrap(children: list);
   } else {
     for (var i = 0; i < departures.length; i++) {
+      bool sooner = DateTime(2020, date.month, date.day, int.parse(departure[i].split(":")[0]), int.parse(departure[i].split(":")[1])).isBefore(DateTime.now());
       list.add(Center(
         child: Container(
-            height: height * 0.062  ,
+            height: height * 0.062,
             width: width * 0.9,
             decoration: (BoxDecoration(
               color:
                   Theme.of(context).primaryColorBrightness == Brightness.light
-                      ? Colors.white
-                      : Color(0xff404040),
+                      ? sooner ? Color(0xff959595) : Colors.white
+                      : sooner ? Color(0xff222222) : Color(0xff404040),
               borderRadius: BorderRadius.circular(12.0),
               border: Border.all(
                 color: Colors.black,
@@ -348,7 +347,7 @@ Widget getTextWidgets(
               ],
             )),
       ));
-      if(DateTime(2020, date.month, date.day, int.parse(departure[i].split(":")[0]), int.parse(departure[i].split(":")[1])).isBefore(DateTime.now())){
+      if(sooner){
         ct+=(height*0.072);
         print(ct);
       }
