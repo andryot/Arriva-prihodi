@@ -59,7 +59,7 @@ class FavoritesState extends State<FavoritesSection> {
                   data: ThemeData.dark(),
                   child: CupertinoAlertDialog(
                     title: new Text(
-                      'Želite odstaniti priljubljeno relacijo?',
+                      'Želite odstraniti priljubljeno relacijo?',
                       textAlign: TextAlign.center,
                     ),
                     actions: <Widget>[

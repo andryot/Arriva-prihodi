@@ -54,7 +54,7 @@ class SettingsState extends State<SettingsPage> {
                   applicationVersion: "\n1.3",
                   applicationName: "Arriva prihodi",
                   applicationLegalese:
-                      "Podatki se pridobivajo iz spletne strani arriva.si\n\nRazvijalec: Andraž Anderle\nIcon made by Freepi from www.flaticon.com")),
+                      "Podatki se pridobivajo iz spletne strani arriva.si\n\nRazvijalec: Andraž Anderle\nIcon made by Freepi from www.flaticon.com\nHvala Žan, Urban in Nik!")),
         ]),
       ),
     );
