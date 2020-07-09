@@ -149,12 +149,12 @@ class HomeState extends State<HomePage> {
                             ],
                             child: Text(
                               "Išči",
-                              style: TextStyle(fontSize: 30),
+                              style: TextStyle(fontSize: height < 700 ? 25 : 30, fontWeight: FontWeight.w500, color: Colors.black),
                             ),
                             color: CupertinoColors.systemBlue,
                             textColor: Theme.of(context).primaryColor,
                             shape: RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(25.0),
+                              borderRadius: new BorderRadius.circular(20.0),
                             ),
                           ),
                         ),
@@ -167,7 +167,7 @@ class HomeState extends State<HomePage> {
                             backgroundColor: CupertinoColors.systemBlue,
                             child: Icon(
                               Icons.swap_vert,
-                              size: 30,
+                              size: height < 700 ? 25 : 30,
                               color: Colors.black,
                             ),
                             onPressed: () {
@@ -241,9 +241,6 @@ class HomeState extends State<HomePage> {
               ],
             ),
           ),
-          /*elevation: 1,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20))),*/
         ) ??
         false;
   }
@@ -254,7 +251,7 @@ class BasicDateField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: height * 0.06,
       child: DateTimeField(
         resetIcon: Icon(
           Icons.clear,
@@ -283,6 +280,8 @@ class BasicDateField extends StatelessWidget {
         },
         onShowPicker: (context, currentValue) {
           return showDatePicker(
+            helpText: "Izberi datum odhoda",
+            errorInvalidText: "Neki",
             context: context,
             builder: (BuildContext context, Widget child) {
               return Theme(
@@ -290,9 +289,9 @@ class BasicDateField extends StatelessWidget {
                 child: child,
               );
             },
-            firstDate: DateTime(1900),
+            firstDate: DateTime(2020),
             initialDate: currentValue ?? DateTime.now(),
-            lastDate: DateTime(2100),
+            lastDate: DateTime(2030),
           );
         },
       ),
