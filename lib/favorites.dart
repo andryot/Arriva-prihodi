@@ -42,52 +42,56 @@ class FavoritesState extends State<FavoritesSection> {
       for (var i = 0; i < favorites.length; i++) {
         List<String> temp = new List<String>();
         favorites[i].split("+").forEach((f) => temp.add(f));
-        list.add(Container(
-          decoration: ShapeDecoration(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  side: BorderSide(width: 1))),
-          height: height * 0.023 * MediaQuery.of(context).devicePixelRatio,// MediaQuery.of(context).size.height < 750 ? 55 : 60,,
-          child: Dismissible(
-            background: slideRightBackground(),
-            secondaryBackground: slideLeftBackground(),
-            key: Key(favorites[i]),
-            confirmDismiss: (confirmDismiss) async {
-              final bool res = await showCupertinoDialog(
-                context: context,
-                builder: (context) => Theme(
-                  data: ThemeData.dark(),
-                  child: CupertinoAlertDialog(
-                    title: new Text(
-                      'Želite odstraniti priljubljeno relacijo?',
-                      textAlign: TextAlign.center,
+        list.add(
+          Container(
+            decoration: ShapeDecoration(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    side: BorderSide(width: 1))),
+            height: height *
+                0.023 *
+                MediaQuery.of(context)
+                    .devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
+            child: Dismissible(
+              background: slideRightBackground(),
+              secondaryBackground: slideLeftBackground(),
+              key: Key(favorites[i]),
+              confirmDismiss: (confirmDismiss) async {
+                final bool res = await showCupertinoDialog(
+                  context: context,
+                  builder: (context) => Theme(
+                    data: ThemeData.dark(),
+                    child: CupertinoAlertDialog(
+                      title: new Text(
+                        'Želite odstraniti priljubljeno relacijo?',
+                        textAlign: TextAlign.center,
+                      ),
+                      actions: <Widget>[
+                        CupertinoButton(
+                          onPressed: () => Navigator.of(context).pop(false),
+                          child: Text(
+                            "Prekliči",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                        CupertinoButton(
+                          onPressed: () async => await deleteFavorite(i),
+                          child: Text(
+                            "Potrdi",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red),
+                          ),
+                        ),
+                      ],
                     ),
-                    actions: <Widget>[
-                      CupertinoButton(
-                        onPressed: () => Navigator.of(context).pop(false),
-                        child: Text(
-                          "Prekliči",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                      ),
-                      CupertinoButton(
-                        onPressed: () async => await deleteFavorite(i),
-                        child: Text(
-                          "Potrdi",
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.red),
-                        ),
-                      ),
-                    ],
                   ),
-                ),
-              );
-              return res;
-            },
-            child:  InkWell(
+                );
+                return res;
+              },
+              child: InkWell(
                 onTap: () => [
                   routesDeparture = temp[0],
                   routesDestination = temp[1],

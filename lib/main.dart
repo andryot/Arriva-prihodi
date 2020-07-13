@@ -33,6 +33,7 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     
     return MaterialApp(
+      
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

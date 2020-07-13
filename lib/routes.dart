@@ -14,17 +14,18 @@ var prefs = SharedPreferences.getInstance();
 Color starColor;
 final ScrollController _controller = ScrollController();
 double ct = height * 0.06;
+
 class SecondState extends State<SecondRoute> {
-
-  
-
   @override
   void initState() {
     super.initState();
     init2().whenComplete(() => setState(() {}));
-     WidgetsBinding.instance
-        .addPostFrameCallback((_) => {_controller.animateTo(ct, duration: Duration(seconds: 1, milliseconds: 500), curve: Curves.ease)});
-    ct=height * 0.06;
+    WidgetsBinding.instance.addPostFrameCallback((_) => {
+          _controller.animateTo(ct,
+              duration: Duration(seconds: 1, milliseconds: 500),
+              curve: Curves.ease)
+        });
+    ct = height * 0.06;
     // widget.onLoad(context);
   }
 
@@ -55,7 +56,8 @@ class SecondState extends State<SecondRoute> {
                             fontSize: height < 750 ? 16 : 18),
                       ),
                       WidgetSpan(
-                        child: Icon(EvaIcons.arrowForwardOutline,size : height < 750 ? 18 : 20),
+                        child: Icon(EvaIcons.arrowForwardOutline,
+                            size: height < 750 ? 18 : 20),
                       ),
                       TextSpan(
                         text: "  " + routesDestination,
@@ -83,13 +85,14 @@ class SecondState extends State<SecondRoute> {
                   } else {
                     if (favorites
                         .contains(routesDeparture + "+" + routesDestination)) {
-                      favorites.remove(routesDeparture + "+" + routesDestination);
+                      favorites
+                          .remove(routesDeparture + "+" + routesDestination);
                       await prefs.remove("favorites");
                       await prefs.setStringList("favorites", favorites);
                       await prefs.reload();
                       starColor = currentTheme.starColor();
                       setState(() {});
-                    } else {  
+                    } else {
                       favorites.add(routesDeparture + "+" + routesDestination);
                       await prefs.setStringList("favorites", favorites);
                       starColor = Colors.yellow;
@@ -104,41 +107,46 @@ class SecondState extends State<SecondRoute> {
         ),
         body: Center(
           child: ListView(
-            controller: _controller,
-            physics: BouncingScrollPhysics(), children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: height * 0.01),
-            ),
-            Container(
-              height: height * 0.035,
-              width: width * 0.9,
-              child: Stack(   
-                alignment: FractionalOffset.center,   
-                children: <Widget>[
-                  Positioned(left: width * 0.09,
-                                      child: Text(
-                      "Odhod",
-                      style: TextStyle(
-                          color: Theme.of(context).primaryColorLight,
-                          fontSize: height < 750 ? 20 : 25,),
-                    ),
+              controller: _controller,
+              physics: BouncingScrollPhysics(),
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: height * 0.01),
+                ),
+                Container(
+                  height: height * 0.035,
+                  width: width * 0.9,
+                  child: Stack(
+                    alignment: FractionalOffset.center,
+                    children: <Widget>[
+                      Positioned(
+                        left: width * 0.09,
+                        child: Text(
+                          "Odhod",
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColorLight,
+                            fontSize: height < 750 ? 20 : 25,
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        right: height < 750 ? width * 0.24 : width * 0.225,
+                        child: Text(
+                          "Prihod",
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColorLight,
+                            fontSize: height < 750 ? 20 : 25,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                  Positioned(right: height < 750 ? width * 0.24 : width * 0.225,
-                                      child: Text(
-                      "Prihod",
-                      style: TextStyle(
-                          color: Theme.of(context).primaryColorLight,
-                          fontSize: height < 750 ? 20 : 25,),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: height * 0.01),
-            ),
-            getTextWidgets(departures, arrivals, context),
-          ]),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: height * 0.01),
+                ),
+                getTextWidgets(departures, arrivals, context),
+              ]),
         ),
       ),
     );
@@ -149,8 +157,7 @@ class SecondState extends State<SecondRoute> {
 Widget getTextWidgets(
     List<String> departure, List<String> arrival, BuildContext context) {
   List<Widget> list = new List<Widget>();
-  if (list.isNotEmpty)
-    list.clear();
+  if (list.isNotEmpty) list.clear();
   if (departures.length == 0) {
     list.add(Padding(padding: EdgeInsets.all(10)));
     list.add(
@@ -168,7 +175,13 @@ Widget getTextWidgets(
     return new Wrap(children: list);
   } else {
     for (var i = 0; i < departures.length; i++) {
-      bool sooner = DateTime(2020, date.month, date.day, int.parse(departure[i].split(":")[0]), int.parse(departure[i].split(":")[1])).isBefore(DateTime.now());
+      bool sooner = DateTime(
+              2020,
+              date.month,
+              date.day,
+              int.parse(departure[i].split(":")[0]),
+              int.parse(departure[i].split(":")[1]))
+          .isBefore(DateTime.now());
       list.add(Center(
         child: Container(
             height: height * 0.024 * MediaQuery.of(context).devicePixelRatio,
@@ -222,7 +235,6 @@ Widget getTextWidgets(
                     ],
                   ),
                 ),
-
                 IconButton(
                   padding: EdgeInsets.only(bottom: 0),
                   icon: Icon(Icons.info),
@@ -255,7 +267,12 @@ Widget getTextWidgets(
                                                   Brightness.dark
                                               ? Colors.white
                                               : Color(0xff404040),
-                                          fontSize:MediaQuery.of(context).size.height < 750 ? 28 : 34,
+                                          fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height <
+                                                  750
+                                              ? 28
+                                              : 34,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
@@ -268,7 +285,12 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: MediaQuery.of(context).size.height < 750 ? 28 : 34,
+                                            fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height <
+                                                    750
+                                                ? 28
+                                                : 34,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   Padding(
@@ -280,7 +302,12 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
+                                            fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height <
+                                                    750
+                                                ? 18
+                                                : 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   Padding(
@@ -292,7 +319,12 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
+                                            fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height <
+                                                    750
+                                                ? 18
+                                                : 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   Padding(
@@ -304,7 +336,12 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
+                                            fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height <
+                                                    750
+                                                ? 18
+                                                : 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   Padding(
@@ -316,7 +353,12 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
+                                            fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height <
+                                                    750
+                                                ? 18
+                                                : 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   Padding(
@@ -328,7 +370,12 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
+                                            fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height <
+                                                    750
+                                                ? 18
+                                                : 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                 ],
@@ -345,9 +392,12 @@ Widget getTextWidgets(
               ],
             )),
       ));
-      if(sooner && i < departure.length - height / ((height * 0.024 * MediaQuery.of(context).devicePixelRatio) + (height * 0.01)) + 1) {
-        ct+=((height * 0.024 * MediaQuery.of(context).devicePixelRatio) + (height * 0.01));
+      if (sooner && i < departure.length -height /
+          ((height * 0.024 * MediaQuery.of(context).devicePixelRatio) + (height * 0.01)) +   1) {
+        ct += ((height * 0.024 * MediaQuery.of(context).devicePixelRatio) +
+            (height * 0.01));
       }
+      
       list.add(new Container(
         height: height * 0.01,
       ));

@@ -39,6 +39,7 @@ List<String> favorites = new List<String>();
 List<String> predictions = new List<String>();
 
 Color bgdColor = Colors.black;
+
 var width;
 var height;
 
@@ -46,7 +47,6 @@ String destination = "";
 String departure = "";
 
 String routesDestination = "";
-
 String routesDeparture = "";
 
 String bytes;
@@ -62,14 +62,13 @@ class HomeState extends State<HomePage> {
   void initState() {
     super.initState();
     init().whenComplete(() => setState(() {}));
-    
   }
 
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.height);
     var _blackFocusNode = new FocusNode();
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
+
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(
@@ -112,7 +111,10 @@ class HomeState extends State<HomePage> {
                     children: <Widget>[
                       Center(
                         child: Container(
-                          height: height * 0.023 * MediaQuery.of(context).devicePixelRatio,// MediaQuery.of(context).size.height < 750 ? 55 : 60,,
+                          height: height *
+                              0.023 *
+                              MediaQuery.of(context)
+                                  .devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
                           width: width * 0.4,
                           child: RaisedButton(
                             onPressed: () => [
@@ -151,7 +153,10 @@ class HomeState extends State<HomePage> {
                             ],
                             child: Text(
                               "Išči",
-                              style: TextStyle(fontSize: height < 750 ? 23 : 30, fontWeight: FontWeight.w500, color: Colors.white),
+                              style: TextStyle(
+                                  fontSize: height < 750 ? 23 : 30,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
                             ),
                             color: Colors.blue[300],
                             textColor: Theme.of(context).primaryColor,
@@ -164,7 +169,9 @@ class HomeState extends State<HomePage> {
                       Positioned(
                         right: 5,
                         child: Container(
-                          height: height * 0.023 * MediaQuery.of(context).devicePixelRatio,
+                          height: height *
+                              0.023 *
+                              MediaQuery.of(context).devicePixelRatio,
                           child: FloatingActionButton(
                             backgroundColor: Colors.blue[300],
                             child: Icon(
@@ -188,8 +195,10 @@ class HomeState extends State<HomePage> {
                   Text(
                     "Priljubljene relacije: ",
                     style: TextStyle(
-                      color: Colors.yellow[700], //Theme.of(context).primaryColorLight,
-                      fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
+                      color: Colors
+                          .yellow[700], //Theme.of(context).primaryColorLight,
+                      fontSize:
+                          MediaQuery.of(context).size.height < 750 ? 18 : 20,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -250,7 +259,7 @@ class BasicDateField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * 0.027 * MediaQuery.of(context).devicePixelRatio,// MediaQuery.of(context).size.height < 750 ? 55 : 60,,
+      height: height * 0.027 * MediaQuery.of(context).devicePixelRatio,
       child: DateTimeField(
         resetIcon: Icon(
           Icons.clear,
@@ -301,16 +310,18 @@ class BasicDateField extends StatelessWidget {
 
 Future<void> init() async {
   final prefs = await SharedPreferences.getInstance();
-  if (prefs.containsKey("Theme") && await prefs.get("Theme") == "white") {
+  if (prefs.containsKey("Theme") && await prefs.get("Theme") == "white")
     currentTheme.switchTheme();
-  } else
+  else
     await prefs.setString("Theme", "dark");
+
   bytes = await rootBundle.loadString("assets/postaje.txt");
   array.clear();
   bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
   array.removeLast();
   map.clear();
   predictions.clear();
+  
   for (int i = 0; i < array.length; i++) {
     map[array[i][0]] = int.parse(array[i][1]);
     predictions.add(array[i][0].toString().replaceAll("+", " "));

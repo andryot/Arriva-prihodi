@@ -63,13 +63,16 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
   document.getElementsByClassName('length').forEach((dom.Element element) {
     kilometers.add(element.text);
   });
-  if (kilometers.length > 0) kilometers.removeAt(0);
+  if (kilometers.length > 0) 
+    kilometers.removeAt(0);
 
   price.clear();
   document.getElementsByClassName('price').forEach((dom.Element element) {
     price.add(element.text.replaceAll("EUR", "€").replaceAll(".", ","));
   });
-  if (price.length > 0) price.removeAt(0);
+
+  if (price.length > 0) 
+    price.removeAt(0);
 
   lane.clear();
   var counter = 0;
@@ -79,15 +82,16 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
       lane.add(element2.getElementsByTagName("span").last.text);
     });
 
-    if (lane.length == counter && counter != 2) {
+    if (lane.length == counter && counter != 2)
       lane.add("/");
-    }
+
     counter++;
   });
 
-  if (lane.length > 0) lane.removeAt(0);
+  if (lane.length > 0) 
+    lane.removeAt(0);
 
-  if (lane.length == 1) {
-    for (int i = 0; i < departures.length; i++) lane.add("/");
-  }
+  if (lane.length == 1)
+    for (int i = 0; i < departures.length; i++) 
+      lane.add("/");
 }

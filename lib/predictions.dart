@@ -12,15 +12,14 @@ Color hintColor = Colors.black;
 String hintArrivals = "Izstopna postaja";
 Color hintColorA = Colors.black;
 
-
 Color colorArrival = Colors.black;
 Color colorDeparture = Colors.black;
- TextEditingController departureTextController = TextEditingController();
+TextEditingController departureTextController = TextEditingController();
+
 //textField za departure
 class _InputFormDepartureState extends State<InputFormDeparture> {
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  
+
   FocusNode myFocusNode;
   final SuggestionsBoxController suggestionDestinationController =
       SuggestionsBoxController();
@@ -39,7 +38,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
     super.dispose();
   }
 
-  void newDeparture(String newD){
+  void newDeparture(String newD) {
     departureTextController.text = newD;
   }
 
@@ -48,7 +47,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
     return Form(
       key: this._formKey,
       child: Container(
-        height: height * 0.027 * MediaQuery.of(context).devicePixelRatio,//MediaQuery.of(context).size.height < 750 ? 55 : 60,
+        height: height * 0.027 * MediaQuery.of(context).devicePixelRatio,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
@@ -59,12 +58,12 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
             suggestionsBoxController: suggestionDestinationController,
             textFieldConfiguration: TextFieldConfiguration(
               onChanged: (text) {
-                if(this._formKey.currentState.validate())
+                if (this._formKey.currentState.validate())
                   this._formKey.currentState.save();
               },
               onTap: () {
                 this.suggestionDestinationController.toggle();
-                if(this._formKey.currentState.validate())
+                if (this._formKey.currentState.validate())
                   this._formKey.currentState.save();
               },
               focusNode: myFocusNode,
@@ -75,7 +74,6 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
                   color: Colors.black,
                   size: 30,
                 ),
-                
                 suffixIcon: IconButton(
                   icon: Icon(
                     Icons.clear,
@@ -91,17 +89,18 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
                 hintStyle: TextStyle(color: hintColor),
                 filled: false,
               ),
-              
-              style: TextStyle(fontSize: height < 750 ? 18 : 20, color: Colors.black),
+              style: TextStyle(
+                  fontSize: height < 750 ? 18 : 20, color: Colors.black),
               controller: departureTextController,
             ),
             suggestionsCallback: (pattern) {
               return CitiesService.getSuggestions(pattern);
             },
             suggestionsBoxDecoration: SuggestionsBoxDecoration(
-              offsetX: -1,
-                constraints: BoxConstraints(minWidth: width*0.935),
-                borderRadius: BorderRadius.circular(20), elevation: 1),
+                offsetX: -1,
+                constraints: BoxConstraints(minWidth: width * 0.935),
+                borderRadius: BorderRadius.circular(20),
+                elevation: 1),
             noItemsFoundBuilder: (BuildContext context) => Text(
               '\n   Neveljaven vnos!\n',
               style: TextStyle(color: Colors.red),
@@ -124,22 +123,19 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
               if (!predictions.contains(value)) {
                 hintDepartures = "Izberi postajo iz seznama";
                 hintColor = Colors.black;
-                errorDeparture=true;
-              }
-              else errorDeparture=false;
+                errorDeparture = true;
+              } else
+                errorDeparture = false;
             },
             onSaved: (value) {
               departure = value;
               routesDeparture = value;
-              //errorDeparture=false;
             },
           ),
         ),
       ),
     );
   }
-
-  
 }
 
 class CitiesService {
@@ -155,15 +151,8 @@ class CitiesService {
   }
 }
 
-
-
-
-
-
-
-
-
 final TextEditingController destinationTextController = TextEditingController();
+
 //textField za arrival
 class InputFormArrival extends StatefulWidget {
   @override
@@ -172,8 +161,7 @@ class InputFormArrival extends StatefulWidget {
 
 class _InputFormArrivalState extends State<InputFormArrival> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  
-  
+
   FocusNode myFocusNode;
   final SuggestionsBoxController suggestionArrivalController =
       SuggestionsBoxController();
@@ -196,7 +184,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
     return Form(
       key: this._formKey,
       child: Container(
-        height:height * 0.027 * MediaQuery.of(context).devicePixelRatio,// MediaQuery.of(context).size.height < 750 ? 55 : 60,
+        height: height * 0.027 * MediaQuery.of(context).devicePixelRatio,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
@@ -212,7 +200,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
               },
               onTap: () {
                 this.suggestionArrivalController.toggle();
-                if(this._formKey.currentState.validate())
+                if (this._formKey.currentState.validate())
                   this._formKey.currentState.save();
               },
               focusNode: myFocusNode,
@@ -238,16 +226,17 @@ class _InputFormArrivalState extends State<InputFormArrival> {
                 hintStyle: TextStyle(color: hintColorA),
                 filled: false,
               ),
-              style: TextStyle(fontSize: height < 750 ? 18 : 20, color: Colors.black),
+              style: TextStyle(
+                  fontSize: height < 750 ? 18 : 20, color: Colors.black),
               controller: destinationTextController,
             ),
             suggestionsCallback: (pattern) {
               return CitiesService.getSuggestions(pattern);
             },
             suggestionsBoxDecoration: SuggestionsBoxDecoration(
-              offsetX: -1,
-                constraints: BoxConstraints(minWidth: width*0.935),
-                borderRadius: BorderRadius.circular(17), 
+                offsetX: -1,
+                constraints: BoxConstraints(minWidth: width * 0.935),
+                borderRadius: BorderRadius.circular(17),
                 elevation: 1),
             noItemsFoundBuilder: (BuildContext context) => Text(
               '\n   Neveljaven vnos!\n',
@@ -261,22 +250,20 @@ class _InputFormArrivalState extends State<InputFormArrival> {
             transitionBuilder: (context, suggestionsBox, controller) {
               return suggestionsBox;
             },
-            //hideSuggestionsOnKeyboardHide: true,
             onSuggestionSelected: (suggestion) {
               destinationTextController.text = suggestion;
               if (this._formKey.currentState.validate()) {
                 this._formKey.currentState.save();
-              }
-              else
-                errorArrival=true;
+              } else
+                errorArrival = true;
             },
             validator: (value) {
               if (!predictions.contains(value)) {
                 hintArrivals = "Izberi postajo iz seznama";
                 hintColorA = Colors.black;
-                errorArrival=true;
-              }
-              else errorArrival=false;
+                errorArrival = true;
+              } else
+                errorArrival = false;
             },
             onSaved: (value) {
               destination = value;
