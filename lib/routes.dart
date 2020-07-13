@@ -10,7 +10,7 @@ class SecondRoute extends StatefulWidget {
   State<StatefulWidget> createState() => SecondState();
 }
 
-final prefs = SharedPreferences.getInstance();
+var prefs = SharedPreferences.getInstance();
 Color starColor;
 final ScrollController _controller = ScrollController();
 double ct = height * 0.06;
@@ -42,7 +42,7 @@ class SecondState extends State<SecondRoute> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Container(
-                width: width * 0.65,
+                width: width * 0.62,
                 child: RichText(
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -52,16 +52,16 @@ class SecondState extends State<SecondRoute> {
                         text: routesDeparture + "  ",
                         style: TextStyle(
                             color: Theme.of(context).primaryColorLight,
-                            fontSize: 18),
+                            fontSize: height < 750 ? 16 : 18),
                       ),
                       WidgetSpan(
-                        child: Icon(EvaIcons.arrowForwardOutline),
+                        child: Icon(EvaIcons.arrowForwardOutline,size : height < 750 ? 18 : 20),
                       ),
                       TextSpan(
                         text: "  " + routesDestination,
                         style: TextStyle(
                             color: Theme.of(context).primaryColorLight,
-                            fontSize: 18),
+                            fontSize: height < 750 ? 16 : 18),
                       ),
                     ],
                   ),
@@ -74,7 +74,7 @@ class SecondState extends State<SecondRoute> {
                   color: starColor,
                 ),
                 onPressed: () async {
-                  final prefs = await SharedPreferences.getInstance();
+                  var prefs = await SharedPreferences.getInstance();
                   if (favorites == null) {
                     favorites.add(routesDeparture + "+" + routesDestination);
                     await prefs.setStringList("favorites", favorites);
@@ -83,13 +83,13 @@ class SecondState extends State<SecondRoute> {
                   } else {
                     if (favorites
                         .contains(routesDeparture + "+" + routesDestination)) {
-                      favorites.remove(departure + "+" + destination);
+                      favorites.remove(routesDeparture + "+" + routesDestination);
                       await prefs.remove("favorites");
                       await prefs.setStringList("favorites", favorites);
                       await prefs.reload();
                       starColor = currentTheme.starColor();
                       setState(() {});
-                    } else {
+                    } else {  
                       favorites.add(routesDeparture + "+" + routesDestination);
                       await prefs.setStringList("favorites", favorites);
                       starColor = Colors.yellow;
@@ -120,15 +120,15 @@ class SecondState extends State<SecondRoute> {
                       "Odhod",
                       style: TextStyle(
                           color: Theme.of(context).primaryColorLight,
-                          fontSize: 25),
+                          fontSize: height < 750 ? 20 : 25,),
                     ),
                   ),
-                  Positioned(right: width * 0.225,
+                  Positioned(right: height < 750 ? width * 0.24 : width * 0.225,
                                       child: Text(
                       "Prihod",
                       style: TextStyle(
                           color: Theme.of(context).primaryColorLight,
-                          fontSize: 25),
+                          fontSize: height < 750 ? 20 : 25,),
                     ),
                   )
                 ],
@@ -149,9 +149,8 @@ class SecondState extends State<SecondRoute> {
 Widget getTextWidgets(
     List<String> departure, List<String> arrival, BuildContext context) {
   List<Widget> list = new List<Widget>();
-  if (list.isNotEmpty) {
+  if (list.isNotEmpty)
     list.clear();
-  }
   if (departures.length == 0) {
     list.add(Padding(padding: EdgeInsets.all(10)));
     list.add(
@@ -172,12 +171,12 @@ Widget getTextWidgets(
       bool sooner = DateTime(2020, date.month, date.day, int.parse(departure[i].split(":")[0]), int.parse(departure[i].split(":")[1])).isBefore(DateTime.now());
       list.add(Center(
         child: Container(
-            height: height * 0.062,
+            height: height * 0.024 * MediaQuery.of(context).devicePixelRatio,
             width: width * 0.9,
             decoration: (BoxDecoration(
               color:
                   Theme.of(context).primaryColorBrightness == Brightness.light
-                      ? sooner ? Color(0xff959595) : Colors.white
+                      ? sooner ? Color(0xffD7D7D7) : Colors.white
                       : sooner ? Color(0xff222222) : Color(0xff404040),
               borderRadius: BorderRadius.circular(12.0),
               border: Border.all(
@@ -198,7 +197,7 @@ Widget getTextWidgets(
                         child: Text(
                           departure[i],
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: height < 750 ? 21 : 25,
                             color: Theme.of(context).primaryColorLight,
                           ),
                         ),
@@ -207,7 +206,7 @@ Widget getTextWidgets(
                         child: Icon(
                           EvaIcons.arrowForwardOutline,
                           color: Theme.of(context).primaryColorLight,
-                          size: 25,
+                          size: height < 750 ? 21 : 25,
                         ),
                       ),
                       Positioned(
@@ -215,7 +214,7 @@ Widget getTextWidgets(
                         child: Text(
                           arrival[i],
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: height < 750 ? 21 : 25,
                             color: Theme.of(context).primaryColorLight,
                           ),
                         ),
@@ -234,7 +233,7 @@ Widget getTextWidgets(
                           return AlertDialog(
                             shape: RoundedRectangleBorder(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(20.0))),
+                                    BorderRadius.all(Radius.circular(15.0))),
                             backgroundColor:
                                 Theme.of(context).primaryColorBrightness ==
                                         Brightness.light
@@ -256,12 +255,12 @@ Widget getTextWidgets(
                                                   Brightness.dark
                                               ? Colors.white
                                               : Color(0xff404040),
-                                          fontSize: 34,
+                                          fontSize:MediaQuery.of(context).size.height < 750 ? 28 : 34,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(top: 20.0),
+                                    padding: EdgeInsets.only(top: 10.0),
                                     child: Text("Prihod: " + arrival[i],
                                         style: TextStyle(
                                             color: Theme.of(context)
@@ -269,11 +268,11 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: 34,
+                                            fontSize: MediaQuery.of(context).size.height < 750 ? 28 : 34,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(top: 20.0),
+                                    padding: EdgeInsets.only(top: 15.0),
                                     child: Text("Čas: " + travelTime[i],
                                         style: TextStyle(
                                             color: Theme.of(context)
@@ -281,7 +280,7 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: 20,
+                                            fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   Padding(
@@ -293,7 +292,7 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: 20,
+                                            fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   Padding(
@@ -305,7 +304,7 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: 20,
+                                            fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   Padding(
@@ -317,7 +316,7 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: 20,
+                                            fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                   Padding(
@@ -329,7 +328,7 @@ Widget getTextWidgets(
                                                     Brightness.dark
                                                 ? Colors.white
                                                 : Color(0xff404040),
-                                            fontSize: 20,
+                                            fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
                                             fontWeight: FontWeight.bold)),
                                   ),
                                 ],
@@ -343,13 +342,11 @@ Widget getTextWidgets(
                   iconSize: 25,
                   color: Theme.of(context).primaryColorLight,
                 ),
-                //child: Image(image: AssetImage("assets/logo.png",),
               ],
             )),
       ));
-      if(sooner){
-        ct+=(height*0.072);
-        print(ct);
+      if(sooner && i < departure.length - height / ((height * 0.024 * MediaQuery.of(context).devicePixelRatio) + (height * 0.01)) + 1) {
+        ct+=((height * 0.024 * MediaQuery.of(context).devicePixelRatio) + (height * 0.01));
       }
       list.add(new Container(
         height: height * 0.01,

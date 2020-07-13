@@ -62,9 +62,11 @@ class HomeState extends State<HomePage> {
   void initState() {
     super.initState();
     init().whenComplete(() => setState(() {}));
+    
   }
 
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.height);
     var _blackFocusNode = new FocusNode();
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
@@ -110,7 +112,7 @@ class HomeState extends State<HomePage> {
                     children: <Widget>[
                       Center(
                         child: Container(
-                          height: height * 0.06,
+                          height: height * 0.023 * MediaQuery.of(context).devicePixelRatio,// MediaQuery.of(context).size.height < 750 ? 55 : 60,,
                           width: width * 0.4,
                           child: RaisedButton(
                             onPressed: () => [
@@ -149,12 +151,12 @@ class HomeState extends State<HomePage> {
                             ],
                             child: Text(
                               "Išči",
-                              style: TextStyle(fontSize: height < 700 ? 25 : 30, fontWeight: FontWeight.w500, color: Colors.black),
+                              style: TextStyle(fontSize: height < 750 ? 23 : 30, fontWeight: FontWeight.w500, color: Colors.white),
                             ),
-                            color: CupertinoColors.systemBlue,
+                            color: Colors.blue[300],
                             textColor: Theme.of(context).primaryColor,
                             shape: RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(20.0),
+                              borderRadius: new BorderRadius.circular(13.0),
                             ),
                           ),
                         ),
@@ -162,13 +164,13 @@ class HomeState extends State<HomePage> {
                       Positioned(
                         right: 5,
                         child: Container(
-                          height: height * 0.06,
+                          height: height * 0.023 * MediaQuery.of(context).devicePixelRatio,
                           child: FloatingActionButton(
-                            backgroundColor: CupertinoColors.systemBlue,
+                            backgroundColor: Colors.blue[300],
                             child: Icon(
                               Icons.swap_vert,
-                              size: height < 700 ? 25 : 30,
-                              color: Colors.black,
+                              size: height < 750 ? 30 : 35,
+                              color: Colors.white,
                             ),
                             onPressed: () {
                               var pom = departure;
@@ -182,16 +184,13 @@ class HomeState extends State<HomePage> {
                       ),
                     ],
                   ),
-
-                  //Divider(color: Colors.white, ),
                   Padding(padding: EdgeInsets.all(20)),
                   Text(
-                    "    Priljubljene relacije: ",
+                    "Priljubljene relacije: ",
                     style: TextStyle(
-                      color: CupertinoColors
-                          .systemPink, //Theme.of(context).primaryColorLight,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                      color: Colors.yellow[700], //Theme.of(context).primaryColorLight,
+                      fontSize: MediaQuery.of(context).size.height < 750 ? 18 : 20,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   Padding(
@@ -251,7 +250,7 @@ class BasicDateField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * 0.06,
+      height: height * 0.027 * MediaQuery.of(context).devicePixelRatio,// MediaQuery.of(context).size.height < 750 ? 55 : 60,,
       child: DateTimeField(
         resetIcon: Icon(
           Icons.clear,
@@ -262,6 +261,7 @@ class BasicDateField extends StatelessWidget {
         maxLines: null,
         minLines: null,
         decoration: InputDecoration(
+          isDense: true,
           enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black),
               borderRadius: BorderRadius.circular(17)),
@@ -269,10 +269,11 @@ class BasicDateField extends StatelessWidget {
           filled: true,
           prefixIcon: new Icon(
             Icons.date_range,
+            size: 30,
             color: Colors.black,
           ),
         ),
-        style: TextStyle(fontSize: 20, color: Colors.black),
+        style: TextStyle(fontSize: height < 750 ? 18 : 20, color: Colors.black),
         format: format,
         initialValue: date,
         onChanged: (DateTime dat) {
@@ -281,7 +282,6 @@ class BasicDateField extends StatelessWidget {
         onShowPicker: (context, currentValue) {
           return showDatePicker(
             helpText: "Izberi datum odhoda",
-            errorInvalidText: "Neki",
             context: context,
             builder: (BuildContext context, Widget child) {
               return Theme(

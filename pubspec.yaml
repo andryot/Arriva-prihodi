@@ -30,7 +30,6 @@ dependencies:
     sdk: flutter
   fluttertoast: ^4.0.1
   
-
 dev_dependencies:
   flutter_launcher_icons: ^0.7.5
   flutter_test:

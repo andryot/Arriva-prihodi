@@ -48,7 +48,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
     return Form(
       key: this._formKey,
       child: Container(
-        height: height * 0.06,
+        height: height * 0.027 * MediaQuery.of(context).devicePixelRatio,//MediaQuery.of(context).size.height < 750 ? 55 : 60,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
@@ -92,7 +92,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
                 filled: false,
               ),
               
-              style: TextStyle(fontSize: 20, color: Colors.black),
+              style: TextStyle(fontSize: height < 750 ? 18 : 20, color: Colors.black),
               controller: departureTextController,
             ),
             suggestionsCallback: (pattern) {
@@ -196,7 +196,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
     return Form(
       key: this._formKey,
       child: Container(
-        height: height * 0.06,
+        height:height * 0.027 * MediaQuery.of(context).devicePixelRatio,// MediaQuery.of(context).size.height < 750 ? 55 : 60,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
@@ -238,7 +238,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
                 hintStyle: TextStyle(color: hintColorA),
                 filled: false,
               ),
-              style: TextStyle(fontSize: 20, color: Colors.black),
+              style: TextStyle(fontSize: height < 750 ? 18 : 20, color: Colors.black),
               controller: destinationTextController,
             ),
             suggestionsCallback: (pattern) {

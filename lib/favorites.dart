@@ -1,6 +1,7 @@
 import 'package:bus_time_table/HomePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'HomePage.dart';
 import 'data_fetch.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
@@ -47,7 +48,7 @@ class FavoritesState extends State<FavoritesSection> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                   side: BorderSide(width: 1))),
-          height: height * 0.055,
+          height: height * 0.023 * MediaQuery.of(context).devicePixelRatio,// MediaQuery.of(context).size.height < 750 ? 55 : 60,,
           child: Dismissible(
             background: slideRightBackground(),
             secondaryBackground: slideLeftBackground(),
@@ -71,13 +72,7 @@ class FavoritesState extends State<FavoritesSection> {
                         ),
                       ),
                       CupertinoButton(
-                        onPressed: () => [
-                          setState(() {
-                            favorites.removeAt(i);
-                          }),
-                          Navigator.of(context).pop(true),
-                          refresh()
-                        ],
+                        onPressed: () async => await deleteFavorite(i),
                         child: Text(
                           "Potrdi",
                           style: TextStyle(
@@ -92,8 +87,7 @@ class FavoritesState extends State<FavoritesSection> {
               );
               return res;
             },
-            child: Ink(
-              child: InkWell(
+            child:  InkWell(
                 onTap: () => [
                   routesDeparture = temp[0],
                   routesDestination = temp[1],
@@ -114,56 +108,32 @@ class FavoritesState extends State<FavoritesSection> {
                 ],
                 child: ListTile(
                   dense: true,
-                  title: RichText(
+                  leading: RichText(
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     text: TextSpan(children: [
                       TextSpan(
                         text: temp[0].toString(),
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black),
+                        style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                       WidgetSpan(
                         child: Icon(
                           EvaIcons.arrowForwardOutline,
                           color: Colors.black,
+                          size: 18,
                         ),
                       ),
                       TextSpan(
                         text: temp[1].toString(),
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black),
+                        style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ]),
                   ),
                 ),
               ),
-
-              /*Positioned(
-                              right: 10,
-                              child: Material(
-                                  elevation: 0,
-                                  color: Colors.white,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: <Widget>[
-                                      IconButton(
-                                        icon: Icon(Icons.star),
-                                        iconSize: 30,
-                                        color: Colors.yellow,
-                                        onPressed: () async {
-                                          favorites.removeAt(i);
-                                          refresh();
-                                        },
-                                      ),
-                                    ],
-                                  )),
-                            ),*/
             ),
           ),
-        ));
+        );
         list.add(new Container(
           height: height * 0.02,
         ));
@@ -237,5 +207,15 @@ class FavoritesState extends State<FavoritesSection> {
         alignment: Alignment.centerRight,
       ),
     );
+  }
+
+  deleteFavorite(int i) async {
+    final prefs = await SharedPreferences.getInstance();
+    favorites.removeAt(i);
+    await prefs.remove("favorites");
+    await prefs.setStringList("favorites", favorites);
+    await prefs.reload();
+    Navigator.of(context).pop(true);
+    refresh();
   }
 }
