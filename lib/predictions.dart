@@ -47,7 +47,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
     return Form(
       key: this._formKey,
       child: Container(
-        height: height * 0.027 * MediaQuery.of(context).devicePixelRatio,
+        height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
@@ -55,6 +55,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
         ),
         child: Center(
           child: TypeAheadFormField(
+            key: ValueKey("odhod"),
             suggestionsBoxController: suggestionDestinationController,
             textFieldConfiguration: TextFieldConfiguration(
               onChanged: (text) {
@@ -184,7 +185,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
     return Form(
       key: this._formKey,
       child: Container(
-        height: height * 0.027 * MediaQuery.of(context).devicePixelRatio,
+        height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
@@ -192,6 +193,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
         ),
         child: Center(
           child: TypeAheadFormField(
+            key: ValueKey("prihod"),
             suggestionsBoxController: suggestionArrivalController,
             textFieldConfiguration: TextFieldConfiguration(
               onChanged: (text) {

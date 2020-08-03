@@ -68,7 +68,7 @@ class HomeState extends State<HomePage> {
     var _blackFocusNode = new FocusNode();
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-
+    print(height);
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(
@@ -111,8 +111,11 @@ class HomeState extends State<HomePage> {
                     children: <Widget>[
                       Center(
                         child: Container(
-                          height: height *
+                          height: height > 650 ? height *
                               0.023 *
+                              MediaQuery.of(context)
+                                  .devicePixelRatio : height *
+                              0.034 *
                               MediaQuery.of(context)
                                   .devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
                           width: width * 0.4,
@@ -158,7 +161,7 @@ class HomeState extends State<HomePage> {
                                   fontWeight: FontWeight.w500,
                                   color: Colors.white),
                             ),
-                            color: Colors.blue[300],
+                            color: Colors.blue[500],
                             textColor: Theme.of(context).primaryColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(13.0),
@@ -169,11 +172,15 @@ class HomeState extends State<HomePage> {
                       Positioned(
                         right: 5,
                         child: Container(
-                          height: height *
+                          height: height > 650 ? height *
                               0.023 *
-                              MediaQuery.of(context).devicePixelRatio,
+                              MediaQuery.of(context)
+                                  .devicePixelRatio : height *
+                              0.034 *
+                              MediaQuery.of(context)
+                                  .devicePixelRatio,
                           child: FloatingActionButton(
-                            backgroundColor: Colors.blue[300],
+                            backgroundColor: Colors.blue[500],
                             child: Icon(
                               Icons.swap_vert,
                               size: height < 750 ? 30 : 35,
@@ -259,7 +266,7 @@ class BasicDateField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * 0.027 * MediaQuery.of(context).devicePixelRatio,
+      height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
       child: DateTimeField(
         resetIcon: Icon(
           Icons.clear,

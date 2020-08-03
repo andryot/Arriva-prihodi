@@ -49,10 +49,13 @@ class FavoritesState extends State<FavoritesSection> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                     side: BorderSide(width: 1))),
-            height: height *
-                0.023 *
-                MediaQuery.of(context)
-                    .devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
+            height: height > 650 ? height *
+                              0.023 *
+                              MediaQuery.of(context)
+                                  .devicePixelRatio : height *
+                              0.034 *
+                              MediaQuery.of(context)
+                                  .devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
             child: Dismissible(
               background: slideRightBackground(),
               secondaryBackground: slideLeftBackground(),
