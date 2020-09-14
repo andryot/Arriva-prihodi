@@ -114,6 +114,7 @@ class SecondState extends State<SecondRoute> {
                   padding: EdgeInsets.symmetric(vertical: height * 0.01),
                 ),
                 Container(
+                  
                   height: height * 0.035,
                   width: width * 0.9,
                   child: Stack(
@@ -184,7 +185,8 @@ Widget getTextWidgets(
           .isBefore(DateTime.now());
       list.add(Center(
         child: Container(
-            height: height * 0.024 * MediaQuery.of(context).devicePixelRatio,
+            height:  pixelsVertical > 1750 ?  height * 0.024 * MediaQuery.of(context).devicePixelRatio : height * 0.035 * MediaQuery.of(context).devicePixelRatio,
+            //height: height * 0.024 * MediaQuery.of(context).devicePixelRatio,
             width: width * 0.9,
             decoration: (BoxDecoration(
               color:
@@ -392,9 +394,11 @@ Widget getTextWidgets(
               ],
             )),
       ));
-      if (sooner && i < departure.length -height /
-          ((height * 0.024 * MediaQuery.of(context).devicePixelRatio) + (height * 0.01)) +   1) {
-        ct += ((height * 0.024 * MediaQuery.of(context).devicePixelRatio) +
+
+      double correctHeight = pixelsVertical > 1750 ?  0.024 : 0.035 ;
+      if (sooner && i < departure.length - height /
+          ((height * correctHeight * MediaQuery.of(context).devicePixelRatio) + (height * 0.01)) +   1) {
+        ct += ((height * correctHeight * MediaQuery.of(context).devicePixelRatio) +
             (height * 0.01));
       }
       

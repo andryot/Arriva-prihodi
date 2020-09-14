@@ -23,16 +23,11 @@ class FavoritesState extends State<FavoritesSection> {
   }
 
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: new BorderRadius.circular(17.0),
-      ),
-      child: ListView(
-        physics: BouncingScrollPhysics(),
-        children: <Widget>[
-          getTextWidgets(),
-        ],
-      ),
+    return ListView(
+      physics: BouncingScrollPhysics(),
+      children: <Widget>[
+        getTextWidgets(),
+      ],
     );
   }
 
@@ -49,13 +44,12 @@ class FavoritesState extends State<FavoritesSection> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                     side: BorderSide(width: 1))),
-            height: height > 650 ? height *
-                              0.023 *
-                              MediaQuery.of(context)
-                                  .devicePixelRatio : height *
-                              0.034 *
-                              MediaQuery.of(context)
-                                  .devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
+            height: pixelsVertical > 1750
+                ? height *
+                    (height > 600 ? 0.023 : 0.020) *
+                    MediaQuery.of(context).devicePixelRatio
+                : height * (pixelsVertical > 900 ? 0.034 : 0.042) * MediaQuery.of(context).devicePixelRatio,
+            //height: height > 650 ? height *0.023 *MediaQuery.of(context).devicePixelRatio : height *0.034 *MediaQuery.of(context).devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
             child: Dismissible(
               background: slideRightBackground(),
               secondaryBackground: slideLeftBackground(),
@@ -115,31 +109,33 @@ class FavoritesState extends State<FavoritesSection> {
                 ],
                 child: ListTile(
                   dense: true,
-                  leading: RichText(
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    text: TextSpan(children: [
-                      TextSpan(
-                        text: temp[0].toString(),
-                        style: TextStyle(fontSize: 16, color: Colors.black),
+                  title: 
+                    RichText(
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text: temp[0].toString(),
+                            style: TextStyle(fontSize: 16, color: Colors.black),
+                          ),
+                          WidgetSpan(
+                            child: Icon(
+                              EvaIcons.arrowForwardOutline,
+                              color: Colors.black,
+                              size: 18,
+                            ),
+                          ),
+                          TextSpan(
+                            text: temp[1].toString(),
+                            style: TextStyle(fontSize: 16, color: Colors.black),
+                          ),
+                        ]),
                       ),
-                      WidgetSpan(
-                        child: Icon(
-                          EvaIcons.arrowForwardOutline,
-                          color: Colors.black,
-                          size: 18,
-                        ),
-                      ),
-                      TextSpan(
-                        text: temp[1].toString(),
-                        style: TextStyle(fontSize: 16, color: Colors.black),
-                      ),
-                    ]),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
+            
         );
         list.add(new Container(
           height: height * 0.02,

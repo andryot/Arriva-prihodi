@@ -6,11 +6,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'HomePage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+//import 'package:device_preview/device_preview.dart';
 
 void main() { 
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(MyApp());  
+  runApp(
+    MyApp()
+    //DevicePreview(builder: (context) => MyApp())
+    );  
   }
 
 class MyApp extends StatefulWidget {

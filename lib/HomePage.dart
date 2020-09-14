@@ -54,21 +54,28 @@ var array = [];
 
 bool errorArrival = true;
 bool errorDeparture = true;
-
+double pixelsVertical = 0.0;
+double favoritesPosition = 0;
 class HomeState extends State<HomePage> {
   TextEditingController destinationController = new TextEditingController();
-
+  GlobalKey paddingKey = new GlobalKey();
   @override
   void initState() {
     super.initState();
+     WidgetsBinding.instance.addPostFrameCallback(position);
     init().whenComplete(() => setState(() {}));
+  }
+
+  position (_){
+favoritesPosition = _getPaddingPosition();
   }
 
   Widget build(BuildContext context) {
     var _blackFocusNode = new FocusNode();
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-    print(height);
+    print(pixelsVertical);
+    pixelsVertical = height * MediaQuery.of(context).devicePixelRatio;
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(
@@ -111,13 +118,8 @@ class HomeState extends State<HomePage> {
                     children: <Widget>[
                       Center(
                         child: Container(
-                          height: height > 650 ? height *
-                              0.023 *
-                              MediaQuery.of(context)
-                                  .devicePixelRatio : height *
-                              0.034 *
-                              MediaQuery.of(context)
-                                  .devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
+                          height:  pixelsVertical > 1750 ?  height * 0.023 * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.034 : 0.042) * MediaQuery.of(context).devicePixelRatio,
+                          //height: height > 650 ? height * 0.023 * MediaQuery.of(context).devicePixelRatio: height * 0.034 *MediaQuery.of(context).devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
                           width: width * 0.4,
                           child: RaisedButton(
                             onPressed: () => [
@@ -157,7 +159,7 @@ class HomeState extends State<HomePage> {
                             child: Text(
                               "Išči",
                               style: TextStyle(
-                                  fontSize: height < 750 ? 23 : 30,
+                                  fontSize: pixelsVertical < 1920 ? 23 : 30,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.white),
                             ),
@@ -172,18 +174,13 @@ class HomeState extends State<HomePage> {
                       Positioned(
                         right: 5,
                         child: Container(
-                          height: height > 650 ? height *
-                              0.023 *
-                              MediaQuery.of(context)
-                                  .devicePixelRatio : height *
-                              0.034 *
-                              MediaQuery.of(context)
-                                  .devicePixelRatio,
+                          height:  pixelsVertical > 1750 ?  height * 0.023 * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.034 : 0.042) * MediaQuery.of(context).devicePixelRatio,
+                          //height: height > 650? height *0.023 *MediaQuery.of(context).devicePixelRatio: height *0.034 *MediaQuery.of(context).devicePixelRatio,
                           child: FloatingActionButton(
                             backgroundColor: Colors.blue[500],
                             child: Icon(
                               Icons.swap_vert,
-                              size: height < 750 ? 30 : 35,
+                              size: pixelsVertical < 1920 ? 30 : 35,
                               color: Colors.white,
                             ),
                             onPressed: () {
@@ -205,15 +202,17 @@ class HomeState extends State<HomePage> {
                       color: Colors
                           .yellow[700], //Theme.of(context).primaryColorLight,
                       fontSize:
-                          MediaQuery.of(context).size.height < 750 ? 18 : 20,
+                          pixelsVertical < 1920 ? 18 : 20,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Padding(
+                    key: paddingKey,
                     padding: EdgeInsets.all(5),
                   ),
                   Container(
-                    height: height * 0.5,
+                    //height: pixelsVertical > 1920 ? (height  > 600 ? 0.3 : 0.27) * height : height * 0.3,
+                    height: (height - favoritesPosition) - 15,
                     child: FavoritesSection(),
                   ),
                 ],
@@ -223,6 +222,13 @@ class HomeState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  double _getPaddingPosition(){
+    final RenderBox renderBoxRed = paddingKey.currentContext.findRenderObject();
+    print(renderBoxRed.localToGlobal(Offset.zero).dy);
+    
+    return renderBoxRed.localToGlobal(Offset.zero).dy;
   }
 
   Future<bool> _onBackPressed() {
@@ -266,7 +272,8 @@ class BasicDateField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
+      height:  pixelsVertical > 1750 ?  height * (height  > 600 ? 0.028 : 0.024) * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.042 : 0.05) * MediaQuery.of(context).devicePixelRatio,
+      //height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
       child: DateTimeField(
         resetIcon: Icon(
           Icons.clear,
@@ -328,7 +335,7 @@ Future<void> init() async {
   array.removeLast();
   map.clear();
   predictions.clear();
-  
+
   for (int i = 0; i < array.length; i++) {
     map[array[i][0]] = int.parse(array[i][1]);
     predictions.add(array[i][0].toString().replaceAll("+", " "));

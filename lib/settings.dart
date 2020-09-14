@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class SettingsPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => SettingsState();
@@ -23,13 +22,14 @@ class SettingsState extends State<SettingsPage> {
       body: Center(
         child: Column(children: <Widget>[
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal:18.0),
+            padding: const EdgeInsets.symmetric(horizontal: 18.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
                   "Dark mode",
-                  style: TextStyle(color: Theme.of(context).primaryColorLight, fontSize: 17),
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColorLight, fontSize: 17),
                 ),
                 Switch(
                   activeColor: Colors.blue,
@@ -55,6 +55,7 @@ class SettingsState extends State<SettingsPage> {
                   applicationName: "Arriva prihodi",
                   applicationLegalese:
                       "Podatki se pridobivajo iz spletne strani arriva.si\n\nRazvijalec: Andraž Anderle\nIcon made by Freepi from www.flaticon.com\nHvala Žan, Ana, Urban in Nik!")),
+        
         ]),
       ),
     );
