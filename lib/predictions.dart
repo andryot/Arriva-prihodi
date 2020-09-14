@@ -68,7 +68,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
                   this._formKey.currentState.save();
               },
               onTap: () {
-                this.suggestionDestinationController.toggle();
+                //this.suggestionDestinationController.toggle();
                 if (this._formKey.currentState.validate())
                   this._formKey.currentState.save();
               },
@@ -211,7 +211,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
                 this._formKey.currentState.save();
               },
               onTap: () {
-                this.suggestionArrivalController.toggle();
+                //this.suggestionArrivalController.toggle();
                 if (this._formKey.currentState.validate())
                   this._formKey.currentState.save();
               },
