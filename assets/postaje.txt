@@ -17,6 +17,7 @@ Apače+pri+Gornji+Radgoni: 137037
 Apače+pri+Gornji+Radgoni+kovač+K: 137038
 Apače/Drav.p.: 137035
 Apače/Drav.p.K: 137036
+Apno: 902487
 Arnež: 137046
 Artmanja+vas: 137049
 Autostazione+di+Trieste/Trst: 901216
@@ -74,7 +75,6 @@ Biš+gasilski+dom: 902105
 Biška+vas: 137139
 Blagovica: 137163
 Bled+Gmajna: 137172
-Bled+grad: 137173
 Bled+Zaka: 137178
 Blejska+Dobrava+Črna+Vas: 900078
 Blejska+Dobrava+Iskra: 135725
@@ -104,6 +104,7 @@ Bratonečice: 137253
 Brebovnica: 137258
 Breg+Aleš: 135832
 Breg+ob+Savi: 135833
+Breg/Žirov.star: 137269
 Brengova: 137274
 Brengova+Ploj: 137275
 Brengova+tran.: 137276
@@ -131,6 +132,7 @@ Bučka: 137359
 Bučka+Remic: 137360
 Bukovica/Selščici: 137370
 Bukovščica: 137375
+Camp+river+BLED: 902419
 Cave+del+Predil: 900151
 Cerkljanska+Dobrava: 137446
 Cerklje+na+Gorenjskem: 137447
@@ -255,6 +257,7 @@ Dravski+Dvor+KS: 137832
 Dražen+Vrh: 137835
 Draženci: 137836
 Draženci+farma: 137837
+Draženska+cesta+14: 902414
 Dražgoše: 137839
 Drenovec/Zavrču: 137846
 Drgančevje: 136578
@@ -354,6 +357,7 @@ Grabonoš: 138119
 Grabonoški+Vrh: 138120
 Grabšinci+K: 138121
 Grabšinski+breg: 138122
+Grad+Kamen: 902490
 Grad/Cerkljah: 138129
 Gradac: 138131
 Gradec: 138133
@@ -863,7 +867,6 @@ Maribor+Planet+Tuš: 136416
 Maribor+pokop.Dobrava+K: 136423
 Maribor+Prim.ul.: 136478
 Maribor+Slavija: 136293
-Maribor+Tabor: 136467
 Maribor+Tezenska: 136307
 Maribor+Tiskarna: 136430
 Maribor+tov.Metalna: 136431
@@ -888,6 +891,7 @@ Martinja+vas+pri+Mokr.: 139157
 Matenja+vas: 139165
 Materija: 139166
 Mavčiče+pokopališče: 135888
+Mavčiče+šola: 902106
 Medvode+na+klancu: 139179
 Meja/Kr.: 139180
 Mejni+prehod+Gradišče: 901654
@@ -943,15 +947,14 @@ Nasovče: 139339
 Negova: 139345
 Negova+112: 150888
 Negova+jezero: 139346
-Negova+LD: 139347
 Negova+Lipnik: 901682
 Negova+pokopališče: 150889
+Negova+Šinko: 139347
 Negrad: 139348
 Negrad+Osovnik: 139349
 Nemška+vas/Ribnici: 139357
 Nemškarca: 139358
 Njivica/Kr.: 139363
-NM+AP+(MP): 901318
 Nova: 135795
 Nova+Cerkev: 139369
 Nova+Gorica+AP: 139373
@@ -971,6 +974,7 @@ Novo+mesto+Gotna+vas: 136581
 Novo+mesto+Kandija: 136587
 Novo+mesto+Ločna: 136606
 Novo+mesto+Žabja+vas: 136626
+Novo+mesto+Župnca: 141039
 Novokračine: 139401
 Ob+Dravi: 901690
 Oblaki: 139406
@@ -1105,6 +1109,9 @@ Poljane+OŠ: 900736
 Poljane/Kočni: 139786
 Poljčane+OŠ: 150495
 Poljčane+ŽP: 139787
+Poljska+cesta+1: 902415
+Poljska+cesta+2: 902416
+Poljska+cesta+3: 902417
 Pomjan: 139802
 Posavec: 139819
 Posrtvica: 150134
@@ -1131,7 +1138,7 @@ Preddvor+pri+Zupancu: 139860
 Preddvor+trgovina: 139858
 Pregarje: 139869
 Prelog+Magan: 139879
-Premantura: 900756
+Premantura+fontana: 900756
 Prepolje/Drav.p.: 139887
 Prepolje/Drav.p.G: 139888
 Prerad+K: 139889
@@ -1167,6 +1174,7 @@ Ptuj+pod+Gradom: 150326
 Ptuj+Rogoznica: 139963
 Ptuj+Rogoznica+n.pokop.: 139965
 Ptuj+Rogoznica+zad.: 139966
+Ptuj+Selska+c.46: 902413
 Ptuj+Svržnjakova+4: 150327
 Ptuj+Transservis: 139968
 Ptuj+Zadružni+trg: 152155
@@ -1219,6 +1227,7 @@ Rateče+MP: 901362
 Rateče+Planica: 140056
 Ratež: 140058
 Ratkovec: 150665
+Ravne+pod+Krvavcem: 902488
 Razbank: 140080
 Razdrto: 140084
 Razdrto+K: 140085
@@ -1343,6 +1352,7 @@ Smolnik+obračališče: 150347
 Soča: 140559
 Sora: 140581
 Sorica: 140582
+Soriška+planina: 902418
 Soteska+v+Bohinju: 140587
 Soteska/Dvoru: 140588
 Soteska/Kamniku: 140589
@@ -1502,6 +1512,8 @@ Svečina: 140882
 Šenčur+na+Jami: 140330
 Šenčur+poslovna+cona: 902116
 Šentilj+Majer: 150391
+Šenturska+Gora/"Polane": 902485
+Šenturška+Gora/Gasilski+dom: 902486
 Šetarova: 140385
 Škocjan/Kopru+K: 140422
 Škocjan/N.mestu: 140423
@@ -1582,7 +1594,6 @@ Trnovska+vas+most: 141031
 Trojane: 141035
 Trotkova: 150895
 Trst/Trieste+železniška+postaja: 901396
-Trška+Gora: 141039
 Trzin+ind.cona: 141051
 Trzin+Mlake: 141052
 Trzin+vas: 141053
@@ -1702,6 +1713,7 @@ Zavrč+grad: 141450
 Zavrč+trg.: 141451
 Zavrh/Sl.g.: 141456
 Zavrh/Sl.g.K: 141457
+Završnica: 902420
 Zbiljski+gaj: 141481
 Zdenska+vas: 141483
 Zdravstveni+dom: 152199
@@ -1801,6 +1813,7 @@ Zobčeva+ulica: 152205
 Župetinci+Andrenci+K: 141656
 Žusterna+bazen: 902240
 Žusterna+III: 135821
+Žusterna+parkirišče: 902595
 Beli+križ: 136630
 Beli+križ+pd: 136631
 Belvedere: 137106
@@ -1811,7 +1824,6 @@ Bitnje+v+Bohinju: 137155
 Bled: 137171
 Bled+Mlino: 137174
 Bled+Petrol: 137175
-Bled+Š: 137176
 Bled+Union: 137177
 Bobovek: 135829
 Bobovek+bloki: 900079
@@ -1823,6 +1835,7 @@ Brce: 137254
 Breg+pri+Kočevju: 137260
 Breg+pri+Litiji: 137261
 Breg+pri+Ribnici: 137263
+Breg/Žirov.nov: 137268
 Brekovice: 137273
 Brezje+pri+Dobu: 137300
 Brezje+pri+Trž.: 137302
@@ -1949,6 +1962,7 @@ Hruševje: 138271
 Hudo+Polje: 138284
 Iglenik: 138299
 II.+Prekomor: 135777
+Infocenter+TRB: 902089
 Izvir+Soče+K: 138345
 Jedlovnik: 138391
 Jelendol: 138392
@@ -2010,7 +2024,6 @@ Leskovec+pri+Krškem: 135938
 Leskovec+pri+Krškem+K: 138857
 Leše/Trž.: 138851
 Leše/Trž.K: 138852
-Lešje: 138854
 Letence+K: 138868
 Lipce: 135751
 Liplje: 141717
@@ -2107,7 +2120,7 @@ Peče: 139531
 Peče+K: 139533
 Pečke: 139539
 Perivnik: 135890
-Peroj: 900693
+Peroj+cerkev: 900693
 Pesniški+Dvor: 139552
 Pestike: 139553
 Petelinje: 139557
@@ -2496,6 +2509,8 @@ Slomi+K: 140496
 Sodinci: 140566
 Spodnji+Brnik: 140692
 Spodnji+Ločič: 902103
+Srmin+GORC+II: 902604	
+Srmin+GORC+III: 902605
 Stogovci+41: 901865
 Stogovci+48: 150894
 Stojnci: 140777

@@ -74,7 +74,6 @@ favoritesPosition = _getPaddingPosition();
     var _blackFocusNode = new FocusNode();
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-    print(pixelsVertical);
     pixelsVertical = height * MediaQuery.of(context).devicePixelRatio;
     return WillPopScope(
       onWillPop: _onBackPressed,
@@ -226,8 +225,6 @@ favoritesPosition = _getPaddingPosition();
 
   double _getPaddingPosition(){
     final RenderBox renderBoxRed = paddingKey.currentContext.findRenderObject();
-    print(renderBoxRed.localToGlobal(Offset.zero).dy);
-    
     return renderBoxRed.localToGlobal(Offset.zero).dy;
   }
 
