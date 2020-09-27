@@ -49,7 +49,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
       child: Container(
         height: pixelsVertical > 1750
             ? height *
-                (height > 600 ? 0.028 : 0.024) *
+                (height > 600 ? pixelsVertical > 2500 ? 0.022 : 0.028 : 0.024) *
                 MediaQuery.of(context).devicePixelRatio
             : height * (pixelsVertical > 900 ? 0.042 : 0.05) * MediaQuery.of(context).devicePixelRatio,
         //height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
@@ -193,7 +193,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
         //height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
         height: pixelsVertical > 1750
             ? height *
-                (height > 600 ? 0.028 : 0.024) *
+                (height > 600 ? pixelsVertical > 2500 ? 0.022 : 0.028 : 0.024) *
                 MediaQuery.of(context).devicePixelRatio
             : height * (pixelsVertical > 900 ? 0.042 : 0.05) * MediaQuery.of(context).devicePixelRatio,
         decoration: BoxDecoration(

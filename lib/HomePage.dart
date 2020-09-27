@@ -117,7 +117,7 @@ favoritesPosition = _getPaddingPosition();
                     children: <Widget>[
                       Center(
                         child: Container(
-                          height:  pixelsVertical > 1750 ?  height * 0.023 * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.034 : 0.042) * MediaQuery.of(context).devicePixelRatio,
+                          height:  pixelsVertical > 1750 ? height *  (pixelsVertical > 2500 ? 0.02 : 0.023) * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.034 : 0.042) * MediaQuery.of(context).devicePixelRatio,
                           //height: height > 650 ? height * 0.023 * MediaQuery.of(context).devicePixelRatio: height * 0.034 *MediaQuery.of(context).devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
                           width: width * 0.4,
                           child: RaisedButton(
@@ -173,7 +173,7 @@ favoritesPosition = _getPaddingPosition();
                       Positioned(
                         right: 5,
                         child: Container(
-                          height:  pixelsVertical > 1750 ?  height * 0.023 * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.034 : 0.042) * MediaQuery.of(context).devicePixelRatio,
+                          height:  pixelsVertical > 1750 ? height *  (pixelsVertical > 2500 ? 0.02 : 0.023) * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.034 : 0.042) * MediaQuery.of(context).devicePixelRatio,
                           //height: height > 650? height *0.023 *MediaQuery.of(context).devicePixelRatio: height *0.034 *MediaQuery.of(context).devicePixelRatio,
                           child: FloatingActionButton(
                             backgroundColor: Colors.blue[500],
@@ -232,7 +232,7 @@ favoritesPosition = _getPaddingPosition();
     return showCupertinoDialog(
           context: context,
           builder: (context) => Theme(
-            data: ThemeData.dark(),
+            data: currentTheme.isDark ? ThemeData.dark(): ThemeData.light(),
             child: CupertinoAlertDialog(
               title: new Text(
                 'Želite zapreti aplikacijo?',
@@ -269,7 +269,7 @@ class BasicDateField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:  pixelsVertical > 1750 ?  height * (height  > 600 ? 0.028 : 0.024) * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.042 : 0.05) * MediaQuery.of(context).devicePixelRatio,
+      height:  pixelsVertical > 1750 ?  height * (height  > 600 ? pixelsVertical > 2500 ? 0.022 : 0.028 : 0.024) * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.042 : 0.05) * MediaQuery.of(context).devicePixelRatio,
       //height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
       child: DateTimeField(
         resetIcon: Icon(

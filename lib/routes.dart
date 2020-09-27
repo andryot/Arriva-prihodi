@@ -70,8 +70,8 @@ class SecondState extends State<SecondRoute> {
                 ),
               ),
               IconButton(
-                icon: Icon(
-                  Icons.star,
+                icon: Icon( starColor == Colors.yellow ? 
+                  Icons.star : Icons.star_border,
                   size: 30,
                   color: starColor,
                 ),
@@ -159,7 +159,9 @@ Widget getTextWidgets(
     List<String> departure, List<String> arrival, BuildContext context) {
   List<Widget> list = new List<Widget>();
   if (list.isNotEmpty) list.clear();
+  print(pixelsVertical);
   if (departures.length == 0) {
+    ct=0;
     list.add(Padding(padding: EdgeInsets.all(10)));
     list.add(
       Center(
@@ -185,7 +187,7 @@ Widget getTextWidgets(
           .isBefore(DateTime.now());
       list.add(Center(
         child: Container(
-            height:  pixelsVertical > 1750 ?  height * 0.024 * MediaQuery.of(context).devicePixelRatio : height * 0.035 * MediaQuery.of(context).devicePixelRatio,
+            height:  pixelsVertical > 1750 ?  height * (pixelsVertical > 2500 ? 0.019 :  0.024) * MediaQuery.of(context).devicePixelRatio : height * 0.035 * MediaQuery.of(context).devicePixelRatio,
             //height: height * 0.024 * MediaQuery.of(context).devicePixelRatio,
             width: width * 0.9,
             decoration: (BoxDecoration(
@@ -395,7 +397,7 @@ Widget getTextWidgets(
             )),
       ));
 
-      double correctHeight = pixelsVertical > 1750 ?  0.024 : 0.035 ;
+      double correctHeight = pixelsVertical > 1750 ?  (pixelsVertical > 2500 ? 0.019 : 0.024) : 0.035 ;
       if (sooner && i < departure.length - height /
           ((height * correctHeight * MediaQuery.of(context).devicePixelRatio) + (height * 0.01)) +   1) {
         ct += ((height * correctHeight * MediaQuery.of(context).devicePixelRatio) +
