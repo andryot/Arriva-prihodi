@@ -179,7 +179,7 @@ Widget getTextWidgets(
   } else {
     for (var i = 0; i < departures.length; i++) {
       bool sooner = DateTime(
-              2020,
+              DateTime.now().year,
               date.month,
               date.day,
               int.parse(departure[i].split(":")[0]),
