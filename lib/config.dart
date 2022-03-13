@@ -1,4 +1,5 @@
 library config.globals;
-import 'blocs/theme.dart';
+
+import 'bloc/theme.dart';
 
 MyTheme currentTheme = MyTheme();

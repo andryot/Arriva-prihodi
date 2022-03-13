@@ -1,7 +1,8 @@
-import 'package:bus_time_table/config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'config.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -55,7 +56,6 @@ class SettingsState extends State<SettingsPage> {
                   applicationName: "Arriva prihodi",
                   applicationLegalese:
                       "Podatki se pridobivajo iz spletne strani arriva.si\n\nRazvijalec: Andraž Anderle\nIcon made by Freepi from www.flaticon.com\nHvala Žan, Ana, Urban in Nik!")),
-        
         ]),
       ),
     );

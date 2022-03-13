@@ -1,18 +1,19 @@
 //import 'dart:io';
 import 'package:bus_time_table/config.dart';
 import 'package:bus_time_table/settings.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
-import 'package:intl/intl.dart';
-import 'predictions.dart';
-import 'data_fetch.dart';
-import 'routes.dart';
-import 'favorites.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'data_fetch.dart';
+import 'favorites.dart';
+import 'predictions.dart';
+import 'routes.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -25,18 +26,18 @@ class HomePage extends StatefulWidget {
 DateTime date = DateTime.now();
 var map = new Map<String, int>();
 
-List<String> departures = new List<String>();
+List<String> departures = [];
 
-List<String> arrivals = new List<String>();
+List<String> arrivals = [];
 
-List<String> travelTime = new List<String>();
-List<String> busCompany = new List<String>();
-List<String> kilometers = new List<String>();
-List<String> price = new List<String>();
-List<String> lane = new List<String>();
-List<String> favorites = new List<String>();
+List<String> travelTime = [];
+List<String> busCompany = [];
+List<String> kilometers = [];
+List<String> price = [];
+List<String> lane = [];
+List<String> favorites = [];
 
-List<String> predictions = new List<String>();
+List<String> predictions = [];
 
 Color bgdColor = Colors.black;
 
@@ -49,25 +50,26 @@ String departure = "";
 String routesDestination = "";
 String routesDeparture = "";
 
-String bytes;
+String bytes = "";
 var array = [];
 
 bool errorArrival = true;
 bool errorDeparture = true;
 double pixelsVertical = 0.0;
 double favoritesPosition = 0;
+
 class HomeState extends State<HomePage> {
   TextEditingController destinationController = new TextEditingController();
   GlobalKey paddingKey = new GlobalKey();
   @override
   void initState() {
     super.initState();
-     WidgetsBinding.instance.addPostFrameCallback(position);
+    WidgetsBinding.instance!.addPostFrameCallback(position);
     init().whenComplete(() => setState(() {}));
   }
 
-  position (_){
-favoritesPosition = _getPaddingPosition();
+  position(_) {
+    favoritesPosition = _getPaddingPosition();
   }
 
   Widget build(BuildContext context) {
@@ -117,13 +119,20 @@ favoritesPosition = _getPaddingPosition();
                     children: <Widget>[
                       Center(
                         child: Container(
-                          height:  pixelsVertical > 1750 ? height *  (pixelsVertical > 2500 ? 0.02 : 0.023) * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.034 : 0.042) * MediaQuery.of(context).devicePixelRatio,
+                          height: pixelsVertical > 1750
+                              ? height *
+                                  (pixelsVertical > 2500 ? 0.02 : 0.023) *
+                                  MediaQuery.of(context).devicePixelRatio
+                              : height *
+                                  (pixelsVertical > 900 ? 0.034 : 0.042) *
+                                  MediaQuery.of(context).devicePixelRatio,
                           //height: height > 650 ? height * 0.023 * MediaQuery.of(context).devicePixelRatio: height * 0.034 *MediaQuery.of(context).devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
                           width: width * 0.4,
                           child: RaisedButton(
                             onPressed: () => [
                               errorArrival == false && errorDeparture == false
                                   ? [
+                                      print(departure),
                                       FocusScope.of(context)
                                           .requestFocus(new FocusNode()),
                                       routesDeparture = departure,
@@ -146,6 +155,7 @@ favoritesPosition = _getPaddingPosition();
                                               ]),
                                     ]
                                   : [
+                                      print(departure),
                                       colorDeparture = Colors.red,
                                       Fluttertoast.showToast(
                                         msg: "Napaka pri izbiri postaj!",
@@ -173,7 +183,13 @@ favoritesPosition = _getPaddingPosition();
                       Positioned(
                         right: 5,
                         child: Container(
-                          height:  pixelsVertical > 1750 ? height *  (pixelsVertical > 2500 ? 0.02 : 0.023) * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.034 : 0.042) * MediaQuery.of(context).devicePixelRatio,
+                          height: pixelsVertical > 1750
+                              ? height *
+                                  (pixelsVertical > 2500 ? 0.02 : 0.023) *
+                                  MediaQuery.of(context).devicePixelRatio
+                              : height *
+                                  (pixelsVertical > 900 ? 0.034 : 0.042) *
+                                  MediaQuery.of(context).devicePixelRatio,
                           //height: height > 650? height *0.023 *MediaQuery.of(context).devicePixelRatio: height *0.034 *MediaQuery.of(context).devicePixelRatio,
                           child: FloatingActionButton(
                             backgroundColor: Colors.blue[500],
@@ -200,8 +216,7 @@ favoritesPosition = _getPaddingPosition();
                     style: TextStyle(
                       color: Colors
                           .yellow[700], //Theme.of(context).primaryColorLight,
-                      fontSize:
-                          pixelsVertical < 1920 ? 18 : 20,
+                      fontSize: pixelsVertical < 1920 ? 18 : 20,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -223,44 +238,48 @@ favoritesPosition = _getPaddingPosition();
     );
   }
 
-  double _getPaddingPosition(){
-    final RenderBox renderBoxRed = paddingKey.currentContext.findRenderObject();
-    return renderBoxRed.localToGlobal(Offset.zero).dy;
+  double _getPaddingPosition() {
+    final RenderBox? renderBoxRed =
+        paddingKey.currentContext!.findRenderObject() as RenderBox;
+    return renderBoxRed!.localToGlobal(Offset.zero).dy;
   }
 
-  Future<bool> _onBackPressed() {
-    return showCupertinoDialog(
-          context: context,
-          builder: (context) => Theme(
-            data: currentTheme.isDark ? ThemeData.dark(): ThemeData.light(),
-            child: CupertinoAlertDialog(
-              title: new Text(
-                'Želite zapreti aplikacijo?',
-                textAlign: TextAlign.center,
+  Future<bool> _onBackPressed() async {
+    return await showCupertinoDialog(
+              context: context,
+              builder: (context) => Theme(
+                data:
+                    currentTheme.isDark ? ThemeData.dark() : ThemeData.light(),
+                child: CupertinoAlertDialog(
+                  title: new Text(
+                    'Želite zapreti aplikacijo?',
+                    textAlign: TextAlign.center,
+                  ),
+                  actions: <Widget>[
+                    CupertinoButton(
+                      onPressed: () => Navigator.of(context).pop(false),
+                      child: Text(
+                        "Prekliči",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    CupertinoButton(
+                      onPressed: () => Navigator.of(context).pop(true),
+                      child: Text(
+                        "Zapri",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              actions: <Widget>[
-                CupertinoButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: Text(
-                    "Prekliči",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-                CupertinoButton(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  child: Text(
-                    "Zapri",
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ) ??
-        false;
+            ) ==
+            Object
+        ? true
+        : false;
   }
 }
 
@@ -269,7 +288,17 @@ class BasicDateField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:  pixelsVertical > 1750 ?  height * (height  > 600 ? pixelsVertical > 2500 ? 0.022 : 0.028 : 0.024) * MediaQuery.of(context).devicePixelRatio : height * (pixelsVertical > 900 ? 0.042 : 0.05) * MediaQuery.of(context).devicePixelRatio,
+      height: pixelsVertical > 1750
+          ? height *
+              (height > 600
+                  ? pixelsVertical > 2500
+                      ? 0.022
+                      : 0.028
+                  : 0.024) *
+              MediaQuery.of(context).devicePixelRatio
+          : height *
+              (pixelsVertical > 900 ? 0.042 : 0.05) *
+              MediaQuery.of(context).devicePixelRatio,
       //height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
       child: DateTimeField(
         resetIcon: Icon(
@@ -278,8 +307,7 @@ class BasicDateField extends StatelessWidget {
           size: 30,
         ),
         expands: true,
-        maxLines: null,
-        minLines: null,
+        maxLines: 1,
         decoration: InputDecoration(
           isDense: true,
           enabledBorder: OutlineInputBorder(
@@ -296,17 +324,17 @@ class BasicDateField extends StatelessWidget {
         style: TextStyle(fontSize: height < 750 ? 18 : 20, color: Colors.black),
         format: format,
         initialValue: date,
-        onChanged: (DateTime dat) {
-          date = dat;
+        onChanged: (DateTime? dat) {
+          date = dat!;
         },
         onShowPicker: (context, currentValue) {
           return showDatePicker(
             helpText: "Izberi datum odhoda",
             context: context,
-            builder: (BuildContext context, Widget child) {
+            builder: (BuildContext? context, Widget? child) {
               return Theme(
-                data: Theme.of(context),
-                child: child,
+                data: Theme.of(context!),
+                child: child!,
               );
             },
             firstDate: DateTime(2020),
@@ -339,5 +367,5 @@ Future<void> init() async {
   }
 
   if (prefs.containsKey("favorites"))
-    favorites.addAll(prefs.getStringList("favorites"));
+    favorites.addAll(prefs.getStringList("favorites")!.toList());
 }

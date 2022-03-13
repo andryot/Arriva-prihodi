@@ -1,12 +1,12 @@
-import 'package:bus_time_table/HomePage.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import 'HomePage.dart';
-import 'data_fetch.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'routes.dart';
 import 'config.dart';
+import 'data_fetch.dart';
+import 'routes.dart';
 
 class FavoritesSection extends StatefulWidget {
   @override
@@ -33,10 +33,10 @@ class FavoritesState extends State<FavoritesSection> {
   }
 
   Widget getTextWidgets() {
-    List<Widget> list = new List<Widget>();
+    List<Widget> list = [];
     if (favorites.isNotEmpty) {
       for (var i = 0; i < favorites.length; i++) {
-        List<String> temp = new List<String>();
+        List<String> temp = [];
         favorites[i].split("+").forEach((f) => temp.add(f));
         list.add(
           Container(
@@ -47,9 +47,15 @@ class FavoritesState extends State<FavoritesSection> {
                     side: BorderSide(width: 1))),
             height: pixelsVertical > 1750
                 ? height *
-                    (height > 600 ? pixelsVertical > 2500 ? 0.019 : 0.023 : 0.020) *
+                    (height > 600
+                        ? pixelsVertical > 2500
+                            ? 0.019
+                            : 0.023
+                        : 0.020) *
                     MediaQuery.of(context).devicePixelRatio
-                : height * (pixelsVertical > 900 ? 0.034 : 0.042) * MediaQuery.of(context).devicePixelRatio,
+                : height *
+                    (pixelsVertical > 900 ? 0.034 : 0.042) *
+                    MediaQuery.of(context).devicePixelRatio,
             //height: height > 650 ? height *0.023 *MediaQuery.of(context).devicePixelRatio : height *0.034 *MediaQuery.of(context).devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
             child: Dismissible(
               background: slideRightBackground(),
@@ -59,7 +65,9 @@ class FavoritesState extends State<FavoritesSection> {
                 final bool res = await showCupertinoDialog(
                   context: context,
                   builder: (context) => Theme(
-                    data: currentTheme.isDark ? ThemeData.dark(): ThemeData.light(),
+                    data: currentTheme.isDark
+                        ? ThemeData.dark()
+                        : ThemeData.light(),
                     child: CupertinoAlertDialog(
                       title: new Text(
                         'Želite odstraniti priljubljeno relacijo?',
@@ -110,34 +118,32 @@ class FavoritesState extends State<FavoritesSection> {
                 ],
                 child: Center(
                   child: ListTile(
-                    leading: 
-                      RichText(
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          text: TextSpan(children: [
-                            TextSpan(
-                              text: temp[0].toString(),
-                              style: TextStyle(fontSize: 16, color: Colors.black),
-                            ),
-                            WidgetSpan(
-                              child: Icon(
-                                EvaIcons.arrowForwardOutline,
-                                color: Colors.black,
-                                size: 18,
-                              ),
-                            ),
-                            TextSpan(
-                              text: temp[1].toString(),
-                              style: TextStyle(fontSize: 16, color: Colors.black),
-                            ),
-                          ]),
+                    leading: RichText(
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      text: TextSpan(children: [
+                        TextSpan(
+                          text: temp[0].toString(),
+                          style: TextStyle(fontSize: 16, color: Colors.black),
                         ),
-                      ),
-                ),
+                        WidgetSpan(
+                          child: Icon(
+                            EvaIcons.arrowForwardOutline,
+                            color: Colors.black,
+                            size: 18,
+                          ),
+                        ),
+                        TextSpan(
+                          text: temp[1].toString(),
+                          style: TextStyle(fontSize: 16, color: Colors.black),
+                        ),
+                      ]),
+                    ),
                   ),
                 ),
               ),
-            
+            ),
+          ),
         );
         list.add(new Container(
           height: height * 0.02,
@@ -145,7 +151,8 @@ class FavoritesState extends State<FavoritesSection> {
       }
       return new Wrap(children: list);
     } else
-      return Text("Seznam priljubljenih relacij je prazen! \nRelacijo dodaš s pritiskom na zvezdico v desnem zgornem kotu!");
+      return Text(
+          "Seznam priljubljenih relacij je prazen! \nRelacijo dodaš s pritiskom na zvezdico v desnem zgornem kotu!");
   }
 
   Widget slideRightBackground() {

@@ -1,17 +1,19 @@
 import 'dart:async';
-import 'package:bus_time_table/config.dart';
+
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'HomePage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'HomePage.dart';
+import 'config.dart';
 
 class SecondRoute extends StatefulWidget {
   State<StatefulWidget> createState() => SecondState();
 }
 
 var prefs = SharedPreferences.getInstance();
-Color starColor;
+Color? starColor;
 final ScrollController _controller = ScrollController();
 double ct = height * 0.06;
 
@@ -20,7 +22,7 @@ class SecondState extends State<SecondRoute> {
   void initState() {
     super.initState();
     init2().whenComplete(() => setState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((_) => {
+    WidgetsBinding.instance!.addPostFrameCallback((_) => {
           _controller.animateTo(ct,
               duration: Duration(seconds: 1, milliseconds: 500),
               curve: Curves.ease)
@@ -70,8 +72,8 @@ class SecondState extends State<SecondRoute> {
                 ),
               ),
               IconButton(
-                icon: Icon( starColor == Colors.yellow ? 
-                  Icons.star : Icons.star_border,
+                icon: Icon(
+                  starColor == Colors.yellow ? Icons.star : Icons.star_border,
                   size: 30,
                   color: starColor,
                 ),
@@ -114,7 +116,6 @@ class SecondState extends State<SecondRoute> {
                   padding: EdgeInsets.symmetric(vertical: height * 0.01),
                 ),
                 Container(
-                  
                   height: height * 0.035,
                   width: width * 0.9,
                   child: Stack(
@@ -157,11 +158,11 @@ class SecondState extends State<SecondRoute> {
 
 Widget getTextWidgets(
     List<String> departure, List<String> arrival, BuildContext context) {
-  List<Widget> list = new List<Widget>();
+  List<Widget> list = [];
   if (list.isNotEmpty) list.clear();
   print(pixelsVertical);
   if (departures.length == 0) {
-    ct=0;
+    ct = 0;
     list.add(Padding(padding: EdgeInsets.all(10)));
     list.add(
       Center(
@@ -187,14 +188,22 @@ Widget getTextWidgets(
           .isBefore(DateTime.now());
       list.add(Center(
         child: Container(
-            height:  pixelsVertical > 1750 ?  height * (pixelsVertical > 2500 ? 0.019 :  0.024) * MediaQuery.of(context).devicePixelRatio : height * 0.035 * MediaQuery.of(context).devicePixelRatio,
+            height: pixelsVertical > 1750
+                ? height *
+                    (pixelsVertical > 2500 ? 0.019 : 0.024) *
+                    MediaQuery.of(context).devicePixelRatio
+                : height * 0.035 * MediaQuery.of(context).devicePixelRatio,
             //height: height * 0.024 * MediaQuery.of(context).devicePixelRatio,
             width: width * 0.9,
             decoration: (BoxDecoration(
               color:
                   Theme.of(context).primaryColorBrightness == Brightness.light
-                      ? sooner ? Color(0xffD7D7D7) : Colors.white
-                      : sooner ? Color(0xff222222) : Color(0xff404040),
+                      ? sooner
+                          ? Color(0xffD7D7D7)
+                          : Colors.white
+                      : sooner
+                          ? Color(0xff222222)
+                          : Color(0xff404040),
               borderRadius: BorderRadius.circular(12.0),
               border: Border.all(
                 color: Colors.black,
@@ -397,13 +406,24 @@ Widget getTextWidgets(
             )),
       ));
 
-      double correctHeight = pixelsVertical > 1750 ?  (pixelsVertical > 2500 ? 0.019 : 0.024) : 0.035 ;
-      if (sooner && i < departure.length - height /
-          ((height * correctHeight * MediaQuery.of(context).devicePixelRatio) + (height * 0.01)) +   1) {
-        ct += ((height * correctHeight * MediaQuery.of(context).devicePixelRatio) +
+      double correctHeight = pixelsVertical > 1750
+          ? (pixelsVertical > 2500 ? 0.019 : 0.024)
+          : 0.035;
+      if (sooner &&
+          i <
+              departure.length -
+                  height /
+                      ((height *
+                              correctHeight *
+                              MediaQuery.of(context).devicePixelRatio) +
+                          (height * 0.01)) +
+                  1) {
+        ct += ((height *
+                correctHeight *
+                MediaQuery.of(context).devicePixelRatio) +
             (height * 0.01));
       }
-      
+
       list.add(new Container(
         height: height * 0.01,
       ));

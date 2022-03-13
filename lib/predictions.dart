@@ -1,6 +1,7 @@
-import 'package:bus_time_table/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
+
+import 'HomePage.dart';
 
 class InputFormDeparture extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ TextEditingController departureTextController = TextEditingController();
 class _InputFormDepartureState extends State<InputFormDeparture> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  FocusNode myFocusNode;
+  FocusNode? myFocusNode;
   final SuggestionsBoxController suggestionDestinationController =
       SuggestionsBoxController();
   //final TextEditingController _departuresController = new TextEditingController();
@@ -34,7 +35,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
   @override
   void dispose() {
     // Clean up the focus node when the Form is disposed.
-    myFocusNode.dispose();
+    myFocusNode!.dispose();
     super.dispose();
   }
 
@@ -49,9 +50,15 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
       child: Container(
         height: pixelsVertical > 1750
             ? height *
-                (height > 600 ? pixelsVertical > 2500 ? 0.022 : 0.028 : 0.024) *
+                (height > 600
+                    ? pixelsVertical > 2500
+                        ? 0.022
+                        : 0.028
+                    : 0.024) *
                 MediaQuery.of(context).devicePixelRatio
-            : height * (pixelsVertical > 900 ? 0.042 : 0.05) * MediaQuery.of(context).devicePixelRatio,
+            : height *
+                (pixelsVertical > 900 ? 0.042 : 0.05) *
+                MediaQuery.of(context).devicePixelRatio,
         //height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -64,13 +71,13 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
             suggestionsBoxController: suggestionDestinationController,
             textFieldConfiguration: TextFieldConfiguration(
               onChanged: (text) {
-                if (this._formKey.currentState.validate())
-                  this._formKey.currentState.save();
+                if (this._formKey.currentState!.validate())
+                  this._formKey.currentState!.save();
               },
               onTap: () {
                 //this.suggestionDestinationController.toggle();
-                if (this._formKey.currentState.validate())
-                  this._formKey.currentState.save();
+                if (this._formKey.currentState!.validate())
+                  this._formKey.currentState!.save();
               },
               focusNode: myFocusNode,
               decoration: InputDecoration(
@@ -113,16 +120,16 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
             ),
             itemBuilder: (context, suggestion) {
               return ListTile(
-                title: Text(suggestion),
+                title: Text(suggestion.toString()),
               );
             },
             transitionBuilder: (context, suggestionsBox, controller) {
               return suggestionsBox;
             },
             onSuggestionSelected: (suggestion) {
-              departureTextController.text = suggestion;
-              if (this._formKey.currentState.validate()) {
-                this._formKey.currentState.save();
+              departureTextController.text = suggestion.toString();
+              if (this._formKey.currentState!.validate()) {
+                this._formKey.currentState!.save();
               }
             },
             validator: (value) {
@@ -132,9 +139,10 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
                 errorDeparture = true;
               } else
                 errorDeparture = false;
+              return "";
             },
             onSaved: (value) {
-              departure = value;
+              departure = value!;
               routesDeparture = value;
             },
           ),
@@ -146,7 +154,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
 
 class CitiesService {
   static List<String> getSuggestions(String query) {
-    List<String> matches = List();
+    List<String> matches = [];
     matches.clear();
 
     matches.addAll(predictions);
@@ -168,7 +176,7 @@ class InputFormArrival extends StatefulWidget {
 class _InputFormArrivalState extends State<InputFormArrival> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  FocusNode myFocusNode;
+  FocusNode? myFocusNode;
   final SuggestionsBoxController suggestionArrivalController =
       SuggestionsBoxController();
 
@@ -181,7 +189,7 @@ class _InputFormArrivalState extends State<InputFormArrival> {
   @override
   void dispose() {
     // Clean up the focus node when the Form is disposed.
-    myFocusNode.dispose();
+    myFocusNode!.dispose();
     super.dispose();
   }
 
@@ -193,9 +201,15 @@ class _InputFormArrivalState extends State<InputFormArrival> {
         //height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
         height: pixelsVertical > 1750
             ? height *
-                (height > 600 ? pixelsVertical > 2500 ? 0.022 : 0.028 : 0.024) *
+                (height > 600
+                    ? pixelsVertical > 2500
+                        ? 0.022
+                        : 0.028
+                    : 0.024) *
                 MediaQuery.of(context).devicePixelRatio
-            : height * (pixelsVertical > 900 ? 0.042 : 0.05) * MediaQuery.of(context).devicePixelRatio,
+            : height *
+                (pixelsVertical > 900 ? 0.042 : 0.05) *
+                MediaQuery.of(context).devicePixelRatio,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: new BorderRadius.circular(17.0),
@@ -207,13 +221,13 @@ class _InputFormArrivalState extends State<InputFormArrival> {
             suggestionsBoxController: suggestionArrivalController,
             textFieldConfiguration: TextFieldConfiguration(
               onChanged: (text) {
-                this._formKey.currentState.validate();
-                this._formKey.currentState.save();
+                this._formKey.currentState!.validate();
+                this._formKey.currentState!.save();
               },
               onTap: () {
                 //this.suggestionArrivalController.toggle();
-                if (this._formKey.currentState.validate())
-                  this._formKey.currentState.save();
+                if (this._formKey.currentState!.validate())
+                  this._formKey.currentState!.save();
               },
               focusNode: myFocusNode,
               decoration: InputDecoration(
@@ -256,16 +270,16 @@ class _InputFormArrivalState extends State<InputFormArrival> {
             ),
             itemBuilder: (context, suggestion) {
               return ListTile(
-                title: Text(suggestion),
+                title: Text(suggestion.toString()),
               );
             },
             transitionBuilder: (context, suggestionsBox, controller) {
               return suggestionsBox;
             },
             onSuggestionSelected: (suggestion) {
-              destinationTextController.text = suggestion;
-              if (this._formKey.currentState.validate()) {
-                this._formKey.currentState.save();
+              destinationTextController.text = suggestion.toString();
+              if (this._formKey.currentState!.validate()) {
+                this._formKey.currentState!.save();
               } else
                 errorArrival = true;
             },
@@ -276,9 +290,11 @@ class _InputFormArrivalState extends State<InputFormArrival> {
                 errorArrival = true;
               } else
                 errorArrival = false;
+
+              return "";
             },
             onSaved: (value) {
-              destination = value;
+              destination = value!;
               routesDestination = value;
             },
           ),

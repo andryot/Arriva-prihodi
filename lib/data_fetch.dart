@@ -1,12 +1,14 @@
-import 'HomePage.dart';
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'package:flutter/widgets.dart';
-import 'package:http/http.dart' as http;
-import 'package:html/parser.dart' as parser;
 import 'package:html/dom.dart' as dom;
+import 'package:html/parser.dart' as parser;
+import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+
+import 'HomePage.dart';
 
 Future<void> fetch(String depar, String dest, DateTime date1) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +34,7 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
       "&trip_date=" +
       date;
 
-  http.Response response = await http.get(url);
+  http.Response response = await http.get(Uri(host: url));
 
   dom.Document document = parser.parse(response.body);
 
@@ -63,16 +65,14 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
   document.getElementsByClassName('length').forEach((dom.Element element) {
     kilometers.add(element.text);
   });
-  if (kilometers.length > 0) 
-    kilometers.removeAt(0);
+  if (kilometers.length > 0) kilometers.removeAt(0);
 
   price.clear();
   document.getElementsByClassName('price').forEach((dom.Element element) {
     price.add(element.text.replaceAll("EUR", "€").replaceAll(".", ","));
   });
 
-  if (price.length > 0) 
-    price.removeAt(0);
+  if (price.length > 0) price.removeAt(0);
 
   lane.clear();
   var counter = 0;
@@ -82,16 +82,13 @@ Future<void> fetch(String depar, String dest, DateTime date1) async {
       lane.add(element2.getElementsByTagName("span").last.text);
     });
 
-    if (lane.length == counter && counter != 2)
-      lane.add("/");
+    if (lane.length == counter && counter != 2) lane.add("/");
 
     counter++;
   });
 
-  if (lane.length > 0) 
-    lane.removeAt(0);
+  if (lane.length > 0) lane.removeAt(0);
 
   if (lane.length == 1)
-    for (int i = 0; i < departures.length; i++) 
-      lane.add("/");
+    for (int i = 0; i < departures.length; i++) lane.add("/");
 }
