@@ -64,13 +64,13 @@ class HomeState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback(position);
+    //WidgetsBinding.instance!.addPostFrameCallback(position);
     init().whenComplete(() => setState(() {}));
   }
 
-  position(_) {
+  /* position(_) {
     favoritesPosition = _getPaddingPosition();
-  }
+  } */
 
   Widget build(BuildContext context) {
     var _blackFocusNode = new FocusNode();
@@ -306,7 +306,7 @@ class BasicDateField extends StatelessWidget {
           color: Colors.black,
           size: 30,
         ),
-        expands: true,
+        /* expands: true, */
         maxLines: 1,
         decoration: InputDecoration(
           isDense: true,

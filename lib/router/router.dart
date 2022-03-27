@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-import '../HomePage.dart';
 import '../routes.dart';
+import '../screens/home.dart';
 import '../util/logger.dart';
 import 'routes.dart';
 
@@ -15,18 +15,14 @@ abstract class APRouter {
 
     switch (settings.name) {
       case APRoute.initial:
-        return CupertinoPageRoute(builder: (context) => HomePage());
+        return CupertinoPageRoute(builder: (context) => HomeScreen());
       case APRoute.home:
-        return PageRouteBuilder(
-          pageBuilder: (context, _, __) => HomePage(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-              FadeTransition(opacity: animation, child: child),
+        return CupertinoPageRoute(
+          builder: (context) => HomeScreen(),
         );
       case APRoute.second:
-        return PageRouteBuilder(
-          pageBuilder: (context, _, __) => SecondRoute(),
-          transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-              FadeTransition(opacity: animation, child: child),
+        return CupertinoPageRoute(
+          builder: (context) => SecondRoute(),
         );
     }
 
