@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'HomePage.dart';
 import 'config.dart';
+import 'widgets/loading_indicator.dart';
 
 class SecondRoute extends StatefulWidget {
   State<StatefulWidget> createState() => SecondState();
@@ -443,9 +443,9 @@ class AniRoute extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SpinKitCircle(
-                color: Theme.of(context).primaryColorLight,
-                size: 80,
+              LoadingIndicator(
+                radius: 24,
+                dotRadius: 8,
               ),
               Padding(padding: EdgeInsets.all(5)),
               Text(

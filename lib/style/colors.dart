@@ -53,6 +53,11 @@ abstract class APColor {
 
   /// Color used for filled buttons that confirm destructive actions and for
   /// failure.
+
+  static Color resolveColor(BuildContext context, Color color) {
+    return CupertinoDynamicColor.resolve(color, context);
+  }
+
   static const Color danger = CupertinoColors.destructiveRed;
 
   static const Color transparent = Color(0x00000000);

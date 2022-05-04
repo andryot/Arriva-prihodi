@@ -1,6 +1,7 @@
 //import 'dart:io';
 import 'package:bus_time_table/config.dart';
 import 'package:bus_time_table/settings.dart';
+import 'package:bus_time_table/widgets/AP_Date_Field.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -112,7 +113,7 @@ class HomeState extends State<HomePage> {
                   Padding(padding: EdgeInsets.all(10)),
                   InputFormArrival(),
                   Padding(padding: EdgeInsets.all(10)),
-                  BasicDateField(),
+                  APDateField(date: date),
                   Padding(padding: EdgeInsets.all(10)),
                   Stack(
                     fit: StackFit.passthrough,
@@ -280,70 +281,6 @@ class HomeState extends State<HomePage> {
             Object
         ? true
         : false;
-  }
-}
-
-class BasicDateField extends StatelessWidget {
-  final format = DateFormat("dd.MM.yyyy");
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: pixelsVertical > 1750
-          ? height *
-              (height > 600
-                  ? pixelsVertical > 2500
-                      ? 0.022
-                      : 0.028
-                  : 0.024) *
-              MediaQuery.of(context).devicePixelRatio
-          : height *
-              (pixelsVertical > 900 ? 0.042 : 0.05) *
-              MediaQuery.of(context).devicePixelRatio,
-      //height: height > 650 ? height * 0.027 * MediaQuery.of(context).devicePixelRatio : height * 0.042 * MediaQuery.of(context).devicePixelRatio,
-      child: DateTimeField(
-        resetIcon: Icon(
-          Icons.clear,
-          color: Colors.black,
-          size: 30,
-        ),
-        /* expands: true, */
-        maxLines: 1,
-        decoration: InputDecoration(
-          isDense: true,
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black),
-              borderRadius: BorderRadius.circular(17)),
-          fillColor: Colors.white,
-          filled: true,
-          prefixIcon: new Icon(
-            Icons.date_range,
-            size: 30,
-            color: Colors.black,
-          ),
-        ),
-        style: TextStyle(fontSize: height < 750 ? 18 : 20, color: Colors.black),
-        format: format,
-        initialValue: date,
-        onChanged: (DateTime? dat) {
-          date = dat!;
-        },
-        onShowPicker: (context, currentValue) {
-          return showDatePicker(
-            helpText: "Izberi datum odhoda",
-            context: context,
-            builder: (BuildContext? context, Widget? child) {
-              return Theme(
-                data: Theme.of(context!),
-                child: child!,
-              );
-            },
-            firstDate: DateTime(2020),
-            initialDate: currentValue ?? DateTime.now(),
-            lastDate: DateTime(2030),
-          );
-        },
-      ),
-    );
   }
 }
 

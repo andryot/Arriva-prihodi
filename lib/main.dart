@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       ],
       title: 'Arriva prihodi',
       debugShowCheckedModeBanner: false,
-      initialRoute: APRoute.home,
+      initialRoute: APRoute.initial,
       onGenerateRoute: APRouter.onGenerateRoute,
     );
   }

@@ -23,14 +23,11 @@ dependencies:
   http: ^0.13.4
   datetime_picker_formfield: ^2.0.0
   flutter_bloc: ^8.0.1
-  flutter_spinkit: ^5.1.0
   flutter_typeahead: ^3.2.4
   shared_preferences: ^2.0.13
-  eva_icons_flutter: ^3.1.0
   flutter_localizations:  
     sdk: flutter
   fluttertoast: ^8.0.9
-  #device_preview: ^0.4.8
   
 dev_dependencies:
   flutter_launcher_icons: ^0.9.2
@@ -58,7 +55,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
   - assets/postaje.txt
-
+  - assets/images/
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

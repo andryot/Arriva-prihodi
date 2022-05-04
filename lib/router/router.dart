@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../routes.dart';
 import '../screens/home.dart';
+import '../screens/splash.dart';
 import '../util/logger.dart';
 import 'routes.dart';
 
@@ -15,7 +16,7 @@ abstract class APRouter {
 
     switch (settings.name) {
       case APRoute.initial:
-        return CupertinoPageRoute(builder: (context) => HomeScreen());
+        return CupertinoPageRoute(builder: (context) => SplashScreen());
       case APRoute.home:
         return CupertinoPageRoute(
           builder: (context) => HomeScreen(),
