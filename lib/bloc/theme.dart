@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
 
 class MyTheme with ChangeNotifier {
-  bool _isDark = true;
+  ThemeMode _themeMode = ThemeMode.dark;
 
-
-  ThemeMode currentTheme() {
-    return _isDark ? ThemeMode.dark : ThemeMode.light;
-  }
-
-  bool get isDark {
-    return _isDark;
+  ThemeMode get themeMode {
+    return _themeMode;
   }
 
   void switchTheme() {
-    _isDark = !_isDark;
+    _themeMode =
+        _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
     notifyListeners();
   }
 
   Color starColor() {
-    return _isDark ? Colors.white : Colors.black;
+    return _themeMode == ThemeMode.dark ? Colors.white : Colors.black;
   }
-
-  
 }

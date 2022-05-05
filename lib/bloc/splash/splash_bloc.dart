@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
+import 'package:bus_time_table/services/local_storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
@@ -16,7 +17,10 @@ const double _sinArgMultiplier = 2 * pi * _speed * 10 / 1000;
 
 class SplashBloc extends Bloc<_SplashEvent, SplashState> {
   late final Timer _timer;
-  SplashBloc() : super(SplashState.initial()) {
+  final LocalStorageService _localStorageService;
+  SplashBloc({required LocalStorageService localStorageService})
+      : _localStorageService = localStorageService,
+        super(SplashState.initial()) {
     on<_Initialize>(_onInitialize);
     on<_TimerTick>(_onTimerTick);
 
@@ -48,11 +52,39 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
     _Initialize event,
     Emitter<SplashState> emit,
   ) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.wait(
+      <Future>[
+        Future.delayed(const Duration(seconds: 2)),
+        init(),
+      ],
+    );
 
     emit(state.copyWith(
       initialized: true,
       pushRoute: APRoute.home,
     ));
+  }
+
+  Future<void> init() async {
+    final prefs = await SharedPreferences.getInstance();
+    if (prefs.containsKey("Theme") && await prefs.get("Theme") == "white")
+      currentTheme.switchTheme();
+    else
+      await prefs.setString("Theme", "dark");
+
+    bytes = await rootBundle.loadString("assets/postaje.txt");
+    array.clear();
+    bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
+    array.removeLast();
+    map.clear();
+    predictions.clear();
+
+    for (int i = 0; i < array.length; i++) {
+      map[array[i][0]] = int.parse(array[i][1]);
+      predictions.add(array[i][0].toString().replaceAll("+", " "));
+    }
+
+    if (prefs.containsKey("favorites"))
+      favorites.addAll(prefs.getStringList("favorites")!.toList());
   }
 }

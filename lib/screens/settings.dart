@@ -1,17 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'config.dart';
+import '../bloc/settings/settings_bloc.dart';
+import '../config.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsScreen extends StatelessWidget {
   @override
-  State<StatefulWidget> createState() => SettingsState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => SettingsBloc(),
+      child: _SettingsScreen(),
+    );
+  }
 }
 
-bool darkMode = currentTheme.isDark;
+ThemeMode themeMode = currentTheme.themeMode;
 
-class SettingsState extends State<SettingsPage> {
+class _SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -34,14 +41,14 @@ class SettingsState extends State<SettingsPage> {
                 ),
                 Switch(
                   activeColor: Colors.blue,
-                  value: darkMode,
+                  value: themeMode == ThemeMode.dark,
                   onChanged: (bool value) async {
                     final prefs = await SharedPreferences.getInstance();
                     await prefs.setString("Theme", value ? "dark" : "white");
-                    setState(() {
+                    /* setState(() {
                       currentTheme.switchTheme();
                       darkMode = value;
-                    });
+                    }); */
                   },
                 ),
               ],

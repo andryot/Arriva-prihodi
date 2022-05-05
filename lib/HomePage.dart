@@ -1,6 +1,6 @@
 //import 'dart:io';
 import 'package:bus_time_table/config.dart';
-import 'package:bus_time_table/settings.dart';
+import 'package:bus_time_table/screens/settings.dart';
 import 'package:bus_time_table/widgets/AP_Date_Field.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/cupertino.dart';
