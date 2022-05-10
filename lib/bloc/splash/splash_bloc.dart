@@ -2,7 +2,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
+import 'package:bus_time_table/bloc/global/global_bloc.dart';
+import 'package:bus_time_table/config.dart';
 import 'package:bus_time_table/services/local_storage_service.dart';
+import 'package:bus_time_table/style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
@@ -18,8 +21,12 @@ const double _sinArgMultiplier = 2 * pi * _speed * 10 / 1000;
 class SplashBloc extends Bloc<_SplashEvent, SplashState> {
   late final Timer _timer;
   final LocalStorageService _localStorageService;
-  SplashBloc({required LocalStorageService localStorageService})
+  final GlobalBloc _globalBloc;
+  SplashBloc(
+      {required LocalStorageService localStorageService,
+      required GlobalBloc globalBloc})
       : _localStorageService = localStorageService,
+        _globalBloc = globalBloc,
         super(SplashState.initial()) {
     on<_Initialize>(_onInitialize);
     on<_TimerTick>(_onTimerTick);
@@ -66,13 +73,9 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
   }
 
   Future<void> init() async {
-    final prefs = await SharedPreferences.getInstance();
-    if (prefs.containsKey("Theme") && await prefs.get("Theme") == "white")
-      currentTheme.switchTheme();
-    else
-      await prefs.setString("Theme", "dark");
+    _globalBloc.isDarkMode = _localStorageService.getThemeData() == apThemeDark;
 
-    bytes = await rootBundle.loadString("assets/postaje.txt");
+    /* bytes = await rootBundle.loadString("assets/postaje.txt");
     array.clear();
     bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
     array.removeLast();
@@ -85,6 +88,6 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
     }
 
     if (prefs.containsKey("favorites"))
-      favorites.addAll(prefs.getStringList("favorites")!.toList());
+      favorites.addAll(prefs.getStringList("favorites")!.toList()); */
   }
 }

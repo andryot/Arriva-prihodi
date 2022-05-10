@@ -1,6 +1,12 @@
+import 'package:bus_time_table/bloc/global/global_bloc.dart';
+import 'package:bus_time_table/bloc/theme/theme_cubit.dart';
+import 'package:bus_time_table/config.dart';
 import 'package:bus_time_table/services/local_storage_service.dart';
+import 'package:bus_time_table/style/theme.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,28 +18,40 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   LocalStorageService(await SharedPreferences.getInstance());
-  Logger();
 
-  runApp(MyApp());
+  final Logger logger = Logger();
+  GlobalBloc(logger: logger);
+
+  runApp(BlocProvider(
+    create: (context) => ThemeCubit(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [
-        const Locale("sl"),
-        //const Locale("en"),
-      ],
-      title: 'Arriva prihodi',
-      debugShowCheckedModeBanner: false,
-      initialRoute: APRoute.initial,
-      onGenerateRoute: APRouter.onGenerateRoute,
+    return BlocBuilder<ThemeCubit, ThemeState>(
+      builder: (context, state) {
+        return MaterialApp(
+          theme: apThemeLight,
+          darkTheme: apThemeDark,
+          themeMode: state.themeMode,
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: [
+            const Locale("sl"),
+            //const Locale("en"),
+          ],
+          title: 'Arriva prihodi',
+          debugShowCheckedModeBanner: false,
+          initialRoute: APRoute.initial,
+          onGenerateRoute: APRouter.onGenerateRoute,
+        );
+      },
     );
   }
 }

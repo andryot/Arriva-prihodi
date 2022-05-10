@@ -10,6 +10,8 @@ class GlobalBloc {
   static GlobalBloc? _instance;
   static GlobalBloc get instance => _instance!;
 
+  bool isDarkMode;
+
   final Logger _logger;
 
   GlobalState _state;
@@ -17,6 +19,7 @@ class GlobalBloc {
 
   GlobalBloc._({required Logger logger})
       : _logger = logger,
+        isDarkMode = true,
         _state = const GlobalState.initial();
 
   factory GlobalBloc({required Logger logger}) {
@@ -38,5 +41,9 @@ class GlobalBloc {
     _state = _state.copyWith(favorites: favorites);
 
     _logger.info('GlobalBloc.updateFavorites', 'favorites updated');
+  }
+
+  void switchTheme() {
+    isDarkMode = !isDarkMode;
   }
 }

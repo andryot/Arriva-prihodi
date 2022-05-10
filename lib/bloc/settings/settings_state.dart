@@ -1,6 +1,14 @@
 part of 'settings_bloc.dart';
 
 @immutable
-abstract class SettingsState {}
+class SettingsState {
+  final bool isDarkMode;
 
-class SettingsInitial extends SettingsState {}
+  const SettingsState({required this.isDarkMode});
+
+  SettingsState copyWith({bool? isDarkMode}) {
+    return SettingsState(
+      isDarkMode: isDarkMode ?? this.isDarkMode,
+    );
+  }
+}

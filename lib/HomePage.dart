@@ -1,6 +1,7 @@
 //import 'dart:io';
 import 'package:bus_time_table/config.dart';
 import 'package:bus_time_table/screens/settings.dart';
+import 'package:bus_time_table/services/local_storage_service.dart';
 import 'package:bus_time_table/widgets/AP_Date_Field.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/cupertino.dart';
@@ -88,7 +89,9 @@ class HomeState extends State<HomePage> {
             IconButton(
               onPressed: () {
                 Navigator.of(context).push(new CupertinoPageRoute<bool>(
-                  builder: (context) => SettingsPage(),
+                  builder: (context) => SettingsScreen(
+                    localStorageService: LocalStorageService.instance,
+                  ),
                 ));
               },
               icon: Icon(Icons.settings),
@@ -249,8 +252,7 @@ class HomeState extends State<HomePage> {
     return await showCupertinoDialog(
               context: context,
               builder: (context) => Theme(
-                data:
-                    currentTheme.isDark ? ThemeData.dark() : ThemeData.light(),
+                data: currentTheme.themeData,
                 child: CupertinoAlertDialog(
                   title: new Text(
                     'Želite zapreti aplikacijo?',

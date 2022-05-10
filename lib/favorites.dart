@@ -65,9 +65,7 @@ class FavoritesState extends State<FavoritesSection> {
                 final bool res = await showCupertinoDialog(
                   context: context,
                   builder: (context) => Theme(
-                    data: currentTheme.isDark
-                        ? ThemeData.dark()
-                        : ThemeData.light(),
+                    data: currentTheme.themeData,
                     child: CupertinoAlertDialog(
                       title: new Text(
                         'Želite odstraniti priljubljeno relacijo?',

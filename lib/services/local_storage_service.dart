@@ -1,10 +1,6 @@
-import 'dart:io';
-import 'dart:typed_data';
-
-import 'package:path_provider/path_provider.dart';
+import 'package:bus_time_table/style/theme.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../util/logger.dart';
 
 class LocalStorageService {
   final SharedPreferences sharedPreferences;
@@ -22,23 +18,17 @@ class LocalStorageService {
     return _instance!;
   }
 
-  static const String _profileImage = 'profile_image';
-  Future<String> get _imagesPath async =>
-      '${(await getApplicationDocumentsDirectory()).path}/images';
+  static const String _theme = 'theme';
 
-  Future<Uint8List?> readProfileImage(String userId) async {
-    try {
-      final File f = File(
-        '${await _imagesPath}${Platform.pathSeparator}$userId',
-      );
-      final Uint8List image = await f.readAsBytes();
-      Logger.instance.info(
-        'LocalStorageService.readProfileImage',
-        'profile image read   $userId',
-      );
-      return image;
-    } catch (_) {
-      return null;
-    }
+  ThemeData getThemeData() {
+    final bool? isDarkMode = sharedPreferences.getBool(_theme);
+
+    if (isDarkMode == null) return apThemeDark;
+
+    return isDarkMode == true ? apThemeDark : apThemeLight;
+  }
+
+  void setThemeData(ThemeData themeData) async {
+    await sharedPreferences.setBool(_theme, themeData == apThemeDark);
   }
 }

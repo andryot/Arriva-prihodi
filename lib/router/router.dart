@@ -1,3 +1,5 @@
+import 'package:bus_time_table/screens/settings.dart';
+import 'package:bus_time_table/services/local_storage_service.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../routes.dart';
@@ -24,6 +26,12 @@ abstract class APRouter {
       case APRoute.second:
         return CupertinoPageRoute(
           builder: (context) => SecondRoute(),
+        );
+      case APRoute.settings:
+        return CupertinoPageRoute(
+          builder: (context) => SettingsScreen(
+            localStorageService: LocalStorageService.instance,
+          ),
         );
     }
 

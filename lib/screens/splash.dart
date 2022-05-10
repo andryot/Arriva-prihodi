@@ -1,3 +1,4 @@
+import 'package:bus_time_table/bloc/global/global_bloc.dart';
 import 'package:bus_time_table/services/local_storage_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,8 +13,10 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          SplashBloc(localStorageService: LocalStorageService.instance),
+      create: (context) => SplashBloc(
+        localStorageService: LocalStorageService.instance,
+        globalBloc: GlobalBloc.instance,
+      ),
       child: _SplashScreen(),
     );
   }
