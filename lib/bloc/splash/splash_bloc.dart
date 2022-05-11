@@ -7,6 +7,7 @@ import 'package:bus_time_table/config.dart';
 import 'package:bus_time_table/services/local_storage_service.dart';
 import 'package:bus_time_table/style/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 
 import '../../router/routes.dart';
@@ -61,7 +62,7 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
   ) async {
     await Future.wait(
       <Future>[
-        Future.delayed(const Duration(seconds: 2)),
+        Future.delayed(const Duration(seconds: 1)),
         init(),
       ],
     );
@@ -75,19 +76,22 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
   Future<void> init() async {
     _globalBloc.isDarkMode = _localStorageService.getThemeData() == apThemeDark;
 
-    /* bytes = await rootBundle.loadString("assets/postaje.txt");
-    array.clear();
+    final String bytes = await rootBundle.loadString("assets/postaje.txt");
+
+    final List array = [];
+    final List<String> stations = [];
+
     bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
     array.removeLast();
-    map.clear();
-    predictions.clear();
 
     for (int i = 0; i < array.length; i++) {
-      map[array[i][0]] = int.parse(array[i][1]);
-      predictions.add(array[i][0].toString().replaceAll("+", " "));
+      //map[array[i][0]] = int.parse(array[i][1]);
+      stations.add(array[i][0].toString().replaceAll("+", " "));
     }
 
-    if (prefs.containsKey("favorites"))
+    _globalBloc.updateStations(stations);
+
+    /*if (prefs.containsKey("favorites"))
       favorites.addAll(prefs.getStringList("favorites")!.toList()); */
   }
 }

@@ -43,6 +43,11 @@ class GlobalBloc {
     _logger.info('GlobalBloc.updateFavorites', 'favorites updated');
   }
 
+  void updateStations(List<String>? stations) {
+    if (stations == null) return;
+    _state = _state.copyWith(stations: stations);
+  }
+
   void switchTheme() {
     isDarkMode = !isDarkMode;
   }

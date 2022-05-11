@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'HomePage.dart';
-import 'config.dart';
+
 import 'data_fetch.dart';
 import 'routes.dart';
 
@@ -64,33 +64,30 @@ class FavoritesState extends State<FavoritesSection> {
               confirmDismiss: (confirmDismiss) async {
                 final bool res = await showCupertinoDialog(
                   context: context,
-                  builder: (context) => Theme(
-                    data: currentTheme.themeData,
-                    child: CupertinoAlertDialog(
-                      title: new Text(
-                        'Želite odstraniti priljubljeno relacijo?',
-                        textAlign: TextAlign.center,
-                      ),
-                      actions: <Widget>[
-                        CupertinoButton(
-                          onPressed: () => Navigator.of(context).pop(false),
-                          child: Text(
-                            "Prekliči",
-                            style: TextStyle(fontSize: 18),
-                          ),
-                        ),
-                        CupertinoButton(
-                          onPressed: () async => await deleteFavorite(i),
-                          child: Text(
-                            "Potrdi",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.red),
-                          ),
-                        ),
-                      ],
+                  builder: (context) => CupertinoAlertDialog(
+                    title: new Text(
+                      'Želite odstraniti priljubljeno relacijo?',
+                      textAlign: TextAlign.center,
                     ),
+                    actions: <Widget>[
+                      CupertinoButton(
+                        onPressed: () => Navigator.of(context).pop(false),
+                        child: Text(
+                          "Prekliči",
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                      CupertinoButton(
+                        onPressed: () async => await deleteFavorite(i),
+                        child: Text(
+                          "Potrdi",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.red),
+                        ),
+                      ),
+                    ],
                   ),
                 );
                 return res;

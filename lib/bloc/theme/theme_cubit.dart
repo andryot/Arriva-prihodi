@@ -13,4 +13,12 @@ class ThemeCubit extends Cubit<ThemeState> {
             ? ThemeMode.light
             : ThemeMode.dark));
   }
+
+  void initThemeMode(ThemeMode themeMode) {
+    emit(state.copyWith(themeMode: themeMode));
+  }
+
+  Color starColor() {
+    return state.themeMode == ThemeMode.dark ? Colors.white : Colors.black;
+  }
 }

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:bus_time_table/bloc/global/global_bloc.dart';
 import 'package:bus_time_table/services/local_storage_service.dart';
+import 'package:bus_time_table/style/theme.dart';
 import 'package:meta/meta.dart';
 
 import '../../config.dart';
@@ -26,8 +27,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     SwitchThemeEvent event,
     Emitter<SettingsState> emit,
   ) {
-    _localStorageService.setThemeData(currentTheme.themeData);
-    emit(state.copyWith(isDarkMode: !state.isDarkMode));
     _globalBloc.switchTheme();
+    _localStorageService
+        .setThemeData(_globalBloc.isDarkMode ? apThemeDark : apThemeLight);
+    emit(state.copyWith(isDarkMode: !state.isDarkMode));
   }
 }

@@ -66,13 +66,13 @@ class HomeState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    //WidgetsBinding.instance!.addPostFrameCallback(position);
-    init().whenComplete(() => setState(() {}));
+    WidgetsBinding.instance!.addPostFrameCallback(position);
+    //init().whenComplete(() => setState(() {}));
   }
 
-  /* position(_) {
+  position(_) {
     favoritesPosition = _getPaddingPosition();
-  } */
+  }
 
   Widget build(BuildContext context) {
     var _blackFocusNode = new FocusNode();
@@ -251,60 +251,34 @@ class HomeState extends State<HomePage> {
   Future<bool> _onBackPressed() async {
     return await showCupertinoDialog(
               context: context,
-              builder: (context) => Theme(
-                data: currentTheme.themeData,
-                child: CupertinoAlertDialog(
-                  title: new Text(
-                    'Želite zapreti aplikacijo?',
-                    textAlign: TextAlign.center,
-                  ),
-                  actions: <Widget>[
-                    CupertinoButton(
-                      onPressed: () => Navigator.of(context).pop(false),
-                      child: Text(
-                        "Prekliči",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    CupertinoButton(
-                      onPressed: () => Navigator.of(context).pop(true),
-                      child: Text(
-                        "Zapri",
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red),
-                      ),
-                    ),
-                  ],
+              builder: (context) => CupertinoAlertDialog(
+                title: new Text(
+                  'Želite zapreti aplikacijo?',
+                  textAlign: TextAlign.center,
                 ),
+                actions: <Widget>[
+                  CupertinoButton(
+                    onPressed: () => Navigator.of(context).pop(false),
+                    child: Text(
+                      "Prekliči",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                  CupertinoButton(
+                    onPressed: () => Navigator.of(context).pop(true),
+                    child: Text(
+                      "Zapri",
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red),
+                    ),
+                  ),
+                ],
               ),
             ) ==
             Object
         ? true
         : false;
   }
-}
-
-Future<void> init() async {
-  final prefs = await SharedPreferences.getInstance();
-  if (prefs.containsKey("Theme") && await prefs.get("Theme") == "white")
-    currentTheme.switchTheme();
-  else
-    await prefs.setString("Theme", "dark");
-
-  bytes = await rootBundle.loadString("assets/postaje.txt");
-  array.clear();
-  bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
-  array.removeLast();
-  map.clear();
-  predictions.clear();
-
-  for (int i = 0; i < array.length; i++) {
-    map[array[i][0]] = int.parse(array[i][1]);
-    predictions.add(array[i][0].toString().replaceAll("+", " "));
-  }
-
-  if (prefs.containsKey("favorites"))
-    favorites.addAll(prefs.getStringList("favorites")!.toList());
 }

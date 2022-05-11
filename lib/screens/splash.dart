@@ -1,6 +1,8 @@
 import 'package:bus_time_table/bloc/global/global_bloc.dart';
+import 'package:bus_time_table/bloc/theme/theme_cubit.dart';
 import 'package:bus_time_table/services/local_storage_service.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/splash/splash_bloc.dart';
@@ -30,6 +32,10 @@ class _SplashScreen extends StatelessWidget {
     return BlocConsumer<SplashBloc, SplashState>(
       listener: (context, state) {
         if (state.initialized && state.pushRoute != null) {
+          BlocProvider.of<ThemeCubit>(context).initThemeMode(
+              GlobalBloc.instance.isDarkMode
+                  ? ThemeMode.dark
+                  : ThemeMode.light);
           Navigator.popAndPushNamed(context, state.pushRoute!);
           return;
         }

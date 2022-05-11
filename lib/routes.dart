@@ -21,7 +21,7 @@ class SecondState extends State<SecondRoute> {
   @override
   void initState() {
     super.initState();
-    init2().whenComplete(() => setState(() {}));
+    //init2().whenComplete(() => setState(() {}));
     WidgetsBinding.instance!.addPostFrameCallback((_) => {
           _controller.animateTo(ct,
               duration: Duration(seconds: 1, milliseconds: 500),
@@ -92,7 +92,7 @@ class SecondState extends State<SecondRoute> {
                       await prefs.remove("favorites");
                       await prefs.setStringList("favorites", favorites);
                       await prefs.reload();
-                      starColor = currentTheme.starColor();
+                      //starColor = currentTheme.starColor();
                       setState(() {});
                     } else {
                       favorites.add(routesDeparture + "+" + routesDestination);
@@ -465,9 +465,9 @@ Future<bool> _willPopCallback() async {
   return false;
 }
 
-Future<void> init2() async {
+/* Future<void> init2() async {
   if (favorites.contains(routesDeparture + "+" + routesDestination))
     starColor = Colors.yellow;
   else
     starColor = currentTheme.starColor();
-}
+} */
