@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:bus_time_table/bloc/global/global_bloc.dart';
-import 'package:bus_time_table/services/local_storage_service.dart';
-import 'package:bus_time_table/style/theme.dart';
+import '../global/global_bloc.dart';
+import '../../services/local_storage_service.dart';
+import '../../style/theme.dart';
 import 'package:meta/meta.dart';
 
 import '../../config.dart';

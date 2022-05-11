@@ -1,5 +1,5 @@
-import 'package:bus_time_table/screens/settings.dart';
-import 'package:bus_time_table/services/local_storage_service.dart';
+import '../screens/settings.dart';
+import '../services/local_storage_service.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../routes.dart';

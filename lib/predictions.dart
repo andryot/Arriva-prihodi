@@ -1,5 +1,5 @@
-import 'package:bus_time_table/bloc/global/global_bloc.dart';
-import 'package:bus_time_table/widgets/loading_indicator.dart';
+import 'bloc/global/global_bloc.dart';
+import 'widgets/loading_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
@@ -56,7 +56,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).scaffoldBackgroundColor,
+        color: Theme.of(context).cardColor,
         borderRadius: new BorderRadius.circular(25.0),
         border: Border.all(color: Theme.of(context).highlightColor),
       ),
@@ -101,7 +101,7 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
               ), */
               labelText: hintDepartures,
               labelStyle: TextStyle(
-                color: Theme.of(context).shadowColor,
+                color: Theme.of(context).highlightColor,
               ),
             ),
             controller: departureTextController,

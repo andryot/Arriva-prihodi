@@ -1,15 +1,14 @@
-import 'package:bus_time_table/config.dart';
-import 'package:bus_time_table/router/routes.dart';
-import 'package:bus_time_table/screens/settings.dart';
-import 'package:bus_time_table/widgets/ap_circle_button.dart';
-import 'package:bus_time_table/widgets/ap_dashed_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/home/home_bloc.dart';
 import '../predictions.dart';
-import '../widgets/ap_date_field.dart';
+import '../router/routes.dart';
+import '../util/parser.dart';
+import '../widgets/ap_circle_button.dart';
+import '../widgets/ap_dashed_line.dart';
+import '../widgets/ap_text_field.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -28,6 +27,7 @@ class _HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController dateController = TextEditingController();
     return WillPopScope(
       onWillPop: () => _onBackPressed(context),
       child: GestureDetector(
@@ -58,8 +58,9 @@ class _HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(40)),
                 child: Padding(
                   padding: const EdgeInsets.only(
-                      top: 30.0, bottom: 30.0, right: 20.0, left: 10),
+                      top: 40.0, bottom: 40.0, right: 20.0, left: 10),
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Stack(
                         children: [
@@ -99,7 +100,7 @@ class _HomeScreen extends StatelessWidget {
                                 APDashedLine(),
                                 Icon(
                                   Icons.location_on,
-                                  color: Colors.yellow,
+                                  color: Colors.red,
                                 ),
                                 const SizedBox(height: 20),
                               ],
@@ -107,7 +108,47 @@ class _HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      APDateField(date: DateTime.now()),
+                      const SizedBox(height: 20),
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Icon(
+                              Icons.date_range,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 38.0),
+                            child: APTextField(
+                              controller: dateController,
+                              readOnly: true,
+                              onTap: () async {
+                                final DateTime? departureDate =
+                                    await showDatePicker(
+                                  helpText: "Izberi datum odhoda",
+                                  context: context,
+                                  builder:
+                                      (BuildContext? context, Widget? child) {
+                                    return Theme(
+                                      data: Theme.of(context!),
+                                      child: child!,
+                                    );
+                                  },
+                                  firstDate: DateTime(2020),
+                                  initialDate: DateTime.now(),
+                                  lastDate: DateTime(2030),
+                                );
+                                if (departureDate != null) {
+                                  dateController.text =
+                                      APParser.dateToString(departureDate);
+                                }
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),

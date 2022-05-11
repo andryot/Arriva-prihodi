@@ -1,16 +1,11 @@
 //import 'dart:io';
-import 'package:bus_time_table/config.dart';
 import 'package:bus_time_table/screens/settings.dart';
 import 'package:bus_time_table/services/local_storage_service.dart';
 import 'package:bus_time_table/widgets/AP_Date_Field.dart';
-import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:intl/intl.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data_fetch.dart';
 import 'favorites.dart';

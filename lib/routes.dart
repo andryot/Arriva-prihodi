@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'HomePage.dart';
-import 'config.dart';
 import 'widgets/loading_indicator.dart';
 
 class SecondRoute extends StatefulWidget {

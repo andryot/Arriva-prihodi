@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:bus_time_table/HomePage.dart';
+import '../../HomePage.dart';
 import 'package:meta/meta.dart';
 
 part 'home_event.dart';

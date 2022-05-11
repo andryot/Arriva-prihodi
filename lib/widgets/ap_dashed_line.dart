@@ -15,7 +15,10 @@ class APDashedLine extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Theme.of(context).primaryColor, Colors.yellow],
+                  colors: [
+                    Theme.of(context).primaryColor,
+                    Colors.red,
+                  ],
                 ),
               ),
             ),

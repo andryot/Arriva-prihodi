@@ -39,6 +39,12 @@ abstract class APColor {
     darkColor: Color(0xffDCDCDC),
   );
 
+  static const CupertinoDynamicColor textfield =
+      CupertinoDynamicColor.withBrightness(
+    color: Color(0xffFFFFFF),
+    darkColor: Color(0xFF303030),
+  );
+
   static const CupertinoTextThemeData textTheme = CupertinoTextThemeData(
     primaryColor: primary,
     textStyle: TextStyle(color: primary, fontFamily: 'Roboto', fontSize: 12),

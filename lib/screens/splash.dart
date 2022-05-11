@@ -1,6 +1,6 @@
-import 'package:bus_time_table/bloc/global/global_bloc.dart';
-import 'package:bus_time_table/bloc/theme/theme_cubit.dart';
-import 'package:bus_time_table/services/local_storage_service.dart';
+import '../bloc/global/global_bloc.dart';
+import '../bloc/theme/theme_cubit.dart';
+import '../services/local_storage_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

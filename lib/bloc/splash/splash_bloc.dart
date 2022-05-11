@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
-import 'package:bus_time_table/bloc/global/global_bloc.dart';
-import 'package:bus_time_table/config.dart';
-import 'package:bus_time_table/services/local_storage_service.dart';
-import 'package:bus_time_table/style/theme.dart';
+import '../global/global_bloc.dart';
+import '../../config.dart';
+import '../../services/local_storage_service.dart';
+import '../../style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
@@ -62,7 +62,7 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
   ) async {
     await Future.wait(
       <Future>[
-        Future.delayed(const Duration(seconds: 1)),
+        Future.delayed(const Duration(seconds: 3)),
         init(),
       ],
     );
