@@ -56,8 +56,9 @@ class _InputFormDepartureState extends State<InputFormDeparture> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
+        color: Theme.of(context).scaffoldBackgroundColor,
         borderRadius: new BorderRadius.circular(25.0),
-        border: Border.all(),
+        border: Border.all(color: Theme.of(context).highlightColor),
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 15),

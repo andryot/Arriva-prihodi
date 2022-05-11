@@ -1,12 +1,15 @@
 import 'package:bus_time_table/config.dart';
 import 'package:bus_time_table/router/routes.dart';
 import 'package:bus_time_table/screens/settings.dart';
+import 'package:bus_time_table/widgets/ap_circle_button.dart';
+import 'package:bus_time_table/widgets/ap_dashed_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/home/home_bloc.dart';
 import '../predictions.dart';
+import '../widgets/ap_date_field.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -54,35 +57,59 @@ class _HomeScreen extends StatelessWidget {
                     color: Theme.of(context).backgroundColor,
                     borderRadius: BorderRadius.circular(40)),
                 child: Padding(
-                  padding: const EdgeInsets.all(40.0),
-                  child: Stack(children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 28.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
+                  padding: const EdgeInsets.only(
+                      top: 30.0, bottom: 30.0, right: 20.0, left: 10),
+                  child: Column(
+                    children: [
+                      Stack(
                         children: [
-                          InputFormDeparture(),
-                          const SizedBox(height: 20),
-                          InputFormDeparture(),
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                      top: 0,
-                      bottom: 0,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("aa"),
-                          VerticalDivider(
-                            thickness: 3,
-                            color: Theme.of(context).primaryColor,
+                          Padding(
+                            padding: const EdgeInsets.only(left: 38.0),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    InputFormDeparture(),
+                                    const SizedBox(height: 20),
+                                    InputFormDeparture(),
+                                  ],
+                                ),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: APCircleButton(
+                                    icon: Icons.swap_vert,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                          Text("aa"),
+                          Positioned(
+                            top: 0,
+                            bottom: 0,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const SizedBox(height: 20),
+                                Icon(
+                                  Icons.location_on,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                                APDashedLine(),
+                                Icon(
+                                  Icons.location_on,
+                                  color: Colors.yellow,
+                                ),
+                                const SizedBox(height: 20),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
-                    )
-                  ]),
+                      APDateField(date: DateTime.now()),
+                    ],
+                  ),
                 ),
               ),
             ),

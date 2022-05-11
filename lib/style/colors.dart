@@ -29,7 +29,7 @@ abstract class APColor {
 
   static const CupertinoDynamicColor backgroudColor =
       CupertinoDynamicColor.withBrightness(
-    color: Color(0xffFFFFFF),
+    color: Color(0xffdfe3f1),
     darkColor: Color(0xFF303030),
   );
 
