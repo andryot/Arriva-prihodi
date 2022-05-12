@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../style/theme.dart';
+
 class APTextField extends StatelessWidget {
   final String? placeholder;
   final ValueChanged<String>? onChanged;
@@ -26,6 +28,7 @@ class APTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MyColors myColors = Theme.of(context).extension<MyColors>()!;
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
@@ -37,7 +40,7 @@ class APTextField extends StatelessWidget {
         child: TextField(
           readOnly: readOnly,
           controller: controller,
-          style: TextStyle(color: Theme.of(context).primaryColor),
+          style: TextStyle(color: myColors.textFieldBackground),
           textAlignVertical: TextAlignVertical.center,
           onChanged: (text) {},
           onTap: onTap,

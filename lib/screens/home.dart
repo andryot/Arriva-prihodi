@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/home/home_bloc.dart';
 import '../predictions.dart';
 import '../router/routes.dart';
+import '../style/theme.dart';
 import '../util/parser.dart';
 import '../widgets/ap_circle_button.dart';
 import '../widgets/ap_dashed_line.dart';
@@ -27,6 +28,7 @@ class _HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MyColors myColors = Theme.of(context).extension<MyColors>()!;
     final TextEditingController dateController = TextEditingController();
     return WillPopScope(
       onWillPop: () => _onBackPressed(context),
@@ -35,6 +37,14 @@ class _HomeScreen extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(
+            title: Text(
+              "Arriva prihodi",
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
+                fontSize: 25,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
             elevation: 0,
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             actions: <Widget>[
@@ -50,12 +60,13 @@ class _HomeScreen extends StatelessWidget {
             ],
           ),
           body: SingleChildScrollView(
+            padding: const EdgeInsets.only(top: 20.0),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Theme.of(context).backgroundColor,
-                    borderRadius: BorderRadius.circular(40)),
+              child: Material(
+                color: Theme.of(context).backgroundColor,
+                borderRadius: BorderRadius.circular(40),
+                elevation: 10,
                 child: Padding(
                   padding: const EdgeInsets.only(
                       top: 40.0, bottom: 40.0, right: 20.0, left: 10),
@@ -100,7 +111,7 @@ class _HomeScreen extends StatelessWidget {
                                 APDashedLine(),
                                 Icon(
                                   Icons.location_on,
-                                  color: Colors.red,
+                                  color: myColors.secondLocationColor,
                                 ),
                                 const SizedBox(height: 20),
                               ],

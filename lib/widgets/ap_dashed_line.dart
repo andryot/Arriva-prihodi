@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../style/theme.dart';
+
 class APDashedLine extends StatelessWidget {
   const APDashedLine({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final MyColors myColors = Theme.of(context).extension<MyColors>()!;
     return Expanded(
       child: SizedBox(
         width: 2.5,
@@ -17,7 +20,7 @@ class APDashedLine extends StatelessWidget {
                   end: Alignment.bottomCenter,
                   colors: [
                     Theme.of(context).primaryColor,
-                    Colors.red,
+                    myColors.secondLocationColor!,
                   ],
                 ),
               ),
