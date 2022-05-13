@@ -1,5 +1,3 @@
-import 'package:bus_time_table/widgets/ap_date_field.dart';
-import 'package:bus_time_table/widgets/ap_input_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +7,9 @@ import '../router/routes.dart';
 import '../style/theme.dart';
 import '../widgets/ap_circle_button.dart';
 import '../widgets/ap_dashed_line.dart';
+import '../widgets/ap_date_field.dart';
+import '../widgets/ap_input_field.dart';
+import 'timetable.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -78,7 +79,7 @@ class _HomeScreen extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(
-                              top: 40.0, bottom: 40.0, right: 20.0, left: 10),
+                              top: 40.0, bottom: 40.0, right: 30.0, left: 15),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -114,9 +115,15 @@ class _HomeScreen extends StatelessWidget {
                                         ),
                                         Align(
                                           alignment: Alignment.centerRight,
-                                          child: APCircleButton(
-                                            icon: Icons.swap_vert,
-                                            iconColor: myColors.labelColor,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                              right: 15.0,
+                                            ),
+                                            child: APCircleButton(
+                                              onPressed: () => homeBloc.swap(),
+                                              icon: Icons.swap_vert,
+                                              iconColor: myColors.labelColor,
+                                            ),
                                           ),
                                         )
                                       ],
@@ -201,15 +208,30 @@ class _HomeScreen extends StatelessWidget {
                           Expanded(
                             flex: 2,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Theme.of(context).primaryColor)),
+                              onPressed: () {
+                                Navigator.pushNamed(context, APRoute.timetable,
+                                    arguments: TimetableScreenArgs(
+                                      from: homeBloc.fromController.text,
+                                      destination:
+                                          homeBloc.destinationController.text,
+                                      date: state.selectedDate,
+                                    ));
+                                homeBloc.search();
+                              },
                               child: Padding(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 18.0),
                                 child: Text(
                                   "Išči",
                                   style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600),
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                    color: Theme.of(context)
+                                        .scaffoldBackgroundColor,
+                                  ),
                                 ),
                               ),
                             ),

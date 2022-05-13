@@ -1,10 +1,10 @@
-import '../screens/settings.dart';
-import '../services/local_storage_service.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../routes.dart';
 import '../screens/home.dart';
+import '../screens/settings.dart';
 import '../screens/splash.dart';
+import '../screens/timetable.dart';
+import '../services/local_storage_service.dart';
 import '../util/logger.dart';
 import 'routes.dart';
 
@@ -23,9 +23,11 @@ abstract class APRouter {
         return CupertinoPageRoute(
           builder: (context) => HomeScreen(),
         );
-      case APRoute.second:
+      case APRoute.timetable:
         return CupertinoPageRoute(
-          builder: (context) => SecondRoute(),
+          builder: (context) => TimetableScreen(
+            args: settings.arguments as TimetableScreenArgs,
+          ),
         );
       case APRoute.settings:
         return CupertinoPageRoute(

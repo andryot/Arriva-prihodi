@@ -1,5 +1,5 @@
-
 import 'package:meta/meta.dart';
+
 import '../../util/logger.dart';
 
 part 'global_state.dart';
@@ -41,9 +41,9 @@ class GlobalBloc {
     _logger.info('GlobalBloc.updateFavorites', 'favorites updated');
   }
 
-  void updateStations(List<String>? stations) {
-    if (stations == null) return;
-    _state = _state.copyWith(stations: stations);
+  void updateStations(List<String>? stations, Map<String, int>? stationId) {
+    if (stations == null || stationId == null) return;
+    _state = _state.copyWith(stations: stations, stationId: stationId);
   }
 
   void switchTheme() {

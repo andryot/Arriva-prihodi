@@ -43,21 +43,22 @@ class _SettingsScreen extends StatelessWidget {
       return Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            leading: CupertinoButton(
-              child: Icon(
-                Icons.arrow_back_ios,
-                color: Theme.of(context).primaryColor,
-              ),
-              onPressed: () => Navigator.of(context).pop(),
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          leading: CupertinoButton(
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Theme.of(context).primaryColor,
             ),
-            elevation: 0,
-            title: Text(
-              "Nastavitve",
-              style: TextStyle(
-                color: Theme.of(context).primaryColor,
-              ),
-            )),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          elevation: 0,
+          title: Text(
+            "Nastavitve",
+            style: TextStyle(
+              color: Theme.of(context).primaryColor,
+            ),
+          ),
+        ),
         body: Center(
           child: Column(children: <Widget>[
             Padding(

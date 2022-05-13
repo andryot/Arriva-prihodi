@@ -29,7 +29,7 @@ class APDashedLine extends StatelessWidget {
               child: Column(
                 children: List.generate(
                   // TODO: make this dynamic
-                  15,
+                  9,
                   (index) => Container(
                     width: 3,
                     height: 8,

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'HomePage.dart';
-
 import 'data_fetch.dart';
 import 'routes.dart';
 

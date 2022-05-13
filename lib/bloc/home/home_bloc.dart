@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:bus_time_table/util/parser.dart';
+import '../../util/parser.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 
@@ -35,7 +35,10 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
 
   HomeBloc() : super(HomeState.initial()) {
     _dateController.text = APParser.dateToString(state.selectedDate);
+
     on<_DateChangedEvent>(_dateChanged);
+    on<_SwapEvent>(_swap);
+    on<_SearchEvent>(_search);
   }
 
   // HANDLERS
@@ -49,8 +52,21 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
     _dateController.text = APParser.dateToString(state.selectedDate);
   }
 
-  // Public API
-  void dateSelected(DateTime selectedDate) {
-    add(_DateChangedEvent(selectedDate));
+  FutureOr<void> _swap(_SwapEvent event, Emitter<HomeState> emit) {
+    final String from = _fromController.text;
+    final String destination = _destinationController.text;
+
+    _fromController.text = destination;
+    _destinationController.text = from;
   }
+
+  FutureOr<void> _search(_SearchEvent event, Emitter<HomeState> emit) {}
+
+  // Public API
+  void dateSelected(DateTime selectedDate) =>
+      add(_DateChangedEvent(selectedDate));
+
+  void swap() => add(_SwapEvent());
+
+  void search() => add(_SearchEvent());
 }

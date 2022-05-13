@@ -1,6 +1,7 @@
-import '../style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../style/theme.dart';
 
 class LocalStorageService {
   final SharedPreferences sharedPreferences;

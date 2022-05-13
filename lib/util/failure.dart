@@ -1,0 +1,3 @@
+class Failure {
+  const Failure();
+}

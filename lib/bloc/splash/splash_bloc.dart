@@ -1,15 +1,16 @@
 import 'dart:async';
+import 'dart:collection';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
-import '../global/global_bloc.dart';
-import '../../services/local_storage_service.dart';
-import '../../style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 
 import '../../router/routes.dart';
+import '../../services/local_storage_service.dart';
+import '../../style/theme.dart';
+import '../global/global_bloc.dart';
 
 part 'splash_event.dart';
 part 'splash_state.dart';
@@ -61,7 +62,7 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
   ) async {
     await Future.wait(
       <Future>[
-        Future.delayed(const Duration(seconds: 3)),
+        Future.delayed(const Duration(seconds: 1)),
         init(),
       ],
     );
@@ -79,16 +80,17 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
 
     final List array = [];
     final List<String> stations = [];
+    final Map<String, int> stationId = HashMap();
 
     bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
     array.removeLast();
 
     for (int i = 0; i < array.length; i++) {
-      //map[array[i][0]] = int.parse(array[i][1]);
+      stationId[array[i][0]] = int.parse(array[i][1]);
       stations.add(array[i][0].toString().replaceAll("+", " "));
     }
 
-    _globalBloc.updateStations(stations);
+    _globalBloc.updateStations(stations, stationId);
 
     /*if (prefs.containsKey("favorites"))
       favorites.addAll(prefs.getStringList("favorites")!.toList()); */

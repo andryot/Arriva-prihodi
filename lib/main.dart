@@ -1,15 +1,15 @@
-import 'bloc/global/global_bloc.dart';
-import 'bloc/theme/theme_cubit.dart';
-import 'services/local_storage_service.dart';
-import 'style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'bloc/global/global_bloc.dart';
+import 'bloc/theme/theme_cubit.dart';
 import 'router/router.dart';
 import 'router/routes.dart';
+import 'services/local_storage_service.dart';
+import 'style/theme.dart';
 import 'util/logger.dart';
 
 void main() async {
