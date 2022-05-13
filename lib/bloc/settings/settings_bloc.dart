@@ -6,7 +6,6 @@ import '../../services/local_storage_service.dart';
 import '../../style/theme.dart';
 import 'package:meta/meta.dart';
 
-import '../../config.dart';
 
 part 'settings_event.dart';
 part 'settings_state.dart';

@@ -1,14 +1,11 @@
 import '../bloc/global/global_bloc.dart';
 import '../bloc/theme/theme_cubit.dart';
 import '../services/local_storage_service.dart';
-import '../style/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../bloc/settings/settings_bloc.dart';
-import '../config.dart';
 
 class SettingsScreen extends StatelessWidget {
   final LocalStorageService _localStorageService;

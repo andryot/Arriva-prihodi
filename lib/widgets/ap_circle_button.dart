@@ -3,28 +3,30 @@ import 'package:flutter/material.dart';
 class APCircleButton extends StatelessWidget {
   final Function()? onPressed;
   final IconData icon;
+  final Color? iconColor;
   const APCircleButton({
     Key? key,
     this.onPressed,
     required this.icon,
+    this.iconColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 20.0),
-      child: MaterialButton(
-        elevation: 10,
-        minWidth: 30,
-        shape: CircleBorder(),
-        color: Theme.of(context).backgroundColor,
-        onPressed: onPressed ?? () {},
-        padding: const EdgeInsets.all(8.0),
-        child: Icon(
+    return Material(
+      shadowColor: Colors.grey,
+      elevation: 5.0,
+      shape: CircleBorder(),
+      color: Theme.of(context).backgroundColor,
+      child: IconButton(
+        highlightColor: Colors.grey,
+        splashRadius: 24,
+        icon: Icon(
           icon,
           size: 30,
-          color: Theme.of(context).highlightColor,
+          color: iconColor,
         ),
+        onPressed: onPressed ?? () {},
       ),
     );
   }

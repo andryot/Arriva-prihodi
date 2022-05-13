@@ -25,14 +25,18 @@ class APDashedLine extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              children: List.generate(
-                9,
-                (index) => Container(
-                  height: 8,
-                  color: index % 2 == 0
-                      ? Colors.transparent
-                      : Theme.of(context).backgroundColor,
+            ClipRRect(
+              child: Column(
+                children: List.generate(
+                  // TODO: make this dynamic
+                  15,
+                  (index) => Container(
+                    width: 3,
+                    height: 8,
+                    color: index % 2 == 0
+                        ? Colors.transparent
+                        : Theme.of(context).backgroundColor,
+                  ),
                 ),
               ),
             ),

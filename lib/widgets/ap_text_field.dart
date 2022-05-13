@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../style/theme.dart';
@@ -13,6 +12,7 @@ class APTextField extends StatelessWidget {
   final TextEditingController? controller;
   final Function()? onTap;
   final TextInputAction? textInputAction;
+  final String? labelText;
   const APTextField({
     Key? key,
     this.placeholder,
@@ -24,12 +24,14 @@ class APTextField extends StatelessWidget {
     this.controller,
     this.onTap,
     this.textInputAction,
+    this.labelText,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final MyColors myColors = Theme.of(context).extension<MyColors>()!;
     return Container(
+      width: double.infinity,
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: new BorderRadius.circular(25.0),
@@ -40,15 +42,16 @@ class APTextField extends StatelessWidget {
         child: TextField(
           readOnly: readOnly,
           controller: controller,
-          style: TextStyle(color: myColors.textFieldBackground),
+          style: textStyle ?? TextStyle(color: Theme.of(context).primaryColor),
           textAlignVertical: TextAlignVertical.center,
           onChanged: (text) {},
           onTap: onTap,
           decoration: InputDecoration(
             border: InputBorder.none,
-            labelText: "Datum",
+            labelText: labelText,
             labelStyle: TextStyle(
-              color: Theme.of(context).highlightColor,
+              color: myColors.labelColor,
+              fontSize: 16,
             ),
           ),
         ),

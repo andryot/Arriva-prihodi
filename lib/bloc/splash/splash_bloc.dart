@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import '../global/global_bloc.dart';
-import '../../config.dart';
 import '../../services/local_storage_service.dart';
 import '../../style/theme.dart';
 import 'package:flutter/material.dart';

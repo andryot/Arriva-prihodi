@@ -1,10 +1,8 @@
 //import 'dart:io';
 import 'package:bus_time_table/screens/settings.dart';
 import 'package:bus_time_table/services/local_storage_service.dart';
-import 'package:bus_time_table/widgets/AP_Date_Field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'data_fetch.dart';
@@ -61,7 +59,7 @@ class HomeState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback(position);
+    WidgetsBinding.instance.addPostFrameCallback(position);
     //init().whenComplete(() => setState(() {}));
   }
 
@@ -111,7 +109,7 @@ class HomeState extends State<HomePage> {
                   Padding(padding: EdgeInsets.all(10)),
                   InputFormArrival(),
                   Padding(padding: EdgeInsets.all(10)),
-                  APDateField(date: date),
+                  //APDateField(date: date),
                   Padding(padding: EdgeInsets.all(10)),
                   Stack(
                     fit: StackFit.passthrough,

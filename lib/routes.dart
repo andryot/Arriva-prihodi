@@ -21,7 +21,7 @@ class SecondState extends State<SecondRoute> {
   void initState() {
     super.initState();
     //init2().whenComplete(() => setState(() {}));
-    WidgetsBinding.instance!.addPostFrameCallback((_) => {
+    WidgetsBinding.instance.addPostFrameCallback((_) => {
           _controller.animateTo(ct,
               duration: Duration(seconds: 1, milliseconds: 500),
               curve: Curves.ease)
@@ -195,14 +195,13 @@ Widget getTextWidgets(
             //height: height * 0.024 * MediaQuery.of(context).devicePixelRatio,
             width: width * 0.9,
             decoration: (BoxDecoration(
-              color:
-                  Theme.of(context).primaryColorBrightness == Brightness.light
-                      ? sooner
-                          ? Color(0xffD7D7D7)
-                          : Colors.white
-                      : sooner
-                          ? Color(0xff222222)
-                          : Color(0xff404040),
+              color: Theme.of(context).brightness == Brightness.light
+                  ? sooner
+                      ? Color(0xffD7D7D7)
+                      : Colors.white
+                  : sooner
+                      ? Color(0xff222222)
+                      : Color(0xff404040),
               borderRadius: BorderRadius.circular(12.0),
               border: Border.all(
                 color: Colors.black,
