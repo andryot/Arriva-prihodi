@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/global/global_bloc.dart';
 import '../bloc/timetable/timetable_bloc.dart';
+import '../services/backend_service.dart';
 import '../widgets/loading_indicator.dart';
 
 class TimetableScreenArgs {
@@ -31,6 +32,7 @@ class TimetableScreen extends StatelessWidget {
       create: (context) => TimetableBloc(
         args: args,
         globalBloc: GlobalBloc.instance,
+        backendService: BackendService.instance,
       ),
       child: _TimetableScreen(),
     );
@@ -58,7 +60,6 @@ class _TimetableScreen extends StatelessWidget {
             return Center(child: Text("Napaka!"));
           }
 
-          print(state.rideList!.first.destination);
           return CustomScrollView(
             //physics: const BouncingScrollPhysics(),
             slivers: <Widget>[
@@ -74,7 +75,17 @@ class _TimetableScreen extends StatelessWidget {
                 ),
                 expandedHeight: 200,
                 flexibleSpace: FlexibleSpaceBar(),
-              )
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    return Card(
+                      child: Text(state.rideList![index].from),
+                    );
+                  },
+                  childCount: state.rideList!.length,
+                ),
+              ),
             ],
           );
         },

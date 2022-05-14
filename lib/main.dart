@@ -1,3 +1,5 @@
+import 'package:bus_time_table/services/backend_service.dart';
+import 'package:bus_time_table/services/http_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,9 +18,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   LocalStorageService(await SharedPreferences.getInstance());
-
   final Logger logger = Logger();
-  GlobalBloc(logger: logger);
+  final HttpService _httpService = HttpService();
+  final GlobalBloc _globalBloc = GlobalBloc(logger: logger);
+  BackendService(httpService: _httpService, globalBloc: _globalBloc);
 
   runApp(BlocProvider(
     create: (context) => ThemeCubit(),
