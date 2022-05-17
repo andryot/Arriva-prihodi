@@ -34,7 +34,7 @@ class APTextField extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
-        borderRadius: new BorderRadius.circular(25.0),
+        borderRadius: BorderRadius.circular(25.0),
         border: Border.all(color: Theme.of(context).highlightColor),
       ),
       child: Padding(

@@ -27,13 +27,13 @@ class APInputField extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
-        borderRadius: new BorderRadius.circular(25.0),
+        borderRadius: BorderRadius.circular(25.0),
         border: Border.all(color: Theme.of(context).highlightColor),
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 15),
         child: TypeAheadFormField(
-          loadingBuilder: (context) => Center(
+          loadingBuilder: (context) => const Center(
             child: LoadingIndicator(
               dotRadius: 3.24,
               radius: 8,
@@ -60,7 +60,7 @@ class APInputField extends StatelessWidget {
             offsetX: -10,
             borderRadius: BorderRadius.circular(20),
           ),
-          noItemsFoundBuilder: (BuildContext context) => Text(
+          noItemsFoundBuilder: (BuildContext context) => const Text(
             '\n   Neveljaven vnos!\n',
             style: TextStyle(color: Colors.red),
           ),

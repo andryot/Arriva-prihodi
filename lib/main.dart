@@ -1,5 +1,3 @@
-import 'package:bus_time_table/services/backend_service.dart';
-import 'package:bus_time_table/services/http_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +8,8 @@ import 'bloc/global/global_bloc.dart';
 import 'bloc/theme/theme_cubit.dart';
 import 'router/router.dart';
 import 'router/routes.dart';
+import 'services/backend_service.dart';
+import 'services/http_service.dart';
 import 'services/local_storage_service.dart';
 import 'style/theme.dart';
 import 'util/logger.dart';
@@ -38,13 +38,13 @@ class MyApp extends StatelessWidget {
           theme: apThemeLight,
           darkTheme: apThemeDark,
           themeMode: state.themeMode,
-          localizationsDelegates: [
+          localizationsDelegates: const [
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          supportedLocales: [
-            const Locale("sl"),
+          supportedLocales: const [
+            Locale("sl"),
             //const Locale("en"),
           ],
           title: 'Arriva prihodi',

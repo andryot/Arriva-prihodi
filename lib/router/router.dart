@@ -18,10 +18,10 @@ abstract class APRouter {
 
     switch (settings.name) {
       case APRoute.initial:
-        return CupertinoPageRoute(builder: (context) => SplashScreen());
+        return CupertinoPageRoute(builder: (context) => const SplashScreen());
       case APRoute.home:
         return CupertinoPageRoute(
-          builder: (context) => HomeScreen(),
+          builder: (context) => const HomeScreen(),
         );
       case APRoute.timetable:
         return CupertinoPageRoute(

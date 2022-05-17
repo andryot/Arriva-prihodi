@@ -141,7 +141,7 @@ class _HomeScreen extends StatelessWidget {
                                           Icons.location_on,
                                           color: Theme.of(context).primaryColor,
                                         ),
-                                        APDashedLine(),
+                                        const APDashedLine(),
                                         Icon(
                                           Icons.location_on,
                                           color: myColors.secondLocationColor,
@@ -180,10 +180,11 @@ class _HomeScreen extends StatelessWidget {
                                               );
                                             },
                                             firstDate: state.selectedDate
-                                                .subtract(Duration(days: 365)),
+                                                .subtract(
+                                                    const Duration(days: 365)),
                                             initialDate: state.selectedDate,
                                             lastDate: state.selectedDate
-                                                .add(Duration(days: 365)),
+                                                .add(const Duration(days: 365)),
                                           );
 
                                           if (selectedDate != null) {
@@ -257,21 +258,21 @@ Future<bool> _onBackPressed(BuildContext context) async {
   return await showCupertinoDialog(
             context: context,
             builder: (context) => CupertinoAlertDialog(
-              title: new Text(
+              title: const Text(
                 'Želite zapreti aplikacijo?',
                 textAlign: TextAlign.center,
               ),
               actions: <Widget>[
                 CupertinoButton(
                   onPressed: () => Navigator.of(context).pop(false),
-                  child: Text(
+                  child: const Text(
                     "Prekliči",
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
                 CupertinoButton(
                   onPressed: () => Navigator.of(context).pop(true),
-                  child: Text(
+                  child: const Text(
                     "Zapri",
                     style: TextStyle(
                         fontSize: 18,

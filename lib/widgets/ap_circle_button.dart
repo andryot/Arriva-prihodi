@@ -16,7 +16,7 @@ class APCircleButton extends StatelessWidget {
     return Material(
       shadowColor: Colors.grey,
       elevation: 5.0,
-      shape: CircleBorder(),
+      shape: const CircleBorder(),
       color: Theme.of(context).backgroundColor,
       child: IconButton(
         highlightColor: Colors.grey,

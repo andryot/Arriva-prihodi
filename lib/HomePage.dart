@@ -1,6 +1,5 @@
-//import 'dart:io';
-import 'package:bus_time_table/screens/settings.dart';
-import 'package:bus_time_table/services/local_storage_service.dart';
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -9,6 +8,8 @@ import 'data_fetch.dart';
 import 'favorites.dart';
 import 'predictions.dart';
 import 'routes.dart';
+import 'screens/settings.dart';
+import 'services/local_storage_service.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -99,135 +100,132 @@ class HomeState extends State<HomePage> {
           },
           behavior: HitTestBehavior.opaque,
           child: Center(
-            child: Container(
-              child: ListView(
-                physics: NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                children: <Widget>[
-                  Padding(padding: EdgeInsets.all(0)),
-                  InputFormDeparture(),
-                  Padding(padding: EdgeInsets.all(10)),
-                  InputFormArrival(),
-                  Padding(padding: EdgeInsets.all(10)),
-                  //APDateField(date: date),
-                  Padding(padding: EdgeInsets.all(10)),
-                  Stack(
-                    fit: StackFit.passthrough,
-                    children: <Widget>[
-                      Center(
-                        child: Container(
-                          height: pixelsVertical > 1750
-                              ? height *
-                                  (pixelsVertical > 2500 ? 0.02 : 0.023) *
-                                  MediaQuery.of(context).devicePixelRatio
-                              : height *
-                                  (pixelsVertical > 900 ? 0.034 : 0.042) *
-                                  MediaQuery.of(context).devicePixelRatio,
-                          //height: height > 650 ? height * 0.023 * MediaQuery.of(context).devicePixelRatio: height * 0.034 *MediaQuery.of(context).devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
-                          width: width * 0.4,
-                          child: RaisedButton(
-                            onPressed: () => [
-                              errorArrival == false && errorDeparture == false
-                                  ? [
-                                      print(departure),
-                                      FocusScope.of(context)
-                                          .requestFocus(new FocusNode()),
-                                      routesDeparture = departure,
-                                      routesDestination = destination,
-                                      Navigator.of(context)
-                                          .push(new CupertinoPageRoute<bool>(
-                                        fullscreenDialog: true,
-                                        builder: (context) => AniRoute(),
-                                      )),
-                                      fetch(departure, destination, date)
-                                          .whenComplete(() => [
-                                                Navigator.pop(context),
-                                                Navigator.of(context).push(
-                                                    new CupertinoPageRoute<
-                                                        bool>(
-                                                  fullscreenDialog: true,
-                                                  builder: (context) =>
-                                                      SecondRoute(),
-                                                ))
-                                              ]),
-                                    ]
-                                  : [
-                                      print(departure),
-                                      colorDeparture = Colors.red,
-                                      Fluttertoast.showToast(
-                                        msg: "Napaka pri izbiri postaj!",
-                                        toastLength: Toast.LENGTH_SHORT,
-                                        gravity: ToastGravity.BOTTOM,
-                                        timeInSecForIosWeb: 1,
-                                      ),
-                                    ]
-                            ],
-                            child: Text(
-                              "Išči",
-                              style: TextStyle(
-                                  fontSize: pixelsVertical < 1920 ? 23 : 30,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white),
-                            ),
-                            color: Colors.blue[500],
-                            textColor: Theme.of(context).primaryColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(13.0),
-                            ),
+            child: ListView(
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              children: <Widget>[
+                const Padding(padding: EdgeInsets.all(0)),
+                InputFormDeparture(),
+                const Padding(padding: EdgeInsets.all(10)),
+                InputFormArrival(),
+                const Padding(padding: EdgeInsets.all(10)),
+                //APDateField(date: date),
+                const Padding(padding: EdgeInsets.all(10)),
+                Stack(
+                  fit: StackFit.passthrough,
+                  children: <Widget>[
+                    Center(
+                      child: Container(
+                        height: pixelsVertical > 1750
+                            ? height *
+                                (pixelsVertical > 2500 ? 0.02 : 0.023) *
+                                MediaQuery.of(context).devicePixelRatio
+                            : height *
+                                (pixelsVertical > 900 ? 0.034 : 0.042) *
+                                MediaQuery.of(context).devicePixelRatio,
+                        //height: height > 650 ? height * 0.023 * MediaQuery.of(context).devicePixelRatio: height * 0.034 *MediaQuery.of(context).devicePixelRatio, // MediaQuery.of(context).size.height < 750 ? 55 : 60,,
+                        width: width * 0.4,
+                        child: RaisedButton(
+                          onPressed: () => [
+                            errorArrival == false && errorDeparture == false
+                                ? [
+                                    print(departure),
+                                    FocusScope.of(context)
+                                        .requestFocus(new FocusNode()),
+                                    routesDeparture = departure,
+                                    routesDestination = destination,
+                                    Navigator.of(context)
+                                        .push(new CupertinoPageRoute<bool>(
+                                      fullscreenDialog: true,
+                                      builder: (context) => AniRoute(),
+                                    )),
+                                    fetch(departure, destination, date)
+                                        .whenComplete(() => [
+                                              Navigator.pop(context),
+                                              Navigator.of(context).push(
+                                                  new CupertinoPageRoute<bool>(
+                                                fullscreenDialog: true,
+                                                builder: (context) =>
+                                                    SecondRoute(),
+                                              ))
+                                            ]),
+                                  ]
+                                : [
+                                    print(departure),
+                                    colorDeparture = Colors.red,
+                                    Fluttertoast.showToast(
+                                      msg: "Napaka pri izbiri postaj!",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.BOTTOM,
+                                      timeInSecForIosWeb: 1,
+                                    ),
+                                  ]
+                          ],
+                          child: Text(
+                            "Išči",
+                            style: TextStyle(
+                                fontSize: pixelsVertical < 1920 ? 23 : 30,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white),
+                          ),
+                          color: Colors.blue[500],
+                          textColor: Theme.of(context).primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(13.0),
                           ),
                         ),
                       ),
-                      Positioned(
-                        right: 5,
-                        child: Container(
-                          height: pixelsVertical > 1750
-                              ? height *
-                                  (pixelsVertical > 2500 ? 0.02 : 0.023) *
-                                  MediaQuery.of(context).devicePixelRatio
-                              : height *
-                                  (pixelsVertical > 900 ? 0.034 : 0.042) *
-                                  MediaQuery.of(context).devicePixelRatio,
-                          //height: height > 650? height *0.023 *MediaQuery.of(context).devicePixelRatio: height *0.034 *MediaQuery.of(context).devicePixelRatio,
-                          child: FloatingActionButton(
-                            backgroundColor: Colors.blue[500],
-                            child: Icon(
-                              Icons.swap_vert,
-                              size: pixelsVertical < 1920 ? 30 : 35,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {
-                              var pom = departure;
-                              departureTextController.text = destination;
-                              destinationTextController.text = pom;
-                              departure = destination;
-                              destination = pom;
-                            },
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Padding(padding: EdgeInsets.all(20)),
-                  Text(
-                    "Priljubljene relacije: ",
-                    style: TextStyle(
-                      color: Colors
-                          .yellow[700], //Theme.of(context).primaryColorLight,
-                      fontSize: pixelsVertical < 1920 ? 18 : 20,
-                      fontWeight: FontWeight.w600,
                     ),
+                    Positioned(
+                      right: 5,
+                      child: Container(
+                        height: pixelsVertical > 1750
+                            ? height *
+                                (pixelsVertical > 2500 ? 0.02 : 0.023) *
+                                MediaQuery.of(context).devicePixelRatio
+                            : height *
+                                (pixelsVertical > 900 ? 0.034 : 0.042) *
+                                MediaQuery.of(context).devicePixelRatio,
+                        //height: height > 650? height *0.023 *MediaQuery.of(context).devicePixelRatio: height *0.034 *MediaQuery.of(context).devicePixelRatio,
+                        child: FloatingActionButton(
+                          backgroundColor: Colors.blue[500],
+                          child: Icon(
+                            Icons.swap_vert,
+                            size: pixelsVertical < 1920 ? 30 : 35,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            var pom = departure;
+                            departureTextController.text = destination;
+                            destinationTextController.text = pom;
+                            departure = destination;
+                            destination = pom;
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(padding: EdgeInsets.all(20)),
+                Text(
+                  "Priljubljene relacije: ",
+                  style: TextStyle(
+                    color: Colors
+                        .yellow[700], //Theme.of(context).primaryColorLight,
+                    fontSize: pixelsVertical < 1920 ? 18 : 20,
+                    fontWeight: FontWeight.w600,
                   ),
-                  Padding(
-                    key: paddingKey,
-                    padding: EdgeInsets.all(5),
-                  ),
-                  Container(
-                    //height: pixelsVertical > 1920 ? (height  > 600 ? 0.3 : 0.27) * height : height * 0.3,
-                    height: (height - favoritesPosition) - 15,
-                    child: FavoritesSection(),
-                  ),
-                ],
-              ),
+                ),
+                Padding(
+                  key: paddingKey,
+                  padding: EdgeInsets.all(5),
+                ),
+                Container(
+                  //height: pixelsVertical > 1920 ? (height  > 600 ? 0.3 : 0.27) * height : height * 0.3,
+                  height: (height - favoritesPosition) - 15,
+                  child: FavoritesSection(),
+                ),
+              ],
             ),
           ),
         ),

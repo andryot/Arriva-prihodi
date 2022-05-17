@@ -12,6 +12,9 @@ class TimetableState {
   final List<Ride>? rideList;
 
   final Failure? failure;
+
+  final Ride? selectedRide;
+
   const TimetableState({
     required this.isLoading,
     required this.initialized,
@@ -20,6 +23,7 @@ class TimetableState {
     required this.date,
     required this.rideList,
     required this.failure,
+    required this.selectedRide,
   });
 
   const TimetableState.initial({
@@ -29,7 +33,8 @@ class TimetableState {
   })  : isLoading = null,
         initialized = false,
         rideList = null,
-        failure = null;
+        failure = null,
+        selectedRide = null;
 
   TimetableState copyWith({
     bool? isLoading,
@@ -39,6 +44,8 @@ class TimetableState {
     DateTime? date,
     List<Ride>? rideList,
     Failure? failure,
+    Ride? selectedRide,
+    bool? overrideRide,
   }) {
     return TimetableState(
       isLoading: isLoading ?? this.isLoading,
@@ -48,6 +55,9 @@ class TimetableState {
       date: date ?? this.date,
       rideList: rideList ?? this.rideList,
       failure: failure,
+      selectedRide: overrideRide == true
+          ? selectedRide
+          : selectedRide ?? this.selectedRide,
     );
   }
 }

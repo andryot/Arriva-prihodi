@@ -64,21 +64,21 @@ class FavoritesState extends State<FavoritesSection> {
                 final bool res = await showCupertinoDialog(
                   context: context,
                   builder: (context) => CupertinoAlertDialog(
-                    title: new Text(
+                    title: const Text(
                       'Želite odstraniti priljubljeno relacijo?',
                       textAlign: TextAlign.center,
                     ),
                     actions: <Widget>[
                       CupertinoButton(
                         onPressed: () => Navigator.of(context).pop(false),
-                        child: Text(
+                        child: const Text(
                           "Prekliči",
                           style: TextStyle(fontSize: 18),
                         ),
                       ),
                       CupertinoButton(
                         onPressed: () async => await deleteFavorite(i),
-                        child: Text(
+                        child: const Text(
                           "Potrdi",
                           style: TextStyle(
                               fontSize: 18,

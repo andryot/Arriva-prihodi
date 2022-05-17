@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
         localStorageService: LocalStorageService.instance,
         globalBloc: GlobalBloc.instance,
       ),
-      child: _SplashScreen(),
+      child: const _SplashScreen(),
     );
   }
 }

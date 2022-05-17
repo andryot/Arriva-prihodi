@@ -8,3 +8,8 @@ abstract class _TimetableEvent {
 class _InitializeEvent extends _TimetableEvent {
   const _InitializeEvent();
 }
+
+class _ShowDetailsEvent extends _TimetableEvent {
+  final int index;
+  const _ShowDetailsEvent(this.index);
+}

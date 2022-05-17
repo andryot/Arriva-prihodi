@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../bloc/global/global_bloc.dart';
 import '../bloc/timetable/timetable_bloc.dart';
 import '../services/backend_service.dart';
+import '../widgets/ap_list_tile.dart';
+import '../widgets/ap_stops.dart';
 import '../widgets/loading_indicator.dart';
 
 class TimetableScreenArgs {
@@ -34,7 +37,7 @@ class TimetableScreen extends StatelessWidget {
         globalBloc: GlobalBloc.instance,
         backendService: BackendService.instance,
       ),
-      child: _TimetableScreen(),
+      child: const _TimetableScreen(),
     );
   }
 }
@@ -48,8 +51,9 @@ class _TimetableScreen extends StatelessWidget {
       body: BlocConsumer<TimetableBloc, TimetableState>(
         listener: (context, state) {},
         builder: (context, state) {
+          final TimetableBloc bloc = BlocProvider.of(context);
           if (state.isLoading == true) {
-            return Center(
+            return const Center(
               child: LoadingIndicator(
                 dotRadius: 8,
                 radius: 24,
@@ -57,39 +61,102 @@ class _TimetableScreen extends StatelessWidget {
             );
           }
           if (state.failure != null || state.initialized == false) {
-            return Center(child: Text("Napaka!"));
+            return const Center(child: Text("Napaka!"));
           }
 
-          return CustomScrollView(
-            //physics: const BouncingScrollPhysics(),
-            slivers: <Widget>[
-              SliverAppBar(
-                pinned: true,
-                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                leading: CupertinoButton(
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: Theme.of(context).primaryColor,
+          return SlidingUpPanel(
+            body: CustomScrollView(
+              //physics: const BouncingScrollPhysics(),
+              slivers: <Widget>[
+                SliverAppBar(
+                  pinned: true,
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                  leading: CupertinoButton(
+                    onPressed: Navigator.of(context).pop,
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: Theme.of(context).primaryColor,
+                    ),
                   ),
-                  onPressed: Navigator.of(context).pop,
+                  expandedHeight: 200,
+                  flexibleSpace: const FlexibleSpaceBar(),
                 ),
-                expandedHeight: 200,
-                flexibleSpace: FlexibleSpaceBar(),
-              ),
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    return Card(
-                      child: Text(state.rideList![index].from),
-                    );
-                  },
-                  childCount: state.rideList!.length,
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) => APListTile(
+                      ride: state.rideList![index],
+                      index: index,
+                    ),
+                    childCount: state.rideList!.length,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
+            panel: _panel(bloc.sc, context, state),
+            controller: bloc.panelController,
+            backdropEnabled: true,
+            borderRadius: BorderRadius.circular(20),
+            color: Theme.of(context).backgroundColor,
+            minHeight: 0,
+            maxHeight: 4 *
+                (MediaQuery.of(context).size.height -
+                    MediaQuery.of(context).padding.top) /
+                5,
           );
         },
       ),
     );
+  }
+
+  Widget _panel(
+      ScrollController sc, BuildContext context, TimetableState state) {
+    if (state.selectedRide == null) {
+      return const SizedBox();
+    }
+
+    return MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
+        child: ListView(
+          //controller: sc,
+          children: <Widget>[
+            const SizedBox(
+              height: 12.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: 40,
+                  height: 5,
+                  decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(12.0))),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 18.0,
+            ),
+            Text(state.selectedRide!.from),
+            Text(state.selectedRide!.destination),
+            Text(state.selectedRide!.startTime),
+            Text(state.selectedRide!.endTime),
+            Text(state.selectedRide!.duration!),
+            Text(state.selectedRide!.distance!),
+            Text(state.selectedRide!.price!),
+            Text(state.selectedRide!.busCompany!),
+            Text(state.selectedRide!.lane!),
+            if (state.selectedRide!.routeStops == null) ...[
+              const Align(
+                alignment: Alignment.center,
+                child: LoadingIndicator(radius: 8, dotRadius: 3.41),
+              ),
+            ] else ...[
+              ApStops(routeStops: state.selectedRide!.routeStops!),
+            ],
+          ],
+        ));
   }
 }

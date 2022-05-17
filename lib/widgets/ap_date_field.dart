@@ -6,7 +6,7 @@ class APDateField extends StatelessWidget {
   final DateTime initialDate;
   final TextEditingController _textEditingController;
   final Function()? onTap;
-  APDateField({
+  const APDateField({
     required this.initialDate,
     required TextEditingController textEditingController,
     required this.onTap,

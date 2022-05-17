@@ -1,11 +1,11 @@
-import '../bloc/global/global_bloc.dart';
-import '../bloc/theme/theme_cubit.dart';
-import '../services/local_storage_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/global/global_bloc.dart';
 import '../bloc/settings/settings_bloc.dart';
+import '../bloc/theme/theme_cubit.dart';
+import '../services/local_storage_service.dart';
 
 class SettingsScreen extends StatelessWidget {
   final LocalStorageService _localStorageService;
@@ -38,6 +38,8 @@ class _SettingsScreen extends StatelessWidget {
     required LocalStorageService localStorageService,
   })  : _localStorageService = localStorageService,
         super(key: key);
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<SettingsBloc, SettingsState>(builder: (context, state) {
       return Scaffold(
