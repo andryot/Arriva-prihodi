@@ -12,64 +12,74 @@ class ApStops extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(routeStops.first.time),
-            const SizedBox(
-              width: 10,
-            ),
-            const APCircle(color: Colors.red, radius: 10),
-            const SizedBox(
-              width: 10,
-            ),
-            Text(routeStops.first.station),
-          ],
-        ),
-        Container(
-          width: 2,
-          height: 30,
-          color: Colors.amber,
-        ),
-        for (int i = 1; i < routeStops.length - 1; i++) ...[
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+        // TIMES
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(routeStops[i].time),
-              const SizedBox(
-                width: 10,
-              ),
-              const APCircle(color: Colors.amber, radius: 10),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(routeStops[i].station),
+              for (RouteStop stop in routeStops) ...[
+                Text(stop.time),
+                const SizedBox(
+                  height: 40,
+                ),
+              ],
             ],
           ),
-          Container(
-            width: 2,
-            height: 30,
-            color: Colors.amber,
-          ),
-        ],
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        ),
+        const SizedBox(
+          width: 20,
+        ),
+        // DOTS
+        Column(
           children: [
-            Text(routeStops.last.time),
-            const SizedBox(
-              width: 10,
-            ),
             const APCircle(color: Colors.red, radius: 10),
             const SizedBox(
-              width: 10,
+              height: 5,
             ),
-            Text(routeStops.last.station),
+            Container(
+              width: 2,
+              height: 40,
+              color: Colors.amberAccent,
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            for (int i = 1; i < routeStops.length - 1; i++) ...[
+              const APCircle(color: Colors.amber, radius: 10),
+              const SizedBox(
+                height: 5,
+              ),
+              Container(
+                width: 2,
+                height: 40,
+                color: Colors.amberAccent,
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+            ],
+            const APCircle(color: Colors.red, radius: 10),
           ],
+        ),
+        const SizedBox(
+          width: 20,
+        ),
+        // STATIONS
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (RouteStop stop in routeStops) ...[
+                Text(stop.station),
+                const SizedBox(
+                  height: 40,
+                ),
+              ],
+            ],
+          ),
         ),
       ],
     );
