@@ -1,8 +1,7 @@
 part of 'global_bloc.dart';
 
-@immutable
 class GlobalState {
-  final List<String> favorites;
+  final List<Ride>? favorites;
   final List<String> stations;
   final Map<String, int> stationId;
   const GlobalState({
@@ -12,12 +11,12 @@ class GlobalState {
   });
 
   const GlobalState.initial()
-      : favorites = const [],
+      : favorites = null,
         stations = const [],
         stationId = const {};
 
   GlobalState copyWith({
-    List<String>? favorites,
+    List<Ride>? favorites,
     List<String>? stations,
     Map<String, int>? stationId,
   }) {

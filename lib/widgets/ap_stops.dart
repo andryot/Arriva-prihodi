@@ -5,6 +5,7 @@ import 'ap_circle.dart';
 
 class ApStops extends StatelessWidget {
   final List<RouteStop> routeStops;
+
   const ApStops({
     Key? key,
     required this.routeStops,
@@ -15,9 +16,14 @@ class ApStops extends StatelessWidget {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(routeStops.first.time),
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Text(routeStops.first.time),
+              ),
+            ),
             const SizedBox(
               width: 10,
             ),
@@ -25,8 +31,11 @@ class ApStops extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Text(routeStops.first.station),
+            Expanded(child: Text(routeStops.first.station)),
           ],
+        ),
+        const SizedBox(
+          height: 5,
         ),
         Container(
           width: 2,
@@ -35,12 +44,17 @@ class ApStops extends StatelessWidget {
         ),
         for (int i = 1; i < routeStops.length - 1; i++) ...[
           const SizedBox(
-            height: 10,
+            height: 5,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(routeStops[i].time),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(routeStops[i].time),
+                ),
+              ),
               const SizedBox(
                 width: 10,
               ),
@@ -48,7 +62,7 @@ class ApStops extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
-              Text(routeStops[i].station),
+              Expanded(child: Text(routeStops[i].station)),
             ],
           ),
           Container(
@@ -57,10 +71,18 @@ class ApStops extends StatelessWidget {
             color: Colors.amber,
           ),
         ],
+        const SizedBox(
+          height: 5,
+        ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(routeStops.last.time),
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Text(routeStops.last.time),
+              ),
+            ),
             const SizedBox(
               width: 10,
             ),
@@ -68,7 +90,7 @@ class ApStops extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Text(routeStops.last.station),
+            Expanded(child: Text(routeStops.last.station)),
           ],
         ),
       ],

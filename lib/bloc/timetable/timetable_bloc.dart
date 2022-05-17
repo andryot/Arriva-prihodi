@@ -20,7 +20,6 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
   final TimetableScreenArgs args;
   final GlobalBloc _globalBloc;
   final BackendService _backendService;
-  final ScrollController sc = ScrollController();
   final PanelController panelController = PanelController();
   TimetableBloc({
     required this.args,
@@ -35,6 +34,7 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
         )) {
     on<_InitializeEvent>(_initialize);
     on<_ShowDetailsEvent>(_showDetails);
+    on<_FavoriteEvent>(_favorite);
 
     add(const _InitializeEvent());
   }
@@ -42,12 +42,20 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
   // PUBLIC API
 
   void showDetailsPanel(int index) => add(_ShowDetailsEvent(index));
-
+  void favorite() => add(const _FavoriteEvent());
   // HANDLERS
 
   FutureOr<void> _initialize(
       _InitializeEvent event, Emitter<TimetableState> emit) async {
-    emit(state.copyWith(isLoading: true));
+    final Ride tmpRide = Ride(
+      from: args.from,
+      destination: args.destination,
+    );
+    emit(state.copyWith(
+      isLoading: true,
+      selectedRide: tmpRide,
+      isFavorite: _globalBloc.isFavorite(tmpRide),
+    ));
 
     final Either<Failure, List<Ride>> failureOrRideList = await _backendService
         .getTimetable(args.from, args.destination, state.date);
@@ -88,6 +96,20 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
         routeStops: failureOrRideStops.value,
       );
       emit(state.copyWith(selectedRide: state.rideList![event.index]));
+    }
+  }
+
+  FutureOr<void> _favorite(
+      _FavoriteEvent event, Emitter<TimetableState> emit) async {
+    emit(state.copyWith(
+        isFavorite: state.isFavorite == null ? true : !state.isFavorite!));
+
+    if (state.isFavorite == null) {
+      return;
+    } else if (state.isFavorite == true) {
+      await _globalBloc.addFavorite(state.selectedRide);
+    } else {
+      await _globalBloc.removeFavorite(state.selectedRide);
     }
   }
 }

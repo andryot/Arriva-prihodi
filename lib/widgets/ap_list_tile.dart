@@ -1,7 +1,7 @@
-import '../bloc/timetable/timetable_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/timetable/timetable_bloc.dart';
 import '../models/ride.dart';
 
 class APListTile extends StatelessWidget {
@@ -32,8 +32,8 @@ class APListTile extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(ride.startTime),
-                    Text(ride.endTime),
+                    Text(ride.startTime!),
+                    Text(ride.endTime!),
                   ],
                 ),
               ),

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +9,7 @@ import '../bloc/global/global_bloc.dart';
 import '../bloc/timetable/timetable_bloc.dart';
 import '../services/backend_service.dart';
 import '../widgets/ap_list_tile.dart';
+import '../widgets/ap_sliver_app_bar.dart';
 import '../widgets/ap_stops.dart';
 import '../widgets/loading_indicator.dart';
 
@@ -64,44 +67,46 @@ class _TimetableScreen extends StatelessWidget {
             return const Center(child: Text("Napaka!"));
           }
 
-          return SlidingUpPanel(
-            body: CustomScrollView(
-              //physics: const BouncingScrollPhysics(),
-              slivers: <Widget>[
-                SliverAppBar(
-                  pinned: true,
-                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                  leading: CupertinoButton(
-                    onPressed: Navigator.of(context).pop,
-                    child: Icon(
-                      Icons.arrow_back_ios,
-                      color: Theme.of(context).primaryColor,
+          return Padding(
+            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+            child: SlidingUpPanel(
+              body: CustomScrollView(
+                //physics: const BouncingScrollPhysics(),
+                slivers: <Widget>[
+                  SliverPersistentHeader(
+                    pinned: true,
+                    delegate: APSliverAppBar(
+                      maxExtent: MediaQuery.of(context).size.height / 5,
+                      minExtent:
+                          max(MediaQuery.of(context).size.height / 12, 70),
+                      isFavorite: state.isFavorite,
+                      from: state.from,
+                      destination: state.destination,
                     ),
                   ),
-                  expandedHeight: 200,
-                  flexibleSpace: const FlexibleSpaceBar(),
-                ),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) => APListTile(
-                      ride: state.rideList![index],
-                      index: index,
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) => APListTile(
+                        ride: state.rideList![index],
+                        index: index,
+                      ),
+                      childCount: state.rideList!.length,
                     ),
-                    childCount: state.rideList!.length,
                   ),
-                ),
-              ],
+                ],
+              ),
+              panelBuilder: (scrollController) =>
+                  _panel(scrollController, context, state),
+              controller: bloc.panelController,
+              backdropEnabled: true,
+              borderRadius: BorderRadius.circular(20),
+              color: Theme.of(context).backgroundColor,
+              minHeight: 0,
+              maxHeight: 4 *
+                  (MediaQuery.of(context).size.height -
+                      MediaQuery.of(context).padding.top) /
+                  5,
             ),
-            panel: _panel(bloc.sc, context, state),
-            controller: bloc.panelController,
-            backdropEnabled: true,
-            borderRadius: BorderRadius.circular(20),
-            color: Theme.of(context).backgroundColor,
-            minHeight: 0,
-            maxHeight: 4 *
-                (MediaQuery.of(context).size.height -
-                    MediaQuery.of(context).padding.top) /
-                5,
           );
         },
       ),
@@ -110,7 +115,7 @@ class _TimetableScreen extends StatelessWidget {
 
   Widget _panel(
       ScrollController sc, BuildContext context, TimetableState state) {
-    if (state.selectedRide == null) {
+    if (state.selectedRide == null || state.selectedRide!.startTime == null) {
       return const SizedBox();
     }
 
@@ -118,7 +123,7 @@ class _TimetableScreen extends StatelessWidget {
         context: context,
         removeTop: true,
         child: ListView(
-          //controller: sc,
+          controller: sc,
           children: <Widget>[
             const SizedBox(
               height: 12.0,
@@ -130,31 +135,40 @@ class _TimetableScreen extends StatelessWidget {
                   width: 40,
                   height: 5,
                   decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(12.0))),
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.grey[300]
+                        : Colors.black26,
+                    borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                  ),
                 ),
               ],
             ),
             const SizedBox(
               height: 18.0,
             ),
-            Text(state.selectedRide!.from),
-            Text(state.selectedRide!.destination),
-            Text(state.selectedRide!.startTime),
-            Text(state.selectedRide!.endTime),
-            Text(state.selectedRide!.duration!),
-            Text(state.selectedRide!.distance!),
-            Text(state.selectedRide!.price!),
-            Text(state.selectedRide!.busCompany!),
-            Text(state.selectedRide!.lane!),
+            Column(
+              children: [
+                Text(state.selectedRide!.from),
+                Text(state.selectedRide!.destination),
+                Text(state.selectedRide!.startTime!),
+                Text(state.selectedRide!.endTime!),
+                Text(state.selectedRide!.duration!),
+                Text(state.selectedRide!.distance!),
+                Text(state.selectedRide!.price!),
+                Text(state.selectedRide!.busCompany!),
+                if (state.selectedRide!.lane! != "/")
+                  Text(state.selectedRide!.lane!),
+              ],
+            ),
             if (state.selectedRide!.routeStops == null) ...[
-              const Align(
-                alignment: Alignment.center,
+              const Center(
                 child: LoadingIndicator(radius: 8, dotRadius: 3.41),
               ),
             ] else ...[
-              ApStops(routeStops: state.selectedRide!.routeStops!),
+              // TODO highlight selected stop
+              ApStops(
+                routeStops: state.selectedRide!.routeStops!,
+              ),
             ],
           ],
         ));

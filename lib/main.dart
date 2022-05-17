@@ -17,10 +17,12 @@ import 'util/logger.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  LocalStorageService(await SharedPreferences.getInstance());
+  final LocalStorageService localStorageService =
+      LocalStorageService(await SharedPreferences.getInstance());
   final Logger logger = Logger();
   final HttpService _httpService = HttpService();
-  final GlobalBloc _globalBloc = GlobalBloc(logger: logger);
+  final GlobalBloc _globalBloc =
+      GlobalBloc(logger: logger, localStorageService: localStorageService);
   BackendService(httpService: _httpService, globalBloc: _globalBloc);
 
   runApp(BlocProvider(

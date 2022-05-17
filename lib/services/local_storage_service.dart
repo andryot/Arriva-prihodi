@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/ride.dart';
 import '../style/theme.dart';
 
 class LocalStorageService {
@@ -20,6 +23,7 @@ class LocalStorageService {
   }
 
   static const String _theme = 'theme';
+  static const String _favorites = 'favorites';
 
   ThemeData getThemeData() {
     final bool? isDarkMode = sharedPreferences.getBool(_theme);
@@ -31,5 +35,31 @@ class LocalStorageService {
 
   void setThemeData(ThemeData themeData) async {
     await sharedPreferences.setBool(_theme, themeData == apThemeDark);
+  }
+
+  List<Ride>? getFavorites() {
+    final List<String>? favoritesString =
+        sharedPreferences.getStringList(_favorites);
+
+    if (favoritesString == null) return null;
+
+    final List<Ride> favorites = [];
+
+    for (final String rideString in favoritesString) {
+      final Ride ride = Ride.fromJson(json.decode(rideString));
+      favorites.add(ride);
+    }
+    return favorites;
+  }
+
+  Future<bool?> saveFavorites(List<Ride>? favorites) async {
+    if (favorites == null) return null;
+    final List<String> favoritesString = [];
+
+    for (final Ride ride in favorites) {
+      favoritesString.add(json.encode(ride.toJson()));
+    }
+
+    return await sharedPreferences.setStringList(_favorites, favoritesString);
   }
 }

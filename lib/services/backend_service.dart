@@ -84,21 +84,34 @@ class BackendService {
       startTimeList.add(element.getElementsByTagName('span').first.text);
     });
 
+    document.getElementsByClassName('duration').forEach((dom.Element element) {
+      if (element.children.isNotEmpty) {
+        element
+            .getElementsByClassName('travel-duration')
+            .forEach((dom.Element element2) {
+          travelTimeList.add(element2.getElementsByTagName('span').first.text);
+        });
+        element
+            .getElementsByClassName('prevoznik')
+            .forEach((dom.Element element2) {
+          busCompanyList.add(element2.getElementsByTagName('span').last.text);
+        });
+
+        final List<dom.Element> elements =
+            element.getElementsByClassName('peron');
+
+        if (elements.isEmpty) {
+          laneList.add("/");
+        } else {
+          laneList.add(elements[0].getElementsByTagName("span")[1].innerHtml);
+        }
+      }
+    });
+
     document.getElementsByClassName('arrival').forEach((dom.Element element) {
       endTimeList.add(element.getElementsByTagName('span').first.text);
     });
 
-    document
-        .getElementsByClassName('travel-duration')
-        .forEach((dom.Element element) {
-      travelTimeList.add(element.getElementsByTagName('span').first.text);
-    });
-
-    document.getElementsByClassName('prevoznik').forEach((dom.Element element) {
-      busCompanyList.add(element.getElementsByTagName('span').last.text);
-    });
-
-    //print(document.getElementsByClassName('connection').asMap().toString());
     document
         .getElementsByClassName('collapse display-path')
         .forEach((dom.Element element) {
@@ -116,36 +129,18 @@ class BackendService {
     document.getElementsByClassName('length').forEach((dom.Element element) {
       distanceList.add(element.text);
     });
+
+    // REMOVE "Kilometri"
     if (distanceList.isNotEmpty) distanceList.removeAt(0);
 
     document.getElementsByClassName('price').forEach((dom.Element element) {
       priceList.add(element.text.replaceAll("EUR", "€").replaceAll(".", ","));
     });
-
+    // REMOVE "Cena"
     if (priceList.isNotEmpty) priceList.removeAt(0);
 
-    int counter = 0;
-
-    document.getElementsByClassName('duration').forEach((dom.Element element) {
-      element.getElementsByClassName('peron').forEach((dom.Element element2) {
-        laneList.add(element2.getElementsByTagName("span").last.text);
-      });
-
-      if (laneList.length == counter && counter != 2) laneList.add("/");
-
-      counter++;
-    });
-
-    if (laneList.isNotEmpty) laneList.removeAt(0);
-
-    // TODO kva je to???
-    if (laneList.length == 1) {
-      for (int i = 0; i < endTimeList.length; i++) {
-        laneList.add("/");
-      }
-    }
-
     final List<Ride> rideList = [];
+
     for (int i = 0; i < endTimeList.length; i++) {
       rideList.add(
         Ride(

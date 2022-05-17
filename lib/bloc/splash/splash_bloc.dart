@@ -91,8 +91,6 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
     }
 
     _globalBloc.updateStations(stations, stationId);
-
-    /*if (prefs.containsKey("favorites"))
-      favorites.addAll(prefs.getStringList("favorites")!.toList()); */
+    _globalBloc.getFavorites();
   }
 }

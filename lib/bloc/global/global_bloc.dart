@@ -1,5 +1,5 @@
-import 'package:meta/meta.dart';
-
+import '../../models/ride.dart';
+import '../../services/local_storage_service.dart';
 import '../../util/logger.dart';
 
 part 'global_state.dart';
@@ -11,21 +11,29 @@ class GlobalBloc {
   bool isDarkMode;
 
   final Logger _logger;
+  final LocalStorageService _localStorageService;
 
   GlobalState _state;
   GlobalState get state => _state;
 
-  GlobalBloc._({required Logger logger})
-      : _logger = logger,
+  GlobalBloc._({
+    required Logger logger,
+    required LocalStorageService localStorageService,
+  })  : _logger = logger,
+        _localStorageService = localStorageService,
         isDarkMode = true,
         _state = const GlobalState.initial();
 
-  factory GlobalBloc({required Logger logger}) {
+  factory GlobalBloc({
+    required Logger logger,
+    required LocalStorageService localStorageService,
+  }) {
     if (_instance != null) {
       throw StateError('GlobalBloc already created!');
     }
 
-    _instance = GlobalBloc._(logger: logger);
+    _instance =
+        GlobalBloc._(logger: logger, localStorageService: localStorageService);
     return _instance!;
   }
 
@@ -34,16 +42,61 @@ class GlobalBloc {
     _logger.info('GlobalBloc.reset', 'state reset');
   }
 
-  void updateFavorites(List<String>? favorites) {
-    if (favorites == null) return;
-    _state = _state.copyWith(favorites: favorites);
-
-    _logger.info('GlobalBloc.updateFavorites', 'favorites updated');
-  }
-
   void updateStations(List<String>? stations, Map<String, int>? stationId) {
     if (stations == null || stationId == null) return;
     _state = _state.copyWith(stations: stations, stationId: stationId);
+  }
+
+  void getFavorites() async {
+    final List<Ride>? favorites = await _localStorageService.getFavorites();
+    if (favorites == null) return;
+
+    _state = _state.copyWith(favorites: favorites);
+    _logger.info('GlobalBloc.getFavorites', 'favorites retrieved');
+  }
+
+  Future<bool> saveFavorites() async {
+    final bool? result =
+        await _localStorageService.saveFavorites(_state.favorites);
+    if (result == null) return false;
+    _logger.info('GlobalBloc.saveFavorites', 'favorites saved');
+    return result;
+  }
+
+  Future<void> removeFavorite(Ride? rideToRemove) async {
+    if (rideToRemove == null) return;
+    if (_state.favorites == null) return;
+
+    for (Ride ride in _state.favorites!) {
+      if (ride == rideToRemove) {
+        _state.favorites!.remove(ride);
+        break;
+      }
+    }
+    _state = _state.copyWith(favorites: _state.favorites);
+    await saveFavorites();
+  }
+
+  Future<void> addFavorite(Ride? rideToAdd) async {
+    if (rideToAdd == null) return;
+
+    if (_state.favorites == null) {
+      _state = _state.copyWith(favorites: [rideToAdd]);
+      await saveFavorites();
+
+      return;
+    }
+
+    if (_state.favorites!.contains(rideToAdd)) {
+      return;
+    }
+    _state.favorites!.add(rideToAdd);
+    _state = _state.copyWith(favorites: _state.favorites);
+    await saveFavorites();
+  }
+
+  bool isFavorite(Ride ride) {
+    return _state.favorites != null && _state.favorites!.contains(ride);
   }
 
   void switchTheme() {

@@ -36,7 +36,6 @@ class QueryParameters {
     required this.rodZapk,
   });
 
-  /// Constructs new `VecturaLocation` object from [json].
   QueryParameters.fromJson(Map<String, dynamic> json)
       : spodSif = json[QueryParametersJsonKey.spodSif].toString(),
         regIsif = json[QueryParametersJsonKey.regIsif].toString(),
