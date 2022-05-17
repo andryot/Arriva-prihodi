@@ -21,6 +21,7 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
   final GlobalBloc _globalBloc;
   final BackendService _backendService;
   final PanelController panelController = PanelController();
+  final ScrollController scrollController = ScrollController();
   TimetableBloc({
     required this.args,
     required GlobalBloc globalBloc,

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '../../models/ride.dart';
 import '../../services/local_storage_service.dart';
 import '../../util/logger.dart';
@@ -8,10 +10,14 @@ class GlobalBloc {
   static GlobalBloc? _instance;
   static GlobalBloc get instance => _instance!;
 
+  Stream<void> get globalFavoritesStream => _globalFavorites.stream;
+
   bool isDarkMode;
 
   final Logger _logger;
   final LocalStorageService _localStorageService;
+
+  final StreamController<void> _globalFavorites;
 
   GlobalState _state;
   GlobalState get state => _state;
@@ -22,6 +28,7 @@ class GlobalBloc {
   })  : _logger = logger,
         _localStorageService = localStorageService,
         isDarkMode = true,
+        _globalFavorites = StreamController<void>.broadcast(),
         _state = const GlobalState.initial();
 
   factory GlobalBloc({
@@ -74,6 +81,7 @@ class GlobalBloc {
       }
     }
     _state = _state.copyWith(favorites: _state.favorites);
+    _globalFavorites.add(null);
     await saveFavorites();
   }
 
@@ -92,6 +100,7 @@ class GlobalBloc {
     }
     _state.favorites!.add(rideToAdd);
     _state = _state.copyWith(favorites: _state.favorites);
+    _globalFavorites.add(null);
     await saveFavorites();
   }
 

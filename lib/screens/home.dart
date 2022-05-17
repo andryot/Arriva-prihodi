@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/global/global_bloc.dart';
 import '../bloc/home/home_bloc.dart';
 import '../router/routes.dart';
 import '../style/theme.dart';
 import '../widgets/ap_circle_button.dart';
 import '../widgets/ap_dashed_line.dart';
 import '../widgets/ap_date_field.dart';
+import '../widgets/ap_favorite_list_tile.dart';
 import '../widgets/ap_input_field.dart';
 import 'timetable.dart';
 
@@ -17,7 +19,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => HomeBloc(),
+      create: (BuildContext context) =>
+          HomeBloc(globalBloc: GlobalBloc.instance),
       child: const _HomeScreen(),
     );
   }
@@ -213,13 +216,16 @@ class _HomeScreen extends StatelessWidget {
                                   backgroundColor: MaterialStateProperty.all(
                                       Theme.of(context).primaryColor)),
                               onPressed: () {
-                                Navigator.pushNamed(context, APRoute.timetable,
-                                    arguments: TimetableScreenArgs(
-                                      from: homeBloc.fromController.text,
-                                      destination:
-                                          homeBloc.destinationController.text,
-                                      date: state.selectedDate,
-                                    ));
+                                Navigator.pushNamed(
+                                  context,
+                                  APRoute.timetable,
+                                  arguments: TimetableScreenArgs(
+                                    from: homeBloc.fromController.text,
+                                    destination:
+                                        homeBloc.destinationController.text,
+                                    date: state.selectedDate,
+                                  ),
+                                );
                                 homeBloc.search();
                               },
                               child: Padding(
@@ -242,6 +248,90 @@ class _HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      if (state.favoriteRides != null &&
+                          state.favoriteRides!.isNotEmpty) ...[
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 40),
+                            Text(
+                              "Priljubljene relacje: ",
+                              style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            ListView.builder(
+                              itemBuilder: (context, index) =>
+                                  APFavoriteListTile(
+                                ride: state.favoriteRides![index],
+                                index: index,
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                    context,
+                                    APRoute.timetable,
+                                    arguments: TimetableScreenArgs(
+                                      from: state.favoriteRides![index].from,
+                                      destination: state
+                                          .favoriteRides![index].destination,
+                                      date: state.selectedDate,
+                                    ),
+                                  );
+                                },
+                                onLongPress: () {
+                                  showCupertinoModalPopup<void>(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        CupertinoActionSheet(
+                                      title: const Text(
+                                        "Urejanje relacije",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      actions: <CupertinoActionSheetAction>[
+                                        CupertinoActionSheetAction(
+                                          isDefaultAction: true,
+                                          onPressed: () =>
+                                              Navigator.popAndPushNamed(
+                                            context,
+                                            APRoute.timetable,
+                                            arguments: TimetableScreenArgs(
+                                              from: state
+                                                  .favoriteRides![index].from,
+                                              destination: state
+                                                  .favoriteRides![index]
+                                                  .destination,
+                                              date: state.selectedDate,
+                                            ),
+                                          ),
+                                          child: const Text('Prikaži urnik'),
+                                        ),
+                                        CupertinoActionSheetAction(
+                                          isDestructiveAction: true,
+                                          onPressed: () {
+                                            homeBloc.removeFavorite(
+                                                state.favoriteRides![index]);
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text(
+                                              'Izbriši priljubljeno relacijo'),
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                },
+                              ),
+                              itemCount: state.favoriteRides?.length,
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                            ),
+                          ],
+                        ),
+                      ]
                     ],
                   ),
                 ),

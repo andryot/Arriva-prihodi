@@ -71,6 +71,7 @@ class _TimetableScreen extends StatelessWidget {
             padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
             child: SlidingUpPanel(
               body: CustomScrollView(
+                controller: bloc.scrollController,
                 //physics: const BouncingScrollPhysics(),
                 slivers: <Widget>[
                   SliverPersistentHeader(
@@ -89,8 +90,15 @@ class _TimetableScreen extends StatelessWidget {
                       (context, index) => APListTile(
                         ride: state.rideList![index],
                         index: index,
+                        onTap: () => BlocProvider.of<TimetableBloc>(context)
+                            .showDetailsPanel(index),
                       ),
                       childCount: state.rideList!.length,
+                    ),
+                  ),
+                  const SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 50,
                     ),
                   ),
                 ],
@@ -125,9 +133,7 @@ class _TimetableScreen extends StatelessWidget {
         child: ListView(
           controller: sc,
           children: <Widget>[
-            const SizedBox(
-              height: 12.0,
-            ),
+            const SizedBox(height: 12.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -143,31 +149,97 @@ class _TimetableScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 18.0,
-            ),
-            Column(
+            const SizedBox(height: 30.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(state.selectedRide!.from),
-                Text(state.selectedRide!.destination),
-                Text(state.selectedRide!.startTime!),
-                Text(state.selectedRide!.endTime!),
-                Text(state.selectedRide!.duration!),
-                Text(state.selectedRide!.distance!),
-                Text(state.selectedRide!.price!),
-                Text(state.selectedRide!.busCompany!),
-                if (state.selectedRide!.lane! != "/")
-                  Text(state.selectedRide!.lane!),
+                const SizedBox(width: 15.0),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    children: [
+                      Text(
+                        state.selectedRide!.from,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 5.0),
+                      Transform.rotate(
+                        angle: pi + pi / 2,
+                        child: const Icon(
+                          Icons.arrow_back,
+                          size: 15,
+                        ),
+                      ),
+                      const SizedBox(height: 5.0),
+                      Text(
+                        state.selectedRide!.destination,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    children: [
+                      Text(state.selectedRide!.startTime!),
+                      const SizedBox(height: 10.0),
+                      Text(state.selectedRide!.endTime!),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    children: [
+                      Text('${state.selectedRide!.duration!} min'),
+                      const SizedBox(height: 10.0),
+                      Text(state.selectedRide!.distance!),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Column(
+                    children: [
+                      Text(state.selectedRide!.price!),
+                      const SizedBox(height: 10.0),
+                      Text(
+                        state.selectedRide!.busCompany!,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                      ),
+                      if (state.selectedRide!.lane! != "/") ...[
+                        const SizedBox(height: 10.0),
+                        Text(state.selectedRide!.lane!),
+                      ]
+                    ],
+                  ),
+                ),
               ],
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              child: Divider(
+                thickness: 1,
+              ),
+            ),
+            const SizedBox(
+              height: 30.0,
             ),
             if (state.selectedRide!.routeStops == null) ...[
               const Center(
                 child: LoadingIndicator(radius: 8, dotRadius: 3.41),
               ),
             ] else ...[
-              // TODO highlight selected stop
               ApStops(
                 routeStops: state.selectedRide!.routeStops!,
+                from: state.from,
               ),
             ],
           ],

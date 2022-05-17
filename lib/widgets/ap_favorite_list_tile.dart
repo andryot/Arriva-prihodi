@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 
 import '../models/ride.dart';
 
-class APListTile extends StatelessWidget {
+class APFavoriteListTile extends StatelessWidget {
   final int index;
   final Ride ride;
   final Function()? onTap;
-  const APListTile({
+  final Function()? onLongPress;
+
+  const APFavoriteListTile({
     Key? key,
     required this.ride,
     required this.index,
     this.onTap,
+    this.onLongPress,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
         children: [
           Material(
@@ -24,18 +27,34 @@ class APListTile extends StatelessWidget {
             shadowColor: Colors.grey,
             elevation: 1,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(20),
             ),
             //borderRadius: BorderRadius.circular(20),
             child: InkWell(
               onTap: onTap,
+              onLongPress: onLongPress,
               child: Container(
                 padding: const EdgeInsets.all(15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(ride.startTime!),
-                    Text(ride.endTime!),
+                    Expanded(
+                      child: Text(
+                        ride.from,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const Icon(Icons.arrow_forward),
+                    Expanded(
+                      child: Text(
+                        ride.destination,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ],
                 ),
               ),

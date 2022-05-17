@@ -17,3 +17,12 @@ class _SwapEvent extends _HomeEvent {
 class _SearchEvent extends _HomeEvent {
   const _SearchEvent();
 }
+
+class _UpdateFavorites extends _HomeEvent {
+  const _UpdateFavorites();
+}
+
+class _RemoveFavoriteEvent extends _HomeEvent {
+  final Ride ride;
+  const _RemoveFavoriteEvent(this.ride);
+}
