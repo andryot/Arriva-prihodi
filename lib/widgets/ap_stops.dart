@@ -12,74 +12,64 @@ class ApStops extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
       children: [
-        // TIMES
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              for (RouteStop stop in routeStops) ...[
-                Text(stop.time),
-                const SizedBox(
-                  height: 40,
-                ),
-              ],
-            ],
-          ),
-        ),
-        const SizedBox(
-          width: 20,
-        ),
-        // DOTS
-        Column(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(routeStops.first.time),
+            const SizedBox(
+              width: 10,
+            ),
             const APCircle(color: Colors.red, radius: 10),
             const SizedBox(
-              height: 5,
+              width: 10,
             ),
-            Container(
-              width: 2,
-              height: 40,
-              color: Colors.amberAccent,
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            for (int i = 1; i < routeStops.length - 1; i++) ...[
-              const APCircle(color: Colors.amber, radius: 10),
-              const SizedBox(
-                height: 5,
-              ),
-              Container(
-                width: 2,
-                height: 40,
-                color: Colors.amberAccent,
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-            ],
-            const APCircle(color: Colors.red, radius: 10),
+            Text(routeStops.first.station),
           ],
         ),
-        const SizedBox(
-          width: 20,
+        Container(
+          width: 2,
+          height: 30,
+          color: Colors.amber,
         ),
-        // STATIONS
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        for (int i = 1; i < routeStops.length - 1; i++) ...[
+          const SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              for (RouteStop stop in routeStops) ...[
-                Text(stop.station),
-                const SizedBox(
-                  height: 40,
-                ),
-              ],
+              Text(routeStops[i].time),
+              const SizedBox(
+                width: 10,
+              ),
+              const APCircle(color: Colors.amber, radius: 10),
+              const SizedBox(
+                width: 10,
+              ),
+              Text(routeStops[i].station),
             ],
           ),
+          Container(
+            width: 2,
+            height: 30,
+            color: Colors.amber,
+          ),
+        ],
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(routeStops.last.time),
+            const SizedBox(
+              width: 10,
+            ),
+            const APCircle(color: Colors.red, radius: 10),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(routeStops.last.station),
+          ],
         ),
       ],
     );
