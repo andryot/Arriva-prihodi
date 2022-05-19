@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:bus_time_table/util/failure.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +9,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../bloc/global/global_bloc.dart';
 import '../bloc/timetable/timetable_bloc.dart';
 import '../services/backend_service.dart';
+import '../style/theme.dart';
 import '../util/parser.dart';
 import '../widgets/ap_list_tile.dart';
 import '../widgets/ap_sliver_app_bar.dart';
@@ -53,7 +55,29 @@ class _TimetableScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocConsumer<TimetableBloc, TimetableState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state.failure != null && state.failure is! LoadStationsFailure) {
+            if (state.failure is InitialFailure) {
+              Navigator.of(context).pop();
+            }
+            showCupertinoDialog(
+              context: context,
+              builder: (context2) => CupertinoAlertDialog(
+                title: const Text("Napaka!"),
+                content:
+                    const Text("Oops, prišlo je do napake. Poskusite znova."),
+                actions: <Widget>[
+                  CupertinoDialogAction(
+                    isDestructiveAction: true,
+                    isDefaultAction: true,
+                    child: const Text("OK"),
+                    onPressed: () => Navigator.of(context2).pop(),
+                  ),
+                ],
+              ),
+            );
+          }
+        },
         builder: (context, state) {
           final TimetableBloc bloc = BlocProvider.of(context);
           if (state.isLoading == true) {
@@ -64,10 +88,7 @@ class _TimetableScreen extends StatelessWidget {
               ),
             );
           }
-          if (state.failure != null || state.initialized == false) {
-            return const Center(child: Text("Napaka!"));
-          }
-          print(MediaQuery.of(context).size.height);
+
           return SlidingUpPanel(
             body: CustomScrollView(
               controller: bloc.scrollController,
@@ -76,14 +97,15 @@ class _TimetableScreen extends StatelessWidget {
                 SliverPersistentHeader(
                   pinned: true,
                   delegate: APSliverAppBar(
-                    maxExtent: max(MediaQuery.of(context).size.height / 5, 200),
+                    maxExtent:
+                        max(12 * MediaQuery.of(context).size.height / 50, 200),
                     minExtent:
                         max(MediaQuery.of(context).size.height / 12, 70) +
                             MediaQuery.of(context).padding.top,
                     isFavorite: state.isFavorite,
                     from: state.from,
                     destination: state.destination,
-                    date: APParser.dateToString(state.date),
+                    date: state.date,
                   ),
                 ),
                 const SliverToBoxAdapter(
@@ -91,17 +113,28 @@ class _TimetableScreen extends StatelessWidget {
                     height: 30,
                   ),
                 ),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) => APListTile(
-                      ride: state.rideList![index],
-                      index: index,
-                      onTap: () => BlocProvider.of<TimetableBloc>(context)
-                          .showDetailsPanel(index),
+                if (state.timeTableLoading == true) ...[
+                  const SliverToBoxAdapter(
+                    child: Center(
+                      child: LoadingIndicator(
+                        dotRadius: 3.41,
+                        radius: 8,
+                      ),
                     ),
-                    childCount: state.rideList!.length,
                   ),
-                ),
+                ] else if (state.timeTableInitialized == true) ...[
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) => APListTile(
+                        ride: state.rideList![index],
+                        index: index,
+                        onTap: () => BlocProvider.of<TimetableBloc>(context)
+                            .showDetailsPanel(index),
+                      ),
+                      childCount: state.rideList!.length,
+                    ),
+                  ),
+                ],
                 const SliverToBoxAdapter(
                   child: SizedBox(
                     height: 50,
@@ -131,7 +164,7 @@ class _TimetableScreen extends StatelessWidget {
     if (state.selectedRide == null || state.selectedRide!.startTime == null) {
       return const SizedBox();
     }
-
+    final MyColors myColors = Theme.of(context).extension<MyColors>()!;
     return MediaQuery.removePadding(
         context: context,
         removeTop: true,
@@ -163,24 +196,37 @@ class _TimetableScreen extends StatelessWidget {
                   flex: 2,
                   child: Column(
                     children: [
-                      Text(
-                        state.selectedRide!.from,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            Icons.location_on,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          Expanded(
+                            child: Text(
+                              state.selectedRide!.from,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 5.0),
-                      Transform.rotate(
-                        angle: pi + pi / 2,
-                        child: const Icon(
-                          Icons.arrow_back,
-                          size: 15,
-                        ),
-                      ),
-                      const SizedBox(height: 5.0),
-                      Text(
-                        state.selectedRide!.destination,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                      const SizedBox(height: 10.0),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.location_on,
+                            color: myColors.secondLocationColor,
+                          ),
+                          Expanded(
+                            child: Text(
+                              state.selectedRide!.destination,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -237,7 +283,29 @@ class _TimetableScreen extends StatelessWidget {
             const SizedBox(
               height: 30.0,
             ),
-            if (state.selectedRide!.routeStops == null) ...[
+            if (state.failure != null &&
+                state.failure is LoadStationsFailure) ...[
+              Center(
+                child: Column(
+                  children: [
+                    const Text(
+                      "Pridobivanje postaj ni uspelo",
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ElevatedButton(
+                      // style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.)),
+                      onPressed: () => BlocProvider.of<TimetableBloc>(context)
+                          .retryLoadingStations(),
+                      child: const Text(
+                        "Poskusite znova.",
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ] else if (state.selectedRide!.routeStops == null) ...[
               const Center(
                 child: LoadingIndicator(radius: 8, dotRadius: 3.41),
               ),

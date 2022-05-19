@@ -36,6 +36,7 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     on<_InitializeEvent>(_initialize);
     on<_ShowDetailsEvent>(_showDetails);
     on<_FavoriteEvent>(_favorite);
+    on<_ChangeDateEvent>(_changeDate);
 
     add(const _InitializeEvent());
   }
@@ -44,6 +45,8 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
 
   void showDetailsPanel(int index) => add(_ShowDetailsEvent(index));
   void favorite() => add(const _FavoriteEvent());
+  void changeDate(DateTime date) => add(_ChangeDateEvent(date: date));
+  void retryLoadingStations() => add(_ShowDetailsEvent(state.index!));
   // HANDLERS
 
   FutureOr<void> _initialize(
@@ -64,7 +67,7 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     if (failureOrRideList.isError()) {
       emit(state.copyWith(
         isLoading: false,
-        failure: failureOrRideList.error,
+        failure: const InitialFailure(),
         initialized: false,
       ));
       return;
@@ -74,6 +77,7 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
       isLoading: false,
       initialized: true,
       rideList: failureOrRideList.value,
+      timeTableInitialized: true,
     ));
   }
 
@@ -83,7 +87,12 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
   ) async {
     // TODO handle failure
     if (state.rideList == null || state.rideList!.length <= event.index) return;
-    emit(state.copyWith(selectedRide: state.rideList![event.index]));
+    emit(
+      state.copyWith(
+        selectedRide: state.rideList![event.index],
+        index: event.index,
+      ),
+    );
 
     panelController.open();
     if (state.selectedRide!.routeStops != null) return;
@@ -92,11 +101,18 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
         await _backendService
             .getRouteStops(state.rideList![event.index].queryParameters!);
 
+    if (failureOrRideStops.isError()) {
+      emit(state.copyWith(failure: const LoadStationsFailure()));
+      return;
+    }
+
     if (failureOrRideStops.hasValue()) {
       state.rideList![event.index] = state.rideList![event.index].copyWith(
         routeStops: failureOrRideStops.value,
       );
-      emit(state.copyWith(selectedRide: state.rideList![event.index]));
+      emit(state.copyWith(
+        selectedRide: state.rideList![event.index],
+      ));
     }
   }
 
@@ -112,5 +128,36 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     } else {
       await _globalBloc.removeFavorite(state.selectedRide);
     }
+  }
+
+  FutureOr<void> _changeDate(
+      _ChangeDateEvent event, Emitter<TimetableState> emit) async {
+    final DateTime oldDate = state.date;
+    emit(state.copyWith(
+      timeTableLoading: true,
+      date: event.date,
+    ));
+
+    final Either<Failure, List<Ride>> failureOrRideList =
+        await _backendService.getTimetable(
+      args.from,
+      args.destination,
+      event.date,
+    );
+
+    if (failureOrRideList.isError()) {
+      emit(state.copyWith(
+        failure: const RefreshFailure(),
+        timeTableLoading: false,
+        date: oldDate,
+      ));
+      return;
+    }
+
+    emit(state.copyWith(
+      rideList: failureOrRideList.value,
+      timeTableLoading: false,
+      timeTableInitialized: true,
+    ));
   }
 }

@@ -20,7 +20,7 @@ class APCircleButton extends StatelessWidget {
     return Material(
       shadowColor: Colors.grey,
       elevation: elevation ?? 5.0,
-      clipBehavior: Clip.hardEdge,
+      clipBehavior: Clip.antiAlias,
       type: MaterialType.circle,
       color: Theme.of(context).backgroundColor,
       child: IconButton(

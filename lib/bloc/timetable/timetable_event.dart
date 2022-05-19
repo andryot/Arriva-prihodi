@@ -17,3 +17,8 @@ class _ShowDetailsEvent extends _TimetableEvent {
 class _FavoriteEvent extends _TimetableEvent {
   const _FavoriteEvent();
 }
+
+class _ChangeDateEvent extends _TimetableEvent {
+  final DateTime date;
+  const _ChangeDateEvent({required this.date});
+}

@@ -67,7 +67,7 @@ class BackendService {
       },
     );
 
-    if (response == null) return error(const Failure());
+    if (response == null) return error(const BackendFailure());
 
     final dom.Document document = parser.parse(response.body);
 
@@ -172,7 +172,7 @@ class BackendService {
       queryParameters: parameters.toJson(),
     );
 
-    if (response == null) return error(const Failure());
+    if (response == null) return error(const BackendFailure());
 
     final dom.Document document = parser.parse(response.body);
 

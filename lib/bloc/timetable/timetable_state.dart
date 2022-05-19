@@ -14,8 +14,12 @@ class TimetableState {
   final Failure? failure;
 
   final Ride? selectedRide;
+  final int? index;
 
   final bool? isFavorite;
+
+  final bool? timeTableLoading;
+  final bool timeTableInitialized;
 
   const TimetableState({
     required this.isLoading,
@@ -27,6 +31,9 @@ class TimetableState {
     required this.failure,
     required this.selectedRide,
     required this.isFavorite,
+    required this.timeTableLoading,
+    required this.timeTableInitialized,
+    required this.index,
   });
 
   const TimetableState.initial({
@@ -38,7 +45,10 @@ class TimetableState {
         rideList = null,
         failure = null,
         selectedRide = null,
-        isFavorite = null;
+        isFavorite = null,
+        timeTableLoading = null,
+        timeTableInitialized = false,
+        index = null;
 
   TimetableState copyWith({
     bool? isLoading,
@@ -51,6 +61,9 @@ class TimetableState {
     Ride? selectedRide,
     bool? overrideRide,
     bool? isFavorite,
+    bool? timeTableLoading,
+    bool? timeTableInitialized,
+    int? index,
   }) {
     return TimetableState(
       isLoading: isLoading ?? this.isLoading,
@@ -64,6 +77,9 @@ class TimetableState {
           ? selectedRide
           : selectedRide ?? this.selectedRide,
       isFavorite: isFavorite ?? this.isFavorite,
+      timeTableLoading: timeTableLoading ?? this.timeTableLoading,
+      timeTableInitialized: timeTableInitialized ?? this.timeTableInitialized,
+      index: index ?? this.index,
     );
   }
 }

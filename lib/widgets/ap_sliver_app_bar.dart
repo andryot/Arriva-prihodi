@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/timetable/timetable_bloc.dart';
 import '../style/theme.dart';
+import '../util/parser.dart';
 import 'ap_circle_button.dart';
 
 class APSliverAppBar extends SliverPersistentHeaderDelegate {
@@ -16,14 +17,14 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
   final bool? _isFavorite;
   final String _from;
   final String _destination;
-  final String _date;
+  final DateTime _date;
 
   APSliverAppBar({
     required double maxExtent,
     required double minExtent,
     required String from,
     required String destination,
-    required String date,
+    required DateTime date,
     required bool? isFavorite,
   })  : _maxExtent = maxExtent,
         _minExtent = minExtent,
@@ -93,12 +94,11 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
             ),
             // FROM TEXT
             Align(
-              alignment: Alignment(-0.75 + 0.3 * animationVal,
+              alignment: Alignment(-0.65 + 0.3 * animationVal,
                   (-0.8 + (1 - animationVal)).clamp(-0.8, 0)),
               child: SizedBox(
                 width: width * 0.35 + width * 0.3 * animationVal,
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Icon(
                       Icons.location_on,
@@ -107,7 +107,7 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
                     const SizedBox(width: 5),
                     Expanded(
                       child: Text(
-                        _from + " edwqeqweqw",
+                        _from,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: TextStyle(fontSize: 14 + 5 * animationVal),
@@ -119,14 +119,14 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
             ),
             // VERTICAL DOTTED LINE
             Align(
-              alignment: const Alignment(-0.4, -0.38),
+              alignment: const Alignment(-0.3, -0.38),
               child: Opacity(
                 opacity: ((animationVal - 0.7) / (1 - 0.7)).clamp(0, 1),
                 child: SizedBox(
                   height: maxExtent * 0.22 - animationVal * 10,
                   width: width * 0.35 + width * 0.3,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 7),
+                    padding: const EdgeInsets.only(left: 7.5),
                     child: DottedLine(
                       direction: Axis.vertical,
                       dashGradient: [
@@ -164,14 +164,13 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
             // DESTINATION TEXT
             Align(
               alignment: Alignment(
-                  -0.75 * animationVal +
+                  -0.65 * animationVal +
                       0.3 * animationVal -
                       (-1 + animationVal) * 0.6,
                   0),
               child: SizedBox(
                 width: width * 0.35 + width * 0.3 * animationVal,
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Icon(
                       Icons.location_on,
@@ -180,7 +179,7 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
                     const SizedBox(width: 5),
                     Expanded(
                       child: Text(
-                        _destination + "eqweqwe",
+                        _destination,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(fontSize: 14 + 5 * animationVal),
@@ -190,26 +189,82 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
                 ),
               ),
             ),
+            // DATE
             Align(
-              alignment: const Alignment(-0.73, .7),
-              child: Opacity(
-                  opacity: ((animationVal - 0.3) / (1 - 0.3)).clamp(0, 1),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(
-                        Icons.calendar_today,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        _date,
-                        style: TextStyle(fontSize: 14 + 5 * animationVal),
-                      ),
-                    ],
-                  )),
+              alignment: const Alignment(-.35, .7),
+              child: SizedBox(
+                width: width * 0.35 + width * 0.3 * animationVal,
+                child: Opacity(
+                    opacity: ((animationVal - 0.3) / (1 - 0.3)).clamp(0, 1),
+                    child: Row(
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.calendar_today,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                elevation: MaterialStateProperty.all(0),
+                                backgroundColor: MaterialStateProperty.all(
+                                  Theme.of(context).backgroundColor,
+                                ),
+                              ),
+                              onPressed: () async {
+                                final DateTime? selectedDate =
+                                    await showDatePicker(
+                                  helpText: "Izberi datum odhoda",
+                                  context: context,
+                                  builder:
+                                      (BuildContext? context, Widget? child) {
+                                    return Theme(
+                                      data: Theme.of(context!),
+                                      child: child!,
+                                    );
+                                  },
+                                  firstDate:
+                                      _date.subtract(const Duration(days: 365)),
+                                  initialDate: _date,
+                                  lastDate:
+                                      _date.add(const Duration(days: 365)),
+                                );
+
+                                if (selectedDate != null &&
+                                    selectedDate != _date) {
+                                  BlocProvider.of<TimetableBloc>(context)
+                                      .changeDate(selectedDate);
+                                }
+                              },
+                              child: Row(
+                                children: [
+                                  Text(
+                                    APParser.dateToString(_date),
+                                    style: TextStyle(
+                                      fontSize: 14 + 5 * animationVal,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_drop_down,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Expanded(child: SizedBox())
+                      ],
+                    )),
+              ),
             )
           ],
         ),

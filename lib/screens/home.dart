@@ -40,6 +40,7 @@ class _HomeScreen extends StatelessWidget {
       builder: (context, state) {
         final HomeBloc homeBloc = BlocProvider.of<HomeBloc>(context);
         return WillPopScope(
+          // TODO check if it works
           onWillPop: () => _onBackPressed(context),
           child: GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
