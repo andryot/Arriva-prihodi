@@ -51,6 +51,13 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
       height: visibleMainHeight,
       width: width,
       decoration: BoxDecoration(
+        boxShadow: const [
+          BoxShadow(
+            offset: Offset(1, 1),
+            color: Colors.grey,
+            blurRadius: 2,
+          ),
+        ],
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
@@ -193,7 +200,7 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
             Align(
               alignment: const Alignment(-.35, .7),
               child: SizedBox(
-                width: width * 0.35 + width * 0.3 * animationVal,
+                width: width * 0.35 + width * 0.3,
                 child: Opacity(
                     opacity: ((animationVal - 0.3) / (1 - 0.3)).clamp(0, 1),
                     child: Row(

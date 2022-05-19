@@ -10,7 +10,7 @@ import '../bloc/global/global_bloc.dart';
 import '../bloc/timetable/timetable_bloc.dart';
 import '../services/backend_service.dart';
 import '../style/theme.dart';
-import '../util/parser.dart';
+
 import '../widgets/ap_list_tile.dart';
 import '../widgets/ap_sliver_app_bar.dart';
 import '../widgets/ap_stops.dart';
@@ -53,13 +53,33 @@ class _TimetableScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MyColors myColors = Theme.of(context).extension<MyColors>()!;
     return Scaffold(
       body: BlocConsumer<TimetableBloc, TimetableState>(
         listener: (context, state) {
           if (state.failure != null && state.failure is! LoadStationsFailure) {
             if (state.failure is InitialFailure) {
               Navigator.of(context).pop();
+            } else if (state.failure is NoRidesFailure) {
+              showCupertinoDialog(
+                context: context,
+                builder: (context2) => CupertinoAlertDialog(
+                  title: const Text("Napaka!"),
+                  content:
+                      const Text("Med relacijama na izbrani dan ni povezav"),
+                  actions: <Widget>[
+                    CupertinoDialogAction(
+                      isDestructiveAction: true,
+                      isDefaultAction: true,
+                      child: const Text("OK"),
+                      onPressed: () => Navigator.of(context2).pop(),
+                    ),
+                  ],
+                ),
+              );
+              return;
             }
+
             showCupertinoDialog(
               context: context,
               builder: (context2) => CupertinoAlertDialog(
@@ -92,7 +112,6 @@ class _TimetableScreen extends StatelessWidget {
           return SlidingUpPanel(
             body: CustomScrollView(
               controller: bloc.scrollController,
-              //physics: const BouncingScrollPhysics(),
               slivers: <Widget>[
                 SliverPersistentHeader(
                   pinned: true,
@@ -123,6 +142,25 @@ class _TimetableScreen extends StatelessWidget {
                     ),
                   ),
                 ] else if (state.timeTableInitialized == true) ...[
+                  SliverToBoxAdapter(
+                      child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 45.0, vertical: 10),
+                    child: Row(
+                      children: const [
+                        SizedBox(width: 25),
+                        Icon(
+                          Icons.access_time,
+                          color: Colors.transparent,
+                        ),
+                        SizedBox(width: 5),
+                        Text("Odhod: "),
+                        Spacer(),
+                        Text("Prihod:"),
+                        SizedBox(width: 25),
+                      ],
+                    ),
+                  )),
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
                       (context, index) => APListTile(
@@ -147,7 +185,7 @@ class _TimetableScreen extends StatelessWidget {
             controller: bloc.panelController,
             backdropEnabled: true,
             borderRadius: BorderRadius.circular(20),
-            color: Theme.of(context).backgroundColor,
+            color: Theme.of(context).cardColor,
             minHeight: 0,
             maxHeight: 4 *
                 (MediaQuery.of(context).size.height -

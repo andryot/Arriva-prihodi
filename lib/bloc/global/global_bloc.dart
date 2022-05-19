@@ -91,7 +91,7 @@ class GlobalBloc {
     if (_state.favorites == null) {
       _state = _state.copyWith(favorites: [rideToAdd]);
       await saveFavorites();
-
+      _globalFavorites.add(null);
       return;
     }
 

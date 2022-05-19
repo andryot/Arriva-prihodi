@@ -232,8 +232,9 @@ class _HomeScreen extends StatelessWidget {
                           flex: 2,
                           child: ElevatedButton(
                             style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all(
-                                    Theme.of(context).primaryColor)),
+                              backgroundColor: MaterialStateProperty.all(
+                                  Theme.of(context).primaryColor),
+                            ),
                             onPressed: () {
                               Navigator.pushNamed(
                                 context,
@@ -274,7 +275,7 @@ class _HomeScreen extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40),
+                            borderRadius: BorderRadius.circular(20),
                             color: Theme.of(context).backgroundColor,
                           ),
                           child: Column(

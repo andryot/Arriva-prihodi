@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/route_stop.dart';
+import '../style/theme.dart';
 import 'ap_circle.dart';
 
 class ApStops extends StatelessWidget {
@@ -14,6 +15,8 @@ class ApStops extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MyColors myColors = Theme.of(context).extension<MyColors>()!;
+
     return Column(
       children: [
         Row(
@@ -34,7 +37,7 @@ class ApStops extends StatelessWidget {
               width: 10,
             ),
             APCircle(
-              color: Colors.red,
+              color: Theme.of(context).primaryColor,
               radius: routeStops.first.station == from ? 20 : 10,
             ),
             const SizedBox(
@@ -81,7 +84,9 @@ class ApStops extends StatelessWidget {
               ),
               APCircle(
                   color: routeStops[i].station == from
-                      ? Theme.of(context).primaryColor
+                      ? Theme.of(context).brightness == Brightness.light
+                          ? Colors.green
+                          : Colors.red
                       : Colors.amber,
                   radius: routeStops[i].station == from ? 20 : 10),
               const SizedBox(
@@ -127,7 +132,7 @@ class ApStops extends StatelessWidget {
               width: 10,
             ),
             APCircle(
-                color: Colors.red,
+                color: myColors.secondLocationColor!,
                 radius: routeStops.last.station == from ? 20 : 10),
             const SizedBox(
               width: 10,

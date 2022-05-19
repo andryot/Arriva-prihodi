@@ -17,3 +17,7 @@ class BackendFailure extends Failure {
 class LoadStationsFailure extends Failure {
   const LoadStationsFailure();
 }
+
+class NoRidesFailure extends Failure {
+  const NoRidesFailure();
+}

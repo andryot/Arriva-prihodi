@@ -1,6 +1,9 @@
+import 'package:dotted_line/dotted_line.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../models/ride.dart';
+import '../style/theme.dart';
 
 class APListTile extends StatelessWidget {
   final int index;
@@ -15,11 +18,13 @@ class APListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MyColors myColors = Theme.of(context).extension<MyColors>()!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Column(
         children: [
           Material(
+            color: Theme.of(context).backgroundColor,
             clipBehavior: Clip.hardEdge,
             shadowColor: Colors.grey,
             elevation: 1,
@@ -32,10 +37,32 @@ class APListTile extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(15),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    const SizedBox(width: 30),
+                    Icon(
+                      Icons.access_time,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    const SizedBox(width: 5),
                     Text(ride.startTime!),
+                    const SizedBox(width: 30),
+                    Flexible(
+                      child: DottedLine(
+                        lineThickness: 2.5,
+                        dashGradient: [
+                          Theme.of(context).primaryColor,
+                          myColors.secondLocationColor!,
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 30),
+                    Icon(
+                      CupertinoIcons.time,
+                      color: myColors.secondLocationColor,
+                    ),
+                    const SizedBox(width: 5),
                     Text(ride.endTime!),
+                    const SizedBox(width: 30),
                   ],
                 ),
               ),

@@ -72,6 +72,14 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
       ));
       return;
     }
+    if (failureOrRideList.value.isEmpty) {
+      emit(state.copyWith(
+        initialized: true,
+        failure: const NoRidesFailure(),
+        isLoading: false,
+      ));
+      return;
+    }
 
     emit(state.copyWith(
       isLoading: false,
