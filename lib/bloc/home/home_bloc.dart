@@ -54,6 +54,13 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
     on<_SearchEvent>(_search);
     on<_UpdateFavorites>(_updateFavorites);
     on<_RemoveFavoriteEvent>(_removeFavorite);
+    on<_ReorderFavoritesEvent>(_reorderFavorites);
+  }
+
+  @override
+  Future<void> close() async {
+    await _favoritesSubscription.cancel();
+    return super.close();
   }
 
   // HANDLERS
@@ -86,6 +93,8 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
   void search() => add(const _SearchEvent());
 
   void removeFavorite(Ride ride) => add(_RemoveFavoriteEvent(ride));
+  void reorderFavoriteRides(int oldIndex, int newIndex) =>
+      add(_ReorderFavoritesEvent(oldIndex, newIndex));
 
   FutureOr<void> _updateFavorites(
       _UpdateFavorites event, Emitter<HomeState> emit) {
@@ -95,5 +104,10 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
   FutureOr<void> _removeFavorite(
       _RemoveFavoriteEvent event, Emitter<HomeState> emit) {
     _globalBloc.removeFavorite(event.ride);
+  }
+
+  FutureOr<void> _reorderFavorites(
+      _ReorderFavoritesEvent event, Emitter<HomeState> emit) {
+    _globalBloc.reorderFavorites(event.oldIndex, event.newIndex);
   }
 }

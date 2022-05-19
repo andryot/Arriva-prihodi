@@ -1,3 +1,4 @@
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -70,19 +71,23 @@ class _HomeScreen extends StatelessWidget {
               ),
               body: SingleChildScrollView(
                 padding: const EdgeInsets.only(top: 20.0),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Column(
-                    children: [
-                      // MAIN FIELDS
-                      Container(
+                child: Column(
+                  children: [
+                    // MAIN FIELDS
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40),
                           color: Theme.of(context).backgroundColor,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(
-                              top: 40.0, bottom: 40.0, right: 30.0, left: 15),
+                            top: 40.0,
+                            bottom: 40.0,
+                            right: 30.0,
+                            left: 15,
+                          ),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -136,6 +141,7 @@ class _HomeScreen extends StatelessWidget {
                                     top: 0,
                                     bottom: 0,
                                     child: Column(
+                                      mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
@@ -144,7 +150,18 @@ class _HomeScreen extends StatelessWidget {
                                           Icons.location_on,
                                           color: Theme.of(context).primaryColor,
                                         ),
-                                        const APDashedLine(),
+                                        Flexible(
+                                          child: DottedLine(
+                                            direction: Axis.vertical,
+                                            dashGradient: [
+                                              Theme.of(context).primaryColor,
+                                              myColors.secondLocationColor!,
+                                            ],
+                                            lineThickness: 2.5,
+                                            dashGapLength: 5,
+                                            dashLength: 8,
+                                          ),
+                                        ),
                                         Icon(
                                           Icons.location_on,
                                           color: myColors.secondLocationColor,
@@ -201,139 +218,164 @@ class _HomeScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20),
-                      // SEARCH BUTTON
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Expanded(
-                            child: SizedBox(),
-                          ),
-                          Expanded(
-                            flex: 2,
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all(
-                                      Theme.of(context).primaryColor)),
-                              onPressed: () {
-                                Navigator.pushNamed(
-                                  context,
-                                  APRoute.timetable,
-                                  arguments: TimetableScreenArgs(
-                                    from: homeBloc.fromController.text,
-                                    destination:
-                                        homeBloc.destinationController.text,
-                                    date: state.selectedDate,
-                                  ),
-                                );
-                                homeBloc.search();
-                              },
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 18.0),
-                                child: Text(
-                                  "Išči",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600,
-                                    color: Theme.of(context)
-                                        .scaffoldBackgroundColor,
-                                  ),
+                    ),
+                    const SizedBox(height: 20),
+                    // SEARCH BUTTON
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Expanded(
+                          child: SizedBox(),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all(
+                                    Theme.of(context).primaryColor)),
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                APRoute.timetable,
+                                arguments: TimetableScreenArgs(
+                                  from: homeBloc.fromController.text,
+                                  destination:
+                                      homeBloc.destinationController.text,
+                                  date: state.selectedDate,
+                                ),
+                              );
+                              homeBloc.search();
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 18.0),
+                              child: Text(
+                                "Išči",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  color:
+                                      Theme.of(context).scaffoldBackgroundColor,
                                 ),
                               ),
                             ),
                           ),
-                          const Expanded(
-                            child: SizedBox(),
-                          ),
-                        ],
-                      ),
-                      if (state.favoriteRides != null &&
-                          state.favoriteRides!.isNotEmpty) ...[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(height: 40),
-                            Text(
-                              "Priljubljene relacje: ",
-                              style: TextStyle(
-                                color: Theme.of(context).primaryColor,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            ListView.builder(
-                              itemBuilder: (context, index) =>
-                                  APFavoriteListTile(
-                                ride: state.favoriteRides![index],
-                                index: index,
-                                onTap: () {
-                                  Navigator.pushNamed(
-                                    context,
-                                    APRoute.timetable,
-                                    arguments: TimetableScreenArgs(
-                                      from: state.favoriteRides![index].from,
-                                      destination: state
-                                          .favoriteRides![index].destination,
-                                      date: state.selectedDate,
-                                    ),
-                                  );
-                                },
-                                onLongPress: () {
-                                  showCupertinoModalPopup<void>(
-                                    context: context,
-                                    builder: (BuildContext context) =>
-                                        CupertinoActionSheet(
-                                      title: const Text(
-                                        "Urejanje relacije",
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      actions: <CupertinoActionSheetAction>[
-                                        CupertinoActionSheetAction(
-                                          isDefaultAction: true,
-                                          onPressed: () =>
-                                              Navigator.popAndPushNamed(
-                                            context,
-                                            APRoute.timetable,
-                                            arguments: TimetableScreenArgs(
-                                              from: state
-                                                  .favoriteRides![index].from,
-                                              destination: state
-                                                  .favoriteRides![index]
-                                                  .destination,
-                                              date: state.selectedDate,
-                                            ),
-                                          ),
-                                          child: const Text('Prikaži urnik'),
-                                        ),
-                                        CupertinoActionSheetAction(
-                                          isDestructiveAction: true,
-                                          onPressed: () {
-                                            homeBloc.removeFavorite(
-                                                state.favoriteRides![index]);
-                                            Navigator.pop(context);
-                                          },
-                                          child: const Text(
-                                              'Izbriši priljubljeno relacijo'),
-                                        )
-                                      ],
-                                    ),
-                                  );
-                                },
-                              ),
-                              itemCount: state.favoriteRides?.length,
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                            ),
-                          ],
                         ),
-                      ]
-                    ],
-                  ),
+                        const Expanded(
+                          child: SizedBox(),
+                        ),
+                      ],
+                    ),
+                    if (state.favoriteRides != null &&
+                        state.favoriteRides!.isNotEmpty) ...[
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(40),
+                            color: Theme.of(context).backgroundColor,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 25),
+                              Text(
+                                "Priljubljene relacije: ",
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              ReorderableListView(
+                                physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                onReorder: (int oldIndex, int newIndex) {
+                                  homeBloc.reorderFavoriteRides(
+                                      oldIndex, newIndex);
+                                },
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 10),
+                                children: <Widget>[
+                                  for (int index = 0;
+                                      index < state.favoriteRides!.length;
+                                      index++)
+                                    APFavoriteListTile(
+                                      key: Key('$index'),
+                                      ride: state.favoriteRides![index],
+                                      index: index,
+                                      onTap: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          APRoute.timetable,
+                                          arguments: TimetableScreenArgs(
+                                            from: state
+                                                .favoriteRides![index].from,
+                                            destination: state
+                                                .favoriteRides![index]
+                                                .destination,
+                                            date: state.selectedDate,
+                                          ),
+                                        );
+                                      },
+                                      onLongPress: () {
+                                        showCupertinoModalPopup<void>(
+                                          context: context,
+                                          builder: (BuildContext context) =>
+                                              CupertinoActionSheet(
+                                            title: const Text(
+                                              "Urejanje relacije",
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                            actions: <
+                                                CupertinoActionSheetAction>[
+                                              CupertinoActionSheetAction(
+                                                isDefaultAction: true,
+                                                onPressed: () =>
+                                                    Navigator.popAndPushNamed(
+                                                  context,
+                                                  APRoute.timetable,
+                                                  arguments:
+                                                      TimetableScreenArgs(
+                                                    from: state
+                                                        .favoriteRides![index]
+                                                        .from,
+                                                    destination: state
+                                                        .favoriteRides![index]
+                                                        .destination,
+                                                    date: state.selectedDate,
+                                                  ),
+                                                ),
+                                                child:
+                                                    const Text('Prikaži urnik'),
+                                              ),
+                                              CupertinoActionSheetAction(
+                                                isDestructiveAction: true,
+                                                onPressed: () {
+                                                  homeBloc.removeFavorite(state
+                                                      .favoriteRides![index]);
+                                                  Navigator.pop(context);
+                                                },
+                                                child: const Text(
+                                                    'Izbriši priljubljeno relacijo'),
+                                              )
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ]
+                  ],
                 ),
               ),
             ),

@@ -8,6 +8,7 @@ final ThemeData apThemeDark = ThemeData.dark().copyWith(
   splashColor: APColor.primary.darkColor,
   cardColor: APColor.backgroudColor.darkColor,
   scaffoldBackgroundColor: APColor.backgroud.darkColor,
+  canvasColor: Colors.transparent,
   backgroundColor: APColor.backgroudColor.darkColor,
   textSelectionTheme:
       TextSelectionThemeData(cursorColor: APColor.primary.darkColor),
@@ -25,6 +26,7 @@ final ThemeData apThemeLight = ThemeData.light().copyWith(
   primaryColor: APColor.primary.color,
   splashColor: APColor.primary.color,
   cardColor: APColor.backgroud.color,
+  canvasColor: Colors.transparent,
   scaffoldBackgroundColor: APColor.backgroud.color,
   backgroundColor: APColor.backgroudColor.color,
   textSelectionTheme:

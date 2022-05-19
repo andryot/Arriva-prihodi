@@ -57,6 +57,7 @@ class APInputField extends StatelessWidget {
             return getSuggestions(pattern);
           },
           suggestionsBoxDecoration: SuggestionsBoxDecoration(
+            color: Theme.of(context).cardColor,
             offsetX: -10,
             borderRadius: BorderRadius.circular(20),
           ),

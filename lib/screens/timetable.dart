@@ -8,6 +8,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../bloc/global/global_bloc.dart';
 import '../bloc/timetable/timetable_bloc.dart';
 import '../services/backend_service.dart';
+import '../util/parser.dart';
 import '../widgets/ap_list_tile.dart';
 import '../widgets/ap_sliver_app_bar.dart';
 import '../widgets/ap_stops.dart';
@@ -66,55 +67,59 @@ class _TimetableScreen extends StatelessWidget {
           if (state.failure != null || state.initialized == false) {
             return const Center(child: Text("Napaka!"));
           }
-
-          return Padding(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-            child: SlidingUpPanel(
-              body: CustomScrollView(
-                controller: bloc.scrollController,
-                //physics: const BouncingScrollPhysics(),
-                slivers: <Widget>[
-                  SliverPersistentHeader(
-                    pinned: true,
-                    delegate: APSliverAppBar(
-                      maxExtent: MediaQuery.of(context).size.height / 5,
-                      minExtent:
-                          max(MediaQuery.of(context).size.height / 12, 70),
-                      isFavorite: state.isFavorite,
-                      from: state.from,
-                      destination: state.destination,
-                    ),
+          print(MediaQuery.of(context).size.height);
+          return SlidingUpPanel(
+            body: CustomScrollView(
+              controller: bloc.scrollController,
+              //physics: const BouncingScrollPhysics(),
+              slivers: <Widget>[
+                SliverPersistentHeader(
+                  pinned: true,
+                  delegate: APSliverAppBar(
+                    maxExtent: max(MediaQuery.of(context).size.height / 5, 200),
+                    minExtent:
+                        max(MediaQuery.of(context).size.height / 12, 70) +
+                            MediaQuery.of(context).padding.top,
+                    isFavorite: state.isFavorite,
+                    from: state.from,
+                    destination: state.destination,
+                    date: APParser.dateToString(state.date),
                   ),
-                  SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (context, index) => APListTile(
-                        ride: state.rideList![index],
-                        index: index,
-                        onTap: () => BlocProvider.of<TimetableBloc>(context)
-                            .showDetailsPanel(index),
-                      ),
-                      childCount: state.rideList!.length,
-                    ),
+                ),
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 30,
                   ),
-                  const SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 50,
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) => APListTile(
+                      ride: state.rideList![index],
+                      index: index,
+                      onTap: () => BlocProvider.of<TimetableBloc>(context)
+                          .showDetailsPanel(index),
                     ),
+                    childCount: state.rideList!.length,
                   ),
-                ],
-              ),
-              panelBuilder: (scrollController) =>
-                  _panel(scrollController, context, state),
-              controller: bloc.panelController,
-              backdropEnabled: true,
-              borderRadius: BorderRadius.circular(20),
-              color: Theme.of(context).backgroundColor,
-              minHeight: 0,
-              maxHeight: 4 *
-                  (MediaQuery.of(context).size.height -
-                      MediaQuery.of(context).padding.top) /
-                  5,
+                ),
+                const SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 50,
+                  ),
+                ),
+              ],
             ),
+            panelBuilder: (scrollController) =>
+                _panel(scrollController, context, state),
+            controller: bloc.panelController,
+            backdropEnabled: true,
+            borderRadius: BorderRadius.circular(20),
+            color: Theme.of(context).backgroundColor,
+            minHeight: 0,
+            maxHeight: 4 *
+                (MediaQuery.of(context).size.height -
+                    MediaQuery.of(context).padding.top) /
+                5,
           );
         },
       ),

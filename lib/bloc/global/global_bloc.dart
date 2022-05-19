@@ -55,7 +55,7 @@ class GlobalBloc {
   }
 
   void getFavorites() async {
-    final List<Ride>? favorites = await _localStorageService.getFavorites();
+    final List<Ride>? favorites = _localStorageService.getFavorites();
     if (favorites == null) return;
 
     _state = _state.copyWith(favorites: favorites);
@@ -110,5 +110,18 @@ class GlobalBloc {
 
   void switchTheme() {
     isDarkMode = !isDarkMode;
+  }
+
+  void reorderFavorites(int oldIndex, int newIndex) {
+    if (_state.favorites == null) return;
+    if (oldIndex < newIndex) {
+      newIndex -= 1;
+    }
+    final Ride ride = _state.favorites!.removeAt(oldIndex);
+    _state.favorites!.insert(newIndex, ride);
+
+    _state = _state.copyWith(favorites: _state.favorites);
+    _globalFavorites.add(null);
+    saveFavorites();
   }
 }

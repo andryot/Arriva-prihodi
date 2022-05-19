@@ -26,3 +26,9 @@ class _RemoveFavoriteEvent extends _HomeEvent {
   final Ride ride;
   const _RemoveFavoriteEvent(this.ride);
 }
+
+class _ReorderFavoritesEvent extends _HomeEvent {
+  final int oldIndex;
+  final int newIndex;
+  const _ReorderFavoritesEvent(this.oldIndex, this.newIndex);
+}

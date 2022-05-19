@@ -1,3 +1,4 @@
+import 'package:bus_time_table/style/images.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -95,8 +96,13 @@ class _SettingsScreen extends StatelessWidget {
                     useRootNavigator: false,
                     applicationVersion: "\n2.0",
                     applicationName: "Arriva prihodi",
+                    applicationIcon: Image.asset(
+                      APImage.logo,
+                      width: 30,
+                      height: 30,
+                    ),
                     applicationLegalese:
-                        "Podatki se pridobivajo iz spletne strani arriva.si\n\nRazvijalec: Andraž Anderle\nIcon made by Freepi from www.flaticon.com\nHvala Žan, Ana, Urban in Nik!")),
+                        "Podatki se pridobivajo iz spletne strani arriva.si\n\nRazvijalec: Andraž Anderle\nIcon made by Freepi from www.flaticon.com\nHvala Žan, Ana, Urban in Nik!\nPowered by Flutter")),
           ]),
         ),
       );

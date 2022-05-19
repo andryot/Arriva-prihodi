@@ -10,7 +10,7 @@ class LoadingIndicatorBloc
     extends Bloc<LoadingIndicatorEvent, LoadingIndicatorState> {
   LoadingIndicatorBloc() : super(LoadingIndicatorState.initial()) {
     _timer = Timer.periodic(
-      const Duration(milliseconds: 250),
+      const Duration(milliseconds: 125),
       (_) => add(const _TimerTick()),
     );
 
