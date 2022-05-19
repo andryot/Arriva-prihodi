@@ -54,6 +54,7 @@ class _TimetableScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final MyColors myColors = Theme.of(context).extension<MyColors>()!;
+
     return Scaffold(
       body: BlocConsumer<TimetableBloc, TimetableState>(
         listener: (context, state) {
@@ -100,6 +101,7 @@ class _TimetableScreen extends StatelessWidget {
         },
         builder: (context, state) {
           final TimetableBloc bloc = BlocProvider.of(context);
+
           if (state.isLoading == true) {
             return const Center(
               child: LoadingIndicator(
@@ -164,6 +166,8 @@ class _TimetableScreen extends StatelessWidget {
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
                       (context, index) => APListTile(
+                        blocProvider: BlocProvider.of<TimetableBloc>(context),
+                        key: index == 0 ? state.globalKey : null,
                         ride: state.rideList![index],
                         index: index,
                         onTap: () => BlocProvider.of<TimetableBloc>(context)

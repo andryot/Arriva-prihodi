@@ -1,6 +1,8 @@
+import 'package:bus_time_table/bloc/timetable/timetable_bloc.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../models/ride.dart';
 import '../style/theme.dart';
@@ -9,15 +11,20 @@ class APListTile extends StatelessWidget {
   final int index;
   final Ride ride;
   final Function()? onTap;
+  final TimetableBloc blocProvider;
   const APListTile({
     Key? key,
     required this.ride,
     required this.index,
+    required this.blocProvider,
     this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      blocProvider.calculateScroll();
+    });
     final MyColors myColors = Theme.of(context).extension<MyColors>()!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),

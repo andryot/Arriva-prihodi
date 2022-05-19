@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -37,6 +39,7 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     on<_ShowDetailsEvent>(_showDetails);
     on<_FavoriteEvent>(_favorite);
     on<_ChangeDateEvent>(_changeDate);
+    on<_CalculateScrolltEvent>(_calculateScroll);
 
     add(const _InitializeEvent());
   }
@@ -47,6 +50,7 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
   void favorite() => add(const _FavoriteEvent());
   void changeDate(DateTime date) => add(_ChangeDateEvent(date: date));
   void retryLoadingStations() => add(_ShowDetailsEvent(state.index!));
+  void calculateScroll() => add(const _CalculateScrolltEvent());
   // HANDLERS
 
   FutureOr<void> _initialize(
@@ -167,5 +171,31 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
       timeTableLoading: false,
       timeTableInitialized: true,
     ));
+  }
+
+  FutureOr<void> _calculateScroll(
+      _CalculateScrolltEvent event, Emitter<TimetableState> emit) {
+    final DateTime today = DateTime.now();
+    if (state.isFirst != true ||
+        state.rideList == null ||
+        state.date
+                .difference(DateTime(today.year, today.month, today.day))
+                .inDays !=
+            0) return null;
+    emit(state.copyWith(isFirst: false));
+    double scrollPosition = 0;
+    //final double maxExtent = max(12 * event.size.height / 50, 200);
+    final double listTileHeight = state.globalKey.currentContext!.size!.height;
+    const double space = 30.0 + 10.0;
+
+    for (Ride ride in state.rideList!) {
+      scrollPosition += listTileHeight;
+    }
+    scrollPosition += space;
+    scrollController.animateTo(
+      scrollPosition,
+      duration: const Duration(milliseconds: 1000),
+      curve: Curves.easeOut,
+    );
   }
 }

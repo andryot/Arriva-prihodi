@@ -21,6 +21,9 @@ class TimetableState {
   final bool? timeTableLoading;
   final bool timeTableInitialized;
 
+  final GlobalKey globalKey;
+  final bool isFirst;
+
   const TimetableState({
     required this.isLoading,
     required this.initialized,
@@ -34,9 +37,11 @@ class TimetableState {
     required this.timeTableLoading,
     required this.timeTableInitialized,
     required this.index,
+    required this.globalKey,
+    required this.isFirst,
   });
 
-  const TimetableState.initial({
+  TimetableState.initial({
     required this.from,
     required this.destination,
     required this.date,
@@ -48,7 +53,9 @@ class TimetableState {
         isFavorite = null,
         timeTableLoading = null,
         timeTableInitialized = false,
-        index = null;
+        index = null,
+        globalKey = GlobalKey(),
+        isFirst = true;
 
   TimetableState copyWith({
     bool? isLoading,
@@ -64,6 +71,8 @@ class TimetableState {
     bool? timeTableLoading,
     bool? timeTableInitialized,
     int? index,
+    GlobalKey? globalKey,
+    bool? isFirst,
   }) {
     return TimetableState(
       isLoading: isLoading ?? this.isLoading,
@@ -80,6 +89,8 @@ class TimetableState {
       timeTableLoading: timeTableLoading ?? this.timeTableLoading,
       timeTableInitialized: timeTableInitialized ?? this.timeTableInitialized,
       index: index ?? this.index,
+      globalKey: globalKey ?? this.globalKey,
+      isFirst: isFirst ?? this.isFirst,
     );
   }
 }
