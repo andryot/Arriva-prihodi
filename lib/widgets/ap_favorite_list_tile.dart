@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../models/ride.dart';
 import '../style/theme.dart';
-import 'ap_dashed_line.dart';
 
 class APFavoriteListTile extends StatelessWidget {
   final int index;

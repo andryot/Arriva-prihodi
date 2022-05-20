@@ -28,7 +28,7 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
       required GlobalBloc globalBloc})
       : _localStorageService = localStorageService,
         _globalBloc = globalBloc,
-        super(SplashState.initial()) {
+        super(const SplashState.initial()) {
     on<_Initialize>(_onInitialize);
     on<_TimerTick>(_onTimerTick);
 

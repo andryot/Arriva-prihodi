@@ -1,9 +1,8 @@
-import 'package:bus_time_table/bloc/timetable/timetable_bloc.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/timetable/timetable_bloc.dart';
 import '../models/ride.dart';
 import '../style/theme.dart';
 
@@ -22,9 +21,12 @@ class APListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      blocProvider.calculateScroll();
-    });
+    final Size size = MediaQuery.of(context).size;
+    final double paddingTop = MediaQuery.of(context).padding.top;
+
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => blocProvider.calculateScroll(size, paddingTop),
+    );
     final MyColors myColors = Theme.of(context).extension<MyColors>()!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),

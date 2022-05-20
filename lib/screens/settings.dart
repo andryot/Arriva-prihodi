@@ -1,4 +1,4 @@
-import 'package:bus_time_table/style/images.dart';
+import '../style/images.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -75,13 +75,14 @@ class _SettingsScreen extends StatelessWidget {
                         color: Theme.of(context).primaryColor, fontSize: 17),
                   ),
                   Switch(
-                      activeColor: Theme.of(context).primaryColor,
-                      value: state.isDarkMode,
-                      onChanged: (bool value) {
-                        BlocProvider.of<ThemeCubit>(context).switchTheme();
-                        BlocProvider.of<SettingsBloc>(context)
-                            .add(SwitchThemeEvent());
-                      }),
+                    activeColor: Theme.of(context).primaryColor,
+                    value: state.isDarkMode,
+                    onChanged: (bool value) {
+                      BlocProvider.of<ThemeCubit>(context).switchTheme();
+                      BlocProvider.of<SettingsBloc>(context)
+                          .add(SwitchThemeEvent());
+                    },
+                  ),
                 ],
               ),
             ),

@@ -30,14 +30,12 @@ class HttpService {
 
   Uri parseGetUri(
       List<String> pathSegments, Map<String, dynamic>? queryParameters) {
-    final Uri uri = Uri(
+    return Uri(
       scheme: Config.backendApiScheme,
       host: Config.backendHost,
       pathSegments: pathSegments,
       queryParameters: queryParameters,
     );
-    print(uri);
-    return uri;
   }
 
   http.Response requestTimeoutResponse() {

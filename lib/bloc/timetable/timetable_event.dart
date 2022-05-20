@@ -23,6 +23,8 @@ class _ChangeDateEvent extends _TimetableEvent {
   const _ChangeDateEvent({required this.date});
 }
 
-class _CalculateScrolltEvent extends _TimetableEvent {
-  const _CalculateScrolltEvent();
+class _CalculateScrollEvent extends _TimetableEvent {
+  final Size size;
+  final double paddingTop;
+  const _CalculateScrollEvent({required this.size, required this.paddingTop});
 }

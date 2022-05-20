@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:bus_time_table/util/failure.dart';
+import '../util/failure.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -20,18 +20,20 @@ void main() async {
   final LocalStorageService localStorageService =
       LocalStorageService(await SharedPreferences.getInstance());
   final Logger logger = Logger();
-  final HttpService _httpService = HttpService();
-  final GlobalBloc _globalBloc =
+  final HttpService httpService = HttpService();
+  final GlobalBloc globalBloc =
       GlobalBloc(logger: logger, localStorageService: localStorageService);
-  BackendService(httpService: _httpService, globalBloc: _globalBloc);
+  BackendService(httpService: httpService, globalBloc: globalBloc);
 
   runApp(BlocProvider(
     create: (context) => ThemeCubit(),
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeState>(

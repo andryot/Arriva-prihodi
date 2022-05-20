@@ -8,7 +8,6 @@ import '../bloc/home/home_bloc.dart';
 import '../router/routes.dart';
 import '../style/theme.dart';
 import '../widgets/ap_circle_button.dart';
-import '../widgets/ap_dashed_line.dart';
 import '../widgets/ap_date_field.dart';
 import '../widgets/ap_favorite_list_tile.dart';
 import '../widgets/ap_input_field.dart';
@@ -33,14 +32,10 @@ class _HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final MyColors myColors = Theme.of(context).extension<MyColors>()!;
-    return BlocConsumer<HomeBloc, HomeState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+    return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         final HomeBloc homeBloc = BlocProvider.of<HomeBloc>(context);
         return WillPopScope(
-          // TODO check if it works
           onWillPop: () => _onBackPressed(context),
           child: GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
@@ -389,35 +384,35 @@ class _HomeScreen extends StatelessWidget {
 }
 
 Future<bool> _onBackPressed(BuildContext context) async {
-  return await showCupertinoDialog(
-            context: context,
-            builder: (context) => CupertinoAlertDialog(
-              title: const Text(
-                'Želite zapreti aplikacijo?',
-                textAlign: TextAlign.center,
-              ),
-              actions: <Widget>[
-                CupertinoButton(
-                  onPressed: () => Navigator.of(context).pop(false),
-                  child: const Text(
-                    "Prekliči",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-                CupertinoButton(
-                  onPressed: () => Navigator.of(context).pop(true),
-                  child: const Text(
-                    "Zapri",
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red),
-                  ),
-                ),
-              ],
-            ),
-          ) ==
-          Object
-      ? true
-      : false;
+  bool shouldPop = false;
+  await showCupertinoDialog(
+    context: context,
+    builder: (context) => CupertinoAlertDialog(
+      title: const Text(
+        'Želite zapreti aplikacijo?',
+        textAlign: TextAlign.center,
+      ),
+      actions: <Widget>[
+        CupertinoButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text(
+            "Prekliči",
+            style: TextStyle(fontSize: 18),
+          ),
+        ),
+        CupertinoButton(
+          onPressed: () {
+            shouldPop = true;
+            Navigator.of(context).pop();
+          },
+          child: const Text(
+            "Zapri",
+            style: TextStyle(
+                fontSize: 18, fontWeight: FontWeight.bold, color: Colors.red),
+          ),
+        ),
+      ],
+    ),
+  );
+  return shouldPop;
 }

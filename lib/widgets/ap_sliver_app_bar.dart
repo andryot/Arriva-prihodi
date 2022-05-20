@@ -51,13 +51,6 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
       height: visibleMainHeight,
       width: width,
       decoration: BoxDecoration(
-        boxShadow: const [
-          BoxShadow(
-            offset: Offset(1, 1),
-            color: Colors.grey,
-            blurRadius: 2,
-          ),
-        ],
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
@@ -99,6 +92,7 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
                 ),
               ),
             ),
+
             // FROM TEXT
             Align(
               alignment: Alignment(-0.65 + 0.3 * animationVal,
@@ -148,6 +142,7 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
                 ),
               ),
             ),
+
             // HORIZONTAL DOTTED LINE
             /* Align(
               alignment: const Alignment(-0.05, 0),
@@ -168,6 +163,7 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
                 ),
               ),
             ), */
+
             // DESTINATION TEXT
             Align(
               alignment: Alignment(
@@ -196,81 +192,83 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
                 ),
               ),
             ),
+
             // DATE
             Align(
               alignment: const Alignment(-.35, .7),
               child: SizedBox(
                 width: width * 0.35 + width * 0.3,
                 child: Opacity(
-                    opacity: ((animationVal - 0.3) / (1 - 0.3)).clamp(0, 1),
-                    child: Row(
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              Icons.calendar_today,
-                              color: Theme.of(context).primaryColor,
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            ElevatedButton(
-                              style: ButtonStyle(
-                                elevation: MaterialStateProperty.all(0),
-                                backgroundColor: MaterialStateProperty.all(
-                                  Theme.of(context).backgroundColor,
-                                ),
+                  opacity: ((animationVal - 0.3) / (1 - 0.3)).clamp(0, 1),
+                  child: Row(
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.calendar_today,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              elevation: MaterialStateProperty.all(0),
+                              backgroundColor: MaterialStateProperty.all(
+                                Theme.of(context).backgroundColor,
                               ),
-                              onPressed: () async {
-                                final DateTime? selectedDate =
-                                    await showDatePicker(
-                                  helpText: "Izberi datum odhoda",
-                                  context: context,
-                                  builder:
-                                      (BuildContext? context, Widget? child) {
-                                    return Theme(
-                                      data: Theme.of(context!),
-                                      child: child!,
-                                    );
-                                  },
-                                  firstDate:
-                                      _date.subtract(const Duration(days: 365)),
-                                  initialDate: _date,
-                                  lastDate:
-                                      _date.add(const Duration(days: 365)),
-                                );
+                            ),
+                            onPressed: () async {
+                              final TimetableBloc bloc =
+                                  BlocProvider.of<TimetableBloc>(context);
+                              final DateTime? selectedDate =
+                                  await showDatePicker(
+                                helpText: "Izberi datum odhoda",
+                                context: context,
+                                builder:
+                                    (BuildContext? context, Widget? child) {
+                                  return Theme(
+                                    data: Theme.of(context!),
+                                    child: child!,
+                                  );
+                                },
+                                firstDate:
+                                    _date.subtract(const Duration(days: 365)),
+                                initialDate: _date,
+                                lastDate: _date.add(const Duration(days: 365)),
+                              );
 
-                                if (selectedDate != null &&
-                                    selectedDate != _date) {
-                                  BlocProvider.of<TimetableBloc>(context)
-                                      .changeDate(selectedDate);
-                                }
-                              },
-                              child: Row(
-                                children: [
-                                  Text(
-                                    APParser.dateToString(_date),
-                                    style: TextStyle(
-                                      fontSize: 14 + 5 * animationVal,
-                                      color: Theme.of(context).primaryColor,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_drop_down,
+                              if (selectedDate != null &&
+                                  selectedDate != _date) {
+                                bloc.changeDate(selectedDate);
+                              }
+                            },
+                            child: Row(
+                              children: [
+                                Text(
+                                  APParser.dateToString(_date),
+                                  style: TextStyle(
+                                    fontSize: 14 + 5 * animationVal,
                                     color: Theme.of(context).primaryColor,
                                   ),
-                                ],
-                              ),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Icon(
+                                  Icons.arrow_drop_down,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                        const Expanded(child: SizedBox())
-                      ],
-                    )),
+                          ),
+                        ],
+                      ),
+                      const Expanded(child: SizedBox())
+                    ],
+                  ),
+                ),
               ),
             )
           ],

@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import '../global/global_bloc.dart';
-import '../../services/local_storage_service.dart';
-import '../../style/theme.dart';
 import 'package:meta/meta.dart';
 
+import '../../services/local_storage_service.dart';
+import '../../style/theme.dart';
+import '../global/global_bloc.dart';
 
 part 'settings_event.dart';
 part 'settings_state.dart';

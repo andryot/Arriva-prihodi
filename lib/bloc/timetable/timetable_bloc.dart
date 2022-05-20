@@ -2,9 +2,8 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
+import 'package:bus_time_table/util/parser.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:meta/meta.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../../models/ride.dart';
@@ -39,7 +38,7 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     on<_ShowDetailsEvent>(_showDetails);
     on<_FavoriteEvent>(_favorite);
     on<_ChangeDateEvent>(_changeDate);
-    on<_CalculateScrolltEvent>(_calculateScroll);
+    on<_CalculateScrollEvent>(_calculateScroll);
 
     add(const _InitializeEvent());
   }
@@ -50,7 +49,8 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
   void favorite() => add(const _FavoriteEvent());
   void changeDate(DateTime date) => add(_ChangeDateEvent(date: date));
   void retryLoadingStations() => add(_ShowDetailsEvent(state.index!));
-  void calculateScroll() => add(const _CalculateScrolltEvent());
+  void calculateScroll(Size size, double paddingTop) =>
+      add(_CalculateScrollEvent(size: size, paddingTop: paddingTop));
   // HANDLERS
 
   FutureOr<void> _initialize(
@@ -97,14 +97,11 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     _ShowDetailsEvent event,
     Emitter<TimetableState> emit,
   ) async {
-    // TODO handle failure
     if (state.rideList == null || state.rideList!.length <= event.index) return;
-    emit(
-      state.copyWith(
-        selectedRide: state.rideList![event.index],
-        index: event.index,
-      ),
-    );
+    emit(state.copyWith(
+      selectedRide: state.rideList![event.index],
+      index: event.index,
+    ));
 
     panelController.open();
     if (state.selectedRide!.routeStops != null) return;
@@ -174,28 +171,70 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
   }
 
   FutureOr<void> _calculateScroll(
-      _CalculateScrolltEvent event, Emitter<TimetableState> emit) {
+      _CalculateScrollEvent event, Emitter<TimetableState> emit) {
     final DateTime today = DateTime.now();
+    const double displayAtRatio = 3 / 5;
     if (state.isFirst != true ||
         state.rideList == null ||
         state.date
                 .difference(DateTime(today.year, today.month, today.day))
                 .inDays !=
             0) return null;
+
     emit(state.copyWith(isFirst: false));
     double scrollPosition = 0;
-    //final double maxExtent = max(12 * event.size.height / 50, 200);
-    final double listTileHeight = state.globalKey.currentContext!.size!.height;
-    const double space = 30.0 + 10.0;
+    final double screenHeight = event.size.height;
 
-    for (Ride ride in state.rideList!) {
-      scrollPosition += listTileHeight;
+    final double maxExtent = max(12 * screenHeight / 50, 200);
+    final double minExtent = max(screenHeight / 12, 70) + event.paddingTop;
+
+    // 30 is sized box and 10 is padding
+    const double emptySpace = 30.0 + 10.0;
+
+    scrollPosition += emptySpace + maxExtent - minExtent;
+
+    final double listTileHeight = state.globalKey.currentContext!.size!.height;
+
+    final int listTilesPerScreen =
+        ((screenHeight - (maxExtent - minExtent)) / listTileHeight).floor();
+
+    // max scroll
+    final double maxScroll = maxExtent -
+        minExtent +
+        emptySpace +
+        listTileHeight * (state.rideList!.length - listTilesPerScreen + 1);
+
+    int nextRide = -1;
+
+    for (int i = 0; i < state.rideList!.length; i++) {
+      if (APParser.isBefore(state.rideList![i].startTime!)) {
+        nextRide = i;
+        break;
+      }
     }
-    scrollPosition += space;
+
+    // NO MORE RIDES TODAY
+    if (nextRide == -1) {
+      scrollPosition = maxScroll;
+    }
+    // TOP
+    else if (nextRide < displayAtRatio * listTilesPerScreen) {
+      return null;
+    }
+    // BOTTOM
+    else if (state.rideList!.length - nextRide <
+        (1 - displayAtRatio) * listTilesPerScreen) {
+      scrollPosition = maxScroll;
+    } else {
+      scrollPosition += maxExtent - minExtent + emptySpace;
+      scrollPosition +=
+          (nextRide - displayAtRatio * listTilesPerScreen) * listTileHeight;
+    }
+
     scrollController.animateTo(
       scrollPosition,
-      duration: const Duration(milliseconds: 1000),
-      curve: Curves.easeOut,
+      duration: const Duration(milliseconds: 1500),
+      curve: Curves.easeInOutExpo,
     );
   }
 }
