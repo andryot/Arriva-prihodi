@@ -82,6 +82,7 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
                 height: 30 + animationVal * 20 + 8,
                 child: APCircleButton(
                   elevation: 0,
+                  color: Colors.transparent,
                   icon: _isFavorite == true
                       ? CupertinoIcons.heart_solid
                       : CupertinoIcons.heart,

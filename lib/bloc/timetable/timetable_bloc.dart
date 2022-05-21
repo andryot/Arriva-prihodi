@@ -76,6 +76,7 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
       ));
       return;
     }
+
     if (failureOrRideList.value.isEmpty) {
       emit(state.copyWith(
         initialized: true,
@@ -85,7 +86,18 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
       return;
     }
 
+    int nextRide = -1;
+    if (isToday(state.date)) {
+      for (int i = 0; i < failureOrRideList.value.length; i++) {
+        if (APParser.isBefore(failureOrRideList.value[i].startTime!)) {
+          nextRide = i;
+          break;
+        }
+      }
+    }
+
     emit(state.copyWith(
+      nextRide: nextRide,
       isLoading: false,
       initialized: true,
       rideList: failureOrRideList.value,
@@ -162,8 +174,18 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
       ));
       return;
     }
+    int nextRide = -1;
+    if (isToday(event.date)) {
+      for (int i = 0; i < failureOrRideList.value.length; i++) {
+        if (APParser.isBefore(failureOrRideList.value[i].startTime!)) {
+          nextRide = i;
+          break;
+        }
+      }
+    }
 
     emit(state.copyWith(
+      nextRide: nextRide,
       rideList: failureOrRideList.value,
       timeTableLoading: false,
       timeTableInitialized: true,
@@ -204,31 +226,22 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
         emptySpace +
         listTileHeight * (state.rideList!.length - listTilesPerScreen + 1);
 
-    int nextRide = -1;
-
-    for (int i = 0; i < state.rideList!.length; i++) {
-      if (APParser.isBefore(state.rideList![i].startTime!)) {
-        nextRide = i;
-        break;
-      }
-    }
-
     // NO MORE RIDES TODAY
-    if (nextRide == -1) {
+    if (state.nextRide == -1) {
       scrollPosition = maxScroll;
     }
     // TOP
-    else if (nextRide < displayAtRatio * listTilesPerScreen) {
+    else if (state.nextRide < displayAtRatio * listTilesPerScreen) {
       return null;
     }
     // BOTTOM
-    else if (state.rideList!.length - nextRide <
+    else if (state.rideList!.length - state.nextRide <
         (1 - displayAtRatio) * listTilesPerScreen) {
       scrollPosition = maxScroll;
     } else {
       scrollPosition += maxExtent - minExtent + emptySpace;
-      scrollPosition +=
-          (nextRide - displayAtRatio * listTilesPerScreen) * listTileHeight;
+      scrollPosition += (state.nextRide - displayAtRatio * listTilesPerScreen) *
+          listTileHeight;
     }
 
     scrollController.animateTo(
@@ -236,5 +249,13 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
       duration: const Duration(milliseconds: 1500),
       curve: Curves.easeInOutExpo,
     );
+  }
+
+  bool isToday(DateTime date) {
+    final DateTime today = DateTime.now();
+    return date
+            .difference(DateTime(today.year, today.month, today.day))
+            .inDays ==
+        0;
   }
 }

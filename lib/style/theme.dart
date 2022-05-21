@@ -17,6 +17,7 @@ final ThemeData apThemeDark = ThemeData.dark().copyWith(
       textFieldBackground: APColor.textfield.darkColor,
       secondLocationColor: Colors.yellow,
       labelColor: Colors.white,
+      expiredRideColor: APColor.expiredRideColor.darkColor,
     ),
   ],
 );
@@ -36,6 +37,7 @@ final ThemeData apThemeLight = ThemeData.light().copyWith(
       textFieldBackground: APColor.textfield.color,
       secondLocationColor: Colors.red,
       labelColor: Colors.black,
+      expiredRideColor: APColor.expiredRideColor.color,
     ),
   ],
 );
@@ -46,22 +48,26 @@ class MyColors extends ThemeExtension<MyColors> {
     required this.textFieldBackground,
     required this.secondLocationColor,
     this.labelColor,
+    this.expiredRideColor,
   });
 
   final Color? textFieldBackground;
   final Color? secondLocationColor;
   final Color? labelColor;
+  final Color? expiredRideColor;
 
   @override
   MyColors copyWith({
     Color? textFieldBackground,
     Color? secondLocationColor,
     Color? labelColor,
+    Color? expiredRideColor,
   }) {
     return MyColors(
       textFieldBackground: textFieldBackground ?? this.textFieldBackground,
       secondLocationColor: secondLocationColor ?? this.secondLocationColor,
       labelColor: labelColor ?? this.labelColor,
+      expiredRideColor: expiredRideColor ?? this.expiredRideColor,
     );
   }
 
@@ -76,6 +82,7 @@ class MyColors extends ThemeExtension<MyColors> {
       secondLocationColor:
           Color.lerp(secondLocationColor, other.secondLocationColor, t),
       labelColor: Color.lerp(labelColor, other.labelColor, t),
+      expiredRideColor: Color.lerp(expiredRideColor, other.expiredRideColor, t),
     );
   }
 }

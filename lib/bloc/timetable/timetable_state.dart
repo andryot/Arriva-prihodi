@@ -24,6 +24,8 @@ class TimetableState {
   final GlobalKey globalKey;
   final bool isFirst;
 
+  final int nextRide;
+
   const TimetableState({
     required this.isLoading,
     required this.initialized,
@@ -39,6 +41,7 @@ class TimetableState {
     required this.index,
     required this.globalKey,
     required this.isFirst,
+    required this.nextRide,
   });
 
   TimetableState.initial({
@@ -55,7 +58,8 @@ class TimetableState {
         timeTableInitialized = false,
         index = null,
         globalKey = GlobalKey(),
-        isFirst = true;
+        isFirst = true,
+        nextRide = 0;
 
   TimetableState copyWith({
     bool? isLoading,
@@ -73,6 +77,7 @@ class TimetableState {
     int? index,
     GlobalKey? globalKey,
     bool? isFirst,
+    int? nextRide,
   }) {
     return TimetableState(
       isLoading: isLoading ?? this.isLoading,
@@ -91,6 +96,7 @@ class TimetableState {
       index: index ?? this.index,
       globalKey: globalKey ?? this.globalKey,
       isFirst: isFirst ?? this.isFirst,
+      nextRide: nextRide ?? this.nextRide,
     );
   }
 }

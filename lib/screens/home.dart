@@ -32,40 +32,41 @@ class _HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final MyColors myColors = Theme.of(context).extension<MyColors>()!;
-    return BlocBuilder<HomeBloc, HomeState>(
-      builder: (context, state) {
-        final HomeBloc homeBloc = BlocProvider.of<HomeBloc>(context);
-        return WillPopScope(
-          onWillPop: () => _onBackPressed(context),
-          child: GestureDetector(
-            onTap: () => FocusScope.of(context).unfocus(),
-            child: Scaffold(
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              appBar: AppBar(
-                centerTitle: true,
-                title: Text(
-                  "Arriva prihodi",
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                elevation: 0,
-                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                actions: <Widget>[
-                  CupertinoButton(
-                    onPressed: () =>
-                        Navigator.of(context).pushNamed(APRoute.settings),
-                    child: Icon(
-                      Icons.settings,
-                      size: 30,
-                      color: myColors.labelColor,
-                    ),
-                  ),
-                ],
+
+    return WillPopScope(
+      onWillPop: () => _onBackPressed(context),
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text(
+              "Arriva prihodi",
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
+                fontSize: 25,
+                fontWeight: FontWeight.w700,
               ),
-              body: SingleChildScrollView(
+            ),
+            elevation: 0,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            actions: <Widget>[
+              CupertinoButton(
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(APRoute.settings),
+                child: Icon(
+                  Icons.settings,
+                  size: 30,
+                  color: myColors.labelColor,
+                ),
+              ),
+            ],
+          ),
+          body: BlocBuilder<HomeBloc, HomeState>(
+            builder: (context, state) {
+              final HomeBloc homeBloc = BlocProvider.of<HomeBloc>(context);
+              return SingleChildScrollView(
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Column(
                   children: [
@@ -126,7 +127,8 @@ class _HomeScreen extends StatelessWidget {
                                             child: APCircleButton(
                                               onPressed: () => homeBloc.swap(),
                                               icon: Icons.swap_vert,
-                                              iconColor: myColors.labelColor,
+                                              iconColor: Theme.of(context)
+                                                  .scaffoldBackgroundColor,
                                             ),
                                           ),
                                         )
@@ -317,7 +319,7 @@ class _HomeScreen extends StatelessWidget {
                                         );
                                       },
                                       onLongPress: () {
-                                        showCupertinoModalPopup<void>(
+                                        showModalBottomSheet<void>(
                                           context: context,
                                           builder: (BuildContext context) =>
                                               CupertinoActionSheet(
@@ -374,33 +376,32 @@ class _HomeScreen extends StatelessWidget {
                     ]
                   ],
                 ),
-              ),
-            ),
+              );
+            },
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }
 
 Future<bool> _onBackPressed(BuildContext context) async {
   bool shouldPop = false;
-  await showCupertinoDialog(
+  await showDialog(
     context: context,
-    builder: (context) => CupertinoAlertDialog(
+    builder: (context) => AlertDialog(
       title: const Text(
         'Želite zapreti aplikacijo?',
-        textAlign: TextAlign.center,
       ),
       actions: <Widget>[
-        CupertinoButton(
+        TextButton(
           onPressed: () => Navigator.of(context).pop(),
           child: const Text(
             "Prekliči",
             style: TextStyle(fontSize: 18),
           ),
         ),
-        CupertinoButton(
+        TextButton(
           onPressed: () {
             shouldPop = true;
             Navigator.of(context).pop();

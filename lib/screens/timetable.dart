@@ -57,27 +57,27 @@ class _TimetableScreen extends StatelessWidget {
 
     return Scaffold(
       body: BlocConsumer<TimetableBloc, TimetableState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           if (state.failure != null && state.failure is! LoadStationsFailure) {
             if (state.failure is InitialFailure) {
               Navigator.of(context).pop();
             } else if (state.failure is NoRidesFailure) {
-              showCupertinoDialog(
+              await showDialog(
+                barrierDismissible: false,
                 context: context,
-                builder: (context2) => CupertinoAlertDialog(
+                builder: (context2) => AlertDialog(
                   title: const Text("Napaka!"),
                   content:
                       const Text("Med relacijama na izbrani dan ni povezav"),
                   actions: <Widget>[
-                    CupertinoDialogAction(
-                      isDestructiveAction: true,
-                      isDefaultAction: true,
+                    TextButton(
                       child: const Text("OK"),
                       onPressed: () => Navigator.of(context2).pop(),
                     ),
                   ],
                 ),
               );
+              Navigator.of(context).pop();
               return;
             }
 
@@ -112,6 +112,17 @@ class _TimetableScreen extends StatelessWidget {
           }
 
           return SlidingUpPanel(
+            panelBuilder: (scrollController) =>
+                _panel(scrollController, context, state),
+            controller: bloc.panelController,
+            backdropEnabled: true,
+            borderRadius: BorderRadius.circular(20),
+            color: Theme.of(context).scaffoldBackgroundColor,
+            minHeight: 0,
+            maxHeight: 4 *
+                (MediaQuery.of(context).size.height -
+                    MediaQuery.of(context).padding.top) /
+                5,
             body: CustomScrollView(
               controller: bloc.scrollController,
               slivers: <Widget>[
@@ -172,6 +183,7 @@ class _TimetableScreen extends StatelessWidget {
                         index: index,
                         onTap: () => BlocProvider.of<TimetableBloc>(context)
                             .showDetailsPanel(index),
+                        nextRide: state.nextRide,
                       ),
                       childCount: state.rideList!.length,
                     ),
@@ -184,17 +196,6 @@ class _TimetableScreen extends StatelessWidget {
                 ),
               ],
             ),
-            panelBuilder: (scrollController) =>
-                _panel(scrollController, context, state),
-            controller: bloc.panelController,
-            backdropEnabled: true,
-            borderRadius: BorderRadius.circular(20),
-            color: Theme.of(context).cardColor,
-            minHeight: 0,
-            maxHeight: 4 *
-                (MediaQuery.of(context).size.height -
-                    MediaQuery.of(context).padding.top) /
-                5,
           );
         },
       ),

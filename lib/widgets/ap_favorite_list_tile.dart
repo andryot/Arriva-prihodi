@@ -30,66 +30,62 @@ class APFavoriteListTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       clipBehavior: Clip.antiAlias,
-      elevation: 2,
-      shadowColor: Colors.grey,
-      child: Column(
-        children: [
-          InkWell(
-            onTap: onTap,
-            onLongPress: onLongPress,
-            child: Container(
-              padding: const EdgeInsets.all(15),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.location_on,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  const SizedBox(width: 5),
-                  Expanded(
-                    child: Text(
-                      ride.from,
-                      textAlign: TextAlign.start,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  const SizedBox(width: 5),
-                  Flexible(
-                    child: DottedLine(
-                      dashGradient: [
-                        Theme.of(context).primaryColor,
-                        myColors.secondLocationColor!,
-                      ],
-                      lineThickness: 2.5,
-                      dashGapLength: 5,
-                      dashLength: 8,
-                    ),
-                  ),
-                  const SizedBox(width: 5),
-                  Icon(
-                    Icons.location_on,
-                    color: myColors.secondLocationColor,
-                  ),
-                  const SizedBox(width: 5),
-                  Expanded(
-                    child: Text(
-                      ride.destination,
-                      textAlign: TextAlign.start,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  const SizedBox(width: 5),
-                  ReorderableDragStartListener(
-                    index: index,
-                    child: const Icon(Icons.drag_handle),
-                  ),
-                ],
+      elevation: 5,
+      shadowColor: Theme.of(context).backgroundColor.withOpacity(.8),
+      child: InkWell(
+        onTap: onTap,
+        onLongPress: onLongPress,
+        child: Container(
+          padding: const EdgeInsets.all(15),
+          child: Row(
+            children: [
+              Icon(
+                Icons.location_on,
+                color: Theme.of(context).primaryColor,
               ),
-            ),
+              const SizedBox(width: 5),
+              Expanded(
+                child: Text(
+                  ride.from,
+                  textAlign: TextAlign.start,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              const SizedBox(width: 5),
+              Flexible(
+                child: DottedLine(
+                  dashGradient: [
+                    Theme.of(context).primaryColor,
+                    myColors.secondLocationColor!,
+                  ],
+                  lineThickness: 2.5,
+                  dashGapLength: 5,
+                  dashLength: 8,
+                ),
+              ),
+              const SizedBox(width: 5),
+              Icon(
+                Icons.location_on,
+                color: myColors.secondLocationColor,
+              ),
+              const SizedBox(width: 5),
+              Expanded(
+                child: Text(
+                  ride.destination,
+                  textAlign: TextAlign.start,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              const SizedBox(width: 5),
+              ReorderableDragStartListener(
+                index: index,
+                child: const Icon(Icons.drag_handle),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

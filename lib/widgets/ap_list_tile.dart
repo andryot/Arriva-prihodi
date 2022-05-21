@@ -11,11 +11,13 @@ class APListTile extends StatelessWidget {
   final Ride ride;
   final Function()? onTap;
   final TimetableBloc blocProvider;
+  final int nextRide;
   const APListTile({
     Key? key,
     required this.ride,
     required this.index,
     required this.blocProvider,
+    required this.nextRide,
     this.onTap,
   }) : super(key: key);
 
@@ -33,7 +35,9 @@ class APListTile extends StatelessWidget {
       child: Column(
         children: [
           Material(
-            color: Theme.of(context).backgroundColor,
+            color: (index < nextRide
+                ? myColors.expiredRideColor
+                : Theme.of(context).backgroundColor),
             clipBehavior: Clip.hardEdge,
             shadowColor: Colors.grey,
             elevation: 1,

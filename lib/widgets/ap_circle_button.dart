@@ -6,6 +6,7 @@ class APCircleButton extends StatelessWidget {
   final Color? iconColor;
   final double? size;
   final double? elevation;
+  final Color? color;
   const APCircleButton({
     Key? key,
     this.onPressed,
@@ -13,18 +14,22 @@ class APCircleButton extends StatelessWidget {
     this.iconColor,
     this.size,
     this.elevation,
+    this.color,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      shadowColor: Colors.grey,
+      shadowColor: Theme.of(context).backgroundColor.withOpacity(.8),
       elevation: elevation ?? 5.0,
       clipBehavior: Clip.antiAlias,
       type: MaterialType.circle,
-      color: Theme.of(context).backgroundColor,
+      color: color ?? Theme.of(context).primaryColor,
       child: IconButton(
-        highlightColor: Colors.grey,
+        splashColor: Theme.of(context).primaryColor,
+        highlightColor: Theme.of(context).brightness == Brightness.dark
+            ? Colors.black54
+            : Colors.white38,
         splashRadius: size != null ? (size! + 4.0) : 24,
         padding: EdgeInsets.zero,
         icon: Icon(
