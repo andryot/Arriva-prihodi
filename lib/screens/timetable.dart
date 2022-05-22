@@ -127,6 +127,7 @@ class _TimetableScreen extends StatelessWidget {
               controller: bloc.scrollController,
               slivers: <Widget>[
                 SliverPersistentHeader(
+                  floating: true,
                   pinned: true,
                   delegate: APSliverAppBar(
                     maxExtent:
@@ -231,88 +232,91 @@ class _TimetableScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 30.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const SizedBox(width: 15.0),
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.location_on,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          Expanded(
-                            child: Text(
-                              state.selectedRide!.from,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
+            IntrinsicHeight(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  const SizedBox(width: 25.0),
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              color: Theme.of(context).primaryColor,
                             ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10.0),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.location_on,
-                            color: myColors.secondLocationColor,
-                          ),
-                          Expanded(
-                            child: Text(
-                              state.selectedRide!.destination,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
+                            Expanded(
+                              child: Text(
+                                state.selectedRide!.from,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    children: [
-                      Text(state.selectedRide!.startTime!),
-                      const SizedBox(height: 10.0),
-                      Text(state.selectedRide!.endTime!),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    children: [
-                      Text('${state.selectedRide!.duration!} min'),
-                      const SizedBox(height: 10.0),
-                      Text(state.selectedRide!.distance!),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  flex: 3,
-                  child: Column(
-                    children: [
-                      Text(state.selectedRide!.price!),
-                      const SizedBox(height: 10.0),
-                      Text(
-                        state.selectedRide!.busCompany!,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                      ),
-                      if (state.selectedRide!.lane! != "/") ...[
+                          ],
+                        ),
                         const SizedBox(height: 10.0),
-                        Text(state.selectedRide!.lane!),
-                      ]
-                    ],
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              color: myColors.secondLocationColor,
+                            ),
+                            Expanded(
+                              child: Text(
+                                state.selectedRide!.destination,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(state.selectedRide!.startTime!),
+                        Text(state.selectedRide!.endTime!),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('${state.selectedRide!.duration!} min'),
+                        Text(state.selectedRide!.distance!),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(state.selectedRide!.price!),
+                        Text(
+                          state.selectedRide!.busCompany!,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+                        if (state.selectedRide!.lane! != "/") ...[
+                          const SizedBox(height: 10.0),
+                          Text(state.selectedRide!.lane!),
+                        ]
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 25.0),
+                ],
+              ),
             ),
             const SizedBox(
               height: 20.0,
@@ -356,6 +360,7 @@ class _TimetableScreen extends StatelessWidget {
               ApStops(
                 routeStops: state.selectedRide!.routeStops!,
                 from: state.from,
+                destination: state.destination,
               ),
             ],
           ],

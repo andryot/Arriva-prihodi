@@ -67,6 +67,7 @@ class _HomeScreen extends StatelessWidget {
             builder: (context, state) {
               final HomeBloc homeBloc = BlocProvider.of<HomeBloc>(context);
               return SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Column(
                   children: [

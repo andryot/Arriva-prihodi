@@ -7,10 +7,12 @@ import 'ap_circle.dart';
 class ApStops extends StatelessWidget {
   final List<RouteStop> routeStops;
   final String from;
+  final String destination;
   const ApStops({
     Key? key,
     required this.routeStops,
     required this.from,
+    required this.destination,
   }) : super(key: key);
 
   @override
