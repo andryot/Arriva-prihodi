@@ -269,7 +269,8 @@ class _HomeScreen extends StatelessWidget {
                     if (state.favoriteRides != null &&
                         state.favoriteRides!.isNotEmpty) ...[
                       Padding(
-                        padding: const EdgeInsets.only(top: 30),
+                        padding:
+                            const EdgeInsets.only(top: 30, left: 20, right: 20),
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(

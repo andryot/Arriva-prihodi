@@ -1,3 +1,4 @@
+import 'package:bus_time_table/widgets/ap_reorderable_start_listener.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 
@@ -79,9 +80,22 @@ class APFavoriteListTile extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 5),
-              ReorderableDragStartListener(
+              APReorderableDragStartListener(
                 index: index,
-                child: const Icon(Icons.drag_handle),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    const Icon(
+                      Icons.drag_handle,
+                      size: 24,
+                    ),
+                    Container(
+                      color: Colors.transparent,
+                      width: 35,
+                      height: 35,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

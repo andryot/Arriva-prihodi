@@ -14,7 +14,7 @@ description: Flutter aplikacija za prikaz voznih redov prevoznika Arriva
 version: 2.0.0
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
   cupertino_icons: ^1.0.4
