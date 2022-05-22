@@ -12,8 +12,6 @@ class GlobalBloc {
 
   Stream<void> get globalFavoritesStream => _globalFavorites.stream;
 
-  bool isDarkMode;
-
   final Logger _logger;
   final LocalStorageService _localStorageService;
 
@@ -27,7 +25,6 @@ class GlobalBloc {
     required LocalStorageService localStorageService,
   })  : _logger = logger,
         _localStorageService = localStorageService,
-        isDarkMode = true,
         _globalFavorites = StreamController<void>.broadcast(),
         _state = const GlobalState.initial();
 
@@ -109,7 +106,11 @@ class GlobalBloc {
   }
 
   void switchTheme() {
-    isDarkMode = !isDarkMode;
+    _state = _state.copyWith(isDarkMode: !_state.isDarkMode);
+  }
+
+  void setIsDarkMode(bool isDarkMode) {
+    _state = _state.copyWith(isDarkMode: isDarkMode);
   }
 
   void reorderFavorites(int oldIndex, int newIndex) {
@@ -123,5 +124,11 @@ class GlobalBloc {
     _state = _state.copyWith(favorites: _state.favorites);
     _globalFavorites.add(null);
     saveFavorites();
+  }
+
+  void setAutomaticScroll(bool? automaticScroll) {
+    if (automaticScroll == null) return;
+    _state = _state.copyWith(automaticScroll: automaticScroll);
+    _localStorageService.setAutomaticScroll(automaticScroll);
   }
 }

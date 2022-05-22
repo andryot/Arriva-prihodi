@@ -33,9 +33,10 @@ class _SplashScreen extends StatelessWidget {
       listener: (context, state) {
         if (state.initialized && state.pushRoute != null) {
           BlocProvider.of<ThemeCubit>(context).initThemeMode(
-              GlobalBloc.instance.isDarkMode
-                  ? ThemeMode.dark
-                  : ThemeMode.light);
+            GlobalBloc.instance.state.isDarkMode
+                ? ThemeMode.dark
+                : ThemeMode.light,
+          );
           Navigator.popAndPushNamed(context, state.pushRoute!);
           return;
         }

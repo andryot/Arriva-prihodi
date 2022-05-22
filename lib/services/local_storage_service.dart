@@ -24,6 +24,7 @@ class LocalStorageService {
 
   static const String _theme = 'theme';
   static const String _favorites = 'favorites';
+  static const String _automaticScroll = 'automatic_scroll';
 
   ThemeData getThemeData() {
     final bool? isDarkMode = sharedPreferences.getBool(_theme);
@@ -61,5 +62,13 @@ class LocalStorageService {
     }
 
     return await sharedPreferences.setStringList(_favorites, favoritesString);
+  }
+
+  void setAutomaticScroll(bool automaticScroll) async {
+    await sharedPreferences.setBool(_automaticScroll, automaticScroll);
+  }
+
+  bool? getAutomaticScroll() {
+    return sharedPreferences.getBool(_automaticScroll);
   }
 }

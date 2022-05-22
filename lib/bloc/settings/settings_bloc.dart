@@ -18,17 +18,32 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     required GlobalBloc globalBloc,
   })  : _localStorageService = localStorageService,
         _globalBloc = globalBloc,
-        super(SettingsState(isDarkMode: globalBloc.isDarkMode)) {
+        super(SettingsState(
+            isDarkMode: globalBloc.state.isDarkMode,
+            isAutomaticScroll: globalBloc.state.automaticScroll)) {
     on<SwitchThemeEvent>(_onSwitchTheme);
+    on<SwitchAutomaticScrollEvent>(_onSwitchAutomaticScroll);
   }
+
+  // PUBLIC API
+  void switchAutomaticScroll(bool automaticScroll) =>
+      add(SwitchAutomaticScrollEvent(isAutomaticScroll: automaticScroll));
+
+  // HANDLERS
 
   FutureOr<void> _onSwitchTheme(
     SwitchThemeEvent event,
     Emitter<SettingsState> emit,
   ) {
     _globalBloc.switchTheme();
-    _localStorageService
-        .setThemeData(_globalBloc.isDarkMode ? apThemeDark : apThemeLight);
+    _localStorageService.setThemeData(
+        _globalBloc.state.isDarkMode ? apThemeDark : apThemeLight);
     emit(state.copyWith(isDarkMode: !state.isDarkMode));
+  }
+
+  FutureOr<void> _onSwitchAutomaticScroll(
+      SwitchAutomaticScrollEvent event, Emitter<SettingsState> emit) {
+    _globalBloc.setAutomaticScroll(event.isAutomaticScroll);
+    emit(state.copyWith(isAutomaticScroll: event.isAutomaticScroll));
   }
 }

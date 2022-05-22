@@ -194,6 +194,7 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
 
   FutureOr<void> _calculateScroll(
       _CalculateScrollEvent event, Emitter<TimetableState> emit) {
+    if (_globalBloc.state.automaticScroll == false) return null;
     final DateTime today = DateTime.now();
     const double displayAtRatio = 3 / 5;
     if (state.isFirst != true ||

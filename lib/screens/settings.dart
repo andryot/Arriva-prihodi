@@ -86,6 +86,26 @@ class _SettingsScreen extends StatelessWidget {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    "Automatic scroll",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor, fontSize: 17),
+                  ),
+                  Switch(
+                    activeColor: Theme.of(context).primaryColor,
+                    value: state.isAutomaticScroll,
+                    onChanged: (bool value) =>
+                        BlocProvider.of<SettingsBloc>(context)
+                            .switchAutomaticScroll(value),
+                  ),
+                ],
+              ),
+            ),
             CupertinoButton(
                 child: Text(
                   "Več informacij",

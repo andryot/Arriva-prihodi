@@ -74,7 +74,8 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
   }
 
   Future<void> init() async {
-    _globalBloc.isDarkMode = _localStorageService.getThemeData() == apThemeDark;
+    final bool isDarkMode = _localStorageService.getThemeData() == apThemeDark;
+    _globalBloc.setIsDarkMode(isDarkMode);
 
     final String bytes = await rootBundle.loadString("assets/postaje.txt");
 
@@ -89,6 +90,10 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
       stationId[array[i][0]] = int.parse(array[i][1]);
       stations.add(array[i][0].toString().replaceAll("+", " "));
     }
+
+    final bool? automaticScroll = _localStorageService.getAutomaticScroll();
+
+    _globalBloc.setAutomaticScroll(automaticScroll);
 
     _globalBloc.updateStations(stations, stationId);
     _globalBloc.getFavorites();
