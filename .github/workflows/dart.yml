@@ -3,10 +3,13 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Dart
+name: [app] Build Android
 
 on:
   push:
+  paths:
+      - "app/**"
+      - "packages/**"
     branches: [ master ]
   pull_request:
     branches: [ master ]
