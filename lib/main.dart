@@ -1,73 +1,61 @@
-import 'package:bus_time_table/config.dart';
-import 'package:bus_time_table/routes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'HomePage.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-//import 'package:device_preview/device_preview.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() { 
+import 'bloc/global/global_bloc.dart';
+import 'bloc/theme/theme_cubit.dart';
+import 'router/router.dart';
+import 'router/routes.dart';
+import 'services/backend_service.dart';
+import 'services/http_service.dart';
+import 'services/local_storage_service.dart';
+import 'style/theme.dart';
+import 'util/logger.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(
-    MyApp()
-    //DevicePreview(builder: (context) => MyApp())
-    );  
-  }
+  final LocalStorageService localStorageService =
+      LocalStorageService(await SharedPreferences.getInstance());
+  final Logger logger = Logger();
+  final HttpService httpService = HttpService();
+  final GlobalBloc globalBloc =
+      GlobalBloc(logger: logger, localStorageService: localStorageService);
+  BackendService(httpService: httpService, globalBloc: globalBloc);
 
-class MyApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => MyAppState();
-  void onLoad(BuildContext context) {}
-  
+  runApp(BlocProvider(
+    create: (context) => ThemeCubit(),
+    child: const MyApp(),
+  ));
 }
 
-class MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    currentTheme.addListener(() {
-      setState(() {});
-    });
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    
-    return MaterialApp(
-      
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      darkTheme: ThemeData(
-        primaryColor: Colors.black,
-        primaryIconTheme: IconThemeData(color: Colors.white),
-        brightness: Brightness.dark,
-        primarySwatch: Colors.blue,
-        primaryColorLight: Colors.white,
-      ),
-      theme: ThemeData(
-        primaryIconTheme: IconThemeData(color: Colors.black),
-        brightness: Brightness.light,
-        primarySwatch: Colors.blue,
-        primaryColor: Colors.white,
-        primaryColorLight: Colors.black,
-      ),
-      themeMode: currentTheme.currentTheme(),
-      supportedLocales: [
-        const Locale("sl"),
-        //const Locale("en"),
-      ],
-      title: 'Arriva prihodi',
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
-      routes: {
-        '/home': (context) => HomePage(),
-        '/second': (context) => SecondRoute(),
+    return BlocBuilder<ThemeCubit, ThemeState>(
+      builder: (context, state) {
+        return MaterialApp(
+          theme: apThemeLight,
+          darkTheme: apThemeDark,
+          themeMode: state.themeMode,
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale("sl"),
+            //const Locale("en"),
+          ],
+          title: 'Arriva prihodi',
+          debugShowCheckedModeBanner: false,
+          initialRoute: APRoute.initial,
+          onGenerateRoute: APRouter.onGenerateRoute,
+        );
       },
     );
   }

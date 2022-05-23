@@ -1,1614 +1,2324 @@
 Adergas: 137007
-Adria: 152191
-AjdovöËina: 137011
-AjdovöËina+ribnik: 137012
-AjdovöËina+ä: 137013
-Ajöevica+sp.: 137014
-Ajöevica+vrh: 136537
+Ajdov≈°ƒçina: 137011
+Ajdov≈°ƒçina ribnik: 137012
+Ajdov≈°ƒçina ≈†: 137013
+Aj≈°evica sp.: 137014
+Aj≈°evica vrh: 136537
 Andlovec: 137017
-Ankaran+bol.: 137028
-Ankaran+K: 137029
-Ankaran+t: 137031
+Ankaran bol.: 137028
+Ankaran K: 137029
+Ankaran t: 137031
 Antene: 136629
-Anton+na+Pohorju+K: 137032
+Anton na Pohorju K: 137032
 AP-Ljubenska: 152194
-ApaËe+les.ind.: 137034
-ApaËe+pri+Gornji+Radgoni: 137037
-ApaËe+pri+Gornji+Radgoni+kovaË+K: 137038
-ApaËe/Drav.p.: 137035
-ApaËe/Drav.p.K: 137036
-Arneû: 137046
-Artmanja+vas: 137049
-Autostazione+di+Trieste/Trst: 901216
-Babni+Vrt+K: 150221
-Babni+vrt+vas: 900017
-BaË: 137062
+Apaƒçe les.ind.: 137034
+Apaƒçe pri Gornji Radgoni: 137037
+Apaƒçe pri Gornji Radgoni kovaƒç K: 137038
+Apaƒçe/Drav.p.: 137035
+Apaƒçe/Drav.p.K: 137036
+Apno: 902487
+Arne≈æ: 137046
+Artmanja vas: 137049
+Autostazione di Trieste/Trst: 901216
+Babni Vrt K: 150221
+Babni vrt vas: 900017
+Baƒç: 137062
 Bajta: 136538
-Bakovnik+Lidl: 137065
-Bakovnik+Poöta: 150196
+Bakovnik Lidl: 137065
+Bakovnik Po≈°ta: 150196
 Banjole: 900038
-Banka+-+5.+prekomorske: 901422
-Banka+II: 135770
+Banka - 5. prekomorske: 901422
+Banka II: 135770
 Barbara: 137072
 Baredi: 137073
-Baöelj: 137076
+Ba≈°elj: 137076
 Bauimex: 135822
 Beblerjeva: 135772
-Beblerjeva+o: 135773
-Begunje+na+Gor.: 137084
-Begunje+na+Gor.Elan: 137085
-Begunje+na+Gor.ûaga: 137086
+Beblerjeva o: 135773
+Begunje na Gor.: 137084
+Begunje na Gor.Elan: 137085
+Begunje na Gor.≈æaga: 137086
 Bela/Motniku: 137090
-Bela/äpitaliËu: 137091
+Bela/≈†pitaliƒçu: 137091
 Belca: 137092
-Belca+pri+mostu: 137093
-Belöakova+Bar+Venera: 150281
-Belöakova+Dom+krajanov: 150282
-BereËa+vas: 137112
-Bernardin+K: 136632
-Bertoki+ZAD: 137116
+Belca pri mostu: 137093
+Beli kri≈æ: 136630
+Beli kri≈æ pd: 136631
+Bel≈°akova Bar Venera: 150281
+Bel≈°akova Dom krajanov: 150282
+Belvedere: 137106
+Benedikt v Sl.G.: 137109
+Bereƒça vas: 137112
+Berkovci: 137113
+Bernardin K: 136632
+Bertoki ZAD: 137116
 Besnica/Kr.GD: 135823
 Besnica/Kr.K: 135824
 Besnica/Kr.sp: 135825
-Besnica/Kr.ä: 135826
+Besnica/Kr.≈†: 135826
 Besnica/Kr.ZD: 135827
 Besnica/Kr.zg.: 135828
 Betola: 137117
 Bezena: 137120
-Bezena+RobiË: 137121
+Bezena Robiƒç: 137121
 Bezina: 137124
-BirËna+vas: 137135
-BirËna+vas+éP: 137136
-Bistrica+ob+Dravi: 137141
-Bistrica+pri+Limbuöu: 137143
-Bistrica+pri+Trû.bloki: 137144
-Bistrica+pri+Trû.K: 137145
-Bistrica+pri+TrûiËu: 137146
+Birƒçna vas: 137135
+Birƒçna vas ≈ΩP: 137136
+Bistrica ob Dravi: 137141
+Bistrica pri Limbu≈°u: 137143
+Bistrica pri Tr≈æ.bloki: 137144
+Bistrica pri Tr≈æ.K: 137145
+Bistrica pri Tr≈æiƒçu: 137146
 Bistrica/Kr.: 137147
 Bistrica/Mokronogu: 137149
 Bistrica/Selnici: 137150
-Bistrica/Selnici+K: 137151
-Bistrica/Selnici+äkrabl: 137152
+Bistrica/Selnici ≈†krabl: 137152
 Bistrica/Vranskem: 137153
-Biö+gasilski+dom: 902105
-Biöka+vas: 137139
+Bi≈°: 137137
+Bi≈° gasilski dom: 902105
+Bi≈° Silos: 902104
+Bi≈°eƒçki vrh: 901425
+Bi≈°ka vas: 137139
+Bitnje v Bohinju: 137155
 Blagovica: 137163
-Bled+Gmajna: 137172
-Bled+grad: 137173
-Bled+Zaka: 137178
-Blejska+Dobrava+»rna+Vas: 900078
-Blejska+Dobrava+Iskra: 135725
-Blejska+Dobrava+K: 135726
-Blejska+Dobrava+pokopaliöËe: 135727
-Blejska+Dobrava+trgovina: 135728
-Blekova+vas: 137179
-Bohinj+Ukanc: 137200
-Bohinjska+Bela: 137201
-Bohinjska+Bela+vojaönica: 137202
-Bohinjska+Bistrica: 137196
-Bohinjska+Bistrica+éP/RS: 137197
-Bohinjska+»eönjica: 137198
-Bohinjsko+jezero/lake: 137199
+Bled: 137171
+Bled Gmajna: 137172
+Bled Mlino: 137174
+Bled Petrol: 137175
+Bled Union: 137177
+Bled Zaka: 137178
+Blejska Dobrava ƒårna Vas: 900078
+Blejska Dobrava Iskra: 135725
+Blejska Dobrava K: 135726
+Blejska Dobrava pokopali≈°ƒçe: 135727
+Blejska Dobrava trgovina: 135728
+Blekova vas: 137179
+Bloki: 135729
+Bobovek: 135829
+Bobovek bloki: 900079
+Bobovek K: 135830
+Bode≈°ƒçe: 137183
+Bohinj Ukanc: 137200
+Bohinjska Bela: 137201
+Bohinjska Bela voja≈°nica: 137202
+Bohinjska Bistrica: 137196
+Bohinjska Bistrica ≈ΩP/RS: 137197
+Bohinjska ƒåe≈°njica: 137198
+Bohinjsko jezero/lake: 137199
 Bohova: 137203
 Bojtina: 150664
 Bol.Izola: 135724
-BoleËka+vas: 137209
-Bonifika+K: 137212
-Boötanj+most: 137232
-BotaniËni+vrt: 900115
+Boleƒçka vas: 137209
+Bolehneƒçici: 137210
+Bolk: 137211
+Bonifika K: 137212
+Borl: 137220
+Borovci: 137221
+Bor≈°t/Krki K: 137227
+Bo≈°tanj most: 137232
+Botaniƒçni vrt: 900115
+Bovec: 137235
+Bov≈°iƒç: 901225
 Branoslavci: 137247
-Bratislavci+Hojnik: 137249
-Bratislavci+KovaË: 137250
-Bratje+Reö: 901428
-BratoneËice: 137253
+Bratislavci Hojnik: 137249
+Bratislavci Kovaƒç: 137250
+Bratje Re≈°: 901428
+Bratoneƒçice: 137253
+Brce: 137254
+Brdo/Kr.: 135831
 Brebovnica: 137258
-Breg+Aleö: 135832
-Breg+ob+Savi: 135833
+Breg Ale≈°: 135832
+Breg ob Savi: 135833
+Breg pri Koƒçevju: 137260
+Breg pri Litiji: 137261
+Breg pri Ribnici: 137263
+Breg/≈Ωirov.nov: 137268
+Breg/≈Ωirov.star: 137269
+Brekovice: 137273
 Brengova: 137274
-Brengova+Ploj: 137275
-Brengova+tran.: 137276
-Bresnica+K: 137277
-Bresnica+trg.: 137278
+Brengova Ploj: 137275
+Brengova tran.: 137276
+Bresnica K: 137277
+Bresnica trg.: 137278
 Brestrnica: 136279
-Brezje+pri+PoljËanah: 150493
+Brezje pri Dobu: 137300
+Brezje pri Poljƒçanah: 150493
+Brezje pri Tr≈æ.: 137302
+Brezje/Dobrepolju: 137303
+Brezje/Gor.: 137304
 Brezje/Raki: 137305
-Brezje/Sv.Jurij+ob+äËavn.: 137306
+Brezje/Sv.Jurij ob ≈†ƒçavn.: 137306
 Breznica: 137309
-Brezno/Radljah+ob+Dravi: 137313
+Brezni≈°ki Potok: 137310
+Brezno/Radljah ob Dravi: 137313
+Brezovci K: 137317
 Brezovec/Cirkulanah: 137319
-Brezovec/Cirkulanah+40: 137320
-Brezula+27: 137329
-Brezula+Mlakar: 137330
+Brezovec/Cirkulanah 40: 137320
+Brezula 27: 137329
+Brezula Mlakar: 137330
+Bre≈æice: 137286
+Bre≈æice K: 137289
+Bre≈æice ≈ΩP: 137296
+Brinje/Mirni: 137333
+Britof/Kr.: 135834
 Britof/Kr.Johanca: 135835
-Brnik/airport+Ljubljana: 138867
-Brode+vas: 141668
-Bröljin+(vojaönica): 152193
-Bruhanja+vas: 137345
-Bruna+vas: 137346
+Brnik PC zahod: 152284
+Brnik/airport Ljubljana: 138867
+Brod: 136572
+Brode vas: 141668
+Brode/≈†k.Loki: 137341
+Brstje: 150283
+Br≈°ljin (voja≈°nica): 152193
+Br≈°ljin Novoteks: 136600
+Bruhanja vas: 137345
+Bruna vas: 137346
+Brun≈°vik: 137347
+Brun≈°vik obr.: 137348
 Brvace: 137349
-BuË+Hruöevka: 137355
-BuËka: 137359
-BuËka+Remic: 137360
-Bukovica/SelöËici: 137370
-BukovöËica: 137375
-Cave+del+Predil: 900151
-Cerkljanska+Dobrava: 137446
-Cerklje+na+Gorenjskem: 137447
-Cerklje+na+Gorenjskem+OB: 137448
+BTC: 136574
+Bubno: 137353
+Buƒç: 137354
+Buƒç Hru≈°evka: 137355
+Buƒçeƒçovci: 137358
+Buƒçka: 137359
+Buƒçka Remic: 137360
+Bukovci: 137365
+Bukovica/Sel≈°ƒçici: 137370
+Bukov≈°ƒçica: 137375
+Camp river BLED: 902419
+Cave del Predil: 900151
+Cerkljanska Dobrava: 137446
+Cerklje na Gorenjskem: 137447
+Cerklje na Gorenjskem OB: 137448
+Cerklje ob Krki: 137449
+Cerklje ≈†: 900156
+Cerkno: 137453
 Cerkvenjak: 137458
+Cerov Log: 137464
+Cerovec pri Trebelnem: 137467
 Cerovec/Gorjanci: 137469
-Ceröak: 150387
-Ceröak+K: 137473
-Ceröak+tov.: 137474
-Cesarjeva+ulica: 136575
-Cesta+1.maja+104: 135730
-Cesta+1.maja+122: 135731
-Cesta/AjdovöËini: 137481
+Cer≈°ak: 150387
+Cer≈°ak K: 137473
+Cer≈°ak tov.: 137474
+Cesarjeva ulica: 136575
+Cesta 1.maja 104: 135730
+Cesta 1.maja 122: 135731
+Cesta/Ajdov≈°ƒçini: 137481
 Cesta/Dobrepolju: 137482
+Ceste K: 137484
+Cestno podjetje: 136576
+Cetore: 137486
 Cezanjevci: 150229
-Cezanjevci+K: 137487
-Cezlak+K: 137489
+Cezanjevci K: 137487
+Cezlak K: 137489
+Ciglence Jug: 137493
+Ciglence Kogol≈°ek: 137494
+Ciglence Pihler: 137495
 Cigonca: 137496
-Cirknica+posestvo: 137499
-Cirknica+ävajncer: 137500
+Cirknica posestvo: 137499
+Cirknica ≈†vajncer: 137500
 Cirkovce/Drav.p.: 137501
 Cirkulane: 137505
-Cirkulane+K: 137506
-»adovlje+pri+TrûiËu: 137383
-»adovlje/Golniku: 137384
-»adovlje/Golniku+K: 900177
-»adram: 137385
-»akova: 137387
-»ateû+ob+Savi: 137393
-»eûarji: 137488
-»rmoönjice+pri+StopiËah: 137525
-»rmoönjice+pri+StopiËah+K: 137526
-»rna+pri+Kamniku+N.Jaöek: 137529
-»rna+pri+Kamniku+Petek: 137530
-»rna+pri+Kamniku+rudnik: 137531
-»rnci+pri+Gornji+Radgoni: 137532
-»rni+Kal+sp.: 137540
-»rni+Kal+zg.: 137541
-»rnivec+nad+Kamnikom: 137548
-»rnivec/Rad.: 137549
-»rnomelj+Belokrajnska+22: 137554
-»rnomelj+h.Lahinja: 137560
-D.GradiöËe/Dol.T.: 137585
+Cirkulane K: 137506
+Cogetinci: 137508
+Cunkovci: 137568
+Cvetkovci: 137572
+Cvetlin: 900172
+ƒåadovlje pri Tr≈æiƒçu: 137383
+ƒåadovlje/Golniku: 137384
+ƒåadovlje/Golniku K: 900177
+ƒåadram: 137385
+ƒåakova: 137387
+ƒåate≈æ ob Savi: 137393
+ƒåeplez: 137439
+ƒåeplez sp.: 137440
+ƒåepulje: 137444
+ƒåermo≈æi≈°e vrh: 137460
+ƒåe≈°enjski most: 137476
+ƒåe≈°njevek: 137477
+ƒåe≈°njice Pov≈°iƒç: 137478
+ƒåe≈°njice pri Trebelnem: 137479
+ƒåete≈æ: 137485
+ƒåe≈æarji: 137488
+ƒåirƒçe: 135836
+ƒåre≈°njevci: 137517
+ƒåre≈°njevci 31: 137518
+ƒåre≈°njevec pri Slovenski Bistrici: 137520
+ƒåre≈°njevec pri Slovenski Bistrici Juriƒç: 137521
+ƒårmo≈°njice pri Stopiƒçah: 137525
+ƒårmo≈°njice pri Stopiƒçah K: 137526
+ƒårna pri Kamniku N.Ja≈°ek: 137529
+ƒårna pri Kamniku Petek: 137530
+ƒårna pri Kamniku rudnik: 137531
+ƒårnci K.: 901447
+ƒårnci pri Gornji Radgoni: 137532
+ƒårnev≈°ek: 137539
+ƒårni Kal sp.: 137540
+ƒårni Kal zg.: 137541
+ƒårni les: 137542
+ƒårniƒçe: 137547
+ƒårnivec Adrijan: 902921
+ƒårnivec Mlakar: 902922
+ƒårnivec nad Kamnikom: 137548
+ƒårnivec/Rad.: 137549
+ƒårnomelj: 137552
+ƒårnomelj "Koƒçevje": 137553
+ƒårnomelj Belokrajnska 22: 137554
+ƒårnomelj h.Lahinja: 137560
+ƒårnomelj PTT: 137563
+ƒåu≈°perk: 137570
+D.Gradi≈°ƒçe/Dol.T.: 137585
+D.Kot: 137589
 D.Laknice: 137590
 D.Lokvica: 137594
+D.Lo≈æine: 137595
 D.Maharovec: 137596
-D.Nemöka+vas: 137598
-D.PoËehova: 137601
-D.PoËehova+kombinat: 150267
-D.Podpoljane+K: 137602
+D.Mokro Polje: 137597
+D.Nem≈°ka vas: 137598
+D.Poƒçehova: 137601
+D.Poƒçehova kombinat: 150267
+D.Podpoljane K: 137602
 D.Poljana: 137604
 D.Prekopa: 137606
 D.Radulje: 137607
-D.Radulje+K: 137608
-D.Straûa: 137613
+D.Radulje K: 137608
+D.Stra≈æa: 137613
 D.Suhadol: 137614
-D.Teûka+Voda: 137617
-D.vas+pri+Krökem: 137620
+D.Suhor pri Metliki: 137615
+D.Te≈æka Voda: 137617
+D.vas pri Kr≈°kem: 137620
 D.vas/Ribnici: 137624
+D.Vrhpolje: 137626
 Davor: 137635
-Davöki+most: 137636
+Dav≈°ki most: 137636
+Debeli Rtiƒç: 137637
+Debeli Rtiƒç 59: 137638
 Dekani: 137647
-Destrnik+pokopaliöËe: 901451
+Delnice: 137652
+Delnice K: 137653
+Desenci K: 137656
+Destrnik: 137660
+Destrnik pokopali≈°ƒçe: 901451
+Destrnik ZD: 150095
 Devina: 137661
-Devina+7: 137662
-DivaËa: 137664
-Dob/Domûalah: 137666
-Dob2/Domûalah: 152210
-DobraËeva: 137686
-Dobrava+kovaËija: 137687
-Dobrava+pri+Slovenski+Bistrici: 137695
-Dobrava/»rnuËah: 137689
-Dobrava/DobrniËu: 137690
-Dobrava/MoravËah: 137691
-Dobrava/äk.Loko: 137692
-Dobrava/äk.Loko+II: 137693
-Dobrava/äkocjanu: 137694
-Dobravlje/AjdovöËini: 137697
-Dobrina/éetalah: 137700
-Dobro+Polje/Rad.: 137710
-Dobrovce+Mejna: 902099
-Dobrovce+öola: 902095
-Dobruöka+vas: 137722
-Dobruöka+vas+K: 137723
-Dol+pri+Ljubljani: 137731
+Devina 7: 137662
+De≈æno pri Podlehniku: 902094
+Divaƒça: 137664
+Dob/Dom≈æalah: 137666
+Dob2/Dom≈æalah: 152210
+Dobe: 137669
+Dobje/≈†k.Loki: 137675
+Dobraƒçeva: 137686
+Dobrava kovaƒçija: 137687
+Dobrava pri Slovenski Bistrici: 137695
+Dobrava/ƒårnuƒçah: 137689
+Dobrava/Dobrniƒçu: 137690
+Dobrava/Moravƒçah: 137691
+Dobrava/≈†k.Loko: 137692
+Dobrava/≈†k.Loko II: 137693
+Dobrava/≈†kocjanu: 137694
+Dobravlje/Ajdov≈°ƒçini: 137697
+Dobrina/≈Ωetalah: 137700
+Dobrniƒç: 137709
+Dobro Polje/Rad.: 137710
+Dobropolje/Il.Bistrici: 137711
+Dobrovce jug: 902096
+Dobrovce Mejna: 902099
+Dobrovce sever: 901457
+Dobrovce ≈°ola: 902095
+Dobrovce vrtec: 137717
+Dobru≈°ka vas: 137722
+Dobru≈°ka vas K: 137723
+Dogo≈°e GD: 136298
+Doklece: 137724
+Dol pri Ljubljani: 137731
+Dol pri Trebnjem: 137732
+Dol.Brdo: 137733
+Dol.Njive Domiter: 137734
 Dol.Raka: 137736
+Dol.Toplice: 137737
 Dol/G.Gradu: 137738
-Dol/G.Gradu+RogaËnik: 137739
+Dol/G.Gradu Rogaƒçnik: 137739
 Dolane/Cirkulanah: 137743
-Dolane/Cirkulanah+Kokol: 137744
-Dolena+Avguötin: 137752
-Dolena+BoûiËko: 137753
-Dolena+Dominc: 137754
-Dolenja+vas+pri+éelez.: 137759
-Dolenje+pri+Jelöanah: 137763
+Dolane/Cirkulanah Kokol: 137744
+Dole/Metliki: 137751
+Dolena Avgu≈°tin: 137752
+Dolena Bo≈æiƒçko: 137753
+Dolena Dominc: 137754
+Dolenƒçice: 137758
+Dolenja vas pri ≈Ωelez.: 137759
+Dolenje pri Jel≈°anah: 137763
 Dolenje/Radomljah: 137764
-Dolga+Reber+(MP+Koper): 901244
-Dolge+Njive+Novak: 137768
-Dolina/Trû.: 137775
+Dolga Reber (MP Koper): 901244
+Dolge Njive Novak: 137768
+Doliƒç/Ptuju: 137771
+Dolina/Tr≈æ.: 137775
 Dolinska: 135776
-Domûale: 137785
-Domûale+Petrol: 137787
-Domûale+Univ.: 137788
+Dolsko: 137778
+Dol≈æ: 137779
+Dom upokojencev Ptuj: 901460
+Dom≈æale: 137785
+Dom≈æale Petrol: 137787
+Dom≈æale Univ.: 137788
 Dorfarje: 137789
 Dornava: 137790
-Dornava+dom: 137791
-Dornava+GD: 901462
-Dornavska+c.+Merkur: 139964
+Dornava dom: 137791
+Dornavska c. Lovec: 150284
+Dornavska c. Merkur: 139964
+Doslovƒçe: 137794
 Draga/Sori: 137806
-Draga/äkocjanu: 137805
-Dragatuö: 137807
-DragoËajna: 137808
+Draga/≈†kocjanu: 137805
+Dragatu≈°: 137807
+Dragoƒçajna: 137808
 Dragomelj: 137809
 Dragonja: 137811
-Dragonja+G: 137812
-Dragonja+K: 137813
-DraguËova: 137815
+Dragonja G: 137812
+Dragonja K: 137813
+Draguƒçova: 137815
 Drakovci: 137816
-Drakovci+kovaË: 137817
-Dravski+Dvor: 137831
-Dravski+Dvor+KS: 137832
-Draûen+Vrh: 137835
-Draûenci: 137836
-Draûenci+farma: 137837
-Draûgoöe: 137839
-Drenovec/ZavrËu: 137846
-DrganËevje: 136578
+Drakovci kovaƒç: 137817
+Dravski Dvor: 137831
+Dravski Dvor KS: 137832
+Dra≈æen Vrh: 137835
+Dra≈æenci: 137836
+Dra≈æenci farma: 137837
+Dra≈æenska cesta 14: 902414
+Dra≈ægo≈°e: 137839
+Drbetinci 9: 137840
+Drbetinci KZ: 137841
+Drbetinci Vr≈°iƒç: 901473
+Drenovec/Vinici: 137845
+Drenovec/Zavrƒçu: 137846
+Drganƒçevje: 136578
 Drska: 136579
+Drskovƒçe: 137855
 Drstelja: 137856
-Drstelja+15: 137857
-Drstelja+K: 137858
-Drtija+K: 137859
+Drstelja 15: 137857
+Drstelja K: 137858
+Drtija K: 137859
 Drulovka: 135837
-Drulovka+cerkev: 150222
-Drumlaûno: 137860
+Drulovka cerkev: 150222
+Drumla≈æno: 137860
 Duplica: 137863
-Duplica+Stol+N+O: 137864
+Duplica Stol N O: 137864
+Duplje/Tr≈æ.: 137865
+Dvor/≈Ωu≈æemb.: 137873
 Dvorjane: 137877
-Dvorjane+46: 137878
-Dvorjane+cerkev: 137879
-–uba: 902092
-ErjavËeva+koËa: 137883
-Fala+grad: 137886
-Fala+HE: 137887
-Falenti+ä: 137888
-FaranËan: 137890
-Faûana: 900245
+Dvorjane 46: 137878
+Dvorjane cerkev: 137879
+Dvorje: 137880
+ƒêuba: 902092
+Erjavƒçeva koƒça: 137883
+Fala grad: 137886
+Fala HE: 137887
+Falenti ≈†: 137888
+Faranƒçan: 137890
+Fa≈æana: 900245
 Fela: 137892
 Finida: 137896
+Fizine: 136633
 Flora: 135838
 Florjan/Medribniku: 137899
-Fram+K: 137914
-Frankovo+naselje+Oä: 150395
+Forme: 137909
+Formin: 137910
+Fram K: 137914
+Frankovo naselje O≈†: 150395
 Funtana: 900258
-Fusine+Laghi+MP: 901254
-G.Brezovica/äentj.: 137926
+Fusine Laghi MP: 901254
+Fu≈æine/Jezerskem: 137917
+Fu≈æine/Trebiji: 137918
+Fu≈æine/Trebiji I: 137919
+Fu≈æine/Trebiji II: 137920
+G.Brezovica/≈†entj.: 137926
 G.Grad: 137934
-G.GradiöËe+pri+äentj.: 137936
-G.Karteljevo+K: 137946
-G.KljuËarovci: 137947
-G.KljuËarovci+K: 137948
+G.Gradi≈°ƒçe pri ≈†entj.: 137936
+G.Karteljevo K: 137946
+G.Kljuƒçarovci: 137947
+G.Kljuƒçarovci K: 137948
 G.Laknice: 137950
-G.Podpoljane+K: 137963
+G.Log: 137953
+G.Lo≈æine: 137954
+G.Mokro Polje: 137955
+G.Podpoljane K: 137963
+G.Polje/N.mestu: 137964
 Gabrijele: 137986
-Gabrje/Boötanju: 137987
+Gabrje/Bo≈°tanju: 137987
 Gabrje/Il.Bistrici: 137988
 Gabrje/N.mestu: 137989
 Gabrk: 137992
-Gabrk+ä: 141667
-Gabrnik+sp.: 137993
-Gabrnik+zg.: 150667
+Gabrk ≈†: 141667
+Gabrnik sp.: 137993
+Gabrnik zg.: 150667
 Gabrnik/Ptuju: 137994
-Gabrnik/Ptuju+äoöteriË: 137995
-Gaj+nad+Mar.Zg.KovaË+K: 138000
+Gabrnik/Ptuju ≈†o≈°teriƒç: 137995
+Gaj nad Mar.Zg.Kovaƒç K: 138000
 Gaj/Pragerskem: 150203
 Gajevci: 138001
-Gaûon: 138009
-GereËja+vas: 150478
-GereËja+vas+GD: 150479
-Gibina+mlekarna: 901490
+Ga≈æon: 138009
+Gibina mlekarna: 901490
 Gladomes: 138015
-Glavni+trg: 136580
+Glavni trg: 136580
+Glinek/≈†kofljici: 138020
+Glinje: 138021
 Globoko/Makolah: 138032
 Gmajna/Raki: 138036
-Gobovce+vas: 150263
-GoËova: 138040
-Golnik+Malijevo: 138054
+Gobovce: 138037
+Gobovce vas: 150263
+Goƒçova: 138040
+Godeninci: 138041
+Gode≈°iƒç: 138042
+Godiƒç: 138043
+Goli Vrh/Podlehniku K: 138049
+Golice: 138051
+Golnik: 138052
+Golnik bloki: 138053
+Golnik Malijevo: 138054
 Gomarenci: 138057
-Gomila+pri+Jiröovcih: 901498
-Gomila+pri+Kogu+Bajzek: 138058
-Gomila+pri+Kogu+K: 138059
-Gomila+pri+Kogu+PuköiË: 138060
-Gomila/Jiröovcih+K: 138061
-Gomila/Juröincih: 138062
+Gomila pri Jir≈°ovcih: 901498
+Gomila pri Kogu Bajzek: 138058
+Gomila pri Kogu K: 138059
+Gomila pri Kogu Puk≈°iƒç: 138060
+Gomila/Jir≈°ovcih K: 138061
+Gomila/Jur≈°incih: 138062
 Gomila/Trebnjem: 138063
-Gora+pri+PeËah: 138069
-Gorenja+Sava: 135839
-Gorenja+Sava+nad+podvozom: 900283
-Gorenja+Sava+skakalnica: 135840
-Gorenja+vas: 138076
-Gorenja+vas+Na+blatih: 150112
-Gorica/MoravËah: 138091
-GoriËa+vas: 138088
-GoriËak: 138094
-GoriËane: 138095
-Goriönica: 138101
-Goriönica+K.+(bivöa+ObËina): 901505
-Gornja+Radgona: 137965
-Gornja+Radgona+Arcont: 137966
-Gornji+Ivanjci+3+Srt(kriûiöËe): 901506
-Gornji+Ivanjci+9+a: 150883
-Gornji+Ivanjci+Dobrava: 901507
-Gornji+Ivanjci+KauËiË: 150884
-GospodiËna+K: 138108
-Gozd+Martuljek+Sp.Rute: 138113
-Gozd+Martuljek+Zg.Rute: 138114
-Grabe+pri+Ljutomeru+K: 138116
-Grabe/SrediöËu+ob+D.: 138117
+Gomilci: 138064
+Gora pri Peƒçah: 138069
+Goreljek: 902902
+Gorenja Sava: 135839
+Gorenja Sava nad podvozom: 900283
+Gorenja Sava skakalnica: 135840
+Gorenja vas: 138076
+Gorenja vas Na blatih: 150112
+Gorenje/Koƒçevju: 138081
+Gorenje/Kr.: 135841
+Gorica/Moravƒçah: 138091
+Goriƒça vas: 138088
+Goriƒçak: 138094
+Goriƒçane: 138095
+Goriƒçe/Golniku: 138097
+Gori≈°nica: 138101
+Gori≈°nica K. (biv≈°a Obƒçina): 901505
+Gorju≈°e: 138104
+Gornja Radgona: 137965
+Gornja Radgona Arcont: 137966
+Gornji Ivanjci 3 Srt(kri≈æi≈°ƒçe): 901506
+Gornji Ivanjci 9 a: 150883
+Gornji Ivanjci Dobrava: 901507
+Gornji Ivanjci Kauƒçiƒç: 150884
+Gospodiƒçna K: 138108
+Gosteƒçe: 138109
+Gozd: 150198
+Gozd Martuljek Sp.Rute: 138113
+Gozd Martuljek Zg.Rute: 138114
+Grabe pri Ljutomeru K: 138116
+Grabe/Sredi≈°ƒçu ob D.: 138117
 Grabe/Tratah: 138118
-Grabonoö: 138119
-Grabonoöki+Vrh: 138120
-Graböinci+K: 138121
-Graböinski+breg: 138122
+Grabono≈°: 138119
+Grabono≈°ki Vrh: 138120
+Grab≈°inci K: 138121
+Grab≈°inski breg: 138122
+Grad Kamen: 902490
 Grad/Cerkljah: 138129
 Gradac: 138131
 Gradec: 138133
-Gradis+Ul.Vel.VlahoviËa+K: 136490
-GradiöËe+K/M.Sob.: 138136
-GradiöËe+na+Kozjak.Krajnc: 138137
-GradiöËe+na+Kozjaku: 138138
-GradiöËe+nad+Pijavo+G.: 138139
-GradiöËe/Materiji: 138143
+Gradis Ul.Vel.Vlahoviƒça K: 136490
+Gradi≈°ƒçe K/M.Sob.: 138136
+Gradi≈°ƒçe na Kozjak.Krajnc: 138137
+Gradi≈°ƒçe na Kozjaku: 138138
+Gradi≈°ƒçe nad Pijavo G.: 138139
+Gradi≈°ƒçe/Materiji: 138143
 Grajena: 150285
-GrajenöËak: 150286
-GrajenöËak+45: 150287
-GrajenöËak+79: 901517
-GrajenöËak+kapela: 150288
-GrËarevec: 138155
+Grajen≈°ƒçak: 150286
+Grajen≈°ƒçak 45: 150287
+Grajen≈°ƒçak 79: 901517
+Grajen≈°ƒçak kapela: 150288
+Grƒçarevec: 138155
 Grdina: 138156
-GresovöËak: 150233
-Gruöena: 138189
-Hajdoöe: 138194
-Hajdoöe+éerak: 138195
-Haloûan/Oûbaltu: 138198
+Gregoriƒçi: 138157
+Gresov≈°ƒçak: 150233
+Griƒç/Ribnici: 138163
+Grlinci: 138172
+Grmovlje: 138175
+Groblje pri Prekopi: 138178
+Grosuplje: 138179
+Grosuplje SM: 138187
+Gru≈°ena: 138189
+Hajdo≈°e: 138194
+Hajdo≈°e ≈Ωerak: 138195
+Halo≈æan/O≈æbaltu: 138198
 Harije: 138199
 Havaji: 138200
+Hecl: 138201
 Hedera: 136582
-Hermanov+most: 135732
-Hlaponci+22: 138205
-Hlaponci+Kapela: 138206
-HoËko+Pohorje+bolnica+tbc: 138210
-HoËko+Pohorje+g.Gale: 138211
-HoËko+Pohorje+kapela: 138213
+Hermanov most: 135732
+Hinje: 138203
+Hlaponci 22: 138205
+Hlaponci Kapela: 138206
+Hlebce: 138207
+Hobov≈°e pri St.Oselici: 138208
+Hoƒçe Magna: 902484
+Hoƒçko Pohorje bolnica tbc: 138210
+Hoƒçko Pohorje g.Gale: 138211
+Hoƒçko Pohorje g.Klinc: 138212
+Hoƒçko Pohorje kapela: 138213
+Hoƒçko Pohorje most: 138214
+Homec: 138218
 Hosta: 138220
 Hotavlje: 138221
-Hotemaûe: 138224
-HotiËna: 138229
-Hotinja+vas: 138230
-Hotinja+vas+K: 138231
-Hotinja+vas+KeröiË: 138232
+Hotel BW: 900329
+Hotema≈æe: 138224
+Hotiƒç sp.: 138227
+Hotiƒç zg.: 138228
+Hotiƒçna: 138229
+Hotinja vas: 138230
+Hotinja vas K: 138231
+Hotinja vas Ker≈°iƒç: 138232
 Hranjigovci: 138238
-Hrast+pri+Jugorju: 138241
-Hrast+pri+Vinici: 138242
+Hrast pri Jugorju: 138241
+Hrast pri Vinici: 138242
 Hrastje-Mota: 138249
-Hrastje-Mota+K: 138250
+Hrastje-Mota K: 138250
 Hrastje/Kr.: 135842
-Hrastje/Kr.+I: 135843
-Hrastje/Kr.+II: 135844
-Hrastnica+Pasja+vas: 150396
-Hrastnica+pri+Logarju: 150397
-Hrastnica+pri+mlinu: 150398
-Hrastnica+pri+Osenarju: 150399
-Hrastnik+OB: 138254
-Hrastovec+v+Sl.G.: 138260
-HraöËe: 138239
-Hraöe+center: 138240
-Hraöe+vzhod: 150257
-Hraöe+zahod: 150258
-Hraöe/Tatinec: 900336
-Hruöica+Belo+Polje: 135733
-Hruöica+DobrËnik: 135734
-Hruöica+K: 135735
-Hruöica+pri+Obrovu+vas: 150761
-Hruöica/Jes.: 135736
-Hruöica/N.mestu: 138273
-Hruöica/Obrovu: 138274
-Hrvaöki+Brod: 138275
-Hrvatini+K: 138277
-Hudi+Graben: 138280
-Hvaletinci+kapela: 901532
-Ihan+Emona: 138300
-Ihan+farma: 138301
-Ihan+Flerin: 138302
-Ihan+Termit: 138303
+Hrastje/Kr. I: 135843
+Hrastje/Kr. II: 135844
+Hrastnica Pasja vas: 150396
+Hrastnica pri Logarju: 150397
+Hrastnica pri mlinu: 150398
+Hrastnica pri Osenarju: 150399
+Hrastnik OB: 138254
+Hrastovec v Sl.G.: 138260
+Hra≈°ƒçe: 138239
+Hra≈°e center: 138240
+Hra≈°e vzhod: 150257
+Hra≈°e zahod: 150258
+Hra≈°e/Rad.: 902913
+Hra≈°e/Tatinec: 900336
+Hrib/Preddvoru: 900339
+Hrpelje: 138269
+Hru≈°evje: 138271
+Hru≈°ica Belo Polje: 135733
+Hru≈°ica Dobrƒçnik: 135734
+Hru≈°ica K: 135735
+Hru≈°ica pri Obrovu vas: 150761
+Hru≈°ica/Jes.: 135736
+Hru≈°ica/N.mestu: 138273
+Hru≈°ica/Obrovu: 138274
+Hrva≈°ki Brod: 138275
+Hrvatini K: 138277
+Hudi Graben: 138280
+Hudi Kot/Rib.Pohorju K: 138281
+Hudo Polje: 138284
+Hum pri Ormo≈æu: 138285
+Hvaletinci kapela: 901532
+Iglenik: 138299
+Ihan Emona: 138300
+Ihan farma: 138301
+Ihan Flerin: 138302
+Ihan Termit: 138303
 Ihova: 138304
+II. Prekomor: 135777
 Il.Bistrica: 138305
-Il.Bistrica+ä+Aé: 138306
-Il.Bistrica+ä+DK: 138307
-Il.Bistrica+éP: 138308
-Iljaöevci: 138309
+Il.Bistrica ≈† A≈Ω: 138306
+Il.Bistrica ≈† DK: 138307
+Il.Bistrica ≈ΩP: 138308
+Ilja≈°evci: 138309
+Infocenter TRB: 902089
 Ivanjkovci: 138326
-Ivanjkovci+ä: 138327
-Ivanjski+Vrh+Satler: 901535
-Ivanjski+Vrh+äturm: 901536
-Ivanjöevci+ob+äËavnici+kapela: 901538
-Ivanjöevski+Vrh+41b: 901540
-Ivanjöevski+Vrh+Kapela: 901542
-Izletniöka: 902239
+Ivanjkovci ≈†: 138327
+Ivanjski Vrh Satler: 901535
+Ivanjski Vrh ≈†turm: 901536
+Ivanj≈°evci ob ≈†ƒçavnici kapela: 901538
+Ivanj≈°evski Vrh 41b: 901540
+Ivanj≈°evski Vrh Kapela: 901542
+Izletni≈°ka: 902239
 Izola: 138335
-Izola+Dobrava: 138336
-Izola+Dobrava+K: 138337
-Izola+Jagodje: 138339
-Izola+Jagodje+M.: 138340
-Izola+Livade+Oä: 150190
-Izola+Mehano: 138341
-Izola+Preöernova+Oä: 150191
-Izola+reö.pos.: 138342
-Izola+TC: 138343
+Izola Dobrava: 138336
+Izola Dobrava K: 138337
+Izola Jagodje: 138339
+Izola Jagodje M.: 138340
+Izola Livade O≈†: 150190
+Izola Mehano: 138341
+Izola Pre≈°ernova O≈†: 150191
+Izola re≈°.pos.: 138342
+Izola TC: 138343
+Izvir Soƒçe K: 138345
 Jablan: 138346
 Jablanica/Il.Bistrici: 138348
-JakËeva+ulica: 136584
+Jakƒçeva ulica: 136584
 Jakob: 138352
-Jama/Praöah: 135846
+Jama/Pra≈°ah: 135846
 Jamna: 138356
-Jamna+Kocbek: 138357
+Jamna Kocbek: 138357
 Jamnik: 138359
-Janeûovci: 138361
-Janeûovski+Vrh: 138363
+Jane≈æovci: 138361
+Jane≈æovski Vrh: 138363
 Janhova: 150668
-Janûev+Vrh: 138365
-Janûev+Vrh+PojbiË: 138367
-Janûeva+Gora: 138368
-Janûevski+Vrh+»as: 138369
-Janûevski+Vrh+Ramska+koËa: 138370
-Janûevski+Vrh+Zolar: 138371
+Jan≈æev Vrh: 138365
+Jan≈æev Vrh Pojbiƒç: 138367
+Jan≈æeva Gora: 138368
+Jan≈æevski Vrh ƒåas: 138369
+Jan≈æevski Vrh Ramska koƒça: 138370
+Jan≈æevski Vrh Zolar: 138371
 Jarenina: 138372
-Jarenina+K: 138373
-Jareninski+Dol+K: 138374
-Jareninski+Dol+pri+Kriûu: 138375
-Jareninski+Dol+Repa: 138376
-Jareninski+Dvor: 138377
-Jaröe: 138378
+Jarenina K: 138373
+Jareninski Dol K: 138374
+Jareninski Dol pri Kri≈æu: 138375
+Jareninski Dol Repa: 138376
+Jareninski Dvor: 138377
+Jar≈°e: 138378
 Jasen: 138379
 Jasna: 900362
 Jasnica: 138380
 Jastrebci: 138381
 Jastroblje: 138382
-Javnik+»as: 138383
+Javnik ƒåas: 138383
 Javorje/Delnicah: 138384
 Javornik/Kr.: 138387
-JedinöËica: 152187
-Jelovec/Boötanju: 138398
-Jelöane: 138400
+Jedin≈°ƒçica: 152187
+Jedlovnik: 138391
+Jelendol: 138392
+Jelovec/Bo≈°tanju: 138398
+Jel≈°ane: 138400
+Jenkole: 135737
 Jeprca: 138405
 Jereka: 138406
-Jerman+Vrh: 138411
+Jerman Vrh: 138411
 Jeruzalem: 150234
-Jesenice+bolnica: 135740
-Jesenice+Gimnazija: 135741
-Jesenice+Integral: 135742
-Jesenice+obËina: 135743
-Jezersko+Bajte: 138429
-Jezersko+Grabnar: 138430
-Jezersko+Kanonir: 138432
-Jezersko+Kazina: 138433
-Jezersko+ätular: 138434
-Jodl+»inûat: 138437
-JURIäNA+VAS: 901550
-Jurka+vas: 138449
-Jurovski+Dol+Grubar: 138456
-Jurovski+Dol+Kraner: 138459
-Jurovski+Dol+Sp.Gaster.K: 138461
-Kajûar: 138467
+Jes.Igri≈°ƒçe: 135738
+Jesenice bolnica: 135740
+Jesenice Gimnazija: 135741
+Jesenice Integral: 135742
+Jesenice obƒçina: 135743
+Jesenice Seno≈æeti: 135744
+Jesenice ZD: 135745
+Jesenice ≈ΩP: 135746
+Jesenje K: 141710
+Jesenovec: 138419
+Jesenovec I: 138420
+Jezersko Bajte: 138429
+Jezersko Grabnar: 138430
+Jezersko Jezero K: 138431
+Jezersko Kanonir: 138432
+Jezersko Kazina: 138433
+Jezersko ≈†tular: 138434
+Jir≈°ovci: 138435
+Jir≈°ovci K: 138436
+Jodl ƒåin≈æat: 138437
+Josipdol: 138439
+Josipdol K: 138440
+Jo≈æef pri Slovenski Bistrici: 138441
+Jugorje pri Metliki: 138442
+Jurij MP: 138443
+Jurij ob Pesnici: 138444
+JURI≈†NA VAS: 901550
+Jurjevski dol 8 ≈°ef: 138447
+Jurjov most: 138448
+Jurka vas: 138449
+Jurovci: 138454
+Jurovski Dol: 138455
+Jurovski Dol Grubar: 138456
+Jurovski Dol K: 138457
+Jurovski Dol Keti≈°: 138458
+Jurovski Dol Kraner: 138459
+Jurovski Dol Krempl: 138460
+Jurovski Dol Sp.Gaster.K: 138461
+Jur≈°inci: 138462
+Jur≈°inci Podhostnik: 138463
+Jur≈°inci Vodol: 138464
+Jur≈°nik: 138465
+Kaj≈æar: 138467
 Kal-Koritnica: 138476
-Kal+Koritnica: 900384
+Kal Koritnica: 900384
 Kalce/Logatcu: 138475
-Kamna+Gorica: 138483
-Kamna+Gorica+I: 138484
-Kamna+Gorica+Pr+Kozjek: 138485
+Kamna Gorica I: 138484
+Kamna Gorica II: 138483
+Kamna Gorica Pr Kozjek: 138485
 Kamne: 138486
 Kamnica/Mar.K: 136334
 Kamnik: 138488
-Kamnik+KIK: 138490
-Kamnik+Mercator: 138489
-Kamnik+Metalka: 138491
-Kamnik+Perovo: 150199
-Kamnik+Svetilnik: 138492
-Kamnik+äCRM: 141669
-Kamnik+éP: 138495
-Kamniöka+Bistrica: 138497
-Kamnje+v+Bohinju: 138498
-Kamnolom+Rovte: 138501
-Kampel+Novaki+K: 138503
-Kandijska+-+Nad+mlini: 152196
-Kaniûa+25: 138510
-Kaniûa+KovaËiË: 138511
-Kaniûa+äraj: 138512
-Kaniûarica: 138513
+Kamnik KIK: 138490
+Kamnik Mercator: 138489
+Kamnik Metalka: 138491
+Kamnik Perovo: 150199
+Kamnik Svetilnik: 138492
+Kamnik ≈†CRM: 141669
+Kamnik ≈ΩP: 138495
+Kamni≈°ka Bistrica: 138497
+Kamnje v Bohinju: 138498
+Kamnolom Rovte: 138501
+Kampel Novaki K: 138503
+Kandijska - Nad mlini: 152196
+Kani≈æa 25: 138510
+Kani≈æa Kovaƒçiƒç: 138511
+Kani≈æa ≈†raj: 138512
+Kani≈æarica: 138513
 Kapela: 138516
-Kapela+Kocjan: 138517
-Kapela+pokop.: 138518
+Kapela Kocjan: 138517
+Kapela pokop.: 138518
 Kapelca: 138519
 Karteljevo: 138525
-Kastelec+K: 138529
-Kicar+1: 150289
-Kicar+112b: 150290
-Kicar+118b: 150291
-Kicar+48b: 150292
-Kicar+7f: 150294
-Kicar+Gernice: 150295
-Kicar+Hameröek: 901558
-Kicar+K: 138535
-Kicar+Nova+vas+K: 138536
-KidriËevo+farma: 150622
-KidriËevo+Talum: 138539
-Kitajska+restavracija: 135847
+Kastelec K: 138529
+Kebelj: 138534
+Kicar 1: 150289
+Kicar 112b: 150290
+Kicar 118b: 150291
+Kicar 48b: 150292
+Kicar 7f: 150294
+Kicar Gernice: 150295
+Kicar Hamer≈°ek: 901558
+Kicar K: 138535
+Kicar Nova vas K: 138536
+Kidriƒçevo: 138537
+Kidriƒçevo farma: 150622
+Kidriƒçevo ≈†: 138538
+Kidriƒçevo Talum: 138539
+Kitajska restavracija: 135847
 Kladje/Cerknem: 138542
-KlariËeva: 135778
-KljuËarovci+pri+Ljut.: 138553
-KljuËarovci+pri+Ljut.K: 138554
-Kmetija+Poûarnik: 901560
-Kmetija+Tacer: 901561
+Klariƒçeva: 135778
+Kleƒçe pri Dolu: 138546
+Kljuƒçarovci pri Ljut.: 138553
+Kljuƒçarovci pri Ljut.K: 138554
+Kloke: 138555
+Klopce pri Slovenski Bistrici: 138557
+Kmetija Po≈æarnik: 901560
+Kmetija Tacer: 901561
 Knape: 138559
-Kneûak: 138562
-Kneûak+ä: 150762
-KoËa+na+Gozdu: 138577
-KoËna: 135747
-Kokra+Kamnolom: 138594
-Kokra+Povönar: 138595
+Kne≈æak: 138562
+Kne≈æak ≈†: 150762
+Koƒça na Gozdu: 138577
+Koƒçevje: 138579
+Koƒçevje Petrol: 138580
+Koƒçevje ≈ΩP: 138581
+Koƒçna: 135747
+Koƒçno ob Lo≈ænici: 138586
+Kog: 138588
+Kogov≈°ek: 135748
+Kojuhovje: 138591
+Kokoriƒçi: 138593
+Kokra Kamnolom: 138594
+Kokra Pov≈°nar: 138595
 Kokrica: 135848
-Kokrica+Pä: 900423
-Kokrica+ûaga: 135849
-Kolarjeva+raven+Sröen: 138596
-KoliËevo+samopost.: 138599
-Komenda+PC+pod+bori: 902109
-Komenda+PC+pod+gabri: 902110
-Komenda+PC+pod+lipami: 902108
-Komenda+ä: 138605
-Komenda+vas: 138606
-Konjöica: 138613
-Kopavnik+I: 902378
-Kopavnik+II: 902379
-Koper+Banka: 135769
-Koper+Ford+nova: 152105
-Koper+Luka: 135787
-Koper+MandraË: 152179
-Koper+Semedela+K: 138615
-Koper+Trûnica: 135816
-Koper+éusterna: 135820
-KopiöËa: 138617
-KoraËice+GD: 138624
-Koroöka+Bela: 138633
-Koroöka+Bela+Acroni: 141670
-Koroöka+Bela+K: 135749
-Koroöka+Bela+trgovina: 135750
-Koroöka+vas/N.mestu+K: 138634
-Korte+öola: 150192
-Korte+vas: 150193
-Kostanjevec+pri+Slovenski+Bistrici: 138648
-Kostanjevec+pri+Slovenski+Bistrici+K: 138649
-Kostanjevica+na+Krki: 138651
-Kostanjevica+na+Krki+éol.: 138652
-Koöaki+Kos: 138638
-Koöaki+Opekarna: 138639
-Koötabona: 150207
-Koötabona+obr.: 138646
+Kokrica P≈†: 900423
+Kokrica ≈æaga: 135849
+Kolarjeva raven Sr≈°en: 138596
+Koliƒçevo: 138597
+Koliƒçevo Helios: 138598
+Koliƒçevo samopost.: 138599
+Komenda PC pod bori: 902109
+Komenda PC pod gabri: 902110
+Komenda PC pod lipami: 902108
+Komenda ≈†: 138605
+Komenda vas: 138606
+Kompolje/Dobrepolju: 138609
+Kompolje/Lukovici: 138610
+Konj≈°ica: 138613
+Kopavnik I: 902378
+Kopavnik II: 902379
+Koper: 135768
+Koper Banka: 135769
+Koper Ford nova: 152105
+Koper Luka: 135787
+Koper Mandraƒç: 152179
+Koper Sv.Ana V.n.: 135810
+Koper Tomos: 135812
+Koper Tr≈ænica: 135816
+Koper ≈Ωusterna: 135820
+Kopi≈°ƒça: 138617
+Koprivnik 2: 902934
+Koprivnik v Bohinju: 138620
+Koprivnik/Sovodnju: 138621
+Koraƒçice GD: 138624
+Koritnice: 138629
+Koritno/Bledu: 138631
+Koro≈°ka Bela: 138633
+Koro≈°ka Bela Acroni: 141670
+Koro≈°ka Bela K: 135749
+Koro≈°ka Bela trgovina: 135750
+Koro≈°ka vas/N.mestu K: 138634
+Korte: 138636
+Korte ≈°ola: 150192
+Korte vas: 150193
+Koseze: 138642
+Kosovelov tr: 135779
+Kostanjevec pri Slovenski Bistrici: 138648
+Kostanjevec pri Slovenski Bistrici K: 138649
+Kostanjevica na Krki: 138651
+Kostanjevica na Krki ≈Ωol.: 138652
+Ko≈°aki Kos: 138638
+Ko≈°aki Opekarna: 138639
+Ko≈°enice II: 136589
+Ko≈°enice III: 136590
+Ko≈°tabona: 150207
+Ko≈°tabona obr.: 138646
+Kovor: 138667
 Kozina: 138672
-Kozjak+pri+Ceröaku+K: 138674
-KozloviËeva: 135780
+Kozjak pri Cer≈°aku K: 138674
+Kozloviƒçeva: 135780
+Kozminci: 138684
+Kozminci K: 141694
 Kraljeva: 135781
-Kraljeva+K: 135782
+Kraljeva K: 135782
 Kraljevci: 138690
-Kranj+AP: 135850
-Kranj+C.Kokrökega+Odreda: 135851
-Kranj+Dijaöki+dom: 135852
-Kranj+Globus: 135854
-Kranj+Gorenjska+oblaËila: 135853
-Kranj+Iskra+Labore: 135855
-Kranj+Iskra+sp.: 135856
-Kranj+kolodvor: 135857
-Kranj+Kom.cona: 138691
-Kranj+Labore: 135858
-Kranj+Labore+Draksler: 135859
-Kranj+Labore+äk.C.: 135860
-Kranj+Likozarjeva: 135861
-Kranj+Novi+dom: 135862
-Kranj+Orehek: 138692
-Kranj+Orehek+nadvoz: 150223
-Kranj+Orehek+nas.: 135863
-Kranj+Orehek+trg.: 135864
-Kranj+Oä+S.Jenko: 135865
-Kranj+Oä+S.éagar: 135866
-Kranj+Planika: 135867
-Kranj+Planina+otok: 135868
-Kranj+Plinarna: 135869
-Kranj+PokopaliöËe: 135870
-Kranj+Primskovo: 135871
-Kranj+Primskovo+GD: 135872
-Kranj+Primskovo+ZD: 135873
-Kranj+Qlandia: 135874
-Kranj+RuËigajeva+K: 135875
-Kranj+Savska+cesta: 135876
-Kranj+Stolpnice: 135877
-Kranj+StraûiöËe+DD: 135878
-Kranj+StraûiöËe+Jeöe: 135879
-Kranj+StraûiöËe+Praûarna: 135880
-Kranj+StraûiöËe+PTT: 135881
-Kranj+StraûiöËe+ä: 135882
-Kranj+Supernova: 900448
-Kranj+Tiskanina: 135883
-Kranj+V.hrib: 135884
-Kranj+Vod.stolp: 135885
-Kranj+ZD: 135886
-Kranj+éP: 135887
-Kranjska+Gora: 138693
-Kraöce/MoravËah: 138694
-Kraönja: 138700
-KrËevina+37: 150299
-KrËevina+41: 150300
-KrËevina+Damjak: 150306
-KrËevina+EKO: 150307
-KrËevina+kapela: 150308
-KrËevina+pri+Vurb.most: 150309
-KrËevina+pri+Vurberku: 150310
-KrËevina+Suûnik: 150311
-KrËevina+Toplak: 150312
-KrËevina/Ormoûu+K: 138702
-KrËevina/Ormoûu+Polak: 138703
-KrËevina/Vurberku+90: 150313
-Kriû/Boötanju: 150381
-Kriû/Kamniku: 138710
-KriûiöËe+Janhova-Grabe: 901603
-Krka: 136592
-Krka+tehniËni+pregledi: 136593
-Krka+zdrav.: 136634
-KrkavËe: 150208
-KrkavËe+K: 138727
-KrkavËe+obr.: 138726
+Kranj AP: 135850
+Kranj C.Kokr≈°kega Odreda: 135851
+Kranj Dija≈°ki dom: 135852
+Kranj Globus: 135854
+Kranj Gorenjska oblaƒçila: 135853
+Kranj Iskra Labore: 135855
+Kranj Iskra sp.: 135856
+Kranj kolodvor: 135857
+Kranj Kom.cona: 138691
+Kranj Labore: 135858
+Kranj Labore Draksler: 135859
+Kranj Labore ≈†k.C.: 135860
+Kranj Likozarjeva: 135861
+Kranj Novi dom: 135862
+Kranj Orehek: 138692
+Kranj Orehek nadvoz: 150223
+Kranj Orehek nas.: 135863
+Kranj Orehek trg.: 135864
+Kranj O≈† S.Jenko: 135865
+Kranj O≈† S.≈Ωagar: 135866
+Kranj Planika: 135867
+Kranj Planina III: 902897
+Kranj Planina otok: 135868
+Kranj Plinarna: 135869
+Kranj Pokopali≈°ƒçe: 135870
+Kranj Primskovo: 135871
+Kranj Primskovo GD: 135872
+Kranj Primskovo ZD: 135873
+Kranj Qlandia: 135874
+Kranj Ruƒçigajeva K: 135875
+Kranj Savska cesta: 135876
+Kranj Stolpnice: 135877
+Kranj Stra≈æi≈°ƒçe DD: 135878
+Kranj Stra≈æi≈°ƒçe Je≈°e: 135879
+Kranj Stra≈æi≈°ƒçe Pra≈æarna: 135880
+Kranj Stra≈æi≈°ƒçe PTT: 135881
+Kranj Stra≈æi≈°ƒçe ≈†: 135882
+Kranj Supernova: 900448
+Kranj Tiskanina: 135883
+Kranj V.hrib: 135884
+Kranj Vod.stolp: 135885
+Kranj ZD: 135886
+Kranj ≈ΩP: 135887
+Kranjska Gora: 138693
+Kra≈°ce/Moravƒçah: 138694
+Kra≈°nja: 138700
+Krƒçevina 37: 150299
+Krƒçevina 41: 150300
+Krƒçevina Damjak: 150306
+Krƒçevina EKO: 150307
+Krƒçevina kapela: 150308
+Krƒçevina pri Vurb.most: 150309
+Krƒçevina pri Vurberku: 150310
+Krƒçevina Su≈ænik: 150311
+Krƒçevina Toplak: 150312
+Krƒçevina/Ormo≈æu K: 138702
+Krƒçevina/Ormo≈æu Polak: 138703
+Krƒçevina/Vurberku 90: 150313
+Kresnice K: 141711
+Kri≈æ/Bo≈°tanju: 150381
+Kri≈æ/Kamniku: 138710
+Kri≈æe/Tr≈æ.: 138715
+Kri≈æe/Tr≈æ.K: 138716
+Kri≈æevci pri Ljut.: 138722
+Kri≈æi≈°ƒçe Janhova-Grabe: 901603
+Kri≈æni Vrh: 138723
+Kri≈æni Vrh 8: 150385
+Kri≈æni Vrh 90: 150386
+Krka tehniƒçni pregledi: 136593
+Krka zdrav.: 136634
+Krkavƒçe: 150208
+Krkavƒçe K: 138727
+Krkavƒçe obr.: 138726
+Krmelj: 138730
 Krnica: 138731
+Kronovo: 138736
 Kropa/Rad.: 138738
-Kroûna: 135783
-Kroûna+K: 135784
-Kröka+vas: 138740
-Kröko+blag.center: 138741
-Kröko+St.vas: 135930
+Kro≈æna: 135783
+Kro≈æna K: 135784
+Kr≈°ka vas: 138740
+Kr≈°ko: 135920
+Kr≈°ko blag.center: 138741
+Kr≈°ko Griƒç: 135922
+Kr≈°ko OB: 135927
+Kr≈°ko Sp.Griƒç pokop.: 135928
+Kr≈°ko St.vas: 135930
 Krtina/Dobu: 138747
-Krvavec+éiËnica: 138756
-Kungota+pri+Ptuju: 138765
-Kungota+pri+Ptuju+cerkev: 138766
-Kunova+28: 901605
-Kunova+Pachamama: 901606
-Kunova+äinko: 901607
-Kurja+vas: 138773
+Krvavec ≈Ωiƒçnica: 138756
+Kumen: 138764
+Kungota pri Ptuju: 138765
+Kungota pri Ptuju cerkev: 138766
+Kunova 28: 901605
+Kunova Pachamama: 901606
+Kunova ≈†inko: 901607
+Kupljenik: 138767
+Kurja vas: 138773
+Kur≈°inci: 138776
+Kute≈æevo: 138779
 Kvasica: 138786
 Kvedrova: 135785
 Lacko: 901614
-LaËaves: 138788
-LaËna+Gora: 138790
+Laƒçaves: 138788
+Laƒçna Gora: 138790
 Ladja: 138791
-Lago+d.Predil+V.Nevea+17: 900471
-Lahonci+6: 138799
-LahonöËak: 138800
-LahovËe: 138801
-LahovËe+vas: 150090
-Lancova+vas: 138802
+Lago d.Predil V.Nevea 17: 900471
+Lahonci 6: 138799
+Lahon≈°ƒçak: 138800
+Lahovƒçe: 138801
+Lahovƒçe vas: 150090
+Lancova vas: 138802
 Laporje: 138803
-Laporje+K: 138804
-Lasigovci+19: 138806
-Lastomerci+BraËko: 138812
-Laöki+Rovt: 141671
-Lazaret+meja: 138816
-Laze+pri+Boötanju: 138818
-Laze+v+Tuhinju: 138819
+Laporje K: 138804
+Lasigovci 19: 138806
+Lastomerci Braƒçko: 138812
+La≈°ki Rovt: 141671
+Lavrica pri Malƒçi: 136687
+Lazaret meja: 138816
+Laze pri Bo≈°tanju: 138818
+Laze v Tuhinju: 138819
 Laze/N.mestu: 138821
 Laznica: 138826
-Laûe+K: 138817
-Lehen+na+Pohorju: 138833
+La≈æe K: 138817
+Ledinek: 138831
+Lehen na Pohorju: 138833
 Lekarna: 152190
-Lenart+v+Sl.G.: 138837
-Lenart+v+Sl.G.Paluc: 138838
-Lepena+K: 138845
+Lenart v Sl.G.: 138837
+Lenart v Sl.G.Paluc: 138838
+Lepena K: 138845
+Lepence: 138846
+Lesce: 138847
+Lesce ≈†: 138848
+Lesce TNC: 902149
+Lesce ≈ΩP: 138849
+Leskovec pri Kr≈°kem: 135938
+Leskovec pri Kr≈°kem K: 138857
 Leskovec/Brusnicah: 138858
-Leskovec/Prager.St.Log+K: 138860
-Leskovec/Pragerskem+23: 138861
+Leskovec/Prager.St.Log K: 138860
+Leskovec/Pragerskem 23: 138861
 Lesnina: 135786
-Leöane-KoËar(Leöane+22): 901624
-Leöane+3: 901625
-Leöane+Trije+Kriûi: 150669
-Leöane+éiûek: 150670
-Leönica/N.mestu: 138862
-Leönica/Ormoûu+K: 138863
-Leönica/Ormoûu+sp.: 138864
-Leönica/Ormoûu+zg.: 138865
+Le≈°ane-Koƒçar(Le≈°ane 22): 901624
+Le≈°ane 3: 901625
+Le≈°ane Trije Kri≈æi: 150669
+Le≈°ane ≈Ωi≈æek: 150670
+Le≈°e/Tr≈æ.: 138851
+Le≈°e/Tr≈æ.K: 138852
+Le≈°je: 138854
+Le≈°nica/N.mestu: 138862
+Le≈°nica/Ormo≈æu K: 138863
+Le≈°nica/Ormo≈æu sp.: 138864
+Le≈°nica/Ormo≈æu zg.: 138865
+Letence K: 138868
 Levanjci: 138872
-LeûenËeva+ravna: 138876
-Libanja+Litmerk: 138877
-Libanja+Mihalovci: 138878
+Le≈æenƒçeva ravna: 138876
+Libanja Litmerk: 138877
+Libanja Mihalovci: 138878
 Libna: 138880
-Limbuö+tov.Marles: 136383
-Lipnica+Iskra: 138891
-Lipnica+ä: 138892
-Lipnica+z: 138893
-Litija+kegljiöËe: 138902
-Litija+Restavracija+éP: 138904
-Litmerk+kapela: 138907
-Litmerk+Reö.grad: 138908
-Ljubljana+AMZS: 135956
-Ljubljana+AP: 138922
-Ljubljana+Belinka: 136031
-Ljubljana+BeriËevo: 135709
-Ljubljana+Brinje: 135708
-Ljubljana+»rnuËe: 136254
-Ljubljana+Hajdrihova: 136129
-Ljubljana+Hrastje: 136024
-Ljubljana+Kodrova: 136008
-Ljubljana+Nadgorica: 136030
-Ljubljana+Podgorica: 138925
-Ljubljana+Ruski+car: 135966
-Ljubljana+Sav.nas.: 136240
-Ljubljana+Slov.avto: 136267
-Ljubljana+Sneberje: 136025
-Ljubljana+stad.: 135948
-Ljubljana+str.: 136261
-Ljubljana+äentjakob: 136032
-Ljubljana+äentvid: 136213
-Ljubljana+äiöka: 136187
-Ljubljana+Tivoli: 136185
-Ljubljana+Tivolska: 136165
-Ljubljana+TobaËna: 136130
-Ljubljana+Trata: 136210
-Ljubljana+Viadukt: 135993
-Ljubljana+Zmajski+most: 136110
-LoËica+pri+Vranskem: 138941
-LoËna: 136608
-Log+nad+äk.Loko: 138946
-Log+obraËaliöËe: 150345
-Log+pod+Mangartom: 901300
+Limbu≈°: 138884
+Limbu≈° tov.Marles: 136383
+Lipce: 135751
+Liplje: 141717
+Lipnica Iskra: 138891
+Lipnica ≈†: 138892
+Lipnica z: 138893
+Lipno: 138894
+Litija keglji≈°ƒçe: 138902
+Litija Restavracija ≈ΩP: 138904
+Litmerk kapela: 138907
+Litmerk Re≈°.grad: 138908
+Ljuben: 138918
+Ljuben K: 138919
+Ljubljana AMZS: 135956
+Ljubljana AP: 138922
+Ljubljana Belinka: 136031
+Ljubljana Beriƒçevo: 135709
+Ljubljana Brinje: 135708
+Ljubljana ƒårnuƒçe: 136254
+Ljubljana Fri≈°kovec: 136038
+Ljubljana Hajdrihova: 136129
+Ljubljana Hrastje: 136024
+Ljubljana Kino ≈†i≈°ka: 165093
+Ljubljana Kodrova: 136008
+Ljubljana Nadgorica: 136030
+Ljubljana Podgorica: 138925
+Ljubljana Remiza: 165251
+Ljubljana Rogovilc: 165395
+Ljubljana Ruski car: 135966
+Ljubljana Slovenija avto: 136267
+Ljubljana Sneberje: 136025
+Ljubljana Sredi≈°ka: 136240
+Ljubljana stad.: 135948
+Ljubljana Stegne Tehnounion: 902928
+Ljubljana str.: 136261
+Ljubljana ≈†entjakob: 136032
+Ljubljana ≈†entvid: 136213
+Ljubljana ≈†i≈°ka: 136187
+Ljubljana Tivoli: 136185
+Ljubljana Tivolska: 136165
+Ljubljana Tobaƒçna: 136130
+Ljubljana Trata: 136210
+Ljubljana Viadukt: 135993
+Ljubljana Zmajski most: 136110
+Ljubno/Rad.: 902908
+Ljutomer: 138931
+Ljutomer Tehnostroj: 138932
+Ljutomer ≈ΩP: 138933
+Loƒçica pri Vranskem: 138941
+Loƒçiƒç: 138939
+Loƒçiƒç 1: 901629
+Loƒçki vrh 1: 901630
+Loƒçki vrh Kos: 901631
+Loƒçna: 136608
+Log 2: 150343
+Log 83: 150344
+Log nad ≈†k.Loko: 138946
+Log obraƒçali≈°ƒçe: 150345
+Log pod Mangartom: 901300
+Log v Bohinju: 138951
+Log/Kr.Gori: 138954
+Log/Kr.Gori Petrol: 138955
+Log/Preddvoru: 138956
 Log/Vipavi: 138957
 Log/Zavratec: 138958
-Logarovci+6: 138959
-Logarovci+kapela: 138960
+Logarovci 6: 138959
+Logarovci kapela: 138960
 Logatec: 138961
-Logatec+Krpan: 138963
-Loka+pri+Mengöu: 138967
+Logatec Krpan: 138963
+Loka pri Meng≈°u: 138967
 Loka/Drav.p.: 138969
 Loka/Drav.p.52: 138970
-Loka/TrûiËu: 138972
-Lokanja+vas: 138975
-Lokavci++9+b+kriû: 901632
-Lokavci+39+Pucko: 150885
-Lokavci+K: 150886
-Lokavci+Ribniki+K: 150887
-Lokavec/Tratah+K: 138979
-Lokavec/Tratah+trg.: 138980
-Lomanoöe+5: 139000
-Lomanoöe+bistro: 139001
-Lopata/Hinjah+K: 139008
+Loka/Tr≈æiƒçu: 138972
+Lokanja vas: 138975
+Lokavci  9 b kri≈æ: 901632
+Lokavci 39 Pucko: 150885
+Lokavci K: 150886
+Lokavci Ribniki K: 150887
+Lokavec/Tratah K: 138979
+Lokavec/Tratah trg.: 138980
+Loke v Tuhinju: 138981
+Lokve/ƒårnomlju: 138994
+Lom pod Stor≈æiƒçem: 138999
+Lomano≈°e 5: 139000
+Lomano≈°e bistro: 139001
+Lopata/Hinjah K: 139008
+Loper≈°ice: 139009
 Lormanje: 139010
-Lormanje+K: 139011
-Loöka+vas: 139013
-Lovrenc+na+Poh.GD: 139017
-Lovrenc+na+Poh.pokop.: 150480
-Lovrenc+na+Poh.Tov.kos: 139018
-Lovrenc+na+Poh.trg: 141719
-Lovrenc+na+Poh.ZD: 139019
+Lormanje K: 139011
+Lo≈°ka vas: 139013
+Lovnik: 139014
+Lovrenc na Poh.GD: 139017
+Lovrenc na Poh.pokop.: 150480
+Lovrenc na Poh.Tov.kos: 139018
+Lovrenc na Poh.trg: 141719
+Lovrenc na Poh.ZD: 139019
 Lovrenc/Drav.p.: 139020
+Lozice: 139024
 Lucija: 136635
-Lucija+AC: 136636
-Lucija+H: 136638
-Lucija+podvozna: 150666
-Lucija+ä: 136639
-Lucija+TPC: 136637
-Lucija+Vojkova: 136640
-Lucija+ZD: 136641
+Lucija AC: 136636
+Lucija H: 136638
+Lucija podvozna: 150666
+Lucija ≈†: 136639
+Lucija TPC: 136637
+Lucija Vojkova: 136640
+Lucija ZD: 136641
+Luƒçine: 139031
 Lukavci: 139032
-Lukovica+pri+Domûalah: 139037
-Luöa+sp.: 139039
-Luöa+zg.: 139040
+Lukovica pri Dom≈æalah: 139037
+Lu≈°a sp.: 139039
+Lu≈°a zg.: 139040
+Lutverci: 139045
+Lu≈æe: 139046
 M.Bukovica: 139052
-M.Bukovica+vas: 139053
+M.Bukovica vas: 139053
 M.Cikava: 136577
-M.Ilova+Gora: 139059
-M.LaöËe: 139062
-M.LoËnik/Turjaku: 139065
-M.MlaËevo: 139073
-M.Mraöevo: 139074
+M.Ilova Gora: 139059
+M.La≈°ƒçe: 139062
+M.Loƒçe: 139064
+M.Loƒçnik/Turjaku: 139065
+M.Mlaƒçevo: 139073
+M.Mra≈°evo: 139074
 M.Nedelja: 139075
-M.Nedelja+K: 139076
+M.Nedelja K: 139076
 M.Nerajec: 139077
+M.Otok: 139079
 M.Poljane: 139083
-M.RaËna: 139085
+M.Raƒçna: 139085
 M.Slatnik: 136596
+M.Tinje: 139088
 M.Varnica: 139091
-M.Varnica+1: 139092
+M.Varnica 1: 139092
 M.vas/Muretincih: 139094
 M.Zimica: 139098
-MaËkovec/N.mestu: 136602
-MaËkovec/Postojni: 139102
-Mahovci+9: 901638
-Majski+vrh+K: 139105
-Majöperk: 139106
-Majöperk+Breg: 139107
-Majöperk+K: 150251
+Maƒçkovec/N.mestu: 136602
+Maƒçkovec/Postojni: 139102
+Mahovci 9: 901638
+Majski vrh K: 139105
+Maj≈°perk: 139106
+Maj≈°perk Breg: 139107
+Maj≈°perk K: 150251
 Makole: 139108
-Makole+Marof: 139109
+Makole Marof: 139109
 Malahorna: 139111
-Male+LoËe+vas: 150763
+Male Loƒçe vas: 150763
 Malija: 139114
 Maline: 139116
-Malna+DraökoviË: 139118
-Malna+Rotar: 139119
-ManËe+K: 139123
+Malna Dra≈°koviƒç: 139118
+Malna Rotar: 139119
+Manƒçe K: 139123
 Mareda: 902090
-Maribor+AP: 139129
-Maribor+bloki+s+31: 136489
-Maribor+Brezje: 136306
-Maribor+Brezje+obr.: 136283
-Maribor+C.xiv.divi.samop.: 136292
-Maribor+Dom+upok.: 136296
-Maribor+ELKO: 136481
-Maribor+ErjavËeva+ul.: 136313
-Maribor+Europark: 136314
-Maribor+Fontana: 136468
-Maribor+Glavni+trg: 136318
-Maribor+Glavni+trg|Maribor+K.Koclja-Vetrinj.: 136343
-Maribor+Greenwich: 136327
-Maribor+Jeklotehna: 139130
-Maribor+Lesarska+ä: 136364
-Maribor+Planet+Tuö: 136416
-Maribor+pokop.Dobrava+K: 136423
-Maribor+Prim.ul.: 136478
-Maribor+Slavija: 136293
-Maribor+Tabor: 136467
-Maribor+Tezenska: 136307
-Maribor+Tiskarna: 136430
-Maribor+tov.Metalna: 136431
-Maribor+tov.TAM: 136472
-Maribor+TVD+Partizan: 136482
-Maribor+Ul.Pariöke+komune: 136412
-Maribor+Vema: 139131
-Maribor+éP: 136507
-Mariborski+otok+HE: 136382
-Marjeta+na+Drav.p.: 139137
-Marjeta+na+Drav.p.G: 139138
-Markljeva+ulica: 152189
+Maribor AP: 139129
+Maribor bloki s 31: 136489
+Maribor Brezje: 136306
+Maribor Brezje obr.: 136283
+Maribor C.xiv.divi.samop.: 136292
+Maribor Dom upok.: 136296
+Maribor ELKO: 136481
+Maribor Erjavƒçeva ul.: 136313
+Maribor Europark: 136314
+Maribor Fontana: 136468
+Maribor Glavni trg: 136318
+Maribor Glavni trg|Maribor K.Koclja-Vetrinj.: 136343
+Maribor Greenwich: 136327
+Maribor Jeklotehna: 139130
+Maribor Lesarska ≈†: 136364
+Maribor Planet Tu≈°: 165255
+Maribor pokop.Dobrava K: 136423
+Maribor Prim.ul.: 136478
+Maribor Slavija: 136293
+Maribor Tezenska: 136307
+Maribor Tiskarna: 136430
+Maribor tov.Metalna: 136431
+Maribor tov.TAM: 136472
+Maribor TVD Partizan: 136482
+Maribor Ul.Pari≈°ke komune: 136412
+Maribor Vema: 139131
+Maribor ≈ΩP: 136507
+Mariborski otok HE: 136382
+Marjeta na Drav.p.: 139137
+Marjeta na Drav.p.G: 139138
+Markljeva ulica: 152189
 Markovci/Ptuju: 139144
 Markovec: 135789
-Markovec+Em.: 135790
-Markovec+ä: 135791
-Markovo+Kavran: 139148
-MarkovöËina: 139149
-Marof/PreËni: 139153
+Markovec Em.: 135790
+Markovec ≈†: 135791
+Markovo Kavran: 139148
+Markov≈°ƒçina: 139149
+Marof/Preƒçni: 139153
 Marof/Vurberku: 139154
-Martinja+vas+pri+Mokr.: 139157
-Matenja+vas: 139165
+Martinja vas pri Mokr.: 139157
+Matenja vas: 139165
 Materija: 139166
-MavËiËe+pokopaliöËe: 135888
-Medvode+na+klancu: 139179
+Mavƒçiƒçe pokopali≈°ƒçe: 135888
+Mavƒçiƒçe ≈°ola: 902106
+Medno: 136216
+Medno g.Tome: 139173
+Medo≈°i: 139174
+Medribnik: 139175
+Medribnik Kolednik: 139176
+Medvedce: 150252
+Medvode: 136510
+Medvode na klancu: 139179
 Meja/Kr.: 139180
-Mejni+prehod+GradiöËe: 901654
-Mengeö+Pavovec: 139187
-Meniöka+vas: 139189
+Mejni prehod Gradi≈°ƒçe: 901654
+Mekinje: 139181
+Mele: 139182
+Menge≈° Lek: 139185
+Menge≈° Lovec: 139186
+Menge≈° Pavovec: 139187
+Menge≈° Petrol: 139188
+Meni≈°ka vas: 139189
 Mercator: 135792
-Mestna+knjiûnica+Kranj: 900559
+Mereƒçe: 139191
+Mestna knji≈ænica Kranj: 900559
+Mestne njive: 152198
+Mestni Vrh: 139195
+Mestni Vrh 17 K: 150314
+Mestni vrh 23: 901658
+Mestni Vrh 25: 150315
+Mestni Vrh 56: 150316
+Mestni Vrh 61: 139196
+Mestni Vrh ƒåre≈°nik: 150317
+Mestni Vrh K: 139197
+Mestni Vrh ribnik K: 150318
+Mestni Vrh Urek: 139198
 Metlika: 139202
-Metlika+»rnomaljska: 139203
+Metlika ƒårnomaljska: 139203
+Mezgovci: 152186
+Mihov dom: 139209
 Mihovce/Drav.p.: 139210
-Miklavû+center: 139213
-Miklavû+Gomile: 902068
-Miklavû+Gradiönikova: 139214
-Miklavû+kanal: 902067
-Miklavû+pri+Ormoûu: 139219
-Miklavû+Ruprova: 139215
-Miklavû+öola: 139217
-Miklavû+Vauhnik: 139218
+Mihovci pri V.Ned.: 150778
+Mihovci pri V.Ned.trg.: 139212
+Miklav≈æ center: 139213
+Miklav≈æ Gomile: 902068
+Miklav≈æ Gradi≈°nikova: 139214
+Miklav≈æ kanal: 902067
+Miklav≈æ pri Ormo≈æu: 139219
+Miklav≈æ Ruprova: 139215
+Miklav≈æ ≈°ola: 139217
+Miklav≈æ Vauhnik: 139218
+Milje: 139222
 Mirna: 139226
-Mirna+peË: 139227
-Mlaka+pri+Kr.: 135889
+Mirna peƒç: 139227
+Mlaka pri Kr.: 135889
 Mlin/Rovtah: 139242
-MoËna: 139245
-Modraûe: 150494
+Mlini most: 139243
+Moƒçna: 139245
+Modra≈æe: 150494
+Modriƒç: 139247
 Mojstrana: 139249
-Mojstrana+Dovje: 139250
-Mojstrana+Podkepa: 139251
-Moravci+toplice+v+Slov.+goricah+K: 150784
-MoravËe: 139256
+Mojstrana Dovje: 139250
+Mojstrana Podkepa: 139251
+Mokronog: 139253
+Moravci toplice v Slov. goricah K: 150784
+Moravƒçe: 139256
+Moretini: 139260
 Morgani: 139261
-Morski+Jarek: 139263
-Morski+Jarek+K: 139264
-MOäKAJNCI+JAMA+(ä): 902119
-Moökanjci: 139269
-Moökanjci+Sok+kapela: 901672
-Moökanjci+éP: 901673
-Muhaber: 136594
-Murska+Sobota+AP: 136519
-Murska+Sobota+Gaj: 139309
-Murska+Sobota+PolaniË: 139313
-Na+Logu: 139323
-Na+Luöi+K: 139324
-Nad+Dolinsko: 135794
+Morje: 139262
+Morski Jarek: 139263
+Morski Jarek K: 139264
+Moste GD: 139273
+Moste Petrol: 150662
+Moste/≈Ωirov.bloki: 139275
+Mosteƒçno: 139277
+Mostje/Ptuju: 139283
+Mostje/Ptuju K: 139284
+Mo≈°e: 139268
+MO≈†KAJNCI JAMA (≈†): 902119
+Mo≈°kanjci: 139269
+Mo≈°kanjci Sok kapela: 901672
+Mo≈°nje: 139270
+Motnik: 139285
+Motnik zg.: 139286
+Mrtvice: 139297
+Mrzli Studenec: 902893
+Muhaber (ne velja): 136594
+Muretinci: 139304
+Murska Sobota AP: 136519
+Murska Sobota Gaj: 139309
+Murska Sobota Polaniƒç: 139313
+Murski Dvor: 139317
+Na Logu: 139323
+Na Lu≈°i K: 139324
+Nad Dolinsko: 135794
 Nadlog: 139329
 Naklo/Kr.: 139332
-Naklo/Kr.ä: 139333
+Naklo/Kr.≈†: 139333
 Naklo/Kr.vas: 139334
 Naklo/Kr.ZD: 139335
 Nasova-Neuvirt: 901680
-Nasova+2+ob+kriûiöËu+Frelih: 901681
-Nasova+pri+Marku: 150671
-NasovËe: 139339
+Nasova 2 ob kri≈æi≈°ƒçu Frelih: 901681
+Nasova pri Marku: 150671
+Nasovƒçe: 139339
+Nedeljska vas: 902895
 Negova: 139345
-Negova+112: 150888
-Negova+jezero: 139346
-Negova+LD: 139347
-Negova+Lipnik: 901682
-Negova+pokopaliöËe: 150889
+Negova 112: 150888
+Negova jezero: 139346
+Negova Lipnik: 901682
+Negova pokopali≈°ƒçe: 150889
+Negova ≈†inko: 139347
+Negovski Vrh 3: 150890
 Negrad: 139348
-Negrad+Osovnik: 139349
-Nemöka+vas/Ribnici: 139357
-Nemökarca: 139358
+Negrad Osovnik: 139349
+Negrod: 139350
+Nemilje: 139353
+Nemilje I: 139354
+Nem≈°ka vas/Ribnici: 139357
+Nem≈°karca: 139358
 Njivica/Kr.: 139363
-NM+AP+(MP): 901318
+Nomenj: 139366
+Noriƒçki Vrh K.: 901685
+Nor≈°inci pri Ljut.: 139367
 Nova: 135795
-Nova+Cerkev: 139369
-Nova+Gorica+AP: 139373
-Nova+Hrastnica: 150400
-Nova+K: 901319
-Nova+vas+Kortina: 139379
-Nova+vas+nad+Dragonjo: 139380
-Nova+vas+pri+Lescah: 139381
-Nova+vas/Markovcih+K: 139385
+Nova Cerkev: 139369
+Nova Gorica AP: 139373
+Nova Hrastnica: 150400
+Nova K: 901319
+Nova vas Kortina: 139379
+Nova vas nad Dragonjo: 139380
+Nova vas pri Lescah: 139381
+Nova vas/Markovcih K: 139385
 Novake: 139389
+Nove Lo≈æine: 139391
+Novi Jork: 139393
+Novi trg: 152197
 Novigrad: 900616
-Novo+mesto+bolnica+GG: 136571
-Novo+mesto+BuËna+vas: 136597
-Novo+mesto+C.brigad: 136624
-Novo+mesto+Drska: 136583
-Novo+mesto+Gotna+vas: 136581
-Novo+mesto+Kandija: 136587
-Novo+mesto+LoËna: 136606
-Novo+mesto+éabja+vas: 136626
-NovokraËine: 139401
-Ob+Dravi: 901690
+Novince: 901687
+Novinci Vr≈°ec: 901688
+Novo mesto: 136569
+Novo mesto bolnica GG: 136571
+Novo mesto Br≈°ljin: 136627
+Novo mesto Br≈°ljin ƒåefide: 165519
+Novo mesto Buƒçna vas: 136597
+Novo mesto C.brigad: 136624
+Novo mesto Drska: 136583
+Novo mesto gim.: 136591
+Novo mesto Gotna vas: 136581
+Novo mesto Kandija: 136587
+Novo mesto Krka: 136592
+Novo mesto Loƒçna: 136606
+Novo mesto novi most: 136619
+Novo mesto Revoz: 136615
+Novo mesto ≈†mihel: 136618
+Novo mesto ≈Ωabja vas: 136626
+Novo mesto ≈Ωupnca (ne velja): 141039
+Novokraƒçine: 139401
+No≈æice: 139402
+Ob Dravi: 901690
 Oblaki: 139406
-OËeslavci: 139416
+Obre≈æ Bobot: 139408
+Obre≈æ GD: 139409
+Obrh: 139413
+Obrne: 139414
+Obrov: 139415
+Oƒçeslavci: 139416
 Okoslavci: 139422
-Okoslavci+breg: 139423
-OljËna+pot-L: 135798
+Okoslavci breg: 139423
+Okroglo: 152278
+Oljƒçna pot-L: 135798
+Olmo: 135799
+Olmo Eden: 901323
+Olmo K: 135800
+Ol≈°evek: 139428
 Opekarna: 139431
 Oplotnica: 139432
-Orehek/StopiËah: 139435
-Orehova+vas+17: 139436
-Orehovica/äentjerneju: 139439
+Orehek/Kr. ≈†.: 900641
+Orehek/Stopiƒçah: 139435
+Orehova vas 17: 139436
+Orehovci: 139437
+Orehovica/≈†entjerneju: 139439
 Orlica: 139452
-Orlica+Gregel: 139453
-Orlica+K: 139454
-Ormoû+bolnica: 901700
-Ornuöka+vas: 139458
-Osek/äempasu: 139460
-Oä+Bohinj+Bistrica: 900654
-Oä+Koroöka+Bela: 900656
-Oä+Preûihov+Voranc: 135752
-OtoËec+Grad: 139488
+Orlica Gregel: 139453
+Orlica K: 139454
+Ormo≈æ: 139456
+Ormo≈æ tov.: 139457
+Ornu≈°ka vas: 139458
+Ortnek: 139459
+Osek/Sl.G.: 139461
+Osek/≈†empasu: 139460
+Oslu≈°evci: 139465
+Oslu≈°evci K: 150779
+Osojnik: 139467
+O≈† Bohinj Bistrica: 900654
+O≈† Br≈°ljin: 901327
+O≈† Koro≈°ka Bela: 900656
+O≈† Pre≈æihov Voranc: 135752
+O≈† Tone ƒåufar: 902917
+Otoƒçec: 139487
+Otoƒçec Grad: 139488
+Otok/Metliki: 139490
 Ozeljan: 139495
-Oûbalt: 139493
-Oûbalt+HE: 139494
+O≈æbalt: 139493
+O≈æbalt HE: 139494
 Pacinje: 139496
-Pacinje+K: 901748
+Pacinje K: 901748
 Paderna: 139497
 Padna: 139501
-Padna+K: 139502
-Pangröica+K: 139515
+Padna K: 139502
+Pangr≈°ica K: 139515
 Parecag: 139518
 Parje: 139520
-ParkiriöËe+Huje: 900677
-Partizanska+(MPK): 901341
+Parkiri≈°ƒçe Huje: 900677
+Partizanska (MPK): 901341
 Pasarela: 901342
-Passo+del+Predil+MP: 901343
-Pavlovci+8: 139523
-Pavlovci+K: 139524
-PD+Planinka+Kop+K: 139525
-PeËica: 139534
+Passo del Predil MP: 901343
+Pavlovci 8: 139523
+Pavlovci K: 139524
+PD Planinka Kop K: 139525
+Peƒçe: 139531
+Peƒçe K: 139533
+Peƒçica: 139534
+Peƒçke: 139539
+Perivnik: 135890
 Pernica: 139541
-Pernica+jezero: 139542
-Pesnica+pri+Mar.: 139551
-Pesnica+pri+Mar.S4: 141721
-Pesnica+rondo: 150268
-Petanjci+G: 139554
-Petanjci+GD: 139555
-Petanjci+kapela: 139556
+Pernica jezero: 139542
+Peroj cerkev: 900693
+Pesnica pri Mar.: 139551
+Pesnica pri Mar.S4: 141721
+Pesnica rondo: 150268
+Pesni≈°ki Dvor: 139552
+Pestike: 139553
+Petanjci G: 139554
+Petanjci GD: 139555
+Petanjci kapela: 139556
+Petelinje: 139557
 Petelinjek/Blagovici: 139558
-Petelinjek/Rateûu: 139560
-Petkovec+ZavËan: 139564
-Petrova+vas+K: 139567
-Pijava+Gorica: 139569
+Petelinjek/Rate≈æu: 139560
+Petkovec: 139563
+Petkovec Zavƒçan: 139564
+Petrinje: 139566
+Petrova vas K: 139567
+Pijava Gorica: 139569
 Pijavice: 139570
+Pilovc: 139571
 Pineta: 900704
 Piran: 136642
-Piran+T.t.: 136643
+Piran T.t.: 136643
 Pirat: 136644
 Pivka: 139579
 Pivola: 139580
-Placar+42: 139582
-Placar+60: 901751
-Placar+KZ: 139583
+Placar 42: 139582
+Placar 60: 901751
+Placar KZ: 139583
 Placerovci: 139584
-PlaË: 139581
-PlaË+(meja): 901752
+Plaƒç: 139581
+Plaƒç (meja): 901752
 Planica/Kr.: 139585
-Planina+pod+Golico: 135753
-Planina+pod+Golico+Transformat: 135754
-Planina+pod+äumnikom: 139591
-Planina+pri+Cerknem: 139592
+Planina pod Golico: 135753
+Planina pod Golico Transformat: 135754
+Planina pod ≈†umnikom: 139591
+Planina pri Cerknem: 139592
 Planina/Rakeku: 139593
+Plav≈°ki Rovt: 902919
+Ples: 139604
+Ple≈°: 139605
 Pleterje/Drav.p.: 139616
 Plitvica: 150672
-Ploderönica: 139623
-Ploderönica+Savernik: 139624
-Ploderönica+äpindler: 139625
-PoËehova+TSN: 136491
-Pod+gradom+-+parkiriöËe: 901755
-Podbevökova+ulica: 136603
-Podbeûe+vas: 150764
+Plitviƒçki Vrh: 139621
+Ploder≈°nica: 139623
+Ploder≈°nica Savernik: 139624
+Ploder≈°nica ≈†pindler: 139625
+Pobegi: 139628
+Pobegi P: 139629
+Pobre≈æje/Ptuju: 139631
+Pobre≈æje/Ptuju trg.: 139632
+Poƒçehova TSN: 136491
+Pod gradom - parkiri≈°ƒçe: 901755
+Pod Voglom: 139635
+Podbev≈°kova ulica: 136603
+Podbe≈æe: 139636
+Podbe≈æe vas: 150764
 Podblica: 139637
-Podgora/Dobrepolju+K: 139649
-Podgora/PreËni: 139651
-Podgora/äk.Loki: 139652
-Podgorje+Gasilski+dom: 901756
-Podgorje+pri+Gornji+Radgoni: 139658
-Podgorje+pri+Gornji+Radgoni+Dresl.: 139659
-Podgorje+Slavka: 150200
+Podbrezje: 139643
+Podbreznik: 152192
+Podbreznik (MP NM): 901350
+Podgora/Dobrepolju K: 139649
+Podgora/Preƒçni: 139651
+Podgora/≈†k.Loki: 139652
+Podgorci 60: 139654
+Podgorci Bombek: 139655
+Podgorje Gasilski dom: 901756
+Podgorje pri Gornji Radgoni: 139658
+Podgorje pri Gornji Radgoni Dresl.: 139659
+Podgorje Slavka: 150200
 Podgorje/Kamniku: 139660
-Podgrad+pri+Gornji+Radgoni: 139668
+Podgrad pri Gornji Radgoni: 139668
 Podgrad/Keblju: 139670
 Podgrad/N.mestu: 152181
 Podgrad/Obrovu: 139672
-Podgrad/Obrovu+ä: 139673
+Podgrad/Obrovu ≈†: 139673
 Podgradje: 150238
 Podgraje: 139675
+Podgriƒç: 139676
+Podhom: 139677
 Podhosta: 139678
-Podhruöka: 139680
-Podigrac+trg.: 139681
-Podklanec/éireh: 139688
-PodkoËna: 135755
-PodlaniöËe: 139696
-Podlehnik+ambulanta: 139698
+Podhrib: 139679
+Podhru≈°ka: 139680
+Podigrac trg.: 139681
+Podjelovo Brdo: 139682
+Podklanec/≈Ωireh: 139688
+Podkoƒçna: 135755
+Podkoren: 139689
+Podku≈æe: 139693
+Podlani≈°ƒçe: 139696
+Podlehnik: 139697
+Podlehnik ambulanta: 139698
+Podljubelj: 139711
+Podljubelj I: 139712
+Podlo≈æe: 150253
+Podlo≈æe K: 139970
+Podlubnik: 136677
+Podmilj: 139717
 Podnanos: 139718
 Podnart: 139719
-Podnart+pri+KovaËu: 139720
-Podova+LaöiË: 139723
+Podnart pri Kovaƒçu: 139720
+Podobeno: 139721
+Podova La≈°iƒç: 139723
 Podpadna: 139724
 Podplat: 139727
 Podpulfrca: 139729
-PodreËa: 135891
-PodreËa+maln: 150226
+Podreƒça: 135891
+Podreƒça maln: 150226
+Podro≈°t: 139733
+Podstenje: 139744
 Podtabor/Il.Bistrica: 139746
+Podturn pri Dol.T.: 139747
 Podvasca: 139749
 Podvelka: 139750
-Podvelka+PotoËnik: 139751
+Podvelka Potoƒçnik: 139751
 Podvin/Rad.: 139752
+Podvinci: 139753
+Podvinci 1: 901760
+Podvinci 70: 150320
+Podvinci GD: 139754
+Podvinci igri≈°ƒçe: 901761
+Podvinci Velovlek K: 139755
+Podzemelj K: 139758
+Pogled: 141266
+Pogled 7 b: 901762
 Pohorje/Cirkulanah: 139759
-PokopaliöËe+SrebrniËe: 136605
-PokopaliöËe+ämihel: 136607
+Pohorski dvor bloki: 139760
+Pohorski dvor obr.: 139761
+Pokopali≈°ƒçe Srebrniƒçe: 136605
+Pokopali≈°ƒçe ≈†mihel: 136607
+Poko≈°e: 139765
 Polana/Preddvoru: 150279
 Polana/Sliv.P.: 139771
-Polenöak: 139774
-Polenöak+G: 139775
+Polenci 9: 901763
+Polen≈°ak: 139774
+Polen≈°ak G: 139775
 Polica/Kr.: 139779
-Police+126a: 901764
-Police+Kapela: 141725
-Poljane+nad+äk.Loko: 139783
-Poljane+Oä: 900736
-Poljane/KoËni: 139786
-PoljËane+Oä: 150495
-PoljËane+éP: 139787
+Police 126a: 901764
+Police I: 901765
+Police Kapela: 141725
+Poljane nad ≈†k.Loko: 139783
+Poljane O≈†: 900736
+Poljane/Koƒçni: 139786
+Poljƒçane O≈†: 150495
+Poljƒçane ≈ΩP: 139787
+Poljƒçe: 139788
+Polje v Bohinju: 139791
+Poljska cesta 1: 902415
+Poljska cesta 2: 902416
+Poljska cesta 3: 902417
+Pol≈°nik K: 139797
 Pomjan: 139802
+Pongrce: 139804
+Ponikve/Dobrepolju: 139811
+Ponikve/Dobrepolju Inv.d.: 139810
+Ponikve/Trebnjem: 139813
+Popovci: 139817
+Poreƒç: 900739
+Portoro≈æ: 136645
+Portoro≈æ H: 136646
 Posavec: 139819
 Posrtvica: 150134
 Postojna: 139821
-Postojna+LIV: 136669
-Postojna+SäC: 139822
-Postojnska+jama: 150621
+Postojna LIV: 136669
+Postojna S≈†C: 139822
+Postojnska jama: 150621
+PO≈† Stogovci: 901771
 Potiskavec: 139823
-PotoËe/AjdovöËini: 139824
-PotoËe/Preddvoru+vas: 900743
-Potok/Straûi: 139827
+Potni≈°ki term.: 135801
+Potoƒçe/Ajdov≈°ƒçini: 139824
+Potoƒçe/Preddvoru: 139825
+Potoƒçe/Preddvoru vas: 900743
+Potok/Stra≈æi: 139827
+Potok/Tuhinju: 139828
+Potoki/Jes.: 139829
+Povlje: 900745
+Povlje K: 150224
+Po≈æenk: 139834
 Prade: 139838
-Pragersko+marof: 139839
-Pragersko+éP: 139840
-Praprotna+Polica: 139849
-Praprotno/SelöËici: 139850
-Praöe: 135892
-PrebaËevo: 139851
-PrebaËevo+I: 139852
-PrebaËevo+kapelica: 900751
-PreËna: 139856
-Preddvor+Kriûnar: 150663
-Preddvor+pri+Zupancu: 139860
-Preddvor+trgovina: 139858
+Pragersko marof: 139839
+Pragersko ≈ΩP: 139840
+Praprotna Polica: 139849
+Praprotno/Sel≈°ƒçici: 139850
+Pra≈°e: 135892
+Prebaƒçevo: 139851
+Prebaƒçevo I: 139852
+Prebaƒçevo kapelica: 900751
+Preƒçna: 139856
+Preddvor bloki: 139859
+Preddvor Kri≈ænar: 150663
+Preddvor pri Zupancu: 139860
+Preddvor ≈†: 900752
+Preddvor trgovina: 139858
+Predel K: 900753
+Predel MP: 901357
+Predole K: 139866
+Predoslje: 135893
+Predoslje GD: 900754
+Predoslje ≈†: 135894
+Predstruge: 139867
 Pregarje: 139869
-Prelog+Magan: 139879
-Premantura: 900756
+Prelesje/Mokronogu: 139877
+Prelog: 139878
+Prelog Magan: 139879
+Premantura fontana: 900756
 Prepolje/Drav.p.: 139887
 Prepolje/Drav.p.G: 139888
-Prerad+K: 139889
-Preserje+pri+Radomljah: 139892
-Preska+pri+Medvodah: 139896
-Preska+pri+TrûiËu: 139897
+Prerad K: 139889
+Preserje pri Radomljah: 139892
+Preska pri Medvodah: 139896
+Preska pri Tr≈æiƒçu: 139897
 Prestranek: 139900
-Preöa: 139890
-Pri+Amru: 139914
-Pri+Barbi: 139915
-Pri+Barbi+Pavelnu: 139916
+Pre≈°a: 139890
+Pretre≈æ: 139902
+Prevoje: 139910
+Prevole: 139911
+Pri Amru: 139914
+Pri Barbi: 139915
+Pri Barbi Pavelnu: 139916
+Pri cerkvi: 139918
+Pri Klusu: 139919
 Prigorica/Ribnici: 139921
-Primskovo+Mercator: 135895
-Primskovo+na+Klancu: 135896
+Prihodi: 135756
+Prilesje: 139923
+Primostek: 139926
+Primskovo Dolnov: 900773
+Primskovo Mercator: 135895
+Primskovo na Klancu: 135896
+Prisoje: 135802
+Prisoje pod: 135803
 Pristava: 135757
-Pristava+Spomenik: 135758
+Pristava Spomenik: 135758
 Pristava/Cirkulanah: 139931
-Pristava/Cirkulanah+K: 139932
-Pristava/Trû.: 139934
-Pröetinci+Kapela: 139949
-Pö.Polica: 139954
-Pöevska+c.52: 135897
-Ptuj+AP: 139956
-Ptuj+Budina: 139960
-Ptuj+Maistrova+ulica: 150322
-Ptuj+na+obreûju: 150673
-Ptuj+Nova+vas: 139961
-Ptuj+Nova+vas+89: 150323
-Ptuj+Nova+vas+cerkev: 150324
-Ptuj+Ormoöka: 139962
-Ptuj+Pivkova+ulica: 150325
-Ptuj+pod+Gradom: 150326
-Ptuj+Rogoznica: 139963
-Ptuj+Rogoznica+n.pokop.: 139965
-Ptuj+Rogoznica+zad.: 139966
-Ptuj+Svrûnjakova+4: 150327
-Ptuj+Transservis: 139968
-Ptuj+Zadruûni+trg: 152155
-Ptuj+éupanËiËeva+10: 150330
-Ptujska+Gora: 139971
-Ptujska+Gora+108: 139972
+Pristava/Cirkulanah K: 139932
+Pristava/Tr≈æ.: 139934
+Pr≈°etinci K: 139948
+Pr≈°etinci Kapela: 139949
+Prvenci: 139953
+P≈°.Polica: 139954
+P≈°evo: 139955
+P≈°evska c.52: 135897
+Ptuj AP: 139956
+Ptuj bol.: 139957
+Ptuj Breg: 139958
+Ptuj Breg trg.: 139959
+Ptuj Budina: 139960
+Ptuj Maistrova ulica: 150322
+Ptuj Nova vas: 139961
+Ptuj Nova vas 89: 150323
+Ptuj Nova vas cerkev: 150324
+Ptuj Ormo≈°ka: 139962
+Ptuj Pivkova ulica: 150325
+Ptuj pod Gradom: 150326
+Ptuj Rogoznica: 139963
+Ptuj Rogoznica n.pokop.: 139965
+Ptuj Rogoznica zad.: 139966
+Ptuj Selska c.46: 902413
+Ptuj S≈†C: 139967
+Ptuj Svr≈ænjakova 4: 150327
+Ptuj Transservis: 139968
+Ptuj Turni≈°ƒçe: 139969
+Ptuj Ul. 5 Prekomorske 13: 150328
+Ptuj Zadru≈æni trg: 152155
+Ptuj ≈Ωupanƒçiƒçeva 10: 150330
+Ptujska Gora: 139971
+Ptujska Gora 108: 139972
+Puƒçe: 139973
+Puƒçe K: 139974
 Pula: 900782
 Pungart: 139980
-PuöËava/Lovrencu: 139983
-PuöËava/Mokronogu: 139984
-Puötal+pri+Dolencu: 150401
+Pungert: 900784
+Pu≈°ƒçava/Lovrencu: 139983
+Pu≈°ƒçava/Mokronogu: 139984
+Pu≈°enci K: 139985
+Pu≈°tal pri Dolencu: 150401
 Qlandia: 136610
-RabeljËja+vas: 150332
-RaËe+80: 139992
-RaËe+Mariborska+61: 139993
-RaËe+Pinus: 139994
-RaËice: 150135
+Rabeljƒçja vas: 150332
+Raƒçe 80: 139992
+Raƒçe Mariborska 61: 139993
+Raƒçe Pinus: 139994
+Raƒçice: 150135
 Radehova: 140003
 Radenci: 140004
 Radizel: 140007
-Radizel+63: 140008
-Radlje+ob+Dravi: 140009
-Radna+vas: 140015
-Radohova+vas/Pivki: 140016
+Radizel 63: 140008
+Radlje ob Dravi: 140009
+Radna vas: 140015
+Radohova vas/Pivki: 140016
 Radomerje: 140018
-Radomerje+GD: 150239
+Radomerje GD: 150239
 Radomlje: 140019
-Radomlje+Poöta: 150109
+Radomlje Po≈°ta: 150109
 Radoslavci: 140020
-Radoslavci+Bratuöa+68: 150498
+Radoslavci Bratu≈°a 68: 150498
 Radovlja: 140025
 Radovljica: 140026
-Radovljica+Isospan: 140027
-Radovljica+ä: 140028
-Raduha+pri+Sladkem+Vrhu: 141727
-Radvenci+32: 150891
-Radvenci+kapela: 150892
-RafolËe: 140032
+Radovljica ≈†: 140028
+Radovljica zahod: 140027
+Raduha pri Sladkem Vrhu: 141727
+Radvenci 32: 150891
+Radvenci kapela: 150892
+Rafolƒçe: 140032
 Ragovo: 136611
-Ragovska+ulica: 136612
+Ragovska ulica: 136612
 Raka: 140035
-RakiËan: 140041
+Rakiƒçan: 140041
 Rakitnik: 140044
 Rakovica: 135898
 Rakovnik/Medvodah: 140050
 Ranca: 140051
-Raöica: 140054
-Ratanska+vas: 140055
-RateËe+MP: 901362
-RateËe+Planica: 140056
-Rateû: 140058
+Ra≈°ica: 140054
+Ratanska vas: 140055
+Rateƒçe MP: 901362
+Rateƒçe Planica: 140056
+Rate≈æ: 140058
 Ratkovec: 150665
+Ravne pod Krvavcem: 902488
 Razbank: 140080
 Razdrto: 140084
-Razdrto+K: 140085
-Razdrto+tri+hiöe: 140086
-RdeËi+Kal: 140095
-ReËica/Bledu: 140101
-ReËica/Bledu+LIP: 140102
-ReËica/Bledu+ép: 140103
-RegrËa+vas+I: 136613
-RegrËa+vas+II: 136614
-Reka/HoË.P.: 140107
-Retje/V.LaöËah: 140131
-RibËev+Laz: 140134
-Ribnica+na+Poh.»uËej: 140136
-Ribnica+na+Poh.Kosov.K: 140137
-Ribnica+na+Poh.Lipuö: 140138
-Ribnica+na+Poh.Puöa: 140139
-Ribnica+na+Poh.Viltuûnik: 140140
-Ribnica+na+Pohorju: 140141
-Ribnica/Dol+Ob+ûeleznici: 152107
+Razdrto K: 140085
+Razdrto tri hi≈°e: 140086
+Rdeƒçi Kal: 140095
+Reber/≈Ωu≈æemberku K: 140097
+Reƒçica/Bledu: 140101
+Reƒçica/Bledu LIP: 140102
+Reƒçica/Bledu ≈Ωp: 140103
+Regrƒça vas I: 136613
+Regrƒça vas II: 136614
+Reka/Hoƒç.P.: 140107
+Renke: 140113
+Rep: 140116
+Reteƒçe: 140129
+Retje/V.La≈°ƒçah: 140131
+Ribƒçe sp.: 140132
+Ribƒçe zg.: 140133
+Ribƒçev Laz: 140134
+Ribnica na Poh.ƒåuƒçej: 140136
+Ribnica na Poh.Kosov.K: 140137
+Ribnica na Poh.Lipu≈°: 140138
+Ribnica na Poh.Pu≈°a: 140139
+Ribnica na Poh.Viltu≈ænik: 140140
+Ribnica na Pohorju: 140141
+Ribnica/Dol Ob ≈æeleznici: 152107
 Ribnica/Dol.: 140142
+Ribno: 140145
 Rihtarovci: 140146
-Rimska+peË: 901792
-Riûana: 140152
-Rjavci/HoËje: 901794
+Rimska peƒç: 901792
+RITOZNOJ: 901793
+Ri≈æana: 140152
+Rjavci/Hoƒçje: 901794
 Rodica: 140160
-Rog.Slatina: 140165
+Rodine: 140162
+Rodni Vrh K: 140164
+Roga≈°ka Slatina: 140165
 Rogovila: 140174
-Rogoza+KS: 140175
-Rogoza+obr.: 140176
-Rogoza+Vrtec: 140177
-Rogoznica/Jiröovcih: 140178
-Roökar-kmeËki+turizem: 901797
-Roönja: 140186
+Rogoza KS: 140175
+Rogoza obr.: 140176
+Rogoza Vrtec: 140177
+Rogoznica/Jir≈°ovcih: 140178
+Roje: 140179
+Ro≈°kar-kmeƒçki turizem: 901797
+Ro≈°nja: 140186
+Rotek: 140187
 Rova/Radomljah: 140188
+Rovinj: 900816
+Rovte: 140193
+Rovte K: 140194
 Rozmanova: 135804
-Rozmanova+I: 901367
-Rozmanova+II: 902241
-Rozmanova+ä: 901368
-Roûengrunt+kapela: 140196
-Roûengrunt+ûaga: 140197
-Roûna+Dolina: 136559
-Roûna+ulica: 135899
+Rozmanova I: 901367
+Rozmanova II: 902241
+Rozmanova ≈†: 901368
+Ro≈æengrunt kapela: 140196
+Ro≈æengrunt ≈æaga: 140197
+Ro≈æice: 140199
+Ro≈æna Dolina: 136559
+Ro≈æna ulica: 135899
 Rucmanci: 140206
-RuËetna+vas+K: 140205
-Rumanja+vas: 140214
+Ruƒçetna vas K: 140205
+Rudno: 140212
+Rudno Polje: 902900
+Rumanja vas: 140214
+Runeƒç: 152185
 Rupa: 135900
-RuperËe+Loûane: 140217
-Ruska+kapelica: 900823
-Ruöe+Tov.duöika+K: 140222
-Ruöe/Smolniku+viadukt: 138936
+Ruperƒçe: 140216
+Ruperƒçe Lo≈æane: 140217
+Ruperƒçvrh: 140218
+Ruska kapelica: 900823
+Ru≈°e: 140219
+Ru≈°e GD: 150346
+Ru≈°e ≈†: 140220
+Ru≈°e ≈†C: 140223
+Ru≈°e ≈†kerget: 138935
+Ru≈°e Tov.du≈°ika K: 140222
+Ru≈°e/Smolniku viadukt: 138936
 Ruta: 140224
 Sabonje: 150765
-Sabonjski+most: 140226
+Sabonjski most: 140226
 Sajevce: 140230
-Sakuöak: 140232
-Salon+Kolpa: 152208
-Sava+K: 140246
-Savci+53: 140247
-Savci+70: 140248
-Savica+vas/village: 140249
+Saku≈°ak: 140232
+Salon Kolpa: 152208
+Sava K: 140246
+Savci 53: 140247
+Savci 70: 140248
+Savica vas/village: 140249
 Savinjsko: 901805
-SeËa: 140261
-Sejanci+51: 140269
-Sela+pri+Dragatuöu: 140276
-Sela+pri+Raki: 140277
+Sebenje/Bledu: 140255
+Sebenje/Tr≈æ.: 140256
+Seƒça: 140261
+Seƒçovlje K: 140262
+Seƒçovlje MP/Dragonja MP: 902911
+Seƒçovlje ≈†: 140263
+Segovci: 140268
+Segovci 32b: 901808
+Segovci 49: 901809
+Sejanci 51: 140269
+Sela pri Dragatu≈°u: 140276
+Sela pri Raki: 140277
 Sela/Dol.T.: 140279
 Sela/Podgrajah: 140281
 Sela/Ptuju: 140282
-Sela/Ptuju+K: 140283
-Sela/äentjerneju: 140284
+Sela/Ptuju K: 140283
+Sela/≈†entjerneju: 140284
 Selca: 141672
-Sele+pri+Polskavi+kapela: 140293
-Selnica+ob+Dravi: 140299
-Selnica+ob+Muri+K: 140300
-Selnica+ob+Muri+Lah: 140301
-Selo+pri+MoravËah: 140303
-Selo/AjdovöËini: 140308
+Selce/Pivki: 140290
+Selce/Sl.G.: 140291
+Sele pri Polskavi kapela: 140293
+Selnica ob Dravi: 140299
+Selnica ob Muri K: 140300
+Selnica ob Muri Lah: 140301
+Selo pri Moravƒçah: 140303
+Selo/Ajdov≈°ƒçini: 140308
+Selo/≈Ωireh: 140311
+Selo/≈Ωireh I: 140312
+Semiƒç: 140316
 Senadole: 140323
 Senadolice: 140324
-SenËak+pri+Juröincih: 140325
-SenËak+pri+Juröincih+30: 140326
-Senica+sp.: 140333
-Senica+zg.: 140334
-Senoûeti/Lit.pri+Janezu: 140341
+Senƒçak pri Jur≈°incih: 140325
+Senƒçak pri Jur≈°incih 30: 140326
+Sene≈°ci: 140332
+Senica sp.: 140333
+Senica zg.: 140334
+Seniƒçno: 140335
+Seno≈æeƒçe: 140340
+Seno≈æeti/Lit.pri Janezu: 140341
+Seno≈æeti/Litiji: 140342
+Seno≈æeti/Litiji K: 140343
+Sestr≈æe: 150254
 Sevnica: 140390
-Sevnica+ämarje: 140394
-Seûana: 140396
-Seûana+obËina: 140397
-Simonov+zaliv: 140402
+Sevnica ≈†marje: 140394
+Sevno: 136617
+Se≈æana: 140396
+Se≈æana obƒçina: 140397
+Simonov zaliv: 140402
 Sitarovci: 140408
+Skoke: 140436
 Skorba: 140445
-Sladki+Vrh: 140470
+Skrovnik: 140454
+Sl.Konjice: 140469
+Sladki Vrh: 140470
 Slamnjak: 150240
-Slap+Savica/waterfall: 140476
-Slap/Trû.: 140477
+Slap Savica/waterfall: 140476
+Slap/Tr≈æ.: 140477
 Slape: 140479
 Slatenik: 140480
-Slatinski+Dol: 140483
+Slatinski Dol: 140483
 Slatna: 140484
-Slavöina+Galuöak: 901819
-Slavöina+Koöarjak: 901820
-Slavöina+odcep+Jaklin: 901821
-Slavöina/Novinci: 901822
-Slivnica+pri+Mar.: 140492
-Slovenja+vas: 140497
-Slovenska+Bistrica: 140455
-Slovenska+Bistrica+GD: 140457
-Slovenska+Bistrica+grad: 140458
-Slovenska+Bistrica+Impol: 140459
-Slovenska+Bistrica+LD: 140460
-Slovenska+Bistrica+Leonardo: 140456
-Slovenska+Bistrica+Mercator: 140461
-Slovenska+Bistrica+ZD: 140462
-Slovenska+Bistrica+éP: 140463
-Slovenska+vas/Mirni: 140498
-Slovenski+Javornik: 135759
-Slovenski+Javornik+K: 150194
-Slovenski+Javornik+Turist: 135760
-Smolinci+Hanûekovci: 140540
-Smolnik+obraËaliöËe: 150347
-SoËa: 140559
+Slav≈°ina Galu≈°ak: 901819
+Slav≈°ina Ko≈°arjak: 901820
+Slav≈°ina odcep Jaklin: 901821
+Slav≈°ina/Novinci: 901822
+Slivnica pri Mar.: 140492
+Slomi K: 140496
+Slovenja vas: 140497
+Slovenska Bistrica: 140455
+Slovenska Bistrica GD: 140457
+Slovenska Bistrica grad: 140458
+Slovenska Bistrica Impol: 140459
+Slovenska Bistrica LD: 140460
+Slovenska Bistrica Leonardo: 140456
+Slovenska Bistrica Mercator: 140461
+Slovenska Bistrica ZD: 140462
+Slovenska Bistrica ≈ΩP: 140463
+Slovenska vas/Mirni: 140498
+Slovenski Javornik: 135759
+Slovenski Javornik K: 150194
+Slovenski Javornik Turist: 135760
+Smednik: 140529
+Smlednik: 140536
+Smokuƒç: 140538
+Smolinci Han≈æekovci: 140540
+Smolnik obraƒçali≈°ƒçe: 150347
+Smreƒçje v ƒårni: 140546
+Smreƒçno: 140552
+Smrje: 140554
+Smrjene: 140555
+Sobetinci: 140558
+Soƒça: 140559
+Sodinci: 140566
+Sodre≈æ: 140570
 Sora: 140581
 Sorica: 140582
-Soteska+v+Bohinju: 140587
+Sori≈°ka planina: 902418
+Soteska v Bohinju: 140587
 Soteska/Dvoru: 140588
 Soteska/Kamniku: 140589
+Soviƒçe: 140593
+Soviƒçe 1: 140594
 Sovjak: 901827
-Sp.Bitnje+pri+BoönjakoviËu: 135901
-Sp.Breûnica: 140600
-Sp.»agona: 141730
+Sovodenj: 140595
+Sp.Bitnje pri Bo≈°njakoviƒçu: 135901
+Sp.Bre≈ænica: 140600
+Sp.ƒåagona: 141730
 Sp.Danje: 140602
-Sp.Duplek+SlaniË: 140608
-Sp.Gorica+48: 140610
-Sp.Gorica+K: 140611
+Sp.Duplek: 140606
+Sp.Duplek Log: 140607
+Sp.Duplek Slaniƒç: 140608
+Sp.Gorica 48: 140610
+Sp.Gorica K: 140611
 Sp.Hajdina: 140614
-Sp.Hajdina+ä: 140615
-Sp.Hajdina+trg.: 150623
-Sp.Hajdina+éP: 901836
-Sp.HoËe+Odc.letaliöËe: 140618
-Sp.HoËe+öola: 141732
+Sp.Hajdina ≈†: 140615
+Sp.Hajdina trg.: 150623
+Sp.Hajdina ≈ΩP: 901836
+Sp.Hoƒçe: 140616
+Sp.Hoƒçe K: 140617
+Sp.Hoƒçe Odc.letali≈°ƒçe: 140618
+Sp.Hoƒçe pokop.: 140619
+Sp.Hoƒçe ≈°ola: 141732
+Sp.Hoƒçe ≈ΩP: 140620
 Sp.Ivanjci: 140622
-Sp.Ivanjci+kapela: 901837
+Sp.Ivanjci kapela: 901837
 Sp.Jablane: 140623
-Sp.Jakobski+Dol+K: 140625
-Sp.KamenöËak+kapela: 140626
+Sp.Jakobski Dol K: 140625
+Sp.Kamen≈°ƒçak kapela: 140626
 Sp.Kapla: 140628
-Sp.KljuËarovci+kapela: 140629
-Sp.KljuËarovci+trg.: 140630
-Sp.KovaË: 140632
-Sp.Kungota+Fifolt: 140634
-Sp.Kungota+KovaË: 140635
+Sp.Kljuƒçarovci kapela: 140629
+Sp.Kljuƒçarovci trg.: 140630
+Sp.Kovaƒç: 140632
+Sp.Kungota Fifolt: 140634
+Sp.Kungota Kovaƒç: 140635
 Sp.Lancovo: 140636
+Sp.Leskovec/Ptuju: 140639
 Sp.Lipnica: 140640
+Sp.Log: 140641
 Sp.Loke/Blagovici: 140642
-Sp.Loûnica+pri+Slovenski+Bistrici+Ipavec: 140644
-Sp.Loûnica+pri+Slovenski+Bistrici+K: 140645
-Sp.Loûnica/MosteËnem: 140643
+Sp.Lo≈ænica pri Slovenski Bistrici Ipavec: 140644
+Sp.Lo≈ænica pri Slovenski Bistrici K: 140645
+Sp.Lo≈ænica/Mosteƒçnem: 140643
+Sp.Otok: 140647
 Sp.Pohanca: 140650
-Sp.PoljËane+»oh: 140651
+Sp.Poljƒçane ƒåoh: 140651
 Sp.Polskava: 140652
-Sp.Polskava+83: 140653
+Sp.Polskava 83: 140653
+Sp.Prebukovje: 140654
 Sp.Senarska: 140667
-Sp.SveËa: 140670
-Sp.äalovci: 152137
-Sp.äËavnica: 140664
-Sp.äËavnica+Police+K: 140665
-Sp.äËavnica+Roöker+K: 140666
-Sp.Tuötanj: 140673
-Sp.Velka+AnkoviË: 150388
-Sp.Velka+breg: 150389
-Sp.Velka+MuhiË: 150500
-Sp.Velka+Pomberg: 150390
-Sp.Viûinga: 140676
+Sp.Slemen: 140668
+Sp.Sveƒça: 140670
+Sp.≈†alovci: 152137
+Sp.≈†ƒçavnica: 140664
+Sp.≈†ƒçavnica Police K: 140665
+Sp.≈†ƒçavnica Ro≈°ker K: 140666
+Sp.Tu≈°tanj: 140673
+Sp.Velka Ankoviƒç: 150388
+Sp.Velka breg: 150389
+Sp.Velka Muhiƒç: 150500
+Sp.Velka Pomberg: 150390
+Sp.Velovlek: 140674
+Sp.Visole: 140675
+Sp.Vi≈æinga: 140676
 Sp.Vodale: 140677
-Sp.VoliËina: 140678
-Sp.VoliËina+Kranjc: 140679
-Sp.éerjavci: 140682
-Spodnja+Bela: 140688
-Spodnje+Gorje+trgovina: 140691
-Spodnji+Brnik+vas: 150091
+Sp.Voliƒçina: 140678
+Sp.Voliƒçina Kranjc: 140679
+Sp.≈Ωerjavci: 140682
+Spodnja Bela: 140688
+Spodnje Bitnje: 140689
+Spodnje Gorje: 140690
+Spodnje Gorje trgovina: 140691
+Spodnji Brnik: 140692
+Spodnji Brnik vas: 150091
+Spodnji Loƒçiƒç: 902103
 Spuhlja: 140693
-Spuhlja+Bezjak+ûaga: 901843
-Spuhlja+G: 140694
-Sr.Bitnje+Avto+prevoz+Hafner: 135902
-Sr.Bitnje+Zora: 135905
-Sr.vas+pri+Kamniku: 140707
+Spuhlja Bezjak ≈æaga: 901843
+Spuhlja G: 140694
+Sr.Bitnje Avto prevoz Hafner: 135902
+Sr.Bitnje most pri Bitencu: 135903
+Sr.Bitnje Pokorn: 135904
+Sr.Bitnje Zora: 135905
+Sr.Osek Vogrinec: 140703
+Sr.vas pri Kamniku: 140707
+Sr.Visole: 140710
 Srakovlje: 135906
-Srebotje+tran.: 140713
-SrebrniËeva: 135805
-SrediöËe+ob+Dravi: 140717
-Srednja+Bela: 140718
-Srednja+Bela+KraËman: 150280
-Srednja+vas+pri+Poljanah: 140719
-Srednja+vas+pri+äenËurju: 140720
-Srednja+vas+pri+TrûiËu: 140721
-Srednja+vas+v+Bohinju: 140722
-Srednja+vas/GoriËe: 900893
-Srobotnik/V.LaöËah: 150439
-St.BuËka: 140729
-St.Cesta+84: 150241
-St.Cesta+éerovinci+K: 150242
-St.Grad/Krökem: 140731
+Srebotje Nikel: 140712
+Srebotje tran.: 140713
+Srebrniƒçe: 140714
+Srebrniƒçeva: 135805
+Sredi≈°ƒçe ob Dravi: 140717
+Srednja Bela: 140718
+Srednja Bela Kraƒçman: 150280
+Srednja vas pri Poljanah: 140719
+Srednja vas pri ≈†enƒçurju: 140720
+Srednja vas pri Tr≈æiƒçu: 140721
+Srednja vas v Bohinju: 140722
+Srednja vas/Goriƒçe: 900893
+Srednje Bitnje: 140723
+Srmin GORC II: 902604
+Srmin GORC III: 902605
+Srobotnik/V.La≈°ƒçah: 150439
+St.Buƒçka: 140729
+St.Cerkev: 140730
+St.Cesta 84: 150241
+St.Cesta ≈Ωerovinci K: 150242
+St.Grad/Kr≈°kem: 140731
 St.Lipa: 140733
-St.Nova+vas: 140735
+St.Log: 140734
+St.Nova vas: 140735
 Stadion: 135806
 Stahovica: 140751
-StaneËka+vas: 150255
-Stanoöina: 140758
-Stara+Fuûina: 140760
-Stara+Sava: 900906
-Stari+Dvor: 140761
-Stari+Dvor+Frankovo: 136678
+Staneƒçka vas: 150255
+Stano≈°ina: 140758
+Stara Fu≈æina: 140760
+Stara Sava: 900906
+Stari Dvor: 140761
+Stari Dvor Frankovo: 136678
 Starod: 150766
-Starod+vas: 150767
-Staröe: 140764
-Staveöinci+11a: 901858
-Staveöinci+GD: 150893
-Staveöinci+pri+kriûu: 901859
-Staveöinski+Vrh+15a: 901862
-Staveöinski+Vrh+40+a: 901863
-Staveöinski+Vrh+44: 901864
-Stogovci+pri+Gornji+Radgoni: 140775
-Stogovci/Majöperku: 140776
+Starod vas: 150767
+Star≈°e: 140764
+Stave≈°inci 11a: 901858
+Stave≈°inci GD: 150893
+Stave≈°inci pri kri≈æu: 901859
+Stave≈°inski Vrh 15a: 901862
+Stave≈°inski Vrh 40 a: 901863
+Stave≈°inski Vrh 44: 901864
+Stegne: 140767
+Stogovci 41: 901865
+Stogovci 48: 150894
+Stogovci pri Gornji Radgoni: 140775
+Stogovci/Maj≈°perku: 140776
+Stojnci: 140777
+Stojnci trg.: 140778
+Stoperce: 140782
+Stopiƒçe: 140783
+Stopno: 140785
 Strahinj: 140791
-Strahinj+posestvo: 140792
+Strahinj posestvo: 140792
 Stranje: 140798
-Stranje+Koritnik: 140799
-Stranje+ä: 140800
-Stranje+älebir: 140801
-Stranska+vas/N.mestu: 152169
-Stranska+vas/N.mestu+K: 152168
-Straûa: 135761
-Straûa+pri+Raki: 140804
-Straûa+pri+Raki+K: 140147
-Straûa/N.mestu: 140806
-Straûa/Oplotnici: 140807
-Straûgonjca: 140809
-Strdenova+ravna: 140811
-Strezetina+znamenje: 140815
-Strma+Gora: 140818
-Strmec+JanûekoviË: 901877
-Strmec+na+Predelu: 901384
+Stranje Koritnik: 140799
+Stranje ≈†: 140800
+Stranje ≈†lebir: 140801
+Stranska vas/N.mestu: 152169
+Stranska vas/N.mestu K: 152168
+Stra≈æa: 135761
+Stra≈æa pri Raki: 140804
+Stra≈æa pri Raki K: 140147
+Stra≈æa/N.mestu: 140806
+Stra≈æa/Oplotnici: 140807
+Stra≈ægonjca: 140809
+Strdenova ravna: 140811
+Strelci: 140814
+Strezetina znamenje: 140815
+Strma Gora: 140818
+Strmec Jan≈æekoviƒç: 901877
+Strmec na Predelu: 901384
+StrmecK: 901878
+StrmecKocmut: 901879
+Strug: 140822
+Struge: 140823
 Strunjan: 136647
+Stru≈æevo bloki: 135907
+Stru≈æevo KS: 135908
+Stru≈æevo pod ≈æel.mostom: 135909
+Studenice: 140834
+Studeno/≈Ωelez.: 140835
+Studeno/≈Ωelez. I: 141673
+Studor: 140836
 Suha: 135910
-Suha+veja: 140837
-Suhi+Dol/LuËinah: 140838
+Suha veja: 140837
+Suhi Dol/Luƒçinah: 140838
+Suhi Vrh: 140840
+Sujek K: 138641
 Supernova: 135807
-Suöak: 140847
-Sv.+Ana: 135808
-Sv.+Ana+p.t.: 135809
-Sv.Ana+v+Sl.G.: 140851
-Sv.Ana+v+Sl.G.K: 140852
+Su≈°ak: 140847
+Sv. Ana: 135808
+Sv. Ana p.t.: 135809
+Sv.Ana v Sl.G.: 140851
+Sv.Ana v Sl.G.K: 140852
 Sv.Anton: 140853
-Sv.Duh+na+Ostr.V.: 140858
-Sv.Duh+na+Ostr.V.K: 140859
-Sv.Duh+na+Ostr.V.Reö: 140860
-Sv.Duh+na+Ostr.V.RopiË: 140861
-Sv.Jurij+ob+äËavnici: 140865
+Sv.Duh na Ostr.V.: 140858
+Sv.Duh na Ostr.V.K: 140859
+Sv.Duh na Ostr.V.Re≈°: 140860
+Sv.Duh na Ostr.V.Ropiƒç: 140861
+Sv.Jurij ob ≈†ƒçavnici: 140865
 Sv.Maver: 150214
-Sv.Maver+K: 150215
-Sv.Maver+obr.: 140869
+Sv.Maver K: 150215
+Sv.Maver obr.: 140869
 Sv.Peter/Piranu: 140872
-Sv.Peter/Piranu+obr.: 140873
-Sv.Peter/Piranu+öola: 140874
-Sv.Peter/Piranu+ZD: 150269
-Sv.Tomaû: 140878
-Sv.Trojica+v+Sl.G.: 140879
+Sv.Peter/Piranu obr.: 140873
+Sv.Peter/Piranu ≈°ola: 140874
+Sv.Peter/Piranu ZD: 150269
+Sv.Toma≈æ: 140878
+Sv.Trojica v Sl.G.: 140879
 Svarje: 900938
-SveËane: 140881
-SveËina: 140882
-äalara: 140236
-äalara+K: 150220
-äalara+K+Gaûon: 150216
-äalara+market: 135797
-äalara+pod+Gaûonom: 150217
-äalovci+breg: 152139
-äared: 140242
-äared+G: 140243
-äempas: 140318
-äenËur+na+Jami: 140330
-äenËur+poslovna+cona: 902116
-äentilj+Majer: 150391
-äetarova: 140385
-äkocjan/Kopru+K: 140422
-äkocjan/N.mestu: 140423
-äkofije+meja: 140426
-äkofja+Loka: 136679
-äkofja+Loka+EGP: 140427
-äkofja+Loka+Kroj: 136680
-äkofja+Loka+Lipica: 136681
-äkofja+Loka+Plevna: 136682
-äkofja+Loka+Puötal: 140429
-äkofja+Loka+St.Loka: 136683
-äkofja+Loka+éP: 136684
-äkofljica: 136692
-äkofljica+ûaga: 136690
-äkrjanËe/N.mestu: 140453
-äkrjanËevo: 150108
-ämarca+K: 140501
-ämarca+Kik: 150201
-ämarca+vas: 140502
-ämarje/Kopru: 140506
-ämarje/Kopru+K: 140507
-ämarje/Kopru+K+Pomjan: 150218
-ämarje/Kopru+ä: 150195
-ämarje/äentjerneju: 140508
-ämarjeöke+Toplice: 140511
-ämarjeta/N.mestu: 140513
-ämartno+na+Pohorju: 140514
-ämartno+v+Tuhinju: 140526
-ämartno/Cerkljah: 140527
-ämiklavû/G.Gradu: 140534
-äomat+K: 140578
-äpanov+most: 140683
-äpitaliË/Motniku: 140687
-äratovci: 140711
-ätatenberk: 140765
-ätuda+polje: 150110
-ätuda+trgovina: 140826
-ätuki+21a: 150335
-äukljetova+ulica: 152195
-äukljetova,+Krallova+ulica: 136620
-äumanËeva+ûaga: 140846
-äumica: 138223
-Tarvisio+autostazione: 900972
-Tarvisio+V.S.Spizzo: 901389
-Tarvisio+Via+Stefano+Spizzo: 900973
+Sveƒçane: 140881
+Sveƒçina: 140882
+Sveti Duh: 140884
+Svetinci: 140887
+Svetinje K: 140888
+≈†alara: 140236
+≈†alara K: 150220
+≈†alara K Ga≈æon: 150216
+≈†alara market: 135797
+≈†alara pod Ga≈æonom: 150217
+≈†alovci breg: 152139
+≈†ared: 140242
+≈†ared G: 140243
+≈†embije: 140315
+≈†empas: 140318
+≈†enƒçur: 140329
+≈†enƒçur na Jami: 140330
+≈†enƒçur poslovna cona: 902116
+≈†enƒçur ≈†: 140331
+≈†entilj Majer: 150391
+≈†entilj/Sl.G.kosi: 140348
+≈†entilj/Sl.G.obr.: 140349
+≈†entilj/Sl.G.≈ΩP: 140350
+≈†entjernej: 140357
+≈†ENTOVEC: 901887
+≈†ento≈æbolt: 140369
+≈†entrupert/Mirni: 140371
+≈†enturska Gora Polane: 902485
+≈†entur≈°ka Gora/Gasilski dom: 902486
+≈†entvid pri Lukovici: 140373
+≈†etarova: 140385
+≈†evlje: 140388
+≈†evlje K: 140389
+≈†ikole: 140400
+≈†kocjan/Kopru K: 140422
+≈†kocjan/N.mestu: 140423
+≈†kofije: 140425
+≈†kofije meja: 140426
+≈†kofja Loka: 136679
+≈†kofja Loka EGP: 140427
+≈†kofja Loka Kroj: 136680
+≈†kofja Loka Lipica: 136681
+≈†kofja Loka Plevna: 136682
+≈†kofja Loka Pu≈°tal: 140429
+≈†kofja Loka St.Loka: 136683
+≈†kofja Loka ≈ΩP: 136684
+≈†kofljica: 136692
+≈†kofljica ≈æaga: 136690
+≈†krjanƒçe/N.mestu: 140453
+≈†krjanƒçevo: 150108
+≈†marca K: 140501
+≈†marca Kik: 150201
+≈†marca vas: 140502
+≈†marje/Kopru: 140506
+≈†marje/Kopru K: 140507
+≈†marje/Kopru K Pomjan: 150218
+≈†marje/Kopru ≈†: 150195
+≈†marje/≈†entjerneju: 140508
+≈†marje≈°ke Toplice: 140511
+≈†marjeta/N.mestu: 140513
+≈†martno na Pohorju: 140514
+≈†martno v Tuhinju: 140526
+≈†martno/Cerkljah: 140527
+≈†mihel/Novi Gorici: 140531
+≈†miklav≈æ/G.Gradu: 140534
+≈†omat K: 140578
+≈†panov most: 140683
+≈†pitaliƒç/Motniku: 140687
+≈†ratovci: 140711
+≈†tatenberk: 140765
+≈†telcl: 140769
+≈†torje: 140789
+≈†trekljevec: 140813
+≈†trihovec: 140816
+≈†trit: 140817
+≈†tuda polje: 150110
+≈†tuda trgovina: 140826
+≈†tuki: 150334
+≈†tuki 21a: 150335
+≈†ukljetova ulica: 152195
+≈†ukljetova, Krallova ulica: 136620
+≈†umanƒçeva ≈æaga: 140846
+≈†umica: 138223
+Tarvisio autostazione: 900972
+Tarvisio V.S.Spizzo: 901389
 Tatinec: 140902
-Tatinec+vas: 900975
-TC+Qlandija: 902252
-TekaËevo: 140905
-Tinjska+Gora: 140925
-Tiöina: 140928
-Todraû: 140931
-Todraû+RUéV: 140932
-TominËeva+24: 135911
-TomöiËeva: 135813
-TomöiËeva+I: 135762
-TomöiËeva+II: 135763
-TomöiËeva+K: 135814
-TomöiËeva+trg.: 135764
-Tonkina+koËa: 900989
-Trata+IC+sever: 902140
-Trata+MD: 136685
-Trata+pri+Velesovem: 140959
+Tatinec vas: 900975
+TC QCENTER: 902250
+TC Qlandija: 902252
+TC Super Mesto: 902251
+TC Tu≈°: 136648
+Tekaƒçevo: 140905
+Teneti≈°e/Kokrici: 140910
+Teneti≈°e/Kokrici Orli: 140911
+Terme Ptuj: 901896
+Terme Snovik: 140916
+TIC Ptuj: 901897
+Tinjska Gora: 140925
+Tirosek: 140927
+Ti≈°ina: 140928
+Todra≈æ: 140931
+Todra≈æ RU≈ΩV: 140932
+Tolsti vrh/Leskovec: 141735
+Tominƒçeva 24: 135911
+Tominje: 140944
+Tom≈°iƒçeva: 135813
+Tom≈°iƒçeva I: 135762
+Tom≈°iƒçeva II: 135763
+Tom≈°iƒçeva K: 135814
+Tom≈°iƒçeva trg.: 135764
+Tonkina koƒça: 900989
+Topolc: 140950
+Topole/Meng≈°u: 140951
+TPV: 136621
+Trata IC sever: 902140
+Trata MD: 136685
+Trata pri Velesovem: 140959
 Trate/Muri: 140961
-Trate/Muri+23: 150392
-Trate/Muri+48: 140962
-Trate/Muri+grad: 140963
-TrbËane: 140968
-Trebeû+Kamnolom: 135765
+Trate/Muri 23: 150392
+Trate/Muri 48: 140962
+Trate/Muri grad: 140963
+Trbƒçane: 140968
+Trboje: 140969
+Trebe≈æ: 902918
+Trebe≈æ Kamnolom: 135765
 Trebija: 141000
-Trebnje+Labod: 141003
-Trenta+info+srediöËe: 141007
-Trenta+kamp: 901002
-Trenta+Kamp+Triglav: 901003
+Trebnje: 141002
+Trebnje Labod: 141003
+Trenta info sredi≈°ƒçe: 141007
+Trenta kamp: 901002
+Trenta Kamp Triglav: 901003
+Trg Brolo: 135815
+Trgovi≈°ƒçe: 141008
+Trilobit K: 135766
+Trniƒçe: 141011
 Trnjava: 141012
-Trnovska+vas: 141030
-Trnovska+vas+most: 141031
+Trnje: 136676
+Trnovci: 141017
+Trnovec pri Slovenski Bistrici: 141019
+Trnovec/Metliki: 141020
+Trnovo/Il.Bistrici: 141029
+Trnovska vas: 141030
+Trnovska vas most: 141031
 Trojane: 141035
 Trotkova: 150895
-Trst/Trieste+ûelezniöka+postaja: 901396
-Tröka+Gora: 141039
-Trzin+ind.cona: 141051
-Trzin+Mlake: 141052
-Trzin+vas: 141053
-Trûec+Lipa: 141045
-Trûec+Majolka: 902066
-Trûnica: 901905
-Tublje+pri+Hrpeljah: 141056
-TupaliËe: 141061
-TupaliËe+K: 141062
-TupaliËe+na+gmajni: 901020
-Turiöka+vas+na+Pohorju: 141065
+Trst/Trieste ≈æelezni≈°ka postaja: 901396
+Trstenik/Golniku: 141040
+Trstenik/Sl.G.: 141041
+Trzin dom: 150484
+Trzin GD: 141050
+Trzin ind.cona: 141051
+Trzin Mlake: 141052
+Trzin vas: 141053
+Tr≈æec GD: 902065
+Tr≈æec Majolka: 902066
+Tr≈æiƒç: 141047
+Tr≈æiƒç Peko: 141048
+Tr≈æiƒç Trio: 141049
+Tr≈æi≈°ƒçe: 141054
+Tr≈ænica: 901905
+Tublje pri Hrpeljah: 141056
+Tupaliƒçe: 141061
+Tupaliƒçe K: 141062
+Tupaliƒçe na gmajni: 901020
+Turi≈°ka vas na Pohorju: 141065
 Turjak: 141066
 Turjanci: 141067
-Ul.+15+Maja: 135817
-Ulica+Slavka+Gruma: 136623
+Turki: 141070
+Tur≈°ki Vrh: 141075
+Ugovec: 141078
+Ul. 15 Maja: 135817
+Ulica Slavka Gruma: 136623
 Umag: 901035
-Uröna+sela: 141084
-Uröna+sela+Kapö: 141085
-Uröna+sela+ZD: 141086
-V.LaöËe: 141104
-V.MlaËevo: 141112
-V.Mraöevo: 141114
-V.Nedelja+trg.: 141115
-V.RaËna: 141123
+Urh: 141082
+Ur≈°na sela: 141084
+Ur≈°na sela Kap≈°: 141085
+Ur≈°na sela ZD: 141086
+V.Brdo: 141091
+V.Brusnice: 141093
+V.La≈°ƒçe: 141104
+V.Mlaƒçevo: 141112
+V.Mra≈°evo: 141114
+V.Nedelja trg.: 141115
+V.Podljuben K: 141119
+V.Raƒçna: 141123
+V.Tinje: 141125
 V.Varnica: 141128
-V.vas+pri+Krökem: 141129
+V.vas pri Kr≈°kem: 141129
 V.Zimica: 141132
 Vahtnica: 150082
 Valburga: 141135
@@ -1616,966 +2326,282 @@ Valdoltra: 141136
 Valeta: 136649
 Valkanela: 901040
 Vareja: 141144
-Varejski+hrib: 141146
-Vas+na+skali: 901050
-Vaöe/Medvodah: 141148
-Vel.BuËna+vas: 901399
-Vena+Pilona: 135818
-ViËanci+kapela: 141178
+Varejski hrib: 141146
+Vas na skali: 901050
+Va≈°e/Medvodah: 141148
+Vel.Buƒçna vas: 901399
+Velesovo: 141158
+Vena Pilona: 135818
+Veni≈°e: 141162
+Veterno: 141173
+Viƒçanci kapela: 141178
+Videm pri Ptuju: 141179
+Videm/Dobrepolju: 141180
 Videm/Ljubljani: 141181
-Videû+vas: 150896
-Villa+Marija: 136650
+Vide≈æ: 141182
+Vide≈æ vas: 150896
+Villa Marija: 136650
+Viltu≈°: 141189
 Vinarje: 141190
 Vinica: 141191
-Vinski+hram+Jeruzalem: 150243
-Vinski+Vrh+kapela: 150265
-Vintarovci+13: 901928
-Vintarovci+24: 901929
-Vintarovci+3: 901930
-Vintarovci+Arnuöevi: 901931
+Vinotoƒç Celec Stogovci 58: 901927
+Vinski hram Jeruzalem: 150243
+Vinski Vrh kapela: 150265
+Vinski Vrh kri≈æ: 150266
+Vintarovci 13: 901928
+Vintarovci 24: 901929
+Vintarovci 3: 901930
+Vintarovci Arnu≈°evi: 901931
 Vintgar: 141197
-Vintgar+Fortuna: 141198
+Vintgar Fortuna: 141198
 Vipava: 141199
-Vir/Domûalah: 141205
-Virmaöe: 141206
-Vitan+K: 141219
-Vitomarci+Brlak+K: 141224
-Vitomarci+Rola: 141225
-Vodranci: 141231
-Vogel+kriûiöËe/crossroad: 141611
-VolavËe: 141251
-VolËa: 141252
-VolËji+Potok+äraj: 141260
-Vraber: 141265
-VranoviËi: 141267
-Vransko: 141268
-Vratja+vas: 141269
-Vrba: 141270
-Vrbica: 141271
-Vrh+Kozjaka/»rnem+Vrhu: 141279
-Vrh+nad+éelimljami: 141282
-Vrhloga: 141292
-Vrhnika: 141293
-Vrhovlje+na+RafolËah+K: 141302
-Vrhpolje/Kamniku: 141309
-Vrhpolje/Kamniku+most: 141310
-Vrhpolje/MoravËah: 141311
-Vrsar: 901096
-VrtaËa+pri+SemiËu: 141317
-VuËja+Jama/Zg.Velki+K: 141324
-VuËja+vas: 141325
-Vurmat+äturm: 141332
-ZabiËe: 141338
-Zaboröt: 141341
-Zabreznica: 141343
-Zadnja+vas/Trû.: 141352
-Zadraga: 141355
-Zagajski+Vrh: 141740
-ZagojiËi: 141365
-Zagorci: 141368
-Zagorica/DobrniËu: 141370
-Zagorje+ob+S.: 141372
-Zagorje/Kneûaku: 141390
-ZajËji+Vrh: 141401
-Zajelöe: 141403
-Zakl: 141404
-Zali+Log: 141414
-ZaljËi: 141416
-Zalog+pod+Trojico: 141419
-Zalog+pri+Cerkljah: 141420
-Zalog+pri+Cerkljah+sp: 141421
-Zalog+pri+äkocjanu: 141422
-Zalog/GoriËe: 901118
-Zameöko: 141432
-Zameöko+K: 141433
-Zaplana: 141435
-Zapoge: 141436
-Zapuûe: 141439
-Zapuûe+K: 141440
-ZareËica: 141442
-ZareËje: 141443
-Zasadi/Desterniku+15: 141444
-Zasadi/Desterniku+3: 141445
-Zasip: 141446
-ZavrË: 141449
-ZavrË+grad: 141450
-ZavrË+trg.: 141451
-Zavrh/Sl.g.: 141456
-Zavrh/Sl.g.K: 141457
-Zbiljski+gaj: 141481
-Zdenska+vas: 141483
-Zdravstveni+dom: 152199
-Zduöa: 141486
-Zemenska+Vaga: 141507
-Zg.Bitnje+trgovina: 135915
-Zg.Breûnica: 150384
-Zg.Duplek+156+a: 901958
-Zg.Gladomes: 141524
-Zg.Gorica+kapela: 141525
-Zg.Gorica+KRS: 141526
-Zg.Hajdina: 150624
-Zg.Hajdina+158: 150625
-Zg.Hajdina+G: 141529
-Zg.Jablane: 141533
-Zg.Jakobski+Dol: 141535
-Zg.Jakobski+Dol+Kraut: 141536
-Zg.KamenöËak+23: 150244
-Zg.KamenöËak+K+Ljutomer: 141537
-Zg.KamenöËak+Kriû: 150245
-Zg.Kapla: 141538
-Zg.Korena+Dvoröak: 141539
-Zg.Korena+Hrastnik: 141540
-Zg.Korena+Vurberk+K: 141541
-Zg.Kozjak: 141542
-Zg.Kozjak+Mlakar: 141543
-Zg.Kungota: 141545
-Zg.Kungota+Kozjak: 141546
-Zg.Lancovo: 141547
-Zg.Loûnica+pri+Slovenski+Bistrici: 141553
-Zg.Loûnica+pri+Slovenski+Bistrici+K: 141554
-Zg.Loûnica/MosteËnem: 141552
-Zg.PoljËane: 141563
-Zg.Polskava: 141564
-Zg.Polskava+g.Golob: 141565
-Zg.Polskava+ä: 141566
-Zg.PorËiË+Marles: 141568
-Zg.Pristava: 141570
-Zg.Ravno/éetalah: 141572
-Zg.RoËica+Ajlec: 141577
-Zg.Senarska: 141580
-Zg.Senarska+K: 902126
-Zg.äalovci: 152138
-Zg.äËavnica+éamotna+vas+K: 141578
-Zg.Tuhinj+Mlinar: 141583
-Zg.Velka: 901976
-Zg.Velka+91: 141589
-Zg.Velka+Broder: 141585
-Zg.Velka+Fifolt: 141586
-Zg.Velka+K: 141587
-Zg.Velka+Kocbek: 141588
-Zg.Velka+obr.: 150393
-Zg.Velka+PTT: 141590
-Zg.Velka+TomaûiË: 141591
-Zg.éerjavci+tran.: 141596
-Zg.éerjavci+Vrabl: 141597
-Zgornja+Bela: 141599
-Zimica+K: 141620
-ZlatoliËje: 141631
-ZlatoliËje+Krepfl: 141632
-Zminec+pri+Kajbetu: 141639
-Zminec+ävaunar: 141640
-ZobËeva+ulica: 152205
-éabjak+18: 150336
-éabjak+2: 150337
-éablje: 150225
-éablje+K: 901139
-éabnica: 135918
-éadovinek: 141354
-éaga/MoravËah: 141360
-éaga/Trû.: 141361
-éajdl: 141402
-éale/éetalah: 141409
-éamenci+GD: 141428
-éamenci+K: 141429
-édinja+vas: 141484
-éelezniki+»eönjica: 141494
-éelezniki+Plavû: 141496
-éenjak: 141509
-éerjavec: 135767
-éerjavka: 141514
-éetale: 141518
-éetale+Paukon: 141519
-éiËe/Radomljah: 141606
-éiËnica+V.planina: 141610
-éiganja+vas: 141613
-éihlava: 141614
-éihlava+trg.: 141615
-éikarce+SlaniË: 150111
-éiri+market: 141624
-éirovnica: 141674
-éirovnica+OPC: 139274
-éiteËka+vas: 141627
-énidariËevo+nabr.+Mladika: 150338
-éupeËja+vas: 141652
-éupetinci+19+(Brezovjak+kriûiö: 901989
-éupetinci+Andrenci+K: 141656
-éusterna+bazen: 902240
-éusterna+III: 135821
-Beli+kriû: 136630
-Beli+kriû+pd: 136631
-Belvedere: 137106
-Benedikt+v+Sl.G.: 137109
-Berkovci: 137113
-BiöeËki+vrh: 901425
-Bitnje+v+Bohinju: 137155
-Bled: 137171
-Bled+Mlino: 137174
-Bled+Petrol: 137175
-Bled+ä: 137176
-Bled+Union: 137177
-Bobovek: 135829
-Bobovek+bloki: 900079
-Bobovek+K: 135830
-BodeöËe: 137183
-BolehneËici: 137210
-Bovec: 137235
-Brce: 137254
-Breg+pri+KoËevju: 137260
-Breg+pri+Litiji: 137261
-Breg+pri+Ribnici: 137263
-Brekovice: 137273
-Brezje+pri+Dobu: 137300
-Brezje+pri+Trû.: 137302
-Brezje/Dobrepolju: 137303
-Brezje/Gor.: 137304
-Brezniöki+Potok: 137310
-Brezovci+K: 137317
-Breûice: 137286
-Breûice+K: 137289
-Breûice+éP: 137296
-Brinje/Mirni: 137333
-Brode/äk.Loki: 137341
-Brstje: 150283
-Bröljin+»efidelj: 136573
-Bröljin+Novoteks: 136600
-BuËeËovci: 137358
-Cerklje+ob+Krki: 137449
-Cerklje+ä: 900156
-Cerkno: 137453
-Cerov+Log: 137464
-Cerovec+pri+Trebelnem: 137467
-Ceste+K: 137484
-Cestno+podjetje: 136576
-Cetore: 137486
-Ciglence+Jug: 137493
-Ciglence+Kogolöek: 137494
-Ciglence+Pihler: 137495
-Cogetinci: 137508
-Cvetkovci: 137572
-Cvetlin: 900172
-»eplez: 137439
-»eplez+sp.: 137440
-»epulje: 137444
-»ermoûiöe+vrh: 137460
-»eöenjski+most: 137476
-»eönjevek: 137477
-»eönjice+PovöiË: 137478
-»eönjice+pri+Trebelnem: 137479
-»eteû: 137485
-»irËe: 135836
-»reönjevci: 137517
-»reönjevci+31: 137518
-»reönjevec+pri+Slovenski+Bistrici: 137520
-»reönjevec+pri+Slovenski+Bistrici+JuriË: 137521
-»rnevöek: 137539
-»rni+les: 137542
-»rniËe: 137547
-»rnomelj: 137552
-»rnomelj+"KoËevje": 137553
-»rnomelj+PTT: 137563
-»uöperk: 137570
-D.Loûine: 137595
-D.Mokro+Polje: 137597
-D.Suhor+pri+Metliki: 137615
-D.Vrhpolje: 137626
-Debeli+RtiË: 137637
-Debeli+RtiË+59: 137638
-Delnice: 137652
-Delnice+K: 137653
-Desenci+K: 137656
-Destrnik: 137660
-Destrnik+ZD: 150095
-Deûno+pri+Podlehniku: 902094
-Dobe: 137669
-Dobje/äk.Loki: 137675
-Dobropolje/Il.Bistrici: 137711
-Dobrovce+jug: 902096
-Dobrovce+sever: 901457
-Dobrovce+vrtec: 137717
-Dogoöe+GD: 136298
-Doklece: 137724
-Dol+pri+Trebnjem: 137732
-Dol.Njive+Domiter: 137734
-Dol.Toplice: 137737
-Dole/Metliki: 137751
-DolenËice: 137758
-Dom+upokojencev+Ptuj: 901460
-DoslovËe: 137794
-Drbetinci+9: 137840
-Drbetinci+KZ: 137841
-Drbetinci+VröiË: 901473
-Drenovec/Vinici: 137845
-DrskovËe: 137855
-Duplje/Trû.: 137865
-Dvor/éuûemb.: 137873
-Dvorje: 137880
-Fizine: 136633
-Forme: 137909
-Fuûine/Jezerskem: 137917
-Fuûine/Trebiji: 137918
-Fuûine/Trebiji+I: 137919
-Fuûine/Trebiji+II: 137920
-G.Loûine: 137954
-G.Mokro+Polje: 137955
-G.Polje/N.mestu: 137964
-Glinek/äkofljici: 138020
-Glinje: 138021
-Gobovce: 138037
-Godeninci: 138041
-GodeöiË: 138042
-Goli+Vrh/Podlehniku+K: 138049
-Golice: 138051
-Gorenje/KoËevju: 138081
-Gorenje/Kr.: 135841
-GoriËe/Golniku: 138097
-Gorjuöe: 138104
-GosteËe: 138109
-GregoriËi: 138157
-Grmovlje: 138175
-Groblje+pri+Prekopi: 138178
-Grosuplje: 138179
-Grosuplje+SM: 138187
-Hecl: 138201
-Hinje: 138203
-Hlebce: 138207
-Hobovöe+pri+St.Oselici: 138208
-HoËko+Pohorje+g.Klinc: 138212
-HoËko+Pohorje+most: 138214
-Homec: 138218
-Hotel+BW: 900329
-Hrib/Preddvoru: 900339
-Hrpelje: 138269
-Hruöevje: 138271
-Hudo+Polje: 138284
-Iglenik: 138299
-II.+Prekomor: 135777
-Izvir+SoËe+K: 138345
-Jedlovnik: 138391
-Jelendol: 138392
-Jenkole: 135737
-Jes.IgriöËe: 135738
-Jesenice+Senoûeti: 135744
-Jesenice+ZD: 135745
-Jesenice+éP: 135746
-Jesenje+K: 141710
-Jesenovec: 138419
-Jesenovec+I: 138420
-Jezersko+Jezero+K: 138431
-Joûef+pri+Slovenski+Bistrici: 138441
-Jugorje+pri+Metliki: 138442
-Jurij+ob+Pesnici: 138444
-Jurjevski+dol+8+öef: 138447
-Jurovski+Dol+Ketiö: 138458
-Jurovski+Dol+Krempl: 138460
-Kebelj: 138534
-KidriËevo: 138537
-KidriËevo+ä: 138538
-KleËe+pri+Dolu: 138546
-Kloke: 138555
-Klopce+pri+Slovenski+Bistrici: 138557
-KoËevje: 138579
-KoËevje+Petrol: 138580
-KoËevje+éP: 138581
-Kogovöek: 135748
-Kojuhovje: 138591
-KoliËevo: 138597
-KoliËevo+Helios: 138598
-Kompolje/Dobrepolju: 138609
-Kompolje/Lukovici: 138610
-Koper: 135768
-Koper+Tomos: 135812
-Koper+V.n.: 135810
-Koritnice: 138629
-Koritno/Bledu: 138631
-Korte: 138636
-Koseze: 138642
-Kosovelov+tr: 135779
-Koöenice+II: 136589
-Koöenice+III: 136590
-Kresnice+K: 141711
-Kriûe/Trû.: 138715
-Kriûe/Trû.K: 138716
-Kriûevci+pri+Ljut.: 138722
-Krmelj: 138730
-Kumen: 138764
-Kupljenik: 138767
-Kuteûevo: 138779
-Ledinek: 138831
-Lepence: 138846
-Lesce: 138847
-Lesce+ä: 138848
-Lesce+TNC: 902149
-Lesce+éP: 138849
-Leskovec+pri+Krökem: 135938
-Leskovec+pri+Krökem+K: 138857
-Leöe/Trû.: 138851
-Leöe/Trû.K: 138852
-Leöje: 138854
-Letence+K: 138868
-Lipce: 135751
-Liplje: 141717
-Ljuben: 138918
-Ljuben+K: 138919
-Ljutomer: 138931
-Ljutomer+Tehnostroj: 138932
-Ljutomer+éP: 138933
-Log/Kr.Gori+Petrol: 138955
-Log/Preddvoru: 138956
-Loke+v+Tuhinju: 138981
-Lokve/»rnomlju: 138994
-Lom+pod+StorûiËem: 138999
-Loperöice: 139009
-Lozice: 139024
-LuËine: 139031
-Lutverci: 139045
-Luûe: 139046
-M.LoËe: 139064
-M.Tinje: 139088
-Medno: 136216
-Medno+g.Tome: 139173
-Medoöi: 139174
-Medribnik: 139175
-Medribnik+Kolednik: 139176
-Medvedce: 150252
-Medvode: 136510
-Mekinje: 139181
-Mele: 139182
-Mengeö+Lek: 139185
-Mengeö+Lovec: 139186
-Mengeö+Petrol: 139188
-MereËe: 139191
-Mestne+njive: 152198
-Mestni+Vrh: 139195
-Mestni+Vrh+17+K: 150314
-Mestni+vrh+23: 901658
-Mestni+Vrh+25: 150315
-Mestni+Vrh+56: 150316
-Mestni+Vrh+61: 139196
-Mestni+Vrh+»reönik: 150317
-Mestni+Vrh+K: 139197
-Mestni+Vrh+ribnik+K: 150318
-Mestni+Vrh+Urek: 139198
-Mezgovci: 152186
-Mezgovci+ob+Pesnici+GD: 901665
-Mezgovci+ob+Pesnici+K: 150777
-Mihovci+pri+V.Ned.: 150778
-Mihovci+pri+V.Ned.trg.: 139212
-Milje: 139222
-Moretini: 139260
-Morje: 139262
-Moste+GD: 139273
-Moste+Petrol: 150662
-Moste/éirov.bloki: 139275
-MosteËno: 139277
-Mostje/Ptuju: 139283
-Mostje/Ptuju+K: 139284
-Moöe: 139268
-Moönje: 139270
-Mrtvice: 139297
-Muretinci: 139304
-Negovski+Vrh+3: 150890
-Negrod: 139350
-Nemilje: 139353
-Nemilje+I: 139354
-Njiverce: 901683
-Nomenj: 139366
-Nove+Loûine: 139391
-Novince: 901687
-Novinci+Vröec: 901688
-Novo+mesto: 136569
-Novo+mesto+Bröljin: 136627
-Novo+mesto+gim.: 136591
-Novo+mesto+novi+most: 136619
-Novo+mesto+Revoz: 136615
-Novo+mesto+ämihel: 136618
-Noûice: 139402
-Obreû+Bobot: 139408
-Obreû+GD: 139409
-Obrne: 139414
-Olmo+Eden: 901323
-Olöevek: 139428
-Orehek/Kr.+ä.: 900641
-Orehovci: 139437
-Ortnek: 139459
-Osek/Sl.G.: 139461
-Osluöevci: 139465
-Osluöevci+K: 150779
-Osluöevci+éP: 901703
-OtoËec: 139487
-Otok/Metliki: 139490
-PeËe: 139531
-PeËe+K: 139533
-PeËke: 139539
-Perivnik: 135890
-Peroj: 900693
-Pesniöki+Dvor: 139552
-Pestike: 139553
-Petelinje: 139557
-Petkovec: 139563
-Petrinje: 139566
-Ples: 139604
-Pleö: 139605
-Pobegi: 139628
-Pobegi+P: 139629
-Pobreûje/Ptuju: 139631
-Pobreûje/Ptuju+trg.: 139632
-Podbeûe: 139636
-Podbrezje: 139643
-Podbreznik: 152192
-Podbreznik+(MP+NM): 901350
-Podgorci+Bombek: 139655
-Podjelovo+Brdo: 139682
-Podkoren: 139689
-Podkuûe: 139693
-Podlehnik: 139697
-Podljubelj: 139711
-Podljubelj+I: 139712
-Podloûe: 150253
-Podloûe+K: 139970
-Podobeno: 139721
-Podstenje: 139744
-Podvinci+igriöËe: 901761
-Podvinci+Velovlek+K: 139755
-Podzemelj+K: 139758
-Pogled: 141266
-Pogled+7+b: 901762
-Pokoöe: 139765
-Polenci+9: 901763
-Police+I: 901765
-PoljËe: 139788
-Polje+v+Bohinju: 139791
-Pongrce: 139804
-Ponikve/Dobrepolju: 139811
-Ponikve/Dobrepolju+Inv.d.: 139810
-Ponikve/Trebnjem: 139813
-PoreË: 900739
-Potniöki+term.: 135801
-PotoËe/Preddvoru: 139825
-Potoki/Jes.: 139829
-Povlje: 900745
-Povlje+K: 150224
-Poûenk: 139834
-Preddvor+bloki: 139859
-Preddvor+ä: 900752
-Predel+K: 900753
-Predel+MP: 901357
-Predole+K: 139866
-Predoslje: 135893
-Predoslje+GD: 900754
-Predoslje+ä: 135894
-Predstruge: 139867
-Prelesje/Mokronogu: 139877
-Prelog: 139878
-Pretreû: 139902
-Prevoje: 139910
-Prevole: 139911
-Pri+cerkvi: 139918
-Prilesje: 139923
-Primostek: 139926
-Prisoje: 135802
-Prisoje+pod: 135803
-Pröetinci+K: 139948
-Prvenci: 139953
-Pöevo: 139955
-Ptuj+Breg: 139958
-Ptuj+Breg+trg.: 139959
-Ptuj+TurniöËe: 139969
-Ptuj+Ul.+5+Prekomorske+13: 150328
-PuËe: 139973
-PuËe+K: 139974
-Pungert: 900784
-Puöenci+K: 139985
-Reber/éuûemberku+K: 140097
-Renke: 140113
-Rep: 140116
-ReteËe: 140129
-RibËe+sp.: 140132
-RibËe+zg.: 140133
-Rodine: 140162
-Roje: 140179
-Rotek: 140187
-Rovte: 140193
-Rovte+K: 140194
-Roûice: 140199
-RuneË: 152185
-RuperËe: 140216
-RuperËvrh: 140218
-Ruöe: 140219
-Ruöe+GD: 150346
-Ruöe+ä: 140220
-Ruöe+äC: 140223
-Ruöe+äkerget: 138935
-Sebenje/Bledu: 140255
-Sebenje/Trû.: 140256
-SeËovlje+K: 140262
-SeËovlje+ä: 140263
-Segovci: 140268
-Segovci+32b: 901808
-Segovci+49: 901809
-Selce/Pivki: 140290
-Selce/Sl.G.: 140291
-Selo/éireh: 140311
-Selo/éireh+I: 140312
-SemiË: 140316
-Seneöci: 140332
-SeniËno: 140335
-SenoûeËe: 140340
-Senoûeti/Litiji: 140342
-Senoûeti/Litiji+K: 140343
-Sestrûe: 150254
-Sevno: 136617
-Skoke: 140436
-Sl.Konjice: 140469
-Smednik: 140529
-Smlednik: 140536
-SmreËje+v+»rni: 140546
-SmreËno: 140552
-Smrje: 140554
-Smrjene: 140555
-Sobetinci: 140558
-Sodreû: 140570
-SoviËe: 140593
-SoviËe+1: 140594
-Sovodenj: 140595
-Sp.Duplek: 140606
-Sp.Duplek+Log: 140607
-Sp.HoËe: 140616
-Sp.HoËe+K: 140617
-Sp.HoËe+pokop.: 140619
-Sp.HoËe+éP: 140620
-Sp.Leskovec/Ptuju: 140639
-Sp.Prebukovje: 140654
-Sp.Slemen: 140668
-Sp.Velovlek: 140674
-Sp.Visole: 140675
-Spodnje+Bitnje: 140689
-Spodnje+Gorje: 140690
-Sr.Bitnje+most+pri+Bitencu: 135903
-Sr.Bitnje+Pokorn: 135904
-Sr.Osek+Vogrinec: 140703
-Sr.Visole: 140710
-Srebotje+Nikel: 140712
-SrebrniËe: 140714
-Srednje+Bitnje: 140723
-St.Cerkev: 140730
-Stegne: 140767
-Stoperce: 140782
-StopiËe: 140783
-Strelci: 140814
-StrmecK: 901878
-StrmecKocmut: 901879
-Struge: 140823
-Struûevo+bloki: 135907
-Struûevo+KS: 135908
-Struûevo+pod+ûel.mostom: 135909
-Studenice: 140834
-Studeno/éelez.: 140835
-Studeno/éelez.+I: 141673
-Sujek+K: 138641
-Sveti+Duh: 140884
-Svetinci: 140887
-Svetinje+K: 140888
-äembije: 140315
-äenËur: 140329
-äenËur+ä: 140331
-äentilj/Sl.G.kosi: 140348
-äentilj/Sl.G.obr.: 140349
-äentilj/Sl.G.éP: 140350
-äentjernej: 140357
-äENTOVEC: 901887
-äentoûbolt: 140369
-äentrupert/Mirni: 140371
-äentvid+pri+Lukovici: 140373
-äevlje: 140388
-äevlje+K: 140389
-äikole: 140400
-äkofije: 140425
-ämihel/Novi+Gorici: 140531
-ätelcl: 140769
-ätorje: 140789
-ätrekljevec: 140813
-ätrihovec: 140816
-TC+QCENTER: 902250
-TC+Super+Mesto: 902251
-Tenetiöe/Kokrici: 140910
-Tenetiöe/Kokrici+Orli: 140911
-Terme+Ptuj: 901896
-Terme+Snovik: 140916
-Tirosek: 140927
-Tolsti+vrh/Leskovec: 141735
-Tominje: 140944
-Topole/Mengöu: 140951
-Trboje: 140969
-Trebnje: 141002
-TrgoviöËe: 141008
-TrniËe: 141011
-Trnje: 136676
-Trnovec+pri+Slovenski+Bistrici: 141019
-Trnovec/Metliki: 141020
-Trstenik/Golniku: 141040
-Trstenik/Sl.G.: 141041
-Trûec+GD: 902065
-Trûec+trg.: 141046
-TrûiË+Peko: 141048
-TrûiöËe: 141054
-Ugovec: 141078
-V.Brusnice: 141093
-V.Podljuben+K: 141119
-V.Tinje: 141125
-Velesovo: 141158
-Veniöe: 141162
-Veterno: 141173
-Videm+pri+Ptuju: 141179
-Videm/Dobrepolju: 141180
-Videû: 141182
-VinotoË+Celec+Stogovci+58: 901927
-Vir+Cerkev: 150107
-VisoËe/Trû.K: 141217
+Vir Cerkev: 150107
+Vir/Dom≈æalah: 141205
+Virma≈°e: 141206
+Visoƒçe/Tr≈æ.K: 141217
+Visoko/Kr.: 141218
+Vitan K: 141219
+Vitomarci Brlak K: 141224
+Vitomarci Rola: 141225
 Vodice/Lj.: 141229
+Vodranci: 141231
+Vogel kri≈æi≈°ƒçe/crossroad: 141611
 Voglje: 141236
-VogriËevci: 141237
+Vogriƒçevci: 141237
+Voklo: 141248
+Volavƒçe: 141251
+Volƒça: 141252
+Volƒçji Potok: 141259
+Volƒçji Potok ≈†raj: 141260
 Vopovlje: 141262
 Vosek: 141263
+Vraber: 141265
+Vranoviƒçi: 141267
+Vransko: 141268
+Vratja vas: 141269
+Vrba: 141270
+Vrbica: 141271
 Vrbovec: 141275
-Vrhe+pri+Dolûu: 141286
-VrhpeË: 141308
-Vrtec+Bröljin: 136625
+Vrbovo: 141276
+Vrh Kozjaka/ƒårnem Vrhu: 141279
+Vrh nad ≈Ωelimljami: 141282
+Vrhe pri Dol≈æu: 141286
+Vrhloga: 141292
+Vrhnika: 141293
+Vrhovlje na Rafolƒçah K: 141302
+Vrhpeƒç: 141308
+Vrhpolje/Kamniku: 141309
+Vrhpolje/Kamniku most: 141310
+Vrhpolje/Moravƒçah: 141311
+Vrsar: 901096
+Vr≈°iƒç: 141314
+Vrtaƒça pri Semiƒçu: 141317
+Vrtec Br≈°ljin: 136625
+Vrtovin: 141319
+Vuƒçja Jama/Zg.Velki K: 141324
+Vuƒçja vas: 141325
 Vuhred: 141326
-Vuhred+HE: 141327
+Vuhred HE: 141327
+Vukovski Dol: 141328
 Vurberk: 141329
-Vurberk+14: 901937
-Vurberk+K: 141330
-Vurberk+polje: 141331
+Vurberk 14: 901937
+Vurberk K: 141330
+Vurberk polje: 141331
+Vurmat ≈†turm: 141332
 Vuzmetinci: 141335
-Vuzmetinci+GovediË: 141336
-Zbilje+jezero: 141479
-Zbilje+K: 141480
+Vuzmetinci Govediƒç: 141336
+Zabiƒçe: 141338
+Zabor≈°t: 141341
+Zabreznica: 141343
+Zadnja vas/Tr≈æ.: 141352
+Zadraga: 141355
+Zagajski Vrh: 141740
+Zagojiƒçi: 141365
+Zagorci: 141368
+Zagorica/Dobrniƒçu: 141370
+Zagorje ob S.: 141372
+Zagorje/Kne≈æaku: 141390
+Zajƒçji Vrh: 141401
+Zajel≈°e: 141403
+Zakl: 141404
+Zali Log: 141414
+Zaljƒçi: 141416
+Zalog pod Trojico: 141419
+Zalog pri Cerkljah: 141420
+Zalog pri Cerkljah sp: 141421
+Zalog pri ≈†kocjanu: 141422
+Zalog/Goriƒçe: 901118
+Zame≈°ko: 141432
+Zame≈°ko K: 141433
+Zaplana: 141435
+Zapoge: 141436
+Zapu≈æe: 141439
+Zapu≈æe K: 141440
+Zareƒçica: 141442
+Zareƒçje: 141443
+Zasadi/Desterniku 15: 141444
+Zasadi/Desterniku 3: 141445
+Zasip: 141446
+Zavrƒç: 141449
+Zavrƒç grad: 141450
+Zavrƒç trg.: 141451
+Zavrh/Sl.g.: 141456
+Zavrh/Sl.g.K: 141457
+Zavr≈°nica: 902420
+Zbigovci Ficko: 141477
+Zbigovci GD: 141478
+Zbilje jezero: 141479
+Zbilje K: 141480
+Zbiljski gaj: 141481
 Zbure: 141482
-Zg.Bitnje+Jenko: 135913
+Zdenska vas: 141483
+Zdravstveni dom: 152199
+Zdu≈°a: 141486
+Zemenska Vaga: 141507
+Zg.Bitnje Jenko: 135913
+Zg.Bitnje trgovina: 135915
+Zg.Boƒç: 141520
+Zg.Bre≈ænica: 150384
 Zg.Duplek: 135710
-Zg.Duplek+145+K: 141522
-Zg.Duplek+pri+kriûu: 141523
+Zg.Duplek 145 K: 141522
+Zg.Duplek 156 a: 901958
+Zg.Duplek pri kri≈æu: 141523
+Zg.Gladomes: 141524
+Zg.Gorica kapela: 141525
+Zg.Gorica KRS: 141526
 Zg.Gorje: 141527
-Zg.HoËe: 141731
-Zg.HoËe+polje: 141530
+Zg.Hajdina: 150624
+Zg.Hajdina 158: 150625
+Zg.Hajdina G: 141529
+Zg.Hoƒçe: 141731
+Zg.Hoƒçe polje: 141530
+Zg.Jablane: 141533
+Zg.Jakobski Dol: 141535
+Zg.Jakobski Dol Kraut: 141536
+Zg.Kamen≈°ƒçak 23: 150244
+Zg.Kamen≈°ƒçak K Ljutomer: 141537
+Zg.Kamen≈°ƒçak Kri≈æ: 150245
+Zg.Kapla: 141538
+Zg.Korena Dvor≈°ak: 141539
+Zg.Korena Hrastnik: 141540
+Zg.Korena Vurberk K: 141541
+Zg.Kozjak: 141542
+Zg.Kozjak Mlakar: 141543
+Zg.Kungota: 141545
+Zg.Kungota Kozjak: 141546
+Zg.Lancovo: 141547
 Zg.Leskovec/Ptuju: 141550
 Zg.Loke: 141551
-Zg.Obreû: 141555
+Zg.Lo≈ænica pri Slovenski Bistrici: 141553
+Zg.Lo≈ænica pri Slovenski Bistrici K: 141554
+Zg.Lo≈ænica/Mosteƒçnem: 141552
+Zg.Obre≈æ: 141555
 Zg.Osek: 141557
+Zg.Otok: 141558
+Zg.Poljƒçane: 141563
+Zg.Polskava: 141564
+Zg.Polskava g.Golob: 141565
+Zg.Polskava ≈†: 141566
+Zg.Porƒçiƒç: 141567
+Zg.Porƒçiƒç Marles: 141568
 Zg.Prebukovje: 141569
+Zg.Pristava: 141570
+Zg.Ravno/≈Ωetalah: 141572
+Zg.Roƒçica Ajlec: 141577
+Zg.Senarska: 141580
+Zg.Senarska K: 902126
+Zg.≈†alovci: 152138
+Zg.≈†ƒçavnica ≈Ωamotna vas K: 141578
+Zg.Tuhinj Mlinar: 141583
+Zg.Velka: 901976
+Zg.Velka 91: 141589
+Zg.Velka Broder: 141585
+Zg.Velka Fifolt: 141586
+Zg.Velka K: 141587
+Zg.Velka Kocbek: 141588
+Zg.Velka obr.: 150393
+Zg.Velka PTT: 141590
+Zg.Velka Toma≈æiƒç: 141591
 Zg.Velovlek: 141592
 Zg.Visole: 141593
-Zg.VrtiËe: 141595
-Zgornje+Bitnje: 141600
-Zgornje+Bitnje+140: 135916
-Zgornje+Bitnje+K: 135917
+Zg.Vrtiƒçe: 141595
+Zg.≈Ωerjavci tran.: 141596
+Zg.≈Ωerjavci Vrabl: 141597
+Zgornja Bela: 141599
+Zgornje Bitnje: 141600
+Zgornje Bitnje 140: 135916
+Zgornje Bitnje K: 135917
+Zgornji Brnik: 141601
+Zimica K: 141620
+Zlatoliƒçje: 141631
+Zlatoliƒçje Krepfl: 141632
 Zminec: 141637
-Zminec+dom: 141638
+Zminec dom: 141638
+Zminec pri Kajbetu: 141639
+Zminec ≈†vaunar: 141640
 Zmrzlek: 141641
-ZvirËe: 141660
-éeje: 141490
-éelezne+dveri: 150246
-éelezne+Dveri+K: 150247
-éelezniki+cerkev: 141497
-éelezniki+Domel: 141495
-éelodnik: 141506
-éepovci: 141512
-éepovci+117: 901982
-éepovci+57: 150897
-éepovci+97: 150675
-éerovinci: 141515
-éerovinci+GD: 141516
-éiberci: 141602
-éibröe+K: 141603
-éice: 141604
-éice+Perko: 141605
-élebiË: 141634
-élebiË+K: 141635
-éupetinci+26: 901990
-éupetinci+41: 901991
-éupetinci+8: 901992
-éuûemberk: 141657
-évirËe: 141661
-Biö: 137137
-Biö+Silos: 902104
-Bloki: 135729
-Borovci: 137221
-Boröt/Krki+K: 137227
-BovöiË: 901225
-Britof/Kr.: 135834
-Brunövik: 137347
-Brunövik+obr.: 137348
-Bukovci: 137365
-Cunkovci: 137568
-»rnci+K.: 901447
-DobrniË: 137709
-DoliË/Ptuju: 137771
-Formin: 137910
-GodiË: 138043
-Golnik: 138052
-Golnik+bloki: 138053
-Gomilci: 138064
-GriË/Ribnici: 138163
-Grlinci: 138172
-HotiË+sp.: 138227
-HotiË+zg.: 138228
-Hudi+Kot/Rib.Pohorju+K: 138281
-Hum+pri+Ormoûu: 138285
-Jiröovci: 138435
-Jiröovci+K: 138436
-Josipdol: 138439
-Josipdol+K: 138440
-Jurij+MP: 138443
-Jurovci: 138454
-Jurovski+Dol: 138455
-Jurovski+Dol+K: 138457
-Juröinci: 138462
-Juröinci+Podhostnik: 138463
-Juröinci+Vodol: 138464
-Jurönik: 138465
-KoËno+ob+Loûnici: 138586
-KokoriËi: 138593
-Koprivnik+v+Bohinju: 138620
-Koprivnik/Sovodnju: 138621
-Kozminci: 138684
-Kozminci+K: 141694
-Kriûni+Vrh: 138723
-Kriûni+Vrh+8: 150385
-Kriûni+Vrh+90: 150386
-Kröko+GriË: 135922
-Kröko+Sp.GriË+pokop.: 135928
-Kuröinci: 138776
-Limbuö: 138884
-Lipno: 138894
-LoËiË: 138939
-LoËiË+1: 901629
-LoËki+vrh+1: 901630
-LoËki+vrh+Kos: 901631
-Log+v+Bohinju: 138951
-Log/Kr.Gori: 138954
-Lovnik: 139014
-Mihov+dom: 139209
-Mlini+most: 139243
-ModriË: 139247
-Motnik: 139285
-Motnik+zg.: 139286
-Murski+Dvor: 139317
-NoriËki+Vrh+K.: 901685
-Noröinci+pri+Ljut.: 139367
-Novi+Jork: 139393
-Novi+trg: 152197
-Osojnik: 139467
-Oä+Bröljin: 901327
-Pilovc: 139571
-PlitviËki+Vrh: 139621
-Podgorci+60: 139654
-PodgriË: 139676
-Podhrib: 139679
-Podlubnik: 136677
-Podmilj: 139717
-Podturn+pri+Dol.T.: 139747
-Podvinci: 139753
-Podvinci+1: 901760
-Podvinci+70: 150320
-Podvinci+GD: 139754
-Pohorski+dvor+bloki: 139760
-Pohorski+dvor+obr.: 139761
-Polönik+K: 139797
-Popovci: 139817
-POä+Stogovci: 901771
-Potok/Tuhinju: 139828
-Pri+Klusu: 139919
-Prihodi: 135756
-Primskovo+Dolnov: 900773
-Ribno: 140145
-RITOZNOJ: 901793
-Rodni+Vrh+K: 140164
-Rovinj: 900816
-Skrovnik: 140454
-Slomi+K: 140496
-Sodinci: 140566
-Spodnji+Brnik: 140692
-Spodnji+LoËiË: 902103
-Stogovci+41: 901865
-Stogovci+48: 150894
-Stojnci: 140777
-Stojnci+trg.: 140778
-Suhi+Vrh: 140840
-ätrit: 140817
-ätuki: 150334
-TIC+Ptuj: 901897
-Trilobit+K: 135766
-Trnovci: 141017
-Trnovo/Il.Bistrici: 141029
-Trzin+dom: 150484
-Trzin+GD: 141050
-TrûiË: 141047
-TrûiË+Trio: 141049
-Turki: 141070
-Turöki+Vrh: 141075
-Viltuö: 141189
-Vinski+Vrh+kriû: 150266
-Visoko/Kr.: 141218
-VolËji+Potok: 141259
-VröiË: 141314
-Vrtovin: 141319
-Vukovski+Dol: 141328
-Zbigovci+Ficko: 141477
-Zbigovci+GD: 141478
-Zg.PorËiË: 141567
-Zgornji+Brnik: 141601
-éiri: 141621
-éiri+Dom: 141622
-éiri+K: 141623
-Bolk: 137211
-Borl: 137220
-Brdo/Kr.: 135831
-Brod: 136572
-Bubno: 137353
-D.Kot: 137589
-Dol.Brdo: 137733
-Dolsko: 137778
-Dolû: 137779
-G.Log: 137953
-Gozd: 150198
-Jurjov+most: 138448
-Kog: 138588
-Kovor: 138667
-Kronovo: 138736
-Kröko: 135920
-Kröko+OB: 135927
-Log+2: 150343
-Log+83: 150344
-M.Otok: 139079
-Mokronog: 139253
-Obrh: 139413
-Obrov: 139415
-Olmo: 135799
-Olmo+K: 135800
-Ormoû: 139456
-Ormoû+tov.: 139457
-Pod+Voglom: 139635
-Podhom: 139677
-Podroöt: 139733
-Portoroû: 136645
-Portoroû+H: 136646
-Ptuj+bol.: 139957
-Rudno: 140212
-SmokuË: 140538
-Sp.Log: 140641
-Sp.Otok: 140647
-St.Log: 140734
-Stopno: 140785
-Studor: 140836
-Topolc: 140950
-Trg+Brolo: 135815
-V.Brdo: 141091
-Voklo: 141248
-Vrbovo: 141276
-Zg.BoË: 141520
-Zg.Otok: 141558
-BuË: 137354
-Ptuj+SäC: 139967
-Strug: 140822
-TC+Tuö: 136648
-Urh: 141082
+Zobƒçeva ulica: 152205
+Zvirƒçe: 141660
+≈Ωabjak 18: 150336
+≈Ωabjak 2: 150337
+≈Ωablje: 150225
+≈Ωablje K: 901139
+≈Ωabnica: 135918
+≈Ωadovinek: 141354
+≈Ωaga/Moravƒçah: 141360
+≈Ωaga/Tr≈æ.: 141361
+≈Ωajdl: 141402
+≈Ωale/≈Ωetalah: 141409
+≈Ωamenci GD: 141428
+≈Ωamenci K: 141429
+≈Ωdinja vas: 141484
+≈Ωeje: 141490
+≈Ωelezne dveri: 150246
+≈Ωelezne Dveri K: 150247
+≈Ωelezniki cerkev: 141497
+≈Ωelezniki ƒåe≈°njica: 141494
+≈Ωelezniki Domel: 141495
+≈Ωelezniki Plav≈æ: 141496
+≈Ωelodnik: 141506
+≈Ωenjak: 141509
+≈Ωepovci: 141512
+≈Ωepovci 117: 901982
+≈Ωepovci 57: 150897
+≈Ωepovci 97: 150675
+≈Ωerjavec: 135767
+≈Ωerjavka: 141514
+≈Ωerovinci: 141515
+≈Ωerovinci GD: 141516
+≈Ωetale: 141518
+≈Ωetale Paukon: 141519
+≈Ωiberci: 141602
+≈Ωibr≈°e K: 141603
+≈Ωice: 141604
+≈Ωice Perko: 141605
+≈Ωiƒçe/Radomljah: 141606
+≈Ωiƒçnica V.planina: 141610
+≈Ωiganja vas: 141613
+≈Ωihlava: 141614
+≈Ωihlava trg.: 141615
+≈Ωikarce Slaniƒç: 150111
+≈Ωiri: 141621
+≈Ωiri Dom: 141622
+≈Ωiri K: 141623
+≈Ωiri market: 141624
+≈Ωirovnica: 141674
+≈Ωirovnica OPC: 139274
+≈Ωiteƒçka vas: 141627
+≈Ωlebiƒç: 141634
+≈Ωlebiƒç K: 141635
+≈Ωnidariƒçevo nabr. Mladika: 150338
+≈Ωupeƒçja vas: 141652
+≈Ωupetinci 19 (Brezovjak kri≈æi≈°: 901989
+≈Ωupetinci 26: 901990
+≈Ωupetinci 41: 901991
+≈Ωupetinci 8: 901992
+≈Ωupetinci Andrenci K: 141656
+≈Ωusterna bazen: 902240
+≈Ωusterna III: 135821
+≈Ωusterna parkiri≈°ƒçe: 902595
+≈Ωu≈æemberk: 141657
+≈Ωvirƒçe: 141661
