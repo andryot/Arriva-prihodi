@@ -211,8 +211,8 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     final double maxExtent = max(12 * screenHeight / 50, 200);
     final double minExtent = max(screenHeight / 12, 70) + event.paddingTop;
 
-    // 30 is sized box and 10 is padding
-    const double emptySpace = 30.0 + 10.0;
+    // 20 is sized box and 10 is padding
+    const double emptySpace = 20.0 + 10.0;
 
     scrollPosition += emptySpace + maxExtent - minExtent;
 

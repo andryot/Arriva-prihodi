@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 
 import '../../models/ride.dart';
+import '../../router/routes.dart';
+import '../../screens/timetable.dart';
 import '../../util/parser.dart';
 import '../global/global_bloc.dart';
 
@@ -49,12 +51,18 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
       (_) => add(const _UpdateFavorites()),
     );
 
+    _fromController.addListener(() => add(const _FromChangedEvent()));
+    _destinationController
+        .addListener(() => add(const _DestinationChangedEvent()));
+
     on<_DateChangedEvent>(_dateChanged);
     on<_SwapEvent>(_swap);
     on<_SearchEvent>(_search);
     on<_UpdateFavorites>(_updateFavorites);
     on<_RemoveFavoriteEvent>(_removeFavorite);
     on<_ReorderFavoritesEvent>(_reorderFavorites);
+    on<_FromChangedEvent>(_fromChanged);
+    on<_DestinationChangedEvent>(_destinationChanged);
   }
 
   @override
@@ -82,7 +90,32 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
     _destinationController.text = from;
   }
 
-  FutureOr<void> _search(_SearchEvent event, Emitter<HomeState> emit) {}
+  FutureOr<void> _search(_SearchEvent event, Emitter<HomeState> emit) {
+    final String? from = _globalBloc.validateStation(_fromController.text);
+    final String? destination =
+        _globalBloc.validateStation(_destinationController.text);
+    if (from == null) {
+      emit(state.copyWith(isFromError: true));
+    } else {
+      _fromController.text = from;
+    }
+    if (destination == null) {
+      emit(state.copyWith(isDestinationError: true));
+    } else {
+      _destinationController.text = destination;
+    }
+
+    if (state.isFromError || state.isDestinationError) return null;
+    Navigator.pushNamed(
+      event.context,
+      APRoute.timetable,
+      arguments: TimetableScreenArgs(
+        from: _fromController.text,
+        destination: _destinationController.text,
+        date: state.selectedDate,
+      ),
+    );
+  }
 
   // Public API
   void dateSelected(DateTime selectedDate) =>
@@ -90,7 +123,7 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
 
   void swap() => add(const _SwapEvent());
 
-  void search() => add(const _SearchEvent());
+  void search(context) => add(_SearchEvent(context));
 
   void removeFavorite(Ride ride) => add(_RemoveFavoriteEvent(ride));
   void reorderFavoriteRides(int oldIndex, int newIndex) =>
@@ -109,5 +142,17 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
   FutureOr<void> _reorderFavorites(
       _ReorderFavoritesEvent event, Emitter<HomeState> emit) {
     _globalBloc.reorderFavorites(event.oldIndex, event.newIndex);
+  }
+
+  FutureOr<void> _fromChanged(
+      _FromChangedEvent event, Emitter<HomeState> emit) {
+    if (state.isFromError) emit(state.copyWith(isFromError: false));
+  }
+
+  FutureOr<void> _destinationChanged(
+      _DestinationChangedEvent event, Emitter<HomeState> emit) {
+    if (state.isDestinationError) {
+      emit(state.copyWith(isDestinationError: false));
+    }
   }
 }

@@ -92,7 +92,7 @@ class _SettingsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "Automatic scroll",
+                    "Avtomatski scroll",
                     style: TextStyle(
                         color: Theme.of(context).primaryColor, fontSize: 17),
                   ),

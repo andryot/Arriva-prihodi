@@ -81,16 +81,14 @@ class _TimetableScreen extends StatelessWidget {
               return;
             }
 
-            showCupertinoDialog(
+            showDialog(
               context: context,
-              builder: (context2) => CupertinoAlertDialog(
+              builder: (context2) => AlertDialog(
                 title: const Text("Napaka!"),
                 content:
                     const Text("Oops, prišlo je do napake. Poskusite znova."),
                 actions: <Widget>[
-                  CupertinoDialogAction(
-                    isDestructiveAction: true,
-                    isDefaultAction: true,
+                  TextButton(
                     child: const Text("OK"),
                     onPressed: () => Navigator.of(context2).pop(),
                   ),
@@ -143,7 +141,7 @@ class _TimetableScreen extends StatelessWidget {
                 ),
                 const SliverToBoxAdapter(
                   child: SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                 ),
                 if (state.timeTableLoading == true) ...[

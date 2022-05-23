@@ -15,7 +15,8 @@ class _SwapEvent extends _HomeEvent {
 }
 
 class _SearchEvent extends _HomeEvent {
-  const _SearchEvent();
+  final BuildContext context;
+  const _SearchEvent(this.context);
 }
 
 class _UpdateFavorites extends _HomeEvent {
@@ -31,4 +32,12 @@ class _ReorderFavoritesEvent extends _HomeEvent {
   final int oldIndex;
   final int newIndex;
   const _ReorderFavoritesEvent(this.oldIndex, this.newIndex);
+}
+
+class _FromChangedEvent extends _HomeEvent {
+  const _FromChangedEvent();
+}
+
+class _DestinationChangedEvent extends _HomeEvent {
+  const _DestinationChangedEvent();
 }

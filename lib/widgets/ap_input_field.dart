@@ -12,6 +12,7 @@ class APInputField extends StatelessWidget {
   final FocusNode focusNode;
   final TextEditingController textEditingController;
   final String? labelText;
+  final bool isError;
 
   const APInputField({
     Key? key,
@@ -19,6 +20,7 @@ class APInputField extends StatelessWidget {
     required this.focusNode,
     required this.textEditingController,
     this.labelText,
+    this.isError = false,
   }) : super(key: key);
 
   @override
@@ -41,14 +43,17 @@ class APInputField extends StatelessWidget {
           ),
           suggestionsBoxController: suggestionsBoxController,
           textFieldConfiguration: TextFieldConfiguration(
-            style: TextStyle(color: Theme.of(context).primaryColor),
+            style: TextStyle(
+              color:
+                  isError == true ? Colors.red : Theme.of(context).primaryColor,
+            ),
             textAlignVertical: TextAlignVertical.center,
             focusNode: focusNode,
             decoration: InputDecoration(
               border: InputBorder.none,
               labelText: labelText,
               labelStyle: TextStyle(
-                color: myColors.labelColor,
+                color: isError == true ? Colors.red : myColors.labelColor,
               ),
             ),
             controller: textEditingController,
@@ -60,11 +65,21 @@ class APInputField extends StatelessWidget {
             color: Theme.of(context).cardColor,
             offsetX: -10,
             borderRadius: BorderRadius.circular(20),
+            clipBehavior: Clip.hardEdge,
           ),
           noItemsFoundBuilder: (BuildContext context) => const Text(
             '\n   Neveljaven vnos!\n',
             style: TextStyle(color: Colors.red),
           ),
+          animationDuration: const Duration(seconds: 1),
+          getImmediateSuggestions: true,
+          transitionBuilder: (context, suggestionsBox, controller) {
+            return FadeTransition(
+              opacity: CurvedAnimation(
+                  parent: controller!.view, curve: Curves.fastOutSlowIn),
+              child: suggestionsBox,
+            );
+          },
           itemBuilder: (context, suggestion) {
             return ListTile(
               selectedTileColor: Theme.of(context).shadowColor,
@@ -85,7 +100,18 @@ List<String> getSuggestions(String query) {
 
   matches.addAll(predictions);
 
-  matches.retainWhere((s) => s.toLowerCase().contains(query.toLowerCase()));
+  matches.retainWhere((s) => s
+      .replaceAll('s', 'š')
+      .replaceAll('c', 'č')
+      .replaceAll('z', 'ž')
+      .toLowerCase()
+      .contains(
+        query
+            .replaceAll('s', 'š')
+            .replaceAll('c', 'č')
+            .replaceAll('z', 'ž')
+            .toLowerCase(),
+      ));
 
   return matches;
 }

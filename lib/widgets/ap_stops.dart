@@ -39,7 +39,9 @@ class ApStops extends StatelessWidget {
               width: 10,
             ),
             APCircle(
-              color: Theme.of(context).primaryColor,
+              color: routeStops.first.station == from
+                  ? Theme.of(context).primaryColor
+                  : Colors.amber,
               radius: routeStops.first.station == from ? 20 : 10,
             ),
             const SizedBox(
@@ -76,7 +78,10 @@ class ApStops extends StatelessWidget {
                   child: Text(
                     routeStops[i].time,
                     style: TextStyle(
-                      fontSize: routeStops[i].station == from ? 20 : 14,
+                      fontSize: (routeStops[i].station == from ||
+                              routeStops[i].station == destination)
+                          ? 20
+                          : 14,
                     ),
                   ),
                 ),
@@ -86,11 +91,14 @@ class ApStops extends StatelessWidget {
               ),
               APCircle(
                   color: routeStops[i].station == from
-                      ? Theme.of(context).brightness == Brightness.light
-                          ? Colors.green
-                          : Colors.red
-                      : Colors.amber,
-                  radius: routeStops[i].station == from ? 20 : 10),
+                      ? Theme.of(context).primaryColor
+                      : routeStops[i].station == destination
+                          ? myColors.secondLocationColor!
+                          : Colors.amber,
+                  radius: (routeStops[i].station == from ||
+                          routeStops[i].station == destination)
+                      ? 20
+                      : 10),
               const SizedBox(
                 width: 10,
               ),
@@ -98,7 +106,10 @@ class ApStops extends StatelessWidget {
                 child: Text(
                   routeStops[i].station,
                   style: TextStyle(
-                    fontSize: routeStops[i].station == from ? 20 : 14,
+                    fontSize: (routeStops[i].station == from ||
+                            routeStops[i].station == destination)
+                        ? 20
+                        : 14,
                   ),
                 ),
               ),
@@ -125,7 +136,7 @@ class ApStops extends StatelessWidget {
                 child: Text(
                   routeStops.last.time,
                   style: TextStyle(
-                    fontSize: routeStops.last.station == from ? 20 : 14,
+                    fontSize: routeStops.last.station == destination ? 20 : 14,
                   ),
                 ),
               ),
@@ -134,8 +145,10 @@ class ApStops extends StatelessWidget {
               width: 10,
             ),
             APCircle(
-                color: myColors.secondLocationColor!,
-                radius: routeStops.last.station == from ? 20 : 10),
+                color: routeStops.last.station == destination
+                    ? myColors.secondLocationColor!
+                    : Colors.amber,
+                radius: routeStops.last.station == destination ? 20 : 10),
             const SizedBox(
               width: 10,
             ),
@@ -143,7 +156,7 @@ class ApStops extends StatelessWidget {
                 child: Text(
               routeStops.last.station,
               style: TextStyle(
-                fontSize: routeStops.last.station == from ? 20 : 14,
+                fontSize: routeStops.last.station == destination ? 20 : 14,
               ),
             )),
           ],

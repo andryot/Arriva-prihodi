@@ -29,7 +29,7 @@ abstract class APColor {
 
   static const CupertinoDynamicColor expiredRideColor =
       CupertinoDynamicColor.withBrightness(
-    color: Color(0xffBEBEFF),
+    color: Color(0xfff2f4fa),
     darkColor: Color(0xff191919),
   );
 

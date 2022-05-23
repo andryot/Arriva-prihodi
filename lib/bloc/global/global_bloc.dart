@@ -131,4 +131,12 @@ class GlobalBloc {
     _state = _state.copyWith(automaticScroll: automaticScroll);
     _localStorageService.setAutomaticScroll(automaticScroll);
   }
+
+  String? validateStation(String? station) {
+    if (station == null) return null;
+    for (String stationn in _state.stations) {
+      if (stationn.toLowerCase() == station.toLowerCase()) return stationn;
+    }
+    return null;
+  }
 }

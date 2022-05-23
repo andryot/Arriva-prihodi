@@ -49,10 +49,12 @@ class _HomeScreen extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
+            //surfaceTintColor: Colors.transparent,
             elevation: 0,
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             actions: <Widget>[
               CupertinoButton(
+                padding: const EdgeInsets.only(right: 16),
                 onPressed: () =>
                     Navigator.of(context).pushNamed(APRoute.settings),
                 child: Icon(
@@ -106,6 +108,7 @@ class _HomeScreen extends StatelessWidget {
                                               textEditingController:
                                                   homeBloc.fromController,
                                               labelText: "Vstopna postaja",
+                                              isError: state.isFromError,
                                             ),
                                             const SizedBox(height: 20),
                                             APInputField(
@@ -116,6 +119,7 @@ class _HomeScreen extends StatelessWidget {
                                               textEditingController: homeBloc
                                                   .destinationController,
                                               labelText: "Izstopna postaja",
+                                              isError: state.isDestinationError,
                                             ),
                                           ],
                                         ),
@@ -234,17 +238,7 @@ class _HomeScreen extends StatelessWidget {
                                   Theme.of(context).primaryColor),
                             ),
                             onPressed: () {
-                              Navigator.pushNamed(
-                                context,
-                                APRoute.timetable,
-                                arguments: TimetableScreenArgs(
-                                  from: homeBloc.fromController.text,
-                                  destination:
-                                      homeBloc.destinationController.text,
-                                  date: state.selectedDate,
-                                ),
-                              );
-                              homeBloc.search();
+                              homeBloc.search(context);
                             },
                             child: Padding(
                               padding:
