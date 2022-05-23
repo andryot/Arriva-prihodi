@@ -10,9 +10,9 @@ on:
     paths:
       - "app/**"
       - "packages/**"
-  branches: [ master ]
-  pull_request:
     branches: [ master ]
+    pull_request:
+      branches: [ master ]
 
 jobs:
   build:
