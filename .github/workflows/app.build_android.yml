@@ -7,7 +7,7 @@ name:  Build Android
 
 on:
   push:
-  paths:
+    paths:
       - "app/**"
       - "packages/**"
   branches: [ master ]
