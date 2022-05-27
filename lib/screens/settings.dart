@@ -115,7 +115,7 @@ class _SettingsScreen extends StatelessWidget {
                 onPressed: () => showAboutDialog(
                     context: context,
                     useRootNavigator: false,
-                    applicationVersion: "\n2.0",
+                    applicationVersion: "\n2.0.1",
                     applicationName: "Arriva prihodi",
                     applicationIcon: Image.asset(
                       APImage.logo,

@@ -48,6 +48,7 @@ class APFavoriteListTile extends StatelessWidget {
               Expanded(
                 child: Text(
                   ride.from,
+                  style: const TextStyle(fontSize: 10),
                   textAlign: TextAlign.start,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -74,6 +75,7 @@ class APFavoriteListTile extends StatelessWidget {
               Expanded(
                 child: Text(
                   ride.destination,
+                  style: const TextStyle(fontSize: 10),
                   textAlign: TextAlign.start,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
