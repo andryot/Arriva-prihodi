@@ -106,26 +106,6 @@ class _SettingsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            /* Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "Prikaži samo ",
-                    style: TextStyle(
-                        color: Theme.of(context).primaryColor, fontSize: 17),
-                  ),
-                  Switch(
-                    activeColor: Theme.of(context).primaryColor,
-                    value: state.isAutomaticScroll,
-                    onChanged: (bool value) =>
-                        BlocProvider.of<SettingsBloc>(context)
-                            .switchAutomaticScroll(value),
-                  ),
-                ],
-              ),
-            ), */
             CupertinoButton(
                 child: Text(
                   "Več informacij",
@@ -135,7 +115,7 @@ class _SettingsScreen extends StatelessWidget {
                 onPressed: () => showAboutDialog(
                     context: context,
                     useRootNavigator: false,
-                    applicationVersion: "\n2.0",
+                    applicationVersion: "\n2.0.1",
                     applicationName: "Arriva prihodi",
                     applicationIcon: Image.asset(
                       APImage.logo,
