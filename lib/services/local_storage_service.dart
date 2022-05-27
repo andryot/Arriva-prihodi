@@ -23,7 +23,10 @@ class LocalStorageService {
   }
 
   static const String _theme = 'theme';
-  static const String _favorites = 'favorites';
+  static const String _favorites = 'favorites_new';
+  static const String _favoritesOld = 'favorites';
+
+  
   static const String _automaticScroll = 'automatic_scroll';
 
   ThemeData getThemeData() {
@@ -62,6 +65,24 @@ class LocalStorageService {
     }
 
     return await sharedPreferences.setStringList(_favorites, favoritesString);
+  }
+
+  Future<List<Ride>?> getOldFavorites() async {
+    final List<String>? favoritesString =
+        sharedPreferences.getStringList(_favoritesOld);
+
+    if (favoritesString == null) return null;
+
+    final List<Ride> favorites = [];
+
+    for (final String rideString in favoritesString) {
+      final List<String> rideStringList = rideString.split('+');
+      if (rideStringList.length != 2) continue;
+      final Ride ride = Ride.fromJson({RideJsonKey.from: rideStringList[0], RideJsonKey.destination: rideStringList[1]});
+      favorites.add(ride);
+    }
+    await sharedPreferences.remove(_favoritesOld);
+    return favorites;
   }
 
   void setAutomaticScroll(bool automaticScroll) async {

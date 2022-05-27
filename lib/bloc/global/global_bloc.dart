@@ -139,4 +139,13 @@ class GlobalBloc {
     }
     return null;
   }
+
+  void getOldFavorites() async {
+     final List<Ride>? favorites = await  _localStorageService.getOldFavorites();
+    if (favorites == null) return;
+
+    _localStorageService.saveFavorites(favorites);
+    _state = _state.copyWith(favorites: favorites);
+    _logger.info('GlobalBloc.getOldFavorites', 'old favorites retrieved');
+  }
 }
