@@ -100,18 +100,18 @@ List<String> getSuggestions(String query) {
 
   matches.addAll(predictions);
 
-  matches.retainWhere((s) => s
-      .replaceAll('s', 'š')
-      .replaceAll('c', 'č')
-      .replaceAll('z', 'ž')
-      .toLowerCase()
-      .contains(
-        query
-            .replaceAll('s', 'š')
-            .replaceAll('c', 'č')
-            .replaceAll('z', 'ž')
-            .toLowerCase(),
-      ));
+  matches.retainWhere(
+    (s) => s
+        .toLowerCase()
+        .replaceAll('š', 's')
+        .replaceAll('č', 'c')
+        .replaceAll('ž', 'z')
+        .contains(query
+            .toLowerCase()
+            .replaceAll('š', 's')
+            .replaceAll('č', 'c')
+            .replaceAll('ž', 'z')),
+  );
 
   return matches;
 }
