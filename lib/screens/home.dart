@@ -129,11 +129,17 @@ class _HomeScreen extends StatelessWidget {
                                             padding: const EdgeInsets.only(
                                               right: 15.0,
                                             ),
-                                            child: APCircleButton(
-                                              onPressed: () => homeBloc.swap(),
-                                              icon: Icons.swap_vert,
-                                              iconColor: Theme.of(context)
-                                                  .scaffoldBackgroundColor,
+                                            child: AnimatedRotation(
+                                              turns: state.turns,
+                                              duration: const Duration(
+                                                  milliseconds: 250),
+                                              child: APCircleButton(
+                                                onPressed: () =>
+                                                    homeBloc.swap(),
+                                                icon: Icons.swap_vert,
+                                                iconColor: Theme.of(context)
+                                                    .scaffoldBackgroundColor,
+                                              ),
                                             ),
                                           ),
                                         )

@@ -13,12 +13,20 @@ if (flutterRoot == null) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
+<<<<<<< Updated upstream
     flutterVersionCode = '21'
+=======
+    flutterVersionCode = '23'
+>>>>>>> Stashed changes
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
+<<<<<<< Updated upstream
     flutterVersionName = '2.0.1'
+=======
+    flutterVersionName = '2.0.3'
+>>>>>>> Stashed changes
 }
 
 apply plugin: 'com.android.application'

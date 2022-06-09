@@ -106,6 +106,26 @@ class _SettingsScreen extends StatelessWidget {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    "Shrani zadnje iskanje",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor, fontSize: 17),
+                  ),
+                  Switch(
+                    activeColor: Theme.of(context).primaryColor,
+                    value: state.isSaveLastSearch,
+                    onChanged: (bool value) =>
+                        BlocProvider.of<SettingsBloc>(context)
+                            .switchSaveLastSearch(value),
+                  ),
+                ],
+              ),
+            ),
             CupertinoButton(
                 child: Text(
                   "Več informacij",

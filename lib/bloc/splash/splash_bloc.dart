@@ -92,17 +92,26 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
     }
 
     final bool? automaticScroll = _localStorageService.getAutomaticScroll();
+    final bool? saveLastSearch = _localStorageService.getSaveLastSearch();
+
+    if (saveLastSearch == null) {
+      _localStorageService.setSaveLastSearch(true);
+      _globalBloc.setSaveLastSearch(true);
+    } else {
+      _globalBloc.setSaveLastSearch(saveLastSearch);
+    }
 
     _globalBloc.setAutomaticScroll(automaticScroll);
+
     _globalBloc.updateStations(stations, stationId);
     // This is to not break old favorites added prior to BLoC rewrite
     // It should be false only the first time after update
-    
+
     _globalBloc.getOldFavorites();
+    _globalBloc.loadLastSearch();
+
     if (_globalBloc.state.favorites == null) {
       _globalBloc.getFavorites();
     }
-    
-    
   }
 }

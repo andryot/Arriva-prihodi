@@ -25,8 +25,10 @@ class LocalStorageService {
   static const String _theme = 'theme';
   static const String _favorites = 'favorites_new';
   static const String _favoritesOld = 'favorites';
+  static const String _saveLastSearch = 'save_last_search';
+  static const String _lastFrom = 'last_from';
+  static const String _lastTo = 'last_to';
 
-  
   static const String _automaticScroll = 'automatic_scroll';
 
   ThemeData getThemeData() {
@@ -78,7 +80,10 @@ class LocalStorageService {
     for (final String rideString in favoritesString) {
       final List<String> rideStringList = rideString.split('+');
       if (rideStringList.length != 2) continue;
-      final Ride ride = Ride.fromJson({RideJsonKey.from: rideStringList[0], RideJsonKey.destination: rideStringList[1]});
+      final Ride ride = Ride.fromJson({
+        RideJsonKey.from: rideStringList[0],
+        RideJsonKey.destination: rideStringList[1]
+      });
       favorites.add(ride);
     }
     await sharedPreferences.remove(_favoritesOld);
@@ -91,5 +96,30 @@ class LocalStorageService {
 
   bool? getAutomaticScroll() {
     return sharedPreferences.getBool(_automaticScroll);
+  }
+
+  void setSaveLastSearch(bool saveLastSearch) async {
+    await sharedPreferences.setBool(_saveLastSearch, saveLastSearch);
+  }
+
+  bool? getSaveLastSearch() {
+    return sharedPreferences.getBool(_saveLastSearch);
+  }
+
+  Future<Map<String, String?>> getLastSearch() async {
+    final String? from = await sharedPreferences.getString(_lastFrom);
+    final String? to = await sharedPreferences.getString(_lastTo);
+    return {
+      'from': from,
+      'to': to,
+    };
+  }
+
+  void setLastFrom(String from) async {
+    await sharedPreferences.setString(_lastFrom, from);
+  }
+
+  void setLastTo(String to) async {
+    await sharedPreferences.setString(_lastTo, to);
   }
 }

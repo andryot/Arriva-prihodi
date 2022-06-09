@@ -19,15 +19,21 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   })  : _localStorageService = localStorageService,
         _globalBloc = globalBloc,
         super(SettingsState(
-            isDarkMode: globalBloc.state.isDarkMode,
-            isAutomaticScroll: globalBloc.state.automaticScroll)) {
+          isDarkMode: globalBloc.state.isDarkMode,
+          isAutomaticScroll: globalBloc.state.automaticScroll,
+          isSaveLastSearch: globalBloc.state.isSaveLastSearch,
+        )) {
     on<SwitchThemeEvent>(_onSwitchTheme);
     on<SwitchAutomaticScrollEvent>(_onSwitchAutomaticScroll);
+    on<SwitchSaveLastSearchEvent>(_onSwitchSaveLastSearch);
   }
 
   // PUBLIC API
   void switchAutomaticScroll(bool automaticScroll) =>
       add(SwitchAutomaticScrollEvent(isAutomaticScroll: automaticScroll));
+
+  switchSaveLastSearch(bool value) =>
+      add(SwitchSaveLastSearchEvent(isSaveLastSearch: value));
 
   // HANDLERS
 
@@ -45,5 +51,11 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       SwitchAutomaticScrollEvent event, Emitter<SettingsState> emit) {
     _globalBloc.setAutomaticScroll(event.isAutomaticScroll);
     emit(state.copyWith(isAutomaticScroll: event.isAutomaticScroll));
+  }
+
+  FutureOr<void> _onSwitchSaveLastSearch(
+      SwitchSaveLastSearchEvent event, Emitter<SettingsState> emit) {
+    _globalBloc.setSaveLastSearch(event.isSaveLastSearch);
+    emit(state.copyWith(isSaveLastSearch: event.isSaveLastSearch));
   }
 }

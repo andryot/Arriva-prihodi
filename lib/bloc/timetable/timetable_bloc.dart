@@ -229,7 +229,7 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
 
     // NO MORE RIDES TODAY
     if (state.nextRide == -1) {
-      scrollPosition = maxScroll;
+      scrollPosition = max(maxScroll, 0.0);
     }
     // TOP
     else if (state.nextRide < displayAtRatio * listTilesPerScreen) {

@@ -113,6 +113,12 @@ class GlobalBloc {
     _state = _state.copyWith(isDarkMode: isDarkMode);
   }
 
+  void setSaveLastSearch(bool? isSaveLastSearch) {
+    if (isSaveLastSearch == null) return;
+    _state = _state.copyWith(isSaveLastSearch: isSaveLastSearch);
+    _localStorageService.setSaveLastSearch(isSaveLastSearch);
+  }
+
   void reorderFavorites(int oldIndex, int newIndex) {
     if (_state.favorites == null) return;
     if (oldIndex < newIndex) {
@@ -141,11 +147,27 @@ class GlobalBloc {
   }
 
   void getOldFavorites() async {
-     final List<Ride>? favorites = await  _localStorageService.getOldFavorites();
+    final List<Ride>? favorites = await _localStorageService.getOldFavorites();
     if (favorites == null) return;
 
     _localStorageService.saveFavorites(favorites);
     _state = _state.copyWith(favorites: favorites);
     _logger.info('GlobalBloc.getOldFavorites', 'old favorites retrieved');
+  }
+
+  void setLastSearch(String? from, String? to) {
+    _state = _state.copyWith(lastFrom: from, lastTo: to);
+    if (from != null) _localStorageService.setLastFrom(from);
+    if (to != null) _localStorageService.setLastTo(to);
+  }
+
+  void loadLastSearch() async {
+    final Map<String, String?> lastStations =
+        await _localStorageService.getLastSearch();
+
+    _state = _state.copyWith(
+      lastFrom: lastStations['from'],
+      lastTo: lastStations['to'],
+    );
   }
 }

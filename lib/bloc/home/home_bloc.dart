@@ -50,11 +50,14 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
     _favoritesSubscription = _globalBloc.globalFavoritesStream.listen(
       (_) => add(const _UpdateFavorites()),
     );
-
-    _fromController.addListener(() => add(const _FromChangedEvent()));
-    _destinationController
-        .addListener(() => add(const _DestinationChangedEvent()));
-
+    if (_globalBloc.state.isSaveLastSearch) {
+      if (_globalBloc.state.lastFrom != null) {
+        _fromController.text = _globalBloc.state.lastFrom!;
+      }
+      if (_globalBloc.state.lastTo != null) {
+        _destinationController.text = _globalBloc.state.lastTo!;
+      }
+    }
     on<_DateChangedEvent>(_dateChanged);
     on<_SwapEvent>(_swap);
     on<_SearchEvent>(_search);
@@ -63,6 +66,10 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
     on<_ReorderFavoritesEvent>(_reorderFavorites);
     on<_FromChangedEvent>(_fromChanged);
     on<_DestinationChangedEvent>(_destinationChanged);
+
+    _fromController.addListener(() => add(const _FromChangedEvent()));
+    _destinationController
+        .addListener(() => add(const _DestinationChangedEvent()));
   }
 
   @override
@@ -88,6 +95,9 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
 
     _fromController.text = destination;
     _destinationController.text = from;
+    if (_fromController.text != "" || _destinationController.text != "") {
+      emit(state.copyWith(turns: state.turns + 0.5));
+    }
   }
 
   FutureOr<void> _search(_SearchEvent event, Emitter<HomeState> emit) {
@@ -106,6 +116,7 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
     }
 
     if (state.isFromError || state.isDestinationError) return null;
+    _globalBloc.setLastSearch(from, destination);
     Navigator.pushNamed(
       event.context,
       APRoute.timetable,
