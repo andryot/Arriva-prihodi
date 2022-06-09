@@ -7,19 +7,22 @@ class HomeState {
   final List<Ride>? favoriteRides;
   final bool isFromError;
   final bool isDestinationError;
+  final double turns;
   const HomeState({
     required this.initialized,
     required this.selectedDate,
     required this.favoriteRides,
     required this.isFromError,
     required this.isDestinationError,
+    required this.turns,
   });
 
   HomeState.initial(this.favoriteRides)
       : initialized = null,
         selectedDate = DateTime.now(),
         isFromError = false,
-        isDestinationError = false;
+        isDestinationError = false,
+        turns = 0.0;
 
   HomeState copyWith({
     bool? initialized,
@@ -27,6 +30,7 @@ class HomeState {
     List<Ride>? favoriteRides,
     bool? isFromError,
     bool? isDestinationError,
+    double? turns,
   }) {
     return HomeState(
       initialized: initialized ?? this.initialized,
@@ -34,6 +38,7 @@ class HomeState {
       favoriteRides: favoriteRides ?? this.favoriteRides,
       isFromError: isFromError ?? this.isFromError,
       isDestinationError: isDestinationError ?? this.isDestinationError,
+      turns: turns ?? this.turns,
     );
   }
 }

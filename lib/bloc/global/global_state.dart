@@ -6,12 +6,20 @@ class GlobalState {
   final Map<String, int> stationId;
   final bool automaticScroll;
   final bool isDarkMode;
+  final bool isSaveLastSearch;
+
+  final String? lastFrom;
+  final String? lastTo;
+
   const GlobalState({
     required this.favorites,
     required this.stations,
     required this.stationId,
     required this.automaticScroll,
     required this.isDarkMode,
+    required this.isSaveLastSearch,
+    this.lastFrom,
+    this.lastTo,
   });
 
   const GlobalState.initial()
@@ -19,7 +27,10 @@ class GlobalState {
         stations = const [],
         stationId = const {},
         automaticScroll = true,
-        isDarkMode = true;
+        isDarkMode = true,
+        isSaveLastSearch = true,
+        lastFrom = null,
+        lastTo = null;
 
   GlobalState copyWith({
     List<Ride>? favorites,
@@ -27,6 +38,9 @@ class GlobalState {
     Map<String, int>? stationId,
     bool? automaticScroll,
     bool? isDarkMode,
+    bool? isSaveLastSearch,
+    String? lastFrom,
+    String? lastTo,
   }) {
     return GlobalState(
       favorites: favorites ?? this.favorites,
@@ -34,6 +48,9 @@ class GlobalState {
       stationId: stationId ?? this.stationId,
       automaticScroll: automaticScroll ?? this.automaticScroll,
       isDarkMode: isDarkMode ?? this.isDarkMode,
+      isSaveLastSearch: isSaveLastSearch ?? this.isSaveLastSearch,
+      lastFrom: lastFrom ?? this.lastFrom,
+      lastTo: lastTo ?? this.lastTo,
     );
   }
 }

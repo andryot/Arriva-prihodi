@@ -11,3 +11,8 @@ class SwitchAutomaticScrollEvent extends SettingsEvent {
   final bool isAutomaticScroll;
   const SwitchAutomaticScrollEvent({required this.isAutomaticScroll});
 }
+
+class SwitchSaveLastSearchEvent extends SettingsEvent {
+  final bool isSaveLastSearch;
+  const SwitchSaveLastSearchEvent({required this.isSaveLastSearch});
+}
