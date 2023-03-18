@@ -1,4 +1,3 @@
-/// Model representing base user info.
 class QueryParameters {
   static String action = 'get_DepartureStationList';
   final String spodSif;
@@ -17,7 +16,7 @@ class QueryParameters {
   final String rodZapz;
   final String rodZapk;
 
-  /// Constructs new `VecturaLocation` object.
+  /// Constructs new `QueryParameters` object.
   const QueryParameters({
     required this.spodSif,
     required this.regIsif,
@@ -76,7 +75,7 @@ class QueryParameters {
     };
   }
 
-  /// Returns new instance of `VecturaLocation` with modified fields.
+  /// Returns new instance of `QueryParameters` with modified fields.
   QueryParameters copyWith({
     String? spodSif,
     String? regIsif,
@@ -114,7 +113,7 @@ class QueryParameters {
   }
 }
 
-/// Keys used in `VecturaLocation` json representations.
+/// Keys used in `QueryParameters` json representations.
 abstract class QueryParametersJsonKey {
   static const String action = 'action';
 

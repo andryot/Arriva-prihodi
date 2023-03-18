@@ -32,3 +32,7 @@ abstract class APServerRoute {
   static const String queryParamRodZapz = 'ROD_ZAPZ';
   static const String queryParamRodZapk = 'ROD_ZAPK';
 }
+
+abstract class APStationsApiRoutes {
+  static const String path = "WS_ArrivaSLO_TimeTable_DepartureStations.aspx";
+}

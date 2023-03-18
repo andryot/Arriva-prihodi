@@ -2,16 +2,20 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:crypto/crypto.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' as parser;
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 import '../bloc/global/global_bloc.dart';
+import '../config/config.dart';
 import '../models/query_parameters.dart';
 import '../models/ride.dart';
 import '../models/route_stop.dart';
+import '../models/station.dart';
 import '../server/routes.dart';
+import '../style/constants.dart';
 import '../util/either.dart';
 import '../util/failure.dart';
 import 'http_service.dart';
@@ -59,12 +63,18 @@ class BackendService {
       queryParameters: <String, dynamic>{
         APServerRoute.queryParamDepartureRandomId + randomNumber.toString():
             from,
-        APServerRoute.queryParamDepartureId:
-            _globalBloc.state.stationId[fromParsed].toString(),
+        APServerRoute.queryParamDepartureId: _globalBloc.state.stations!
+            .firstWhere(
+                (element) => element.name == fromParsed.replaceAll("+", " "))
+            .code
+            .toString(),
         APServerRoute.queryParamDeparture: from,
         APServerRoute.queryParamDestination: destination,
-        APServerRoute.queryParamdestinationId:
-            _globalBloc.state.stationId[destinationParsed].toString(),
+        APServerRoute.queryParamdestinationId: _globalBloc.state.stations!
+            .firstWhere((element) =>
+                element.name == destinationParsed.replaceAll("+", " "))
+            .code
+            .toString(),
         APServerRoute.queryParamDate: dateParsed,
       },
     );
@@ -200,5 +210,45 @@ class BackendService {
     }
 
     return value(routeStopList);
+  }
+
+  Future<Either<Failure, List<Station>>> getStations() async {
+    final List<Station> stations = [];
+
+    final DateFormat dateFormat = DateFormat("yyyyMMddHHmmss");
+
+    final String timestamp = dateFormat.format(DateTime.now());
+
+    final token = md5.convert(utf8.encode("$apiKey$timestamp")).toString();
+
+    final Uri uri = Uri(
+      scheme: Config.backendApiScheme,
+      host: Config.stationsApiHost,
+      path: APStationsApiRoutes.path,
+      queryParameters: {
+        "JSON": "1",
+        "cTOKEN": token,
+        "cTIMESTAMP": timestamp,
+      },
+    );
+
+    try {
+      final http.Response response = await http.get(uri);
+
+      if (response.statusCode == HttpStatus.ok) {
+        final List<dynamic> jsonList =
+            json.decode(response.body)[0]["DepartureStations"];
+
+        for (int i = 0; i < jsonList.length; i++) {
+          stations.add(Station.fromJson(jsonList[i]));
+        }
+      } else {
+        throw Exception();
+      }
+
+      return value(stations);
+    } catch (_) {
+      return error(const BackendFailure());
+    }
   }
 }

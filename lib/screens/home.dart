@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:crypto/crypto.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -34,9 +31,6 @@ class _HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(
-      md5.convert(utf8.encode("R300_VozniRed_201520230318140536")).toString(),
-    );
     final MyColors myColors = Theme.of(context).extension<MyColors>()!;
 
     return WillPopScope(

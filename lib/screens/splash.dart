@@ -1,11 +1,11 @@
-import '../bloc/global/global_bloc.dart';
-import '../bloc/theme/theme_cubit.dart';
-import '../services/local_storage_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/global/global_bloc.dart';
 import '../bloc/splash/splash_bloc.dart';
+import '../bloc/theme/theme_cubit.dart';
+import '../services/local_storage_service.dart';
 import '../style/constants.dart';
 import '../style/images.dart';
 
