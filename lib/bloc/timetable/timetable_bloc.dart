@@ -29,11 +29,13 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     required BackendService backendService,
   })  : _globalBloc = globalBloc,
         _backendService = backendService,
-        super(TimetableState.initial(
-          from: args.from,
-          destination: args.destination,
-          date: args.date,
-        )) {
+        super(
+          TimetableState.initial(
+            from: args.from,
+            destination: args.destination,
+            date: args.date,
+          ),
+        ) {
     on<_InitializeEvent>(_initialize);
     on<_ShowDetailsEvent>(_showDetails);
     on<_FavoriteEvent>(_favorite);
@@ -43,16 +45,15 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     add(const _InitializeEvent());
   }
 
-  // PUBLIC API
-
+  /// PUBLIC API
   void showDetailsPanel(int index) => add(_ShowDetailsEvent(index));
   void favorite() => add(const _FavoriteEvent());
   void changeDate(DateTime date) => add(_ChangeDateEvent(date: date));
   void retryLoadingStations() => add(_ShowDetailsEvent(state.index!));
   void calculateScroll(Size size, double paddingTop) =>
       add(_CalculateScrollEvent(size: size, paddingTop: paddingTop));
-  // HANDLERS
 
+  /// HANDLERS
   FutureOr<void> _initialize(
     _InitializeEvent event,
     Emitter<TimetableState> emit,
@@ -239,10 +240,12 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     if (state.nextRide == -1) {
       scrollPosition = max(maxScroll, 0.0);
     }
+
     // TOP
     else if (state.nextRide < displayAtRatio * listTilesPerScreen) {
       return null;
     }
+
     // BOTTOM
     else if (state.rideList!.length - state.nextRide <
         (1 - displayAtRatio) * listTilesPerScreen) {

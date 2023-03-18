@@ -43,7 +43,10 @@ class BackendService {
   }
 
   Future<Either<Failure, List<Ride>>> getTimetable(
-      String from, String destination, DateTime date) async {
+    String from,
+    String destination,
+    DateTime date,
+  ) async {
     final String fromParsed = from.replaceAll(" ", '+');
     final String destinationParsed = destination.replaceAll(" ", '+');
     final String dateParsed = DateFormat('dd.MM.yyy').format(date);

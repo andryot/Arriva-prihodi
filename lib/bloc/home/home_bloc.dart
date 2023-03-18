@@ -80,7 +80,9 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
 
   // HANDLERS
   FutureOr<void> _dateChanged(
-      _DateChangedEvent event, Emitter<HomeState> emit) async {
+    _DateChangedEvent event,
+    Emitter<HomeState> emit,
+  ) async {
     emit(
       state.copyWith(
         selectedDate: event.date,
@@ -89,7 +91,10 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
     _dateController.text = APParser.dateToString(state.selectedDate);
   }
 
-  FutureOr<void> _swap(_SwapEvent event, Emitter<HomeState> emit) {
+  FutureOr<void> _swap(
+    _SwapEvent event,
+    Emitter<HomeState> emit,
+  ) {
     final String from = _fromController.text;
     final String destination = _destinationController.text;
 
@@ -100,7 +105,10 @@ class HomeBloc extends Bloc<_HomeEvent, HomeState> {
     }
   }
 
-  FutureOr<void> _search(_SearchEvent event, Emitter<HomeState> emit) {
+  FutureOr<void> _search(
+    _SearchEvent event,
+    Emitter<HomeState> emit,
+  ) {
     final String? from = _globalBloc.validateStation(_fromController.text);
     final String? destination =
         _globalBloc.validateStation(_destinationController.text);
