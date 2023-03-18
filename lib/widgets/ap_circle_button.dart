@@ -20,7 +20,7 @@ class APCircleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      shadowColor: Theme.of(context).backgroundColor.withOpacity(.8),
+      shadowColor: Theme.of(context).colorScheme.background.withOpacity(.8),
       elevation: elevation ?? 5.0,
       clipBehavior: Clip.antiAlias,
       type: MaterialType.circle,

@@ -37,7 +37,7 @@ class APListTile extends StatelessWidget {
           Material(
             color: (index < nextRide
                 ? myColors.expiredRideColor
-                : Theme.of(context).backgroundColor),
+                : Theme.of(context).colorScheme.background),
             clipBehavior: Clip.hardEdge,
             shadowColor: Colors.grey,
             elevation: 1,

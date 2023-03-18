@@ -12,7 +12,7 @@ abstract class APRouter {
   /// Transforms [settings] into corresponding route.
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     Logger.instance.info(
-      'VecturaRouter.onGenerateRoute',
+      'APRouter.onGenerateRoute',
       'pushing route ${settings.name}',
     );
 

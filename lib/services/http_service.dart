@@ -29,7 +29,9 @@ class HttpService {
   }
 
   Uri parseGetUri(
-      List<String> pathSegments, Map<String, dynamic>? queryParameters) {
+    List<String> pathSegments,
+    Map<String, dynamic>? queryParameters,
+  ) {
     return Uri(
       scheme: Config.backendApiScheme,
       host: Config.backendHost,
@@ -42,13 +44,17 @@ class HttpService {
     return http.Response("", HttpStatus.requestTimeout);
   }
 
-  Future<http.Response?> get(List<String> pathSegments,
-      {Map<String, String>? headers,
-      Map<String, dynamic>? queryParameters}) async {
+  Future<http.Response?> get(
+    List<String> pathSegments, {
+    Map<String, String>? headers,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
       return await http
           .get(parseGetUri(pathSegments, queryParameters), headers: headers)
           .timeout(timeoutDuration, onTimeout: requestTimeoutResponse);
+    } on HttpException catch (_) {
+      return requestTimeoutResponse();
     } on SocketException catch (_) {
       return null;
     }

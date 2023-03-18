@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
-import 'package:bus_time_table/util/parser.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -12,6 +11,7 @@ import '../../screens/timetable.dart';
 import '../../services/backend_service.dart';
 import '../../util/either.dart';
 import '../../util/failure.dart';
+import '../../util/parser.dart';
 import '../global/global_bloc.dart';
 
 part 'timetable_event.dart';
@@ -54,11 +54,14 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
   // HANDLERS
 
   FutureOr<void> _initialize(
-      _InitializeEvent event, Emitter<TimetableState> emit) async {
+    _InitializeEvent event,
+    Emitter<TimetableState> emit,
+  ) async {
     final Ride tmpRide = Ride(
       from: args.from,
       destination: args.destination,
     );
+
     emit(state.copyWith(
       isLoading: true,
       selectedRide: tmpRide,
@@ -69,9 +72,14 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
         .getTimetable(args.from, args.destination, state.date);
 
     if (failureOrRideList.isError()) {
+      final Failure failure =
+          failureOrRideList.error == const ArrivaApiFailure()
+              ? const ArrivaApiFailure()
+              : const InitialFailure();
+
       emit(state.copyWith(
         isLoading: false,
-        failure: const InitialFailure(),
+        failure: failure,
         initialized: false,
       ));
       return;

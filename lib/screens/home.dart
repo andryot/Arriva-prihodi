@@ -36,7 +36,7 @@ class _HomeScreen extends StatelessWidget {
     return WillPopScope(
       onWillPop: () => _onBackPressed(context),
       child: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: FocusScope.of(context).unfocus,
         child: Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(
@@ -79,7 +79,7 @@ class _HomeScreen extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40),
-                          color: Theme.of(context).backgroundColor,
+                          color: Theme.of(context).colorScheme.background,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(
@@ -275,7 +275,7 @@ class _HomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Theme.of(context).backgroundColor,
+                            color: Theme.of(context).colorScheme.background,
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:html/dom.dart' as dom;
@@ -51,9 +52,7 @@ class BackendService {
     final int randomNumber = 1000 + rng.nextInt(8999);
 
     final http.Response? response = await _httpService.get(
-      [
-        APServerRoute.timetable,
-      ],
+      [APServerRoute.timetable],
       queryParameters: <String, dynamic>{
         APServerRoute.queryParamDepartureRandomId + randomNumber.toString():
             from,
@@ -67,7 +66,11 @@ class BackendService {
       },
     );
 
-    if (response == null) return error(const BackendFailure());
+    if (response == null) {
+      return error(const BackendFailure());
+    } else if (response.statusCode == HttpStatus.requestTimeout) {
+      return error(const ArrivaApiFailure());
+    }
 
     final dom.Document document = parser.parse(response.body);
 
