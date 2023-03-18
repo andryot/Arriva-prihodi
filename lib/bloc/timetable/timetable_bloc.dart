@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
-import 'package:bus_time_table/util/parser.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -12,6 +11,7 @@ import '../../screens/timetable.dart';
 import '../../services/backend_service.dart';
 import '../../util/either.dart';
 import '../../util/failure.dart';
+import '../../util/parser.dart';
 import '../global/global_bloc.dart';
 
 part 'timetable_event.dart';
@@ -29,11 +29,13 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     required BackendService backendService,
   })  : _globalBloc = globalBloc,
         _backendService = backendService,
-        super(TimetableState.initial(
-          from: args.from,
-          destination: args.destination,
-          date: args.date,
-        )) {
+        super(
+          TimetableState.initial(
+            from: args.from,
+            destination: args.destination,
+            date: args.date,
+          ),
+        ) {
     on<_InitializeEvent>(_initialize);
     on<_ShowDetailsEvent>(_showDetails);
     on<_FavoriteEvent>(_favorite);
@@ -43,22 +45,24 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     add(const _InitializeEvent());
   }
 
-  // PUBLIC API
-
+  /// PUBLIC API
   void showDetailsPanel(int index) => add(_ShowDetailsEvent(index));
   void favorite() => add(const _FavoriteEvent());
   void changeDate(DateTime date) => add(_ChangeDateEvent(date: date));
   void retryLoadingStations() => add(_ShowDetailsEvent(state.index!));
   void calculateScroll(Size size, double paddingTop) =>
       add(_CalculateScrollEvent(size: size, paddingTop: paddingTop));
-  // HANDLERS
 
+  /// HANDLERS
   FutureOr<void> _initialize(
-      _InitializeEvent event, Emitter<TimetableState> emit) async {
+    _InitializeEvent event,
+    Emitter<TimetableState> emit,
+  ) async {
     final Ride tmpRide = Ride(
       from: args.from,
       destination: args.destination,
     );
+
     emit(state.copyWith(
       isLoading: true,
       selectedRide: tmpRide,
@@ -69,9 +73,14 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
         .getTimetable(args.from, args.destination, state.date);
 
     if (failureOrRideList.isError()) {
+      final Failure failure =
+          failureOrRideList.error == const ArrivaApiFailure()
+              ? const ArrivaApiFailure()
+              : const InitialFailure();
+
       emit(state.copyWith(
         isLoading: false,
-        failure: const InitialFailure(),
+        failure: failure,
         initialized: false,
       ));
       return;
@@ -231,10 +240,12 @@ class TimetableBloc extends Bloc<_TimetableEvent, TimetableState> {
     if (state.nextRide == -1) {
       scrollPosition = max(maxScroll, 0.0);
     }
+
     // TOP
     else if (state.nextRide < displayAtRatio * listTilesPerScreen) {
       return null;
     }
+
     // BOTTOM
     else if (state.rideList!.length - state.nextRide <
         (1 - displayAtRatio) * listTilesPerScreen) {

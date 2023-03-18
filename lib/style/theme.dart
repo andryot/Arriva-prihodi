@@ -4,12 +4,12 @@ import 'colors.dart';
 
 final ThemeData apThemeDark = ThemeData.dark().copyWith(
   useMaterial3: true,
+  dialogBackgroundColor: APColor.backgroud.darkColor,
   primaryColor: APColor.primary.darkColor,
   splashColor: APColor.primary.darkColor,
   cardColor: APColor.backgroudColor.darkColor,
   scaffoldBackgroundColor: APColor.backgroud.darkColor,
   canvasColor: Colors.transparent,
-  backgroundColor: APColor.backgroudColor.darkColor,
   textSelectionTheme:
       TextSelectionThemeData(cursorColor: APColor.primary.darkColor),
   extensions: <ThemeExtension<dynamic>>[
@@ -20,6 +20,10 @@ final ThemeData apThemeDark = ThemeData.dark().copyWith(
       expiredRideColor: APColor.expiredRideColor.darkColor,
     ),
   ],
+  colorScheme: ColorScheme.dark(
+    primary: APColor.primary.darkColor,
+    background: APColor.backgroudColor.darkColor,
+  ),
 );
 
 final ThemeData apThemeLight = ThemeData.light().copyWith(
@@ -29,7 +33,6 @@ final ThemeData apThemeLight = ThemeData.light().copyWith(
   cardColor: APColor.backgroud.color,
   canvasColor: Colors.transparent,
   scaffoldBackgroundColor: APColor.backgroud.color,
-  backgroundColor: APColor.backgroudColor.color,
   textSelectionTheme:
       TextSelectionThemeData(cursorColor: APColor.primary.color),
   extensions: <ThemeExtension<dynamic>>[
@@ -40,6 +43,10 @@ final ThemeData apThemeLight = ThemeData.light().copyWith(
       expiredRideColor: APColor.expiredRideColor.color,
     ),
   ],
+  colorScheme: ColorScheme.light(
+    background: APColor.backgroudColor.color,
+    primary: APColor.primary.color,
+  ),
 );
 
 @immutable

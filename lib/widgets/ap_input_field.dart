@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 
 import '../bloc/global/global_bloc.dart';
+import '../models/station.dart';
 import '../style/theme.dart';
 import 'loading_indicator.dart';
 
-final List<String> predictions = GlobalBloc.instance.state.stations;
+final List<Station> predictions = GlobalBloc.instance.state.stations ?? [];
 
 class APInputField extends StatelessWidget {
   final SuggestionsBoxController suggestionsBoxController;
@@ -96,12 +97,12 @@ class APInputField extends StatelessWidget {
 }
 
 List<String> getSuggestions(String query) {
-  final List<String> matches = [];
+  final List<Station> matches = [];
 
   matches.addAll(predictions);
 
   matches.retainWhere(
-    (s) => s
+    (s) => s.name
         .toLowerCase()
         .replaceAll('š', 's')
         .replaceAll('č', 'c')
@@ -113,5 +114,5 @@ List<String> getSuggestions(String query) {
             .replaceAll('ž', 'z')),
   );
 
-  return matches;
+  return matches.map((e) => e.name).toList();
 }

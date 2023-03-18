@@ -13,12 +13,12 @@ class LocalStorageService {
 
   LocalStorageService._({required this.sharedPreferences});
 
-  factory LocalStorageService(SharedPreferences _sharedPreferences) {
+  factory LocalStorageService(SharedPreferences sharedPreferences) {
     if (_instance != null) {
       throw StateError('LocalStorageService already created');
     }
 
-    _instance = LocalStorageService._(sharedPreferences: _sharedPreferences);
+    _instance = LocalStorageService._(sharedPreferences: sharedPreferences);
     return _instance!;
   }
 
@@ -107,8 +107,8 @@ class LocalStorageService {
   }
 
   Future<Map<String, String?>> getLastSearch() async {
-    final String? from = await sharedPreferences.getString(_lastFrom);
-    final String? to = await sharedPreferences.getString(_lastTo);
+    final String? from = sharedPreferences.getString(_lastFrom);
+    final String? to = sharedPreferences.getString(_lastTo);
     return {
       'from': from,
       'to': to,

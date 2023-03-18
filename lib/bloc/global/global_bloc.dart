@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import '../../models/ride.dart';
+import '../../models/station.dart';
 import '../../services/local_storage_service.dart';
 import '../../util/logger.dart';
 
@@ -46,9 +47,9 @@ class GlobalBloc {
     _logger.info('GlobalBloc.reset', 'state reset');
   }
 
-  void updateStations(List<String>? stations, Map<String, int>? stationId) {
-    if (stations == null || stationId == null) return;
-    _state = _state.copyWith(stations: stations, stationId: stationId);
+  void updateStations(List<Station>? stations) {
+    if (stations == null) return;
+    _state = _state.copyWith(stations: stations);
   }
 
   void getFavorites() async {
@@ -140,8 +141,10 @@ class GlobalBloc {
 
   String? validateStation(String? station) {
     if (station == null) return null;
-    for (String stationn in _state.stations) {
-      if (stationn.toLowerCase() == station.toLowerCase()) return stationn;
+    for (Station stationn in _state.stations ?? []) {
+      if (stationn.name.toLowerCase() == station.toLowerCase()) {
+        return stationn.name;
+      }
     }
     return null;
   }

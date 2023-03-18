@@ -14,6 +14,10 @@ class BackendFailure extends Failure {
   const BackendFailure();
 }
 
+class ArrivaApiFailure extends Failure {
+  const ArrivaApiFailure();
+}
+
 class LoadStationsFailure extends Failure {
   const LoadStationsFailure();
 }

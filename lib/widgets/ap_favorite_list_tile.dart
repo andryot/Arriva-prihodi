@@ -1,9 +1,9 @@
-import 'package:bus_time_table/widgets/ap_reorderable_start_listener.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 
 import '../models/ride.dart';
 import '../style/theme.dart';
+import 'ap_reorderable_start_listener.dart';
 
 class APFavoriteListTile extends StatelessWidget {
   final int index;
@@ -25,14 +25,14 @@ class APFavoriteListTile extends StatelessWidget {
     return Card(
       key: key,
       margin: const EdgeInsets.symmetric(vertical: 10),
-      color: Theme.of(context).backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       //surfaceTintColor: Theme.of(context).primaryColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
       clipBehavior: Clip.antiAlias,
       elevation: 5,
-      shadowColor: Theme.of(context).backgroundColor.withOpacity(.8),
+      shadowColor: Theme.of(context).colorScheme.background.withOpacity(.8),
       child: InkWell(
         onTap: onTap,
         onLongPress: onLongPress,

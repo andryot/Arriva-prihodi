@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:collection';
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
@@ -7,9 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 
+import '../../models/station.dart';
 import '../../router/routes.dart';
+import '../../services/backend_service.dart';
 import '../../services/local_storage_service.dart';
 import '../../style/theme.dart';
+import '../../util/either.dart';
+import '../../util/failure.dart';
 import '../global/global_bloc.dart';
 
 part 'splash_event.dart';
@@ -77,18 +80,30 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
     final bool isDarkMode = _localStorageService.getThemeData() == apThemeDark;
     _globalBloc.setIsDarkMode(isDarkMode);
 
-    final String bytes = await rootBundle.loadString("assets/postaje.txt");
+    late final List<Station> stations;
 
-    final List array = [];
-    final List<String> stations = [];
-    final Map<String, int> stationId = HashMap();
+    final Either<Failure, List<Station>> stationsOrFailure =
+        await BackendService.instance.getStations();
 
-    bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
-    array.removeLast();
+    if (!stationsOrFailure.isError()) {
+      stations = stationsOrFailure.value;
+    } else {
+      final List array = [];
+      final String bytes = await rootBundle.loadString("assets/postaje.txt");
 
-    for (int i = 0; i < array.length; i++) {
-      stationId[array[i][0]] = int.parse(array[i][1]);
-      stations.add(array[i][0].toString().replaceAll("+", " "));
+      stations = [];
+
+      bytes.split("\n").forEach((ch) => array.add(ch.split(":")));
+      array.removeLast();
+
+      for (int i = 0; i < array.length; i++) {
+        stations.add(
+          Station(
+            name: array[i][0].toString().replaceAll("+", " "),
+            code: int.parse(array[i][1]),
+          ),
+        );
+      }
     }
 
     final bool? automaticScroll = _localStorageService.getAutomaticScroll();
@@ -103,7 +118,7 @@ class SplashBloc extends Bloc<_SplashEvent, SplashState> {
 
     _globalBloc.setAutomaticScroll(automaticScroll);
 
-    _globalBloc.updateStations(stations, stationId);
+    _globalBloc.updateStations(stations);
     // This is to not break old favorites added prior to BLoC rewrite
     // It should be false only the first time after update
 

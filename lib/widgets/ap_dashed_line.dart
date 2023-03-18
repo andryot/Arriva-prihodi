@@ -35,7 +35,7 @@ class APDashedLineVertical extends StatelessWidget {
                     height: 8,
                     color: index % 2 == 0
                         ? Colors.transparent
-                        : Theme.of(context).backgroundColor,
+                        : Theme.of(context).colorScheme.background,
                   ),
                 ),
               ),
@@ -80,7 +80,7 @@ class APDashedLineHorizontal extends StatelessWidget {
                     height: 3,
                     color: index % 2 == 0
                         ? Colors.transparent
-                        : Theme.of(context).backgroundColor,
+                        : Theme.of(context).colorScheme.background,
                   ),
                 ),
               ),

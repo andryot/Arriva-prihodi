@@ -55,7 +55,7 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
         ),
-        color: Theme.of(context).backgroundColor,
+        color: Theme.of(context).colorScheme.background,
       ),
       child: Padding(
         padding: EdgeInsets.only(top: paddingTop),
@@ -217,7 +217,7 @@ class APSliverAppBar extends SliverPersistentHeaderDelegate {
                             style: ButtonStyle(
                               elevation: MaterialStateProperty.all(0),
                               backgroundColor: MaterialStateProperty.all(
-                                Theme.of(context).backgroundColor,
+                                Theme.of(context).colorScheme.background,
                               ),
                             ),
                             onPressed: () async {
