@@ -65,7 +65,8 @@ class BackendService {
             from,
         APServerRoute.queryParamDepartureId: _globalBloc.state.stations!
             .firstWhere(
-                (element) => element.name == fromParsed.replaceAll("+", " "))
+              (element) => element.name == fromParsed.replaceAll("+", " "),
+            )
             .code
             .toString(),
         APServerRoute.queryParamDeparture: from,
